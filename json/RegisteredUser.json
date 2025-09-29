@@ -1,0 +1,10 @@
+{
+        "firstname": "Johnathan",
+        "lastname": "Wickerton", 
+        "id": 3, 
+        "email": "wick@email.sc.edu", 
+        "password": "1234", 
+        "teamname": "wicked", 
+        "avatar": 4, 
+        "score": 12
+    }
