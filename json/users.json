@@ -1,0 +1,32 @@
+[
+    {
+        "firstname": "John",
+        "lastname": "Doe",
+        "id": 1,
+        "email": "jodoe@email.sc.edu",
+        "password": "1234",
+        "teamname": "the enumerated",
+        "avatar": 1,
+        "score": 1
+    },
+    {
+        "firstname": "Jane",
+        "lastname": "Doe",
+        "id": 2,
+        "email": "jadoe@email.sc.edu",
+        "password": "2345",
+        "teamname": "the enumerated",
+        "avatar": 2,
+        "score": 12
+    },
+    {
+        "firstname": "Johnathan",
+        "lastname": "Wickerton",
+        "id": 3,
+        "email": "wick@email.sc.edu",
+        "password": "1234",
+        "teamname": "wicked",
+        "avatar": 4,
+        "score": 6
+    }
+]
