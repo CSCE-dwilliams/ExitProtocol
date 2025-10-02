@@ -7,14 +7,14 @@ assignees: ''
 
 ---
 
-Description of how to document:
+**Description of how to document:**
 
-What code needs more documentation
-How to document it 
-Why
+**What code needs more documentation:**
+**How to document it:**
+**Why:**
 
-Screenshots
+**Screenshots:**
 If applicable, add screenshots to help explain your problem.
 
-Additional context
+**Additional context:**
 Add any other context about the problem here.

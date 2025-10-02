@@ -8,16 +8,16 @@ assignees: ''
 ---
 
 To Reproduce
-Steps to what is new the behavior:
+**Steps to what is new the behavior:**
 
-What's new
-Goal
-Current functions
-Expected behavior
+**What's new:**
+**Goal:**
+**Current functions:**
+**Expected behavior:**
 A clear and concise description of what you expected to happen.
 
-Screenshots
+**Screenshots**
 If applicable, add screenshots to help explain your problem.
 
-Additional context
+**Additional context**
 Add any other context about the problem here.
