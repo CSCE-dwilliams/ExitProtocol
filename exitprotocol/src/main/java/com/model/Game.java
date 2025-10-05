@@ -5,7 +5,9 @@ public class Game {
     private String theme;
     private int difficulty;
     private int playerCount;
-    private ArrayList<Challenge> gameSet;
+    private String teamName;
+    private ArrayList<Challenge> gameset;
+    
 
     public Game(String theme, int difficulty, int playerCount, String teamName) {
         this.theme = theme;
@@ -18,10 +20,10 @@ public class Game {
     public ArrayList<Challenge> getQuestions(){
 
     }
-    public void getquestion Challenge(){
+    public Challenge getquestion(){
 
     }
-    public void Challenge getClues(){
+    public void getClues(){
 
     }
     public void getAnswer(){
@@ -33,9 +35,6 @@ public class Game {
     public void questionValidity(){
 
     }
-    public void skipPuzzle(){
-
-    }
     public void puzzleCompleted(){
 
     }
@@ -43,7 +42,7 @@ public class Game {
 
     }
     public void calculateScore(int currentScore){
-        
+
     }
 
 }
