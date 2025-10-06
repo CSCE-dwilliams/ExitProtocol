@@ -14,6 +14,6 @@ public class GameList {
     }
 
     public void createGame(String theme, int difficulty, int playerCout, String teamName) {}
-    public Game getGame() {}
+    // public Game getGame() {}
     public void saveGame() {}
 }

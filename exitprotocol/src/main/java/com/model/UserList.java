@@ -13,8 +13,8 @@ public class UserList {
         return userList;
     }
 
-    public User getUser(String username, String password) {}
-    public User getUser(String username) {}
+    // public User getUser(String username, String password) {}
+    // public User getUser(String username) {}
     public void createAccount(
         String firstName,
         String lastName,
