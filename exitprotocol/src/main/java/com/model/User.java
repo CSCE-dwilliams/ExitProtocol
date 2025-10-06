@@ -14,7 +14,7 @@ public class User {
     private Integer score;
 
     public User(String firstName, String lastName, String email,
-            String password, String teamName, int avatar, int score) {
+            String password, String teamName, int avatar, int score, UUID id) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
@@ -22,15 +22,44 @@ public class User {
         this.teamName = teamName;
         this.avatar = avatar;
         this.score = score;
+        this.id = id;
     }
 
     public void checkCredentials() {
 
     }
 
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public String getTeamName() {
+        return teamName;
+    }
+
+    public int getAvatar() {
+        return avatar;
+    }
+
     public UUID getSessionData() {
         UUID sessionID = new UUID(5, 5);
         return sessionID;
+    }
+
+    public UUID getUUID() {
+        return this.id;
     }
 
     public Integer getScore() {

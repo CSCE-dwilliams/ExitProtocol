@@ -37,7 +37,7 @@ public class DataLoader extends DataConstants{
                 int avatar = ((Long)personJSON.get(USER_AVATAR)).intValue();
                 int score = ((Long)personJSON.get(USER_SCORE)).intValue();
 
-                users.add(new User(firstName,lastName,email,passWord,teamName,avatar,score));
+                users.add(new User(firstName,lastName,email,passWord,teamName,avatar,score, id));
             }
         } catch(Exception e){
             e.printStackTrace();
@@ -46,11 +46,11 @@ public class DataLoader extends DataConstants{
     }
     public void getUser(String userName, String passWord){
 
-    }   
+    }
     public void setAvatar(String imgFile){
 
     }
     // public ArrayList<Game> getGames(){
-          
+
     // }
 }
