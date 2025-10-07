@@ -6,11 +6,11 @@ import java.util.UUID;
 
 public class Leaderboard {
     
-    private HashMap<UUID, Integer> scoreSet;
+    private HashMap<UUID, Integer> scoreSet = new HashMap<>();
 
     public void addScore(UUID id, Integer score)
     {
-        
+
     }
 
     public Integer getScore(UUID id)

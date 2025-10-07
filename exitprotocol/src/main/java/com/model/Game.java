@@ -38,7 +38,7 @@ public class Game {
 
     }
     public void updateScore(int currentScore){
-
+        
     }
     public void calculateScore(int currentScore){
 

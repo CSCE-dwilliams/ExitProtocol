@@ -12,12 +12,18 @@ public class Progress {
     private UUID id;
     private String teamName;
 
-    private Progress()
+    public Progress()
     {
-
+        this.skippedChallenges = skippedChallenges;
+        this.challengesCompleted = challengesCompleted;
+        this.hintsUsed = hintsUsed;
+        this.IncorrectAnswers = IncorrectAnswers;
+        this.currentScore = currentScore;
+        this.id = id;
+        this.teamName = teamName;
     }
 
-    private void getProgress()
+    public void getProgress()
     {
 
     }
