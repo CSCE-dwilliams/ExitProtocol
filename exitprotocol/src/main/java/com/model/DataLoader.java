@@ -1,6 +1,5 @@
 package com.model;
 
-import com.theclankers.Timer;
 
 import javafx.application.Platform;
 import javafx.stage.Stage;
@@ -15,10 +14,10 @@ import org.json.simple.parser.JSONParser;
 
 public class DataLoader extends DataConstants {
     public static void main(String[] args) {
-        Platform.runLater(() -> {
-            Stage stage = new Stage();
-            Timer.timerStart(stage);
-        });
+        // Platform.runLater(() -> {
+        //     Stage stage = new Stage();
+        //     Timer.timerStart(stage);
+        // });
 
         System.out.println("test");
         ArrayList<User> users = getUsers();

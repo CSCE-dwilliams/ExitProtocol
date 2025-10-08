@@ -54,7 +54,7 @@ public class DataWriter extends DataConstants {
         ArrayList<User> users = userList.getUsers();
 
         users.add(testUser);
-
+        userList.getUser(testUser.getEmail(), testUser.getPassword());
         dataWriter.saveUsers();
 
         System.out.println("Test user saved successfully!");

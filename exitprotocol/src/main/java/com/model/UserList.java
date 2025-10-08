@@ -1,12 +1,14 @@
 package com.model;
 
 import java.util.ArrayList;
+import java.util.UUID;
 
 public class UserList {
     private static UserList userList;
     private ArrayList<User> users;
 
-    private UserList() {}
+    private UserList() {
+    }
 
     public static UserList getInstance() {
         if (userList == null) {
@@ -25,14 +27,26 @@ public class UserList {
         return this.users;
     }
 
-    // public User getUser(String username, String password) {}
-    // public User getUser(String username) {}
+    public User getUser(String email, String password) {
+        for (int i = 0; i < users.size(); i++) {
+            if (users.get(i).getEmail().equals(email)
+                    && users.get(i).getPassword().equals(password)) {
+                return users.get(i);
+            }
+        }
+        return null;
+    }
+
     public void createAccount(
-        String firstName,
-        String lastName,
-        String email,
-        String password,
-        String teamName,
-        int avatar
-    ) {}
+            String firstName,
+            String lastName,
+            String email,
+            String password,
+            String teamName,
+            int avatar,
+            UUID id) {
+                
+                User newUser = new User(firstName, lastName, email, password, teamName, avatar, avatar, null))
+                users.add(null)
+    }
 }
