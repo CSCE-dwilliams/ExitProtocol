@@ -26,6 +26,7 @@ public class App extends Application {
         stage.setScene(scene);
         stage.show();
         Timer.timerStart(stage);
+        Timer.reduceTimeRemaining(20);
     }
 
     static void setRoot(String fxml) throws IOException {
