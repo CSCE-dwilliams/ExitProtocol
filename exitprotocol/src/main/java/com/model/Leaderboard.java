@@ -5,17 +5,16 @@ import java.util.HashMap;
 import java.util.UUID;
 
 public class Leaderboard {
-    
-    private HashMap<UUID, Integer> scoreSet;
 
-    public void addScore(UUID id, Integer score)
-    {
-        
+    private HashMap<UUID, Integer> scoreSet = new HashMap<>();
+
+    public void addScore(UUID id, Integer score) {
+        this.scoreSet.put(id, score);
     }
 
     public Integer getScore(UUID id)
     {
-        return null;
+        return this.scoreSet.get(id);
     }
 
     public void getScores()
