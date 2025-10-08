@@ -44,9 +44,11 @@ public class UserList {
             String password,
             String teamName,
             int avatar,
+            int score,
             UUID id) {
-                
-                User newUser = new User(firstName, lastName, email, password, teamName, avatar, avatar, null))
-                users.add(null)
+                //come back to this, need to determine what we want UUID length etc to look like 
+                User newUser = new User(firstName, lastName, email, password, teamName, avatar,score, id);
+                getUsers().add(newUser);
+                DataWriter.saveUsers();
     }
 }

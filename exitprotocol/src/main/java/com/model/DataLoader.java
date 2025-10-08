@@ -54,7 +54,7 @@ public class DataLoader extends DataConstants {
         return users;
     }
 
-    public void getUser(String userName, String passWord) {
+    public void getUser(String email, String passWord) {
 
     }
 

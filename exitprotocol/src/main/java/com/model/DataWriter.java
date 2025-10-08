@@ -11,7 +11,7 @@ import org.json.simple.JSONObject;
 public class DataWriter extends DataConstants {
     // public ArrayList<Challenge> setTheme(String theme, int difficulty, int playerCount) {}
     public void setAvatar(String imgfile) {}
-    public void saveUsers() {
+    public static void saveUsers() {
         UserList userList = UserList.getInstance();
         ArrayList<User> users = userList.getUsers();
         JSONArray jsonUsers = new JSONArray();
@@ -51,11 +51,13 @@ public class DataWriter extends DataConstants {
 
         UserList userList = UserList.getInstance();
         userList.loadUsers();
+
+        //demoing account creation rq, need to also consider if we want createAcc to take these params or a user obj
+        userList.createAccount("demo","demo","demo@email.com","demo1","teamdem",1,1, UUID.randomUUID());
         ArrayList<User> users = userList.getUsers();
 
         users.add(testUser);
-        userList.getUser(testUser.getEmail(), testUser.getPassword());
-        dataWriter.saveUsers();
+        saveUsers();
 
         System.out.println("Test user saved successfully!");
         System.out.println("User JSON: " + getUserJSON(testUser).toJSONString());
