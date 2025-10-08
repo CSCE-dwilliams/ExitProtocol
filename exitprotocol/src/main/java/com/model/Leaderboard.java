@@ -14,7 +14,7 @@ public class Leaderboard {
 
     public Integer getScore(UUID id)
     {
-        return null;
+        return this.scoreSet.get(id);
     }
 
     public void getScores()
