@@ -27,10 +27,6 @@ public class UserList {
         return this.users;
     }
 
-<<<<<<< HEAD
-    // public User getUser(String email, String password) {}
-    // public User getUser(String username) {}
-=======
     public User getUser(String email, String password) {
         for (int i = 0; i < users.size(); i++) {
             if (users.get(i).getEmail().equals(email)
@@ -41,7 +37,6 @@ public class UserList {
         return null;
     }
 
->>>>>>> 93dba94d78315d427a0abcd8e7bb426eded62785
     public void createAccount(
             String firstName,
             String lastName,
