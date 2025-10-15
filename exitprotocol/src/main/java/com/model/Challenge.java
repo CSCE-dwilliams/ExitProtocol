@@ -4,25 +4,19 @@ import java.util.HashMap;
 import java.util.UUID;
 
 public class Challenge {
-    HashMap<UUID, Integer> scoreSet = new HashMap<UUID, Integer>();
+    HashMap<String, Integer> scoreSet = new HashMap<>();
 
-    private void addScore()
+    public void addScore(UUID id, Integer score)
     {
+        String idString = id.toString();
+        scoreSet.put(idString,score);
+    }   
 
-    }
-
-    private Integer getScore(UUID id)
+    public Integer getScore(UUID id)
     {
-        return null;
-    }
-
-    private void getScores()
-    {
-
-    }
-
-    private void sortScores()
-    {
+        String idString = id.toString();
+        Integer Score = scoreSet.get(idString);
         
+        return Score;
     }
 }

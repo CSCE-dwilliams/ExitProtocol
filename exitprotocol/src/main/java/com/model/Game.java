@@ -1,12 +1,15 @@
 package com.model;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.UUID;
 public class Game {
     private String theme;
     private int difficulty;
     private int playerCount;
     private String teamName;
+    private UUID gameID;
     private ArrayList<Challenge> gameset = new ArrayList<Challenge>();
+
     
 
     public Game(String theme, int difficulty, int playerCount, String teamName) {
@@ -19,9 +22,20 @@ public class Game {
     public String getIntro(){
         return "";
     }
+
+    public UUID getID()
+    {
+        return gameID;
+    }
     //working on challenge implementation 
-    //public ArrayList<Challenge> getQuestions(){}
-    //public Challenge getquestion(){ }
+   /*  public ArrayList<Challenge> getQuestions(){
+        return 
+    }
+    public Challenge getquestion(){
+    
+    }
+    */
+
     public void getClues(){
 
     }
@@ -37,9 +51,11 @@ public class Game {
     public void puzzleCompleted(){
 
     }
-    public void updateScore(int currentScore){
-        //Progress.currentScore = currentScore;
+   /*  public void updateScore(Integer currentScore){
+        currentScore = Challenge.getScore(gameID);
+        
     }
+        Need to think about the implementation of Challenge it is the same as the leaderboard right now*/ 
     public void calculateScore(int currentScore){
 
     }

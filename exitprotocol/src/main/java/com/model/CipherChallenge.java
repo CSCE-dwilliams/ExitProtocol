@@ -11,31 +11,41 @@ public class CipherChallenge {
 
     public String getQuestion()
     {
-        return null;
+        return question;
     }
 
-    public void setQuestion(String question)
+    public void setQuestion(String theQuestion)
     {
-
+        this.question = theQuestion;
     }
 
     public String getAnswer()
     {
-        return null;
+        return answer;
     }
 
-    public void setAnswer(String answer)
+    public void setAnswer(String theAnswer)
     {
-
+        this.answer = theAnswer;
     }
 
     public ArrayList<String> getHints()
     {
-        return null;
+        return hints;
     }
 
     public void addHint(String hint)
     {
+        hints.add(hint);
+    }
 
+    public Image getClue()
+    {
+        return clue;
+    }
+
+    public void setClue(Image theClue)
+    {
+        this.clue = theClue;
     }
 }
