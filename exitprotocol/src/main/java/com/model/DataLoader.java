@@ -54,14 +54,10 @@ public class DataLoader extends DataConstants {
         return users;
     }
 
-    public void getUser(String email, String passWord) {
-
+    public static ArrayList<Game> getGames(){
+        ArrayList<Game> games = new ArrayList<Game>();
+        
+        return games;
     }
 
-    public void setAvatar(String imgFile) {
-
-    }
-    // public ArrayList<Game> getGames(){
-
-    // }
 }

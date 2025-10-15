@@ -9,8 +9,8 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 public class DataWriter extends DataConstants {
-    // public ArrayList<Challenge> setTheme(String theme, int difficulty, int playerCount) {}
-    public void setAvatar(String imgfile) {}
+    // public ArrayList<Challenge> setTheme(String theme, int difficulty, int playerCount) {}    
+    
     public static void saveUsers() {
         UserList userList = UserList.getInstance();
         ArrayList<User> users = userList.getUsers();
@@ -42,6 +42,13 @@ public class DataWriter extends DataConstants {
         return o;
     }
 
+    public static JSONObject getGameJSON(Game game){
+        JSONObject o = new JSONObject();
+        //game params theme,difficul,playercount,teamname,id
+        o.put("difficulty",game);
+        return o;
+    }
+
     public static void main(String[] args) {
         // Create a test user
         User testUser = new User("Six", "Seven", "john.doe@example.com", "password123", "TestTeam", 1, 1, UUID.randomUUID());
@@ -62,8 +69,4 @@ public class DataWriter extends DataConstants {
         System.out.println("Test user saved successfully!");
         System.out.println("User JSON: " + getUserJSON(testUser).toJSONString());
     }
-
-    public void clearDataWriter() {}
-    public void saveGameState() {}
-    public void saveGame() {}
 }
