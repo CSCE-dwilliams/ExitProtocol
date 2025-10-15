@@ -19,4 +19,34 @@ public class Challenge {
         
         return Score;
     }
+
+    public String getQuestion()
+    {
+        return null;
+    }
+
+    public void setQuestion(String question)
+    {
+
+    }
+
+    public String getAnswer()
+    {
+        return null;
+    }
+
+    public void setAnswer(String answer)
+    {
+
+    }
+
+    public ArrayList<String> getHints()
+    {
+        return null;
+    }
+
+    public void addHint(String hint)
+    {
+
+    }
 }
