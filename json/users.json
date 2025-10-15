@@ -17,7 +17,13 @@
         "password": "2345",
         "teamname": "the enumerated",
         "avatar": 2,
-        "score": 12
+        "score": 12,
+        "games": [
+            {
+              "timeRemaining": 0,
+              "hintsUsed": 0  
+            }
+        ]
     },
     {
         "firstname": "Johnathan",
