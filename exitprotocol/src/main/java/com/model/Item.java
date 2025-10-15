@@ -3,7 +3,7 @@ package com.model;
 public class Item {
     private String name;
 
-    public void item(String name) {
+    public Item(String name) {
         this.name = name;
     }
 }

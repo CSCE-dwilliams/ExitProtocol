@@ -3,9 +3,9 @@ package com.model;
 public class EscapeManager {
     private Leaderboard leaderboard;
     private Timer timer;
-    private Avatar avatar;
-    private Theme theme;
-    private GameSession gameSession;
+    // private Avatar avatar;
+    // private Theme theme;
+    // private GameSession gameSession;
     private User user;
 
     public EscapeManager() {}

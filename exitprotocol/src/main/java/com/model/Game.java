@@ -6,7 +6,7 @@ public class Game {
     private int difficulty;
     private int playerCount;
     private String teamName;
-    private ArrayList<Challenge> gameset;
+    //private ArrayList<Challenge> gameset;
     
 
     public Game(String theme, int difficulty, int playerCount, String teamName) {
@@ -16,13 +16,12 @@ public class Game {
         this.teamName = teamName;
     }
 
-    public String getIntro()
-    public ArrayList<Challenge> getQuestions(){
-
+    public String getIntro(){
+        return "";
     }
-    public Challenge getquestion(){
-
-    }
+    //working on challenge implementation 
+    //public ArrayList<Challenge> getQuestions(){}
+    //public Challenge getquestion(){ }
     public void getClues(){
 
     }
