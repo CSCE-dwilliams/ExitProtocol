@@ -25,7 +25,7 @@ public class UserList {
         return this.users;
     }
 
-    // public User getUser(String username, String password) {}
+    // public User getUser(String email, String password) {}
     // public User getUser(String username) {}
     public void createAccount(
         String firstName,

@@ -16,7 +16,9 @@ public class EscapeManager {
     public void unpauseGame() {}
     public void showLeaderboard() {}
     public void showNextQuestion() {}
-    public void attemptQuestion() {}
+    public void attemptQuestion() {
+        //Either take in a value and test it against the puzzle answer or call other methods
+        }
     public void logOut() {}
     public void logIn() {}
     public void createAccount() {}
