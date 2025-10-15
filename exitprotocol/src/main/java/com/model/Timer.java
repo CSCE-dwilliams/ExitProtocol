@@ -1,25 +1,37 @@
 package com.model;
-
 import javafx.animation.PauseTransition;
 
 public class Timer {
-    private int timeLimit;
     private int timeRemaining;
+    private boolean paused;
+
+    public Timer(){
+        this.timeRemaining = 300;
+        this.paused = false;
+    }
+
+    public boolean ispaused(){
+        return this.paused;
+    }
 
     public void pause(){
-        
+        this.paused = true;
     }
 
-    public void player(){
+    public void getPaused(boolean paused){
+        this.paused = paused;
+
 
     }
-    public void resetTimer(){
+    public int getTimeRemaining(){
+        return this.timeRemaining;
 
     }
-    public void reduceTimeRemaining(){
-
+    public void unpause(){
+        this.paused = false;
     }
-    public void reduceTimeRemaining(int dificulty){
-
+    public void decrementTime(){
+        this.timeRemaining -= 1;
+        }
     }
-}
+
