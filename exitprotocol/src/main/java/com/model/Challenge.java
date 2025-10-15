@@ -2,7 +2,7 @@ package com.model;
 
 import java.util.HashMap;
 import java.util.UUID;
-
+import java.util.ArrayList;
 public class Challenge {
     HashMap<String, Integer> scoreSet = new HashMap<>();
 
