@@ -3,42 +3,8 @@ package com.model;
 import java.util.ArrayList;
 import javafx.scene.image.Image;
 
-public class TFChallenge {
-    String question;
-    String answer;
-    private ArrayList<String> hints;
-    private Image clue;
-
-
-    public String getQuestion()
-    {
-        return null;
-    }
-
-    public void setQuestion(String question)
-    {
+public class TFChallenge extends Challenge {
+    public TFChallenge() {
         
-    }
-
-    public String getAnswer()
-    {
-        return null;
-    }
-
-    public void setAnswer(String answer)
-    {
-        
-    }
-
-    public ArrayList<String> getHints()
-    {
-        return null;
-    }
-
-    public void addHint(String hint)
-    {
-
     }
 }
-
-
