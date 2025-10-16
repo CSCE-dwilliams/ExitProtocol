@@ -13,7 +13,7 @@ public class Challenge {
     private ArrayList<String> hints;
 
     public Challenge(String answer, String question, ArrayList<String> hints, Image clue){
-
+        
     }
 
     public void addScore(UUID id, Integer score)

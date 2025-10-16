@@ -9,16 +9,16 @@ public class Game {
     private int playerCount;
     private String teamName;
     private UUID gameID;
-    private ArrayList<Challenge> gameset = new ArrayList<Challenge>();
+    public ArrayList<Challenge> gameset = new ArrayList<Challenge>();
 
     
 
-    public Game(String theme, int difficulty, int playerCount, String teamName, ArrayList<Challenge> challenges) {
+    public Game(String theme, int difficulty, int playerCount, String teamName, ArrayList<Challenge> gameset) {
         this.theme = theme;
         this.difficulty = difficulty;
         this.playerCount = playerCount;
         this.teamName = teamName;
-        this.gameset = challenges;
+        this.gameset = gameset;
     }
 
     public String getIntro(){
