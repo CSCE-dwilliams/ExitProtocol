@@ -13,11 +13,12 @@ public class Game {
 
     
 
-    public Game(String theme, int difficulty, int playerCount, String teamName) {
+    public Game(String theme, int difficulty, int playerCount, String teamName, ArrayList<Challenge> challenges) {
         this.theme = theme;
         this.difficulty = difficulty;
         this.playerCount = playerCount;
         this.teamName = teamName;
+        this.gameset = challenges;
     }
 
     public String getIntro(){
