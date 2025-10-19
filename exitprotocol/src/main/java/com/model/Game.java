@@ -53,13 +53,27 @@ public class Game {
     public void puzzleCompleted(){
 
     }
-   /*  public void updateScore(Integer currentScore){
+/*  public void updateScore(Integer currentScore){
         currentScore = Challenge.getScore(gameID);
         
     }
-        Need to think about the implementation of Challenge it is the same as the leaderboard right now*/ 
+        Need to think about the implementation of Challenge it is the same as the leaderboard right now*/
     public void calculateScore(int currentScore){
 
     }
+
+    public void attemptQuestion(String userAttempt)
+    {
+        /*
+        if (userAttempt == gameset.get())
+        {
+            
+        }
+        else
+        {
+            System.out.println("Incorrect Answer");
+        }
+        */
+    } 
 
 }

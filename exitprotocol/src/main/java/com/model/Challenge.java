@@ -19,7 +19,7 @@ public class Challenge {
     public void addScore(UUID id, Integer score)
     {
         scoreSet.put(id,score);
-    }   
+    }
 
     public Integer getScore(UUID id)
     {
@@ -30,7 +30,7 @@ public class Challenge {
 
     public String getQuestion()
     {
-        return null;
+        return question;
     }
 
     public void setQuestion(String theQuestion)
@@ -58,6 +58,11 @@ public class Challenge {
         hints.add(hint);
     }
 
+    public String getHint()
+    {
+        return hint;
+    }
+
     public void setClue(Image theClue)
     {
         this.clue = theClue;
@@ -67,4 +72,6 @@ public class Challenge {
     {
         return clue;
     }
+
+    
 }
