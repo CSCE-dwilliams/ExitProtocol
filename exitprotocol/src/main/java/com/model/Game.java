@@ -17,7 +17,6 @@ public class Game {
         this.theme = theme;
         this.difficulty = difficulty;
         this.playerCount = playerCount;
-        this.teamName = teamName;
         this.gameset = gameset;
     }
 
