@@ -19,7 +19,7 @@ public class GameList {
     }
 
     public void createGame(String theme, int difficulty, int playerCount, String teamName, ArrayList<Challenge> gameset) {
-        games.add(new Game(theme, difficulty, playerCount, teamName, gameset));
+        games.add(new Game(theme, difficulty, playerCount, teamName));
     }
 
     // public Game getGame() {}
