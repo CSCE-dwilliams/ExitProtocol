@@ -18,8 +18,8 @@ public class GameList {
         return gameList;
     }
 
-    public void createGame(String theme, int difficulty, int playerCount, String teamName) {
-        games.add(new Game(theme, difficulty, playerCount, teamName));
+    public void createGame(String theme, int difficulty, int playerCount, String teamName, ArrayList<Challenge> gameset) {
+        games.add(new Game(theme, difficulty, playerCount, teamName, gameset));
     }
 
     // public Game getGame() {}
