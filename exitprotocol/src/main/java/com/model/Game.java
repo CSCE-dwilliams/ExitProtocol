@@ -7,7 +7,6 @@ public class Game {
     private String theme;
     private int difficulty;
     private int playerCount;
-    private String teamName;
     private UUID gameID;
     public ArrayList<Challenge> gameset = new ArrayList<Challenge>();
 
