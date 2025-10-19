@@ -17,9 +17,25 @@ public class GameList {
         return gameList;
     }
 
-    public void loadGames(){
-        for(int i =0; i < DataLoader.getGames().size();i++){
-            games.put(DataLoader.getGames().get(i).getGameID(),DataLoader.getGames().get(i));
+    public void createGame(String theme, int difficulty, int playerCount, String teamName, ArrayList<Challenge> gameset) {
+        games.add(new Game(theme, difficulty, playerCount, teamName, gameset));
+    }
+
+    // public Game getGame() {}
+
+    public void getGames(UUID id)
+    {
+        ArrayList<Game> gamesbyid = new ArrayList<>();
+        /* 
+        for(Game game : gameList)
+        {
+            
+            if (game.getUUID().equals(id))
+            {
+
+            }
+            
+            //cannot finish method until GamesList is made
         }
     }
 
