@@ -9,15 +9,15 @@ public class Game {
     private int playerCount;
     private String teamName;
     private UUID gameID;
-    private ArrayList<Challenge> gameset = new ArrayList<Challenge>();
+    public ArrayList<Challenge> gameset = new ArrayList<Challenge>();
 
     
 
-    public Game(String theme, int difficulty, int playerCount, String teamName) {
+    public Game(String theme, int difficulty, int playerCount, ArrayList<Challenge> gameset) {
         this.theme = theme;
         this.difficulty = difficulty;
         this.playerCount = playerCount;
-        this.teamName = teamName;
+        this.gameset = gameset;
     }
 
     public String getIntro(){
@@ -42,7 +42,7 @@ public class Game {
     }
     public void getAnswer(){
 
-    }
+    }    
     public void skipPuzzle(){
 
     }
@@ -52,13 +52,27 @@ public class Game {
     public void puzzleCompleted(){
 
     }
-   /*  public void updateScore(Integer currentScore){
+/*  public void updateScore(Integer currentScore){
         currentScore = Challenge.getScore(gameID);
         
     }
-        Need to think about the implementation of Challenge it is the same as the leaderboard right now*/ 
+        Need to think about the implementation of Challenge it is the same as the leaderboard right now*/
     public void calculateScore(int currentScore){
 
     }
+
+    public void attemptQuestion(String userAttempt)
+    {
+        /*
+        if (userAttempt == gameset.get())
+        {
+            
+        }
+        else
+        {
+            System.out.println("Incorrect Answer");
+        }
+        */
+    } 
 
 }

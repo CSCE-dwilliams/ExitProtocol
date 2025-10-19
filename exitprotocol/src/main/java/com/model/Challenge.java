@@ -5,9 +5,7 @@ import java.util.UUID;
 import java.util.ArrayList;
 import javafx.scene.image.Image;
 public class Challenge {
-    HashMap<String, Integer> scoreSet = new HashMap<>();
-    private String answer;
-    private String question;
+    HashMap<UUID, Integer> scoreSet = new HashMap<>();
     private String hint;
     private Image clue;
     private ArrayList<String> hints;
@@ -18,26 +16,24 @@ public class Challenge {
 
     public void addScore(UUID id, Integer score)
     {
-        String idString = id.toString();
-        scoreSet.put(idString,score);
-    }   
+        scoreSet.put(id,score);
+    }
 
     public Integer getScore(UUID id)
     {
-        String idString = id.toString();
-        Integer Score = scoreSet.get(idString);
-        
+        Integer Score = scoreSet.get(id);
+
         return Score;
     }
 
     public String getQuestion()
     {
-        return null;
+        return question;
     }
 
-    public void setQuestion(String question)
+    public void setQuestion(String theQuestion)
     {
-
+        this.question = theQuestion;
     }
 
     public String getAnswer()
@@ -60,6 +56,11 @@ public class Challenge {
         hints.add(hint);
     }
 
+    public String getHint()
+    {
+        return hint;
+    }
+
     public void setClue(Image theClue)
     {
         this.clue = theClue;
@@ -69,4 +70,6 @@ public class Challenge {
     {
         return clue;
     }
+
+
 }

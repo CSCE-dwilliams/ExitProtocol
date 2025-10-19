@@ -18,28 +18,11 @@ public class GameList {
         return gameList;
     }
 
-    public void createGame(String theme, int difficulty, int playerCount, String teamName) {
-        games.add(new Game(theme, difficulty, playerCount, teamName));
+    public void createGame(String theme, int difficulty, int playerCount, ArrayList<Challenge> gameset) {
+        games.add(new Game(theme, difficulty, playerCount, gameset));
     }
 
     // public Game getGame() {}
-
-    public void getGames(UUID id)
-    {
-        ArrayList<Game> gamesbyid = new ArrayList<>();
-        /* 
-        for(Game game : gameList)
-        {
-            
-            if (game.getUUID().equals(id))
-            {
-
-            }
-            
-            //cannot finish method until GamesList is made
-        }
-            */
-    }
 
     
 
