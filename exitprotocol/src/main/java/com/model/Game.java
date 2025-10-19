@@ -13,7 +13,7 @@ public class Game {
 
     
 
-    public Game(String theme, int difficulty, int playerCount, ArrayList<Challenge> gameset) {
+    public Game(String theme, int difficulty, int playerCount, String teamName) {
         this.theme = theme;
         this.difficulty = difficulty;
         this.playerCount = playerCount;
