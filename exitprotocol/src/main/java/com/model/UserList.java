@@ -39,7 +39,14 @@ public class UserList {
                 System.out.println("Enter a valid number");
                 continue;
             }
+            Game testingGame = new Game("Medeival", 2, 3, "saucy");
+            for(int i =0; i < 4; i++){
+              playerUser.createAndAddSession(testingGame); 
+            }
             System.out.println("Welcome "+ playerUser.getFirstName() + "\nMake a Game below: \n");
+            
+            //here provide option to view all sessions and make session
+            //making session initiates game, creates object based on specification
 
         }
     }
