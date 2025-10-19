@@ -43,7 +43,7 @@ public class Game {
     }
     public void getAnswer(){
 
-    }
+    }    
     public void skipPuzzle(){
 
     }
