@@ -8,16 +8,16 @@ public class UserList {
     private static UserList userList;
     private ArrayList<User> users;
 
-    private UserList() {
-    }
+    private UserList() {}
 
     /**
      * Demo Test Session methods
      */
-    public static void main(String[] args) {
-        System.out.println("\nTesting game\n\n");
-        runGame();
-    }
+    
+    // public static void main(String[] args) {
+    //     System.out.println("\nTesting game\n\n");
+    //     runGame();
+    // }
 
     public static void runGame() {
         UserList userList = UserList.getInstance();
@@ -39,7 +39,7 @@ public class UserList {
                 System.out.println("Enter a valid number");
                 continue;
             }
-            System.out.println("Welcome "+ playerUser.getFirstName() + "Make a Game below: ");
+            System.out.println("Welcome "+ playerUser.getFirstName() + "\nMake a Game below: \n");
 
         }
     }

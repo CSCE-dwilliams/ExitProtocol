@@ -9,7 +9,11 @@ public class EscapeManager {
     private User user;
 
     public EscapeManager() {}
-    public void startGame() {}
+    public static void main(String[] args){
+        UserList.runGame();
+    }
+    public void startGame() {
+    }
     public void loadGame() {}
     public void endGame() {}
     public void pauseGame() {}
