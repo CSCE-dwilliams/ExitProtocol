@@ -46,7 +46,7 @@ public class DataLoader extends DataConstants {
                 int avatar = ((Long) personJSON.get(USER_AVATAR)).intValue();
                 int score = ((Long) personJSON.get(USER_SCORE)).intValue();
 
-                users.add(new User(firstName, lastName, email, passWord, teamName, avatar, score, id));
+                users.add(new User(firstName, lastName, email, passWord, avatar, id));
             }
         } catch (Exception e) {
             e.printStackTrace();

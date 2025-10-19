@@ -17,14 +17,12 @@ public class User {
     private HashMap<UUID, GameSession> sessions = new HashMap<>();
 
     public User(String firstName, String lastName, String email,
-            String password, String teamName, int avatar, int score, UUID id) {
+            String password, int avatar, UUID id) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.password = password;
-        this.teamName = teamName;
         this.avatar = avatar;
-        this.score = score;
         this.id = id;
     }
 
