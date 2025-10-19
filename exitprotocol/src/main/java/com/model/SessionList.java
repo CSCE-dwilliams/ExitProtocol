@@ -4,32 +4,39 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.UUID;
 
-public class SessionManager {
+public class SessionList {
 
-    private static SessionManager instance;
+
+    //think about what we want this class to hold,
+    //it should load in the sessions from a json like the userlist does,
+    //like the userlist it should be able to write to and read from this list
+    //initializing it builds and populates the 
+    private static SessionList instance;
+    //gonna use sessionID to get 
     private HashMap<UUID, GameSession> sessions;
 
-    private SessionManager() {
+    private SessionList() {
         sessions = new HashMap<>();
     }
 
-    public static SessionManager getInstance() {
+    public static SessionList getInstance() {
         if (instance == null) {
-            instance = new SessionManager();
+            instance = new SessionList();
         }
         return instance;
     }
 
     public GameSession createSession(Game newGame, UUID userID) {
         GameSession s = new GameSession(newGame, userID);
-        sessions.put(s.getSessionID(), s);
+        sessions.put(userID, s);
         return s;
     }
 
-    public GameSession getSession(UUID sessionID) {
-        return sessions.get(sessionID);
-    }
+    public GameSession getSession(UUID userId) {
 
+        return null;
+    }
+    
     public void removeSession(UUID sessionID) {
         sessions.remove(sessionID);
     }
@@ -46,7 +53,7 @@ public class SessionManager {
             s.resume();
     }
 
-    public ArrayList<GameSession> getAllSessions() {
+    public ArrayList<GameSession> getSessions() {
         return new ArrayList<>(sessions.values());
     }
 

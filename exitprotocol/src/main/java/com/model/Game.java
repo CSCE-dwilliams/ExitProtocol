@@ -8,16 +8,16 @@ public class Game {
     private int difficulty;
     private int playerCount;
     private String teamName;
-    private UUID id;
-    private ArrayList<Challenge> gameset = new ArrayList<Challenge>();
-    
+    private UUID gameID;
+    private ArrayList<Challenge> gameset;
 
     public Game(String theme, int difficulty, int playerCount, String teamName, UUID id) {
         this.theme = theme;
         this.difficulty = difficulty;
         this.playerCount = playerCount;
         this.teamName = teamName;
-        this.id = id;
+        this.gameID = id;
+        this.gameset = new ArrayList<Challenge>();
     }
 
     public String getIntro(){
@@ -25,7 +25,7 @@ public class Game {
     }
 
     public UUID getGameID(){
-        return this.id;
+        return this.gameID;
     }
     //working on challenge implementation 
     //public ArrayList<Challenge> getQuestions(){}
@@ -35,7 +35,7 @@ public class Game {
     }
     public void getAnswer(){
 
-    }
+    }    
     public void skipPuzzle(){
 
     }

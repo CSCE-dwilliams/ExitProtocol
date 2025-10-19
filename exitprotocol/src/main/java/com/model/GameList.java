@@ -8,7 +8,7 @@ import java.util.List;
 public class GameList {
     private static GameList gameList;
     private HashMap<UUID, Game> games = new HashMap<>();
-
+    
     private GameList() {}
     public static GameList getInstance() {
         if (gameList == null) {
@@ -23,29 +23,19 @@ public class GameList {
         }
     }
 
-    public Game getUserGames(UUID userID){
-        UserList userList = UserList.getInstance();
-        User newUser = userList.getUser(null, null) ;
-        newUser.getUUID();
-        Game nuGame = new Game(null, 0, 0, null, userID);
-        return nuGame;
-        // thinking like return 
+    public void addgame(Game g){
+        games.put(g.getGameID(),g);
     }
     
+    public Game getGame(UUID id){
+        return games.get(id);
+    }  
+
     // public void createGame(String theme, int difficulty, int playerCount, String teamName) {
     //     games.add(new Game(theme, difficulty, playerCount, teamName, null));
 
 
     // }
-
-    public Game getGame(UUID id){
-        return games.get(id);
-    }
-
-    public void addgame(Game g){
-        games.put(g.getGameID(),g);
-    }
-    
 
     public void saveGame() {}
 }

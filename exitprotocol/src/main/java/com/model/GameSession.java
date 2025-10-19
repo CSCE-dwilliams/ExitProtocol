@@ -6,15 +6,15 @@ import java.util.UUID;
 public class GameSession{
     private UUID sessionID;
     private UUID gameTemplateID; // consider later
-    private HashMap<UUID, Progress> playerProgress;
     private int currentChallengeIndex;
+    private Progress progress;
     private SessionState state;
 
 
     public GameSession(Game aGame, UUID userID){
         this.sessionID = UUID.randomUUID();
-        this.playerProgress = new HashMap<>();
-        this.playerProgress.put(userID, new Progress());
+        this.progress = new Progress();
+        this.state = SessionState.ACTIVE;
         this.currentChallengeIndex = 0;
         this.state = SessionState.ACTIVE;
     }
@@ -23,8 +23,8 @@ public class GameSession{
         return this.sessionID;
     }
 
-    public Progress getProgress(UUID userID){
-        return playerProgress.get(userID);
+    public Progress getProgress(){
+        return progress;
     }
     public SessionState getState(){ return state;}
     public void pause(){state = SessionState.PAUSED;}
@@ -38,6 +38,6 @@ public class GameSession{
     }
     @Override
     public String toString(){
-        return "This sessions ID: " + sessionID + "\n This sessions current state: " + state + "\n This Session associated user:";
+        return "This sessions ID: " + sessionID + "\nThis sessions current state: " + state + "\nThis Session associated user:";
     }
 }

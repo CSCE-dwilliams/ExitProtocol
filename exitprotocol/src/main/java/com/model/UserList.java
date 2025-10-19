@@ -7,13 +7,12 @@ public class UserList {
     private static UserList userList;
     private ArrayList<User> users;
 
-    private UserList() {}
+    private UserList() {
+    }
 
     public static UserList getInstance() {
-        if (userList == null) {
+        if (userList == null)
             userList = new UserList();
-
-        }
         return userList;
     }
 
@@ -44,8 +43,8 @@ public class UserList {
             int avatar,
             int score,
             UUID id) {
-                User newUser = new User(firstName, lastName, email, password, teamName, avatar,score, id);
-                getUsers().add(newUser);
-                DataWriter.saveUsers();
+        User newUser = new User(firstName, lastName, email, password, teamName, avatar, score, id);
+        getUsers().add(newUser);
+        DataWriter.saveUsers();
     }
 }
