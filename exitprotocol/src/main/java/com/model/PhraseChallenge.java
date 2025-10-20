@@ -10,7 +10,6 @@ public class PhraseChallenge extends Challenge{
     
     public PhraseChallenge(ArrayList<String> hints, Image clue)
     {
-        
         this.hints = hints;
         this.clue = clue;
     }

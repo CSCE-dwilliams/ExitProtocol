@@ -54,24 +54,4 @@ public class DataWriter extends DataConstants {
         return o;
     }
 
-    public static void main(String[] args) {
-        // Create a test user
-        User testUser = new User("Six", "Seven", "john.doe@example.com", "password123", 1, UUID.randomUUID());
-
-        // Create DataWriter instance and save the user
-        DataWriter dataWriter = new DataWriter();
-
-        UserList userList = UserList.getInstance();
-        userList.loadUsers();
-
-        //demoing account creation rq, need to also consider if we want createAcc to take these params or a user obj
-        userList.createAccount("demo","demo","demo@email.com","demo1",1, UUID.randomUUID());
-        ArrayList<User> users = userList.getUsers();
-
-        users.add(testUser);
-        saveUsers();
-
-        System.out.println("Test user saved successfully!");
-        System.out.println("User JSON: " + getUserJSON(testUser).toJSONString());
-    }
 }
