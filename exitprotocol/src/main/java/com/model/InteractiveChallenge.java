@@ -5,10 +5,9 @@ import javafx.scene.image.Image;
 
 public class InteractiveChallenge extends Challenge{
 
-    InteractiveChallenge iChallenge = new InteractiveChallenge();
-    
-    public String getQuestion()
+    public InteractiveChallenge(ArrayList<String> hints, Image clue)
     {
-        return null;
+        super(hints,clue);
     }
+    
 }

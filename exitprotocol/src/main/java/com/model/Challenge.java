@@ -21,9 +21,7 @@ public class Challenge {
 
     public Integer getScore(UUID id)
     {
-        Integer Score = scoreSet.get(id);
-
-        return Score;
+        return scoreSet.get(id);
     }
 
     public ArrayList<String> getHints()
@@ -38,7 +36,7 @@ public class Challenge {
 
     public String getHint()
     {
-        return hint;
+        return this.hint;
     }
 
     public void setClue(Image theClue)
@@ -48,6 +46,6 @@ public class Challenge {
 
     public Image getClue()
     {
-        return clue;
+        return this.clue;
     }
 }

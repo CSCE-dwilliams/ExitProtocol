@@ -8,11 +8,12 @@ public class PhraseChallenge extends Challenge{
     private String question;
     private String answer;
     
-    public PhraseChallenge(ArrayList<String> hints, Image clue)
+    public PhraseChallenge(String theQuestion, String theAnswer, ArrayList<String> hints, Image clue)
     {
-        
-        this.hints = hints;
-        this.clue = clue;
+        super(hints,clue);
+        setAnswer(theAnswer);
+        setQuestion(theQuestion);
+
     }
     
     public String getQuestion()
