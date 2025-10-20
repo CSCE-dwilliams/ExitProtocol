@@ -9,7 +9,14 @@ public class TFChallenge extends Challenge{
     public String answer;
     public int tf;
 
-    
+    public TFChallenge(String theQuestion, String theAnswer, ArrayList<String> hints, Image clue)
+    {
+        super(hints, clue);
+        setQuestion(theQuestion);
+        setAnswer(theAnswer);
+    }
+
+
     public String getQuestion()
     {
         return question;
@@ -27,10 +34,12 @@ public class TFChallenge extends Challenge{
 
     public void setAnswer(String theAnswer)
     {
-        if (theAnswer.equalsIgnoreCase("True"))
+        if (theAnswer.equalsIgnoreCase("True") || theAnswer.equalsIgnoreCase("t"))
         {
             tf = 1;
         }
+
+
 
         else
         {

@@ -10,8 +10,10 @@ public class GameTemplate{
     public ArrayList<String> clues = new ArrayList<>();
 
     public GameTemplate(String theme){
+        
 
     }
+
 
     public ArrayList<String> getQuestions(){
         return questionSet;

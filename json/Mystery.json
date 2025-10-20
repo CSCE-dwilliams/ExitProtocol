@@ -1,0 +1,97 @@
+[
+    {
+        "theme": "Mystery",
+        "description": "A mystery escape room.",
+        "challenges": [
+            {
+                "question": "What hidden message is written along the blueprint’s borders?",
+                "answer": "Go Below the Study",
+                "hints": [
+                    "The message is hidden along the border in faint letters — try reading every third letter.",
+                    "“Silence” and “Study” seem to be connected — maybe something is beneath it.",
+                    "'The phrase tells you to explore a location below a room in the mansion."
+
+                ],
+                "clue": ""
+            },
+            {
+                "question": "What single word does this message hint toward?",
+                "answer": "Echo",
+                "hints": [
+                    "It’s something you hear — not see.",
+                    "It repeats after you speak.",
+                    "The word literally means “the reflection of sound.”"
+                ],
+                "clue": ""
+            },
+            {
+                "question": "Which combination of True/False answers reveals the correct code to continue?",
+                "answer": "False, True, False",
+                "hints": [
+                    "You must decide which statements about your father’s will are real or lies.",
+                    "The pattern alternates — not everything false is wrong.",
+                    "The sequence forms a three-part truth pattern: first and last are false, middle is true."
+                ],
+                "clue": ""
+            },
+            {
+                "question": "What area of the mansion does the compass reveal?",
+                "answer": "False, True, False",
+                "hints": [
+                    "You must decide which statements about your father’s will are real or lies.",
+                    "The pattern alternates — not everything false is wrong.",
+                    "The sequence forms a three-part truth pattern: first and last are false, middle is true."
+                ],
+                "clue": ""
+            },
+            {
+                "question": "What word do the runes decode into?",
+                "answer": "",
+                "hints": [
+                    ""
+                ],
+                "clue": ""
+            },
+            {
+                "question": "What number sequence opens the next lock?",
+                "answer": "",
+                "hints": [
+                    ""
+                ],
+                "clue": ""
+            },
+            {
+                "question": "What object in the mansion does this clue refer to?",
+                "answer": "",
+                "hints": [
+                    ""
+                ],
+                "clue": ""
+            },
+            {
+                "question": "What choice opens the final safe — Truth or Lie?",
+                "answer": "",
+                "hints": [
+                    ""
+                ],
+                "clue": ""
+            },
+            {
+                "question": "What is the English translation of “Veritas Vincit”?",
+                "answer": "",
+                "hints": [
+                    ""
+                ],
+                "clue": ""
+            },
+            {
+                "question": "What final phrase represents your father’s true lesson and completes the mystery?",
+                "answer": "",
+                "hints": [
+                    ""
+                ],
+                "clue": ""
+            }
+          
+       
+]
