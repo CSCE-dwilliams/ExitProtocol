@@ -10,8 +10,6 @@ public class Game {
     private UUID gameID;
     public ArrayList<Challenge> gameset = new ArrayList<Challenge>();
 
-    
-
     public Game(String theme, int difficulty, int playerCount, String teamName) {
         this.theme = theme;
         this.difficulty = difficulty;
@@ -39,6 +37,7 @@ public class Game {
     public void getClues(){
 
     }
+
     public void getAnswer(){
 
     }    

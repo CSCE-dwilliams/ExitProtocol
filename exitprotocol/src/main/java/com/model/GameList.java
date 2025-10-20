@@ -22,6 +22,10 @@ public class GameList {
         games.add(new Game(theme, difficulty, playerCount, teamName));
     }
 
+    public void loadGames(){
+        
+    }
+
     // public Game getGame() {}
 
     

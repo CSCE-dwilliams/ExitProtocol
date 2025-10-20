@@ -10,10 +10,15 @@ public class PhraseChallenge extends Challenge{
     
     public PhraseChallenge(String theQuestion, String theAnswer, ArrayList<String> hints, Image clue)
     {
+<<<<<<< HEAD
+        this.hints = hints;
+        this.clue = clue;
+=======
         super(hints,clue);
         setAnswer(theAnswer);
         setQuestion(theQuestion);
 
+>>>>>>> abcf5b81cc4f8546812c8a9c8054340bacdc5bff
     }
     
     public String getQuestion()
