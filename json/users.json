@@ -18,8 +18,7 @@
         "id": "e43d0c60-d159-47c4-9972-27514395e449",
         "avatar": 2,
         "email": "jadoe@email.sc.edu",
-        "lastname": "Doe",
-        "teamname": null
+        "lastname": "Doe"
     },
     {
         "score": 0,
@@ -29,8 +28,7 @@
         "id": "b86498c6-06d7-4252-a715-3fcadda97d18",
         "avatar": 4,
         "email": "wick@email.sc.edu",
-        "lastname": "Wickerton",
-        "teamname": null
+        "lastname": "Wickerton"
     },
     {
         "score": 0,
@@ -45,8 +43,7 @@
         "id": "64b80d89-20d2-45c8-ad9b-96b701d93e9a",
         "avatar": 2,
         "email": "mister@email.com",
-        "lastname": "super",
-        "teamname": null
+        "lastname": "super"
     },
     {
         "score": 0,
@@ -56,8 +53,7 @@
         "id": "dc796eea-5acc-44e5-80ee-b3fc3e1ecbb1",
         "avatar": 1,
         "email": "demo@email.com",
-        "lastname": "demo",
-        "teamname": null
+        "lastname": "demo"
     },
     {
         "score": 0,
@@ -67,7 +63,6 @@
         "id": "205b0dec-9e34-42e1-9a0c-5f28614dd6e9",
         "avatar": 1,
         "email": "john.doe@example.com",
-        "lastname": "Seven",
-        "teamname": null
+        "lastname": "Seven"
     }
 ]

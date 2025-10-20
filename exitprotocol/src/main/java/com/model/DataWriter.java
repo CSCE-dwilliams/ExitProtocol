@@ -35,7 +35,6 @@ public class DataWriter extends DataConstants {
         o.put("id", user.getUUID().toString());
         o.put("email", user.getEmail());
         o.put("password", user.getPassword());
-        o.put("teamname", user.getTeamName());
         o.put("avatar", user.getAvatar());
         o.put("score", user.getScore());
         ArrayList<GameSession> session = user.getAllSessions();

@@ -87,7 +87,6 @@ public class User {
         return "First Name: " + firstName +
                 "\nLast Name: " + lastName +
                 "\nEmail: " + email +
-                "\nTeam Name: " + teamName +
                 "\nAvatar Selection No.:" + avatar +
                 "\nScore: " + score;
     }
