@@ -1,8 +1,5 @@
 package com.model;
 
-import javafx.application.Platform;
-import javafx.stage.Stage;
-
 import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.UUID;
@@ -57,28 +54,34 @@ public class DataLoader extends DataConstants {
         return users;
     }
 
-    public static ArrayList<Game> getGames() {
-        ArrayList<Game> games = new ArrayList<Game>();
+    public static ArrayList<GameTemplate> getGames() {
+        ArrayList<GameTemplate> games = new ArrayList<GameTemplate>();
+
         try {
             FileReader reader = new FileReader(GAMES_FILE_NAME);
             JSONArray peopleJSON = (JSONArray) new JSONParser().parse(reader);
 
             for (int i = 0; i < peopleJSON.size(); i++) {
                 JSONObject personJSON = (JSONObject) peopleJSON.get(i);
-                JSONArray sessionsArray = (JSONArray) personJSON.get(SESSIONS);
-                UUID id = UUID.fromString((String) personJSON.get(USER_ID));
-                String firstName = (String) personJSON.get(USER_FIRST_NAME);
-                String lastName = (String) personJSON.get(USER_LAST_NAME);
-                String email = (String) personJSON.get(USER_EMAIL);
-                String passWord = (String) personJSON.get(USER_PASSWORD);
-                String teamName = (String) personJSON.get(USER_TEAM_NAME);
-                int avatar = ((Long) personJSON.get(USER_AVATAR)).intValue();
-                int score = ((Long) personJSON.get(USER_SCORE)).intValue();
-                User addUser = new User(firstName, lastName, email, passWord, avatar, id);
-                for (int j = 0; i < sessionsArray.size(); i++) {
+                String theme = (String) personJSON.get("theme");
+                String intro = (String) personJSON.get("description");
+                GameTemplate newGame = new GameTemplate(theme, intro);
+                JSONArray questionsArray = (JSONArray) personJSON.get("challenges");
+                for (int j = 0; j < questionsArray.size(); j++) {
+                    JSONArray phraseArray = (JSONArray) personJSON.get("phrasechallenges");
+                    for (int h = 0; h < phraseArray.size(); h++) {
+                        String question = (String) personJSON.get("question");
+                        String answer = (String) personJSON.get("answer");
+                        JSONArray hintArray = (JSONArray) personJSON.get("hints");
+
+                    }
 
                 }
-                //games.add(addUser);
+
+                for (int j = 0; i < questionsArray.size(); i++) {
+
+                }
+                // games.add(addUser);
             }
         } catch (Exception e) {
             e.printStackTrace();
