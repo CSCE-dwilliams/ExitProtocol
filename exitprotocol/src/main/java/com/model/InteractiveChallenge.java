@@ -8,8 +8,6 @@ public class InteractiveChallenge extends Challenge{
     public InteractiveChallenge(ArrayList<String> hints, Image clue)
     {
         super(hints,clue);
-
-
     }
     
 }
