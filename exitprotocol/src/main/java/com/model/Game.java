@@ -7,7 +7,6 @@ public class Game {
     private String theme;
     private int difficulty;
     private int playerCount;
-    private String teamName;
     private UUID gameID;
     public ArrayList<Challenge> gameset = new ArrayList<Challenge>();
 
@@ -58,7 +57,7 @@ public class Game {
     }
         Need to think about the implementation of Challenge it is the same as the leaderboard right now*/
     public void calculateScore(int currentScore){
-
+        
     }
 
     public void attemptQuestion(String userAttempt)
