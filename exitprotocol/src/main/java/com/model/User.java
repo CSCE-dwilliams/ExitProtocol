@@ -11,7 +11,6 @@ public class User {
     private UUID id;
     private String email;
     private String password;
-    private String teamName;
     private int avatar;
     private Integer score;
     private HashMap<UUID, GameSession> sessions = new HashMap<>();
@@ -68,10 +67,6 @@ public class User {
 
     public String getPassword() {
         return password;
-    }
-
-    public String getTeamName() {
-        return teamName;
     }
 
     public int getAvatar() {
