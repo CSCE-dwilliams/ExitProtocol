@@ -10,7 +10,7 @@ public abstract class DataConstants{
     protected static final String USER_TEAM_NAME = "teamname";
     protected static final String USER_AVATAR = "avatar";
     protected static final String USER_SCORE = "score";
-
+    protected static final String SESSIONS = "sessions";
     protected static final String GAMES_FILE_NAME = "json/rooms.json";
     
 

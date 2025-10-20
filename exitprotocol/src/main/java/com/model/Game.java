@@ -57,7 +57,7 @@ public class Game {
     }
         Need to think about the implementation of Challenge it is the same as the leaderboard right now*/
     public void calculateScore(int currentScore){
-
+        
     }
 
     public void attemptQuestion(String userAttempt)

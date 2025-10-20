@@ -54,10 +54,6 @@ public class User {
         sessions.remove(sessionID);
     }
 
-    public void checkCredentials() {
-
-    }
-
     public String getFirstName() {
         return firstName;
     }
@@ -82,11 +78,6 @@ public class User {
         return avatar;
     }
 
-    public UUID getSessionData() {
-        UUID sessionID = new UUID(5, 5);
-        return sessionID;
-    }
-
     public UUID getUUID() {
         return this.id;
     }
@@ -94,10 +85,6 @@ public class User {
     public Integer getScore() {
         return 0;
 
-    }
-
-    public boolean isMatch(String userName, String passWord) {
-        return true;
     }
 
     @Override

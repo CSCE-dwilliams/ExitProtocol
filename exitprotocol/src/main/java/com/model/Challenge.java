@@ -6,10 +6,11 @@ import java.util.ArrayList;
 import javafx.scene.image.Image;
 public class Challenge {
     HashMap<UUID, Integer> scoreSet = new HashMap<>();
-    private String hint;
-    private Image clue;
-    private ArrayList<String> hints;
+    public String hint;
+    public Image clue;
+    public ArrayList<String> hints;
 
+    public Challenge(ArrayList<String> hints, Image clue){
     public Challenge(ArrayList<String> hints, Image clue){
 
     }
@@ -68,6 +69,4 @@ public class Challenge {
     {
         return this.clue;
     }
-
-
 }

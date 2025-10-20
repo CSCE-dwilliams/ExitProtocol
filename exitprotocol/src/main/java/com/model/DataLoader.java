@@ -1,6 +1,5 @@
 package com.model;
 
-
 import javafx.application.Platform;
 import javafx.stage.Stage;
 
@@ -15,8 +14,8 @@ import org.json.simple.parser.JSONParser;
 public class DataLoader extends DataConstants {
     public static void main(String[] args) {
         // Platform.runLater(() -> {
-        //     Stage stage = new Stage();
-        //     Timer.timerStart(stage);
+        // Stage stage = new Stage();
+        // Timer.timerStart(stage);
         // });
 
         System.out.println("test");
@@ -37,6 +36,7 @@ public class DataLoader extends DataConstants {
 
             for (int i = 0; i < peopleJSON.size(); i++) {
                 JSONObject personJSON = (JSONObject) peopleJSON.get(i);
+                JSONArray sessionsArray = (JSONArray) personJSON.get(SESSIONS);
                 UUID id = UUID.fromString((String) personJSON.get(USER_ID));
                 String firstName = (String) personJSON.get(USER_FIRST_NAME);
                 String lastName = (String) personJSON.get(USER_LAST_NAME);
@@ -45,8 +45,11 @@ public class DataLoader extends DataConstants {
                 String teamName = (String) personJSON.get(USER_TEAM_NAME);
                 int avatar = ((Long) personJSON.get(USER_AVATAR)).intValue();
                 int score = ((Long) personJSON.get(USER_SCORE)).intValue();
-
-                users.add(new User(firstName, lastName, email, passWord, avatar, id));
+                User addUser = new User(firstName, lastName, email, passWord, avatar, id);
+                for (int j = 0; i < sessionsArray.size(); i++) {
+                    
+                }
+                users.add(addUser);
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -54,9 +57,9 @@ public class DataLoader extends DataConstants {
         return users;
     }
 
-    public static ArrayList<Game> getGames(){
+    public static ArrayList<Game> getGames() {
         ArrayList<Game> games = new ArrayList<Game>();
-        
+
         return games;
     }
 
