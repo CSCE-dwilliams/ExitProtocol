@@ -11,16 +11,4 @@ public class InteractiveChallenge extends Challenge{
     {
         return null;
     }
-
-    public void setQuestion(String newQuestion)
-    {
-        this.question = newQuestion;
-    }
-    
-
-
-
-    
-
-    
 }
