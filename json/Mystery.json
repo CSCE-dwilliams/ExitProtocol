@@ -36,62 +36,74 @@
             },
             {
                 "question": "What area of the mansion does the compass reveal?",
-                "answer": "False, True, False",
+                "answer": "East Wing",
                 "hints": [
-                    "You must decide which statements about your father’s will are real or lies.",
-                    "The pattern alternates — not everything false is wrong.",
-                    "The sequence forms a three-part truth pattern: first and last are false, middle is true."
+                    "Think of direction — north, south, east, or west.",
+                    "The compass doesn’t point north this time.",
+                    "The area it indicates is the east section of the mansion."
                 ],
                 "clue": ""
             },
             {
                 "question": "What word do the runes decode into?",
-                "answer": "",
+                "answer": ": Legacy",
                 "hints": [
-                    ""
+                    "The code uses a Caesar cipher — shift each rune by three.",
+                    "The word describes what a father leaves behind for his children.",
+                    "It means “inheritance” or “what you pass on.”"
                 ],
                 "clue": ""
             },
             {
                 "question": "What number sequence opens the next lock?",
-                "answer": "",
+                "answer": "9164",
                 "hints": [
-                    ""
+                    "The numbers have appeared before.",
+                    "Think back to the tag on the dove’s leg.",
+                    "The code is those same four digits — nothing more, nothing less."
                 ],
                 "clue": ""
             },
             {
                 "question": "What object in the mansion does this clue refer to?",
-                "answer": "",
+                "answer": "Family Portrait",
                 "hints": [
-                    ""
+                    "Memories are often captured in pictures.",
+                    "It’s something hanging in plain sight in the main hall.",
+                    "It shows your entire family together — your father’s favorite item."
                 ],
                 "clue": ""
             },
             {
                 "question": "What choice opens the final safe — Truth or Lie?",
-                "answer": "",
+                "answer": "True",
                 "hints": [
-                    ""
+                    "The plaque literally tells you the answer.",
+                    "Between Truth or Lie, one word opens the way.",
+                    "Your father always believed truth would prevail."
                 ],
                 "clue": ""
             },
             {
                 "question": "What is the English translation of “Veritas Vincit”?",
-                "answer": "",
+                "answer": "Truth Prevails",
                 "hints": [
-                    ""
+                    "Translate the Latin: Veritas = Truth, Vincit = Wins/Prevails.",
+                    "It’s your father’s motto.",
+                    "The phrase means “Truth always triumphs.”"
                 ],
                 "clue": ""
             },
             {
                 "question": "What final phrase represents your father’s true lesson and completes the mystery?",
-                "answer": "",
+                "answer": "Veritas",
                 "hints": [
-                    ""
+                    "Look for a single Latin word engraved on the final key.",
+                    "It’s the same word your father wrote on many of his letters.",
+                    "It means “Truth.”"
                 ],
                 "clue": ""
             }
-          
-       
+        ]
+    }
 ]
