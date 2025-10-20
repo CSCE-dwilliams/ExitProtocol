@@ -3,7 +3,19 @@
         "score": 0,
         "firstname": "John",
         "password": "1234",
-        "sessions": [],
+        "sessions": [
+            {
+                "id": "31002e7a-9693-4b71-b7cb-21b7de3fcf5b",
+                "teamname": "67",
+                "score": 0,
+                "progress": {
+
+                },
+                "currentChallengeIndex": 1,
+                "state": 2,
+                "sessionName": "Session 1"
+            }
+        ],
         "id": "0e41ba50-9f6c-4f35-8ea1-6c34070122cd",
         "avatar": 1,
         "email": "jodoe@email.sc.edu",
