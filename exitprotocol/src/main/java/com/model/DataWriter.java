@@ -38,7 +38,12 @@ public class DataWriter extends DataConstants {
         o.put("teamname", user.getTeamName());
         o.put("avatar", user.getAvatar());
         o.put("score", user.getScore());
-
+        ArrayList<GameSession> session = user.getAllSessions();
+        JSONArray jsonSessions = new JSONArray();
+        for (GameSession s : session) {
+            jsonSessions.add(s.toString());
+        }
+        o.put("sessions", jsonSessions);
         return o;
     }
 

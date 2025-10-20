@@ -34,17 +34,17 @@ public class UserList {
                 playerUser = newUser();
                 User test = userList.getUser(playerUser.getEmail(), playerUser.getPassword());
                 System.out.println("testing adding user: " + test);
-                break;
             } else {
                 System.out.println("Enter a valid number");
                 continue;
             }
-            Game testingGame = new Game("Medeival", 2, 3, "saucy");
+            Game testingGame = new Game("Medieval", 2, 3, "saucy");
             for(int i =0; i < 4; i++){
-              playerUser.createAndAddSession(testingGame); 
+              playerUser.createAndAddSession(testingGame);
             }
+            DataWriter.saveUsers();
             System.out.println("Welcome "+ playerUser.getFirstName() + "\nMake a Game below: \n");
-            
+            // System.out.println(playerUser.getAllSessions());
             //here provide option to view all sessions and make session
             //making session initiates game, creates object based on specification
 

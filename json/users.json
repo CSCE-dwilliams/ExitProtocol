@@ -1,1 +1,73 @@
-[{"score":0,"firstname":"John","password":"1234","id":"0e41ba50-9f6c-4f35-8ea1-6c34070122cd","avatar":1,"email":"jodoe@email.sc.edu","lastname":"Doe","teamname":null},{"score":0,"firstname":"Jane","password":"2345","id":"e43d0c60-d159-47c4-9972-27514395e449","avatar":2,"email":"jadoe@email.sc.edu","lastname":"Doe","teamname":null},{"score":0,"firstname":"Johnathan","password":"1234","id":"b86498c6-06d7-4252-a715-3fcadda97d18","avatar":4,"email":"wick@email.sc.edu","lastname":"Wickerton","teamname":null},{"score":0,"firstname":"mister","password":"1234","id":"64b80d89-20d2-45c8-ad9b-96b701d93e9a","avatar":2,"email":"mister@email.com","lastname":"super","teamname":null},{"score":0,"firstname":"mister","password":"1234","id":"2a8d498d-4ba3-4e2f-89a9-18b6575c88a3","avatar":2,"email":"mister@email.com","lastname":"super","teamname":null}]
+[
+    {
+        "score": 0,
+        "firstname": "John",
+        "password": "1234",
+        "sessions": [],
+        "id": "0e41ba50-9f6c-4f35-8ea1-6c34070122cd",
+        "avatar": 1,
+        "email": "jodoe@email.sc.edu",
+        "lastname": "Doe",
+        "teamname": null
+    },
+    {
+        "score": 0,
+        "firstname": "Jane",
+        "password": "2345",
+        "sessions": [],
+        "id": "e43d0c60-d159-47c4-9972-27514395e449",
+        "avatar": 2,
+        "email": "jadoe@email.sc.edu",
+        "lastname": "Doe",
+        "teamname": null
+    },
+    {
+        "score": 0,
+        "firstname": "Johnathan",
+        "password": "1234",
+        "sessions": [],
+        "id": "b86498c6-06d7-4252-a715-3fcadda97d18",
+        "avatar": 4,
+        "email": "wick@email.sc.edu",
+        "lastname": "Wickerton",
+        "teamname": null
+    },
+    {
+        "score": 0,
+        "firstname": "mister",
+        "password": "1234",
+        "sessions": [
+            "49036047-dde6-4faf-99e0-6fb7879e8892",
+            "83d2d53b-fd22-4f3a-b27a-01796d9da955",
+            "761aabec-daf8-42cf-9957-0ca779454749",
+            "7c37cf93-06f9-48a9-a2a5-4722ca31cd7c"
+        ],
+        "id": "64b80d89-20d2-45c8-ad9b-96b701d93e9a",
+        "avatar": 2,
+        "email": "mister@email.com",
+        "lastname": "super",
+        "teamname": null
+    },
+    {
+        "score": 0,
+        "firstname": "demo",
+        "password": "demo1",
+        "sessions": [],
+        "id": "dc796eea-5acc-44e5-80ee-b3fc3e1ecbb1",
+        "avatar": 1,
+        "email": "demo@email.com",
+        "lastname": "demo",
+        "teamname": null
+    },
+    {
+        "score": 0,
+        "firstname": "Six",
+        "password": "password123",
+        "sessions": [],
+        "id": "205b0dec-9e34-42e1-9a0c-5f28614dd6e9",
+        "avatar": 1,
+        "email": "john.doe@example.com",
+        "lastname": "Seven",
+        "teamname": null
+    }
+]

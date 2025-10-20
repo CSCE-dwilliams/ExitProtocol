@@ -9,14 +9,14 @@ public class GameSession{
     private int currentChallengeIndex;
     private String teamName;
     private int Score;
-    private Progress progress;
+    private ChallengeProgress progress;
     private SessionState state;
     private String sessionName;
 
 
     public GameSession(Game aGame, UUID userID){
         this.sessionID = UUID.randomUUID();
-        this.progress = new Progress();
+        this.progress = new ChallengeProgress();
         this.state = SessionState.ACTIVE;
         this.currentChallengeIndex = 0;
         this.state = SessionState.ACTIVE;
@@ -24,7 +24,7 @@ public class GameSession{
     public UUID getSessionID(){
         return this.sessionID;
     }
-    public Progress getProgress(){
+    public ChallengeProgress getProgress(){
         return progress;
     }
     public String getSessionName(){ 
@@ -43,6 +43,6 @@ public class GameSession{
     }
     @Override
     public String toString(){
-        return "This sessions ID: " + sessionID + "\nThis sessions current state: " + state;
+        return sessionID.toString();
     }
 }
