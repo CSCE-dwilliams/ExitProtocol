@@ -10,7 +10,7 @@ public class Challenge {
     private Image clue;
     private ArrayList<String> hints;
 
-    public Challenge(String answer, String question, ArrayList<String> hints, Image clue){
+    public Challenge(ArrayList<String> hints, Image clue){
 
     }
 
@@ -21,14 +21,12 @@ public class Challenge {
 
     public Integer getScore(UUID id)
     {
-        Integer Score = scoreSet.get(id);
-
-        return Score;
+        return scoreSet.get(id);
     }
 
     public String getQuestion()
     {
-        return question;
+        return this.question;
     }
 
     public void setQuestion(String theQuestion)
@@ -58,7 +56,7 @@ public class Challenge {
 
     public String getHint()
     {
-        return hint;
+        return this.hint;
     }
 
     public void setClue(Image theClue)
@@ -68,7 +66,7 @@ public class Challenge {
 
     public Image getClue()
     {
-        return clue;
+        return this.clue;
     }
 
 
