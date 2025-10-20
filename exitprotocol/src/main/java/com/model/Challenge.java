@@ -11,7 +11,6 @@ public class Challenge {
     public ArrayList<String> hints;
 
     public Challenge(ArrayList<String> hints, Image clue){
-    public Challenge(ArrayList<String> hints, Image clue){
 
     }
 
@@ -23,26 +22,6 @@ public class Challenge {
     public Integer getScore(UUID id)
     {
         return scoreSet.get(id);
-    }
-
-    public String getQuestion()
-    {
-        return this.question;
-    }
-
-    public void setQuestion(String theQuestion)
-    {
-        this.question = theQuestion;
-    }
-
-    public String getAnswer()
-    {
-        return this.answer;
-    }
-
-    public void setAnswer(String theAnswer)
-    {
-        this.answer = theAnswer;
     }
 
     public ArrayList<String> getHints()
