@@ -22,6 +22,8 @@ public class UserList {
     public static void runGame() {
         UserList userList = UserList.getInstance();
         userList.loadUsers();
+        GameList gameList = GameList.getInstance();
+        gameList.loadGames();
         while (true) {
             Scanner userInput = new Scanner(System.in);
             System.out.println("Input:\n1. For Returning User\n2. For New User");
@@ -44,6 +46,7 @@ public class UserList {
             }
             DataWriter.saveUsers();
             System.out.println("Welcome "+ playerUser.getFirstName() + "\nMake a Game below: \n");
+            gameList.showGames();
             // System.out.println(playerUser.getAllSessions());
             //here provide option to view all sessions and make session
             //making session initiates game, creates object based on specification
