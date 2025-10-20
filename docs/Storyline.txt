@@ -2,7 +2,8 @@ Note: This is the version of the easy...5 random questions will be added in bwte
 
 Mystery-
 
-The Hidden Will — Escape Room Story
+The Hidden Will 
+
 A rich, wealthy man left his will to his two daughters, but not his son.
 
 You — the son — have always been smarter than your sisters and share the same keen intellect your father was known for. But something about the will doesn’t seem right. It’s too simple, too final. You’re convinced your father left you something else — a secret inheritance hidden behind clues only you could solve.
@@ -20,49 +21,171 @@ The next morning, you return to your father’s office. On his desk lies a dusty
 1. The Blueprint
 You spread the blueprint across the desk. Faded ink circles mark several rooms — but one, labeled “Silence Room,” has been crossed out.
 
+Decode a hidden message written along the blueprint’s edges 
+
 2. The Hidden Message 
 Scrawled faintly in the corner, you read:
 “Only one who listens can find the truth beneath the noise.”
+
+What single word does this message hint toward?
 
 3. The Envelope
 Beneath the blueprint, you find a sealed envelope with your family crest. Inside is a burnt note:
 “The lies they tell will guide you to the truth.”
 
+Which combination of True/False answers reveals the correct code to continue?
+
 4. The Compass Key
 A small brass compass key falls out of the envelope. When placed on the blueprint’s north marking, it points toward the east wing, an area said to be sealed decades ago.
+
+What area of the mansion does the compass reveal?
 
 5. The Locked Drawer
 Behind your father’s desk, a hidden drawer refuses to open. Carved into the wood are strange runes — a code your father once taught you.
 
+What word do the runes decode into?
+
 6. The Music Box
 Inside the drawer lies a tiny music box that plays four broken notes: 9, 1, 6, 4.
+
+What number sequence opens the next lock?
 
 7. The Family Portrait
 The tune stops, revealing a slip of paper:
 “The answer lies where memories never fade.”
 
+What object in the mansion does this clue refer to?
+
 8. The Truth Lock
 Touching the corner of the portrait releases a latch, revealing a small safe with a plaque:
 “Truth unlocks the final gate.”
 
+What choice opens the final safe — Truth or Lie?
+
 9. The Ring of Keys
 Inside the safe is the same ring of keys you found before, each engraved with a single Latin word. One key reads “Veritas Vincit” — “Truth Prevails.”
+
+What is the English translation of “Veritas Vincit”?
 
 10. The Hidden Will
 You insert the “Veritas Vincit” key into a small keyhole behind the portrait. The wall creaks open, revealing a velvet box. Inside lies the true will and a handwritten letter:
 
 “My son — you have proven that intelligence guided by honesty is the greatest inheritance of all.”
 
+What final phrase represents your father’s true lesson and completes the mystery?
 
-Horror-A vampire is on the hunt to make all humans immortal. 
-5 teens are on the way to west virginia for a club retreat.
-On the way there the sun disapears all of the sudden and a swarm of bats fly from the trees.
+Horror-
+The Cursed Lens
+
+You — Liam — and your three friends Ava, Harper, and Noah stumble upon an old pair of round vintage glasses in a dusty antique shop. You buy them on impulse — they look ancient but strangely familiar.
+
+The cashier refuses your money at first, murmuring,
+
+“Some eyes should stay shut.”
+
+You laugh it off, but that night, when you look into your mirror wearing the glasses, there’s a faint fifth reflection behind you — a pale boy with cracked lenses over his eyes.
+
+The next morning, your friends notice a message scratched into the glass of your phone:
+
+“Fifteen days until sight fades.”
+
+When you investigate, you learn that anyone who wears — or even looks through — those glasses becomes cursed. If they’re ever sold, the host (you) dies instantly, and the others who tried them on die within 15 days.
+
+Now, you and your three friends must break the curse before the fifteenth night falls.
+
+1. The Purchase
+You remember the antique shop’s receipt. The ink has faded except for random bold letters — maybe they form a hidden word.
+
+2. The First Reflection
+That night, you send a selfie to your group chat. Behind you, a pale face appears in the glass of your bedroom window. Ava zooms in — the reflection’s wearing the same glasses.
+
+3. The Marked Mirror
+The next morning, “15 DAYS” is carved into your bathroom mirror. The scratches glow faintly red when you touch them.
+
+4. Harper finds an old journal in the antique shop’s basement. The last entry reads:
+
+“My name is Eli Rowan. I can’t leave the lens until my sight is taken back.”
+
+5. The Eye Chart
+In the school nurse’s office, the letters on the vision chart flicker, spelling something only you can see: “MIRROR BURNS.”
+
+6.The Thirteenth Day
+By now, your friends complain of headaches and seeing shadows. Harper collapses, whispering, “He’s watching through you.”
 
 
-Fantisy-An english knight has found a beautiful french princess. 
-A flood has wiped many parts of europe away. 
+7. The Hidden Laboratory
+Noah uncovers blueprints of Eli’s house — a secret basement lab used for optical experiments. Broken beakers on a table form the words “REVERSE THE REFLECTION.”
 
-Your goal is to find the princess to fullfill your destiny and duties as king before the crown is stripped from you due to no royal marriage.
+8. The Glass Furnace
+You realize the curse began when Eli trapped his soul inside molten glass. To break it, you must melt the glasses in mirrored fire without looking at your reflection.
 
+9. The Final Vision
+As the fire burns, Eli’s ghost appears beside you, pleading:
+
+“Don’t destroy them — destroy me.”
+
+10. Breaking the Curse
+You and your friends shatter the glasses at sunrise. The reflection screams, and the mirrors crack. The air grows still as Eli’s whisper fades:
+
+“Sight restored… debt repaid.”
+But when you look down, one lens remains — cracked, but still glowing faintly red.
+
+Fantisy-
+You — Taren — were once a proud man, a healer of the Northern Kingdoms.
+Twenty years ago, a jealous sorcerer cursed you, twisting your body into that of an ogre.
+Your mind remained sharp, but your heart grew heavy under the weight of the curse.
+
+Now, your old friend, Aldric the Wise, has returned from his travels with a discovery:
+
+“When the moon meets the sun in the glass of gold, the ogre shall rise as man once more.”
+
+Together, you set out to find the four sacred relics known as the Essences of Man:
+
+The Heart of Stone (Courage)
+
+The Tear of the Sun (Hope)
+
+The Sands of Memory (Time)
+
+The Feather of Ma’at (Truth)
+
+Only when all are gathered will you regain your human form — and ten years of your lost youth.
+
+1. The Prophecy
+You watch as Aldric unrolls a glowing scroll in his tower. The runes shimmer and rearrange themselves, forming a riddle that mentions “the mountain of iron and whispers.”
+
+2. The Iron Mountains
+The peaks scrape the clouds. You and Aldric climb through howling wind until a stone guardian blocks your path. It speaks:
+
+“I guard what has no heart, yet beats with courage. Answer, and pass.”
+
+3. The Heart of Stone
+The guardian hands you a glowing rock pulsing like a heartbeat. As you touch it, your claws shrink slightly — a fragment of your humanity returns.
+
+4. The Endless Desert
+You travel south to the Sands of Amun. Mirages blur the horizon — one oasis offers water, but three are illusions.
+
+5. The Island of Miraji
+On an island buried in golden dunes, a broken sundial hums in the heat. You recall Aldric’s words: “Time flows where shadow sleeps.”
+
+6. The Tear of the Sun
+The sundial splits open, revealing a glowing drop of light — the Tear. When you hold it, warmth spreads through your veins. You feel your body grow lighter, your voice clearer.
+
+7. The Ruins of Time
+Beneath the desert lies an ancient Egyptian-style temple, its walls carved with hieroglyphs of men turning into beasts. Aldric reads aloud: “He who turns the hourglass rewinds his fate.”
+
+8. The Sands of Memory
+You find a crystal hourglass buried in gold dust. As Aldric flips it, your mind floods with forgotten memories — your wife’s voice, your child’s laughter. You fall to your knees, weeping.
+
+9. The Sky Temple of Ma’at
+At dawn, you and Aldric climb to a floating temple guarded by sphinxes. A voice booms:
+
+“What weighs nothing, yet balances all?”
+
+10. The Restoration
+Back at the wizard’s tower, you place all four relics in a golden chalice. Light explodes outward, blinding you. When the glow fades, your reflection in the mirror is no longer that of an ogre — but a man.
+Aldric smiles, placing a hand on your shoulder:
+
+“You’ve earned your second life, Taren — may you live it wiser.”
 
 Historical- 
