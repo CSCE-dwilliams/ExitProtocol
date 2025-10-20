@@ -65,23 +65,35 @@ public class DataLoader extends DataConstants {
                 JSONObject personJSON = (JSONObject) peopleJSON.get(i);
                 String theme = (String) personJSON.get("theme");
                 String intro = (String) personJSON.get("description");
+                
                 GameTemplate newGame = new GameTemplate(theme, intro);
                 JSONArray questionsArray = (JSONArray) personJSON.get("challenges");
-                for (int j = 0; j < questionsArray.size(); j++) {
-                    JSONArray phraseArray = (JSONArray) personJSON.get("phrasechallenges");
-                    for (int h = 0; h < phraseArray.size(); h++) {
-                        String question = (String) personJSON.get("question");
-                        String answer = (String) personJSON.get("answer");
-                        JSONArray hintArray = (JSONArray) personJSON.get("hints");
 
+                for(int j =0; j < questionsArray.size(); j++) {
+                    JSONObject questionObj = (JSONObject) questionsArray.get(j);
+                    JSONArray phraseArray = (JSONArray) questionObj.get("phrasechallenges");
+
+                    for(int h =0; h < phraseArray.size(); h++) {
+                        JSONObject phraseObj = (JSONObject) phraseArray.get(h);
+
+                        String question = (String) phraseObj.get("question");
+                        String answer = (String) phraseObj.get("answer");
+
+                        JSONArray hintArray = (JSONArray) phraseObj.get("hints");
+                        
+                        // for(int k =0; k < hintArray.size();k++){
+                        //     String hint = (String) hintArray.get(k);
+                        //     newGame.hintSet.get(h).add(hint);
+                        // }
+                        
+                        String clue = (String) phraseObj.get("clue");
+                        newGame.addClues(clue);
+                        newGame.addQuestions(question);
+                        newGame.answerSet.add(answer);
                     }
 
                 }
-
-                for (int j = 0; i < questionsArray.size(); i++) {
-
-                }
-                // games.add(addUser);
+                games.add(newGame);
             }
         } catch (Exception e) {
             e.printStackTrace();
