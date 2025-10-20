@@ -1,8 +1,9 @@
 package com.model;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.UUID;
+import java.util.Comparator;
+import java.util.Collection;
 
 public class Leaderboard {
 
@@ -19,11 +20,16 @@ public class Leaderboard {
 
     public void getScores()
     {
+        Collection<Integer> scores = scoreSet.values();
+        for(Integer score : scores)
+        {
+            System.out.println(score);
+        }
 
     }
 
     public void sortScore()
     {
-
+        
     }
 }
