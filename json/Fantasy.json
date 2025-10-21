@@ -1,0 +1,98 @@
+[
+  {
+    "theme": "Fantasy",
+    "description": "A fantasy escape room where you, Taren the cursed ogre, travel with the wizard Aldric to collect relics that will restore your humanity.",
+    "challenges": [
+      {
+        "question": "What does the prophecy’s glowing runes reveal when decoded?",
+        "answer": "Seek the Iron Mountains",
+        "hints": [
+          "The runes rearrange themselves when read backward.",
+          "It’s a location high above the clouds.",
+          "The words form a command to travel to a mountain range made of iron."
+        ]
+      },
+      {
+        "question": "What answer allows you to pass the guardian of the Iron Mountains?",
+        "answer": "Courage",
+        "hints": [
+          "The guardian asks for something that beats without a heart.",
+          "The relic found here is called the Heart of Stone.",
+          "The answer represents bravery, not a physical object."
+        ]
+      },
+      {
+        "question": "What shape must you form with the stone tiles to obtain the Heart of Stone?",
+        "answer": "Heart",
+        "hints": [
+          "The name of the relic gives a big clue.",
+          "The puzzle’s outline looks like a familiar symbol of love.",
+          "Arrange the pieces into the shape that matches the relic’s name."
+        ]
+      },
+      {
+        "question": "In the Sands of Amun, which oasis is the real one?",
+        "answer": "The third oasis",
+        "hints": [
+          "Look for the only oasis whose reflection matches the sky.",
+          "The real one is not the first or the second mirage.",
+          "It appears calm and doesn’t distort under the sun’s heat."
+        ]
+      },
+      {
+        "question": "What word appears when you align the sundial symbols on the Desert Island of Miraji?",
+        "answer": "Tear of the Sun",
+        "hints": [
+          "It glows when the symbols are placed in the correct order.",
+          "The relic’s name contains both light and emotion.",
+          "Think of sunlight and tears combined."
+        ]
+      },
+      {
+        "question": "What object emits light when you touch it, making you feel more human?",
+        "answer": "The Tear of the Sun",
+        "hints": [
+          "It’s the relic you just uncovered from the sundial.",
+          "It shines like liquid sunlight.",
+          "It restores part of your humanity when held."
+        ]
+      },
+      {
+        "question": "What do the hieroglyphs in the Ruins of Time translate to?",
+        "answer": "Sands of Memory",
+        "hints": [
+          "The symbols depict an hourglass and falling sand.",
+          "The translation refers to time and remembrance.",
+          "It’s the name of the third relic you must find."
+        ]
+      },
+      {
+        "question": "What must Aldric flip to reveal your past memories?",
+        "answer": "The Hourglass",
+        "hints": [
+          "It’s filled with golden sand.",
+          "Turning it back rewinds time itself.",
+          "The sands inside it represent memory and lost years."
+        ]
+      },
+      {
+        "question": "In the Sky Temple of Ma’at, the sphinx asks: 'What weighs nothing, yet balances all?' What is your answer?",
+        "answer": "Truth",
+        "hints": [
+          "It’s something you can’t hold, yet it determines fairness.",
+          "It’s what the Feather of Ma’at represents.",
+          "It’s the opposite of deceit."
+        ]
+      },
+      {
+        "question": "What final phrase unites the four relics and restores your humanity?",
+        "answer": "Essence Restored",
+        "hints": [
+          "Combine the words from all relics you’ve gathered.",
+          "It signals completion of the transformation.",
+          "It means the soul and body are made whole again."
+        ]
+      }
+    ]
+  }
+]

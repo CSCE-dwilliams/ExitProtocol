@@ -131,6 +131,8 @@ You and your friends shatter the glasses at sunrise. The reflection screams, and
 But when you look down, one lens remains — cracked, but still glowing faintly red.
 
 Fantisy-
+The Wizard’s Oath
+
 You — Taren — were once a proud man, a healer of the Northern Kingdoms.
 Twenty years ago, a jealous sorcerer cursed you, twisting your body into that of an ogre.
 Your mind remained sharp, but your heart grew heavy under the weight of the curse.
@@ -189,3 +191,27 @@ Aldric smiles, placing a hand on your shoulder:
 “You’ve earned your second life, Taren — may you live it wiser.”
 
 Historical- 
+The Black Veil
+
+You are Dr. Elias Mercer, a physician and scholar in 14th-century Europe — the year the Black Death spreads through towns faster than anyone can bury the dead.
+
+The Church calls it divine punishment.
+The nobles call it a curse.
+But you — you call it a mystery that must be solved.
+
+In your candlelit laboratory, armed with crude instruments and ancient scrolls, you seek a way to understand — or even cure — the plague before it wipes out humanity.
+
+Rumors tell of an alchemist’s hidden notes, relics that could reveal the source of the sickness, and a possible antidote buried beneath the catacombs of your city.
+
+You have 15 days before the infection reaches your home.
+
+1.
+2.
+3.
+4.
+5.
+6.
+7.
+8.
+9.
+10.

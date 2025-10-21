@@ -1,0 +1,104 @@
+[
+{
+    "theme": "Historical",
+    "description": "You - Dr. Elias Mercer. A historical escape room set during the European bubonic plague (1348). You are a scientist racing to discover the cause and produce a cure before the infection reaches your community.",
+    "challenges": [
+      {
+        "question": "What warning phrase do you decode from the first coroner's journal entry describing the corpse with black swellings?",
+        "answer": "The air carries death",
+        "hints": [
+          "The old entry uses metaphor — consider what people believed spread disease.",
+          "Focus on short phrases the coroner repeats in other entries.",
+          "The phrase points toward how contagion is perceived in the notes."
+        ]
+      },
+      {
+        "question": "Which ancient practice listed in the town remedies is actually recorded as common (True) in contemporary accounts?",
+        "answer": "Bloodletting",
+        "hints": [
+          "Many medieval physicians practiced this frequently for many ailments.",
+          "Think of a medical practice involving removing bodily fluid.",
+          "It was considered a standard treatment, despite modern views."
+        ]
+      },
+      {
+        "question": "What key word appears when you decrypt the alchemist's coded parchment that references animals?",
+        "answer": "Fleas",
+        "hints": [
+          "The alchemist’s clue points to a small creature associated with rats.",
+          "Decryption yields a short plural noun.",
+          "It names the likely vector of transmission."
+        ]
+      },
+      {
+        "question": "What label do your magnified sketches match when you study the tiny jumping insects from the captured rats?",
+        "answer": "Flea Larvae",
+        "hints": [
+          "The sketches show segmented bodies and long hind legs for jumping.",
+          "Consider juvenile stages of parasitic insects.",
+          "Match the drawing to the lifecycle stage often found on hosts."
+        ]
+      },
+      {
+        "question": "Which remedy phrase is revealed when you translate the wax-sealed Medicina Obscura passage?",
+        "answer": "Garlic and Vinegar",
+        "hints": [
+          "The book lists strong-smelling and acidic substances used historically to repel contagion.",
+          "Two common household items, one pungent and one acidic, are recommended.",
+          "They were believed to purify air and prevent miasma."
+        ]
+      },
+      {
+        "question": "Which path through the catacombs leads to the alchemist’s chamber on the map?",
+        "answer": "Third turning on the left after the skull arch",
+        "hints": [
+          "The catacomb map marks a skull arch as a landmark.",
+          "Count passage turns from that arch to find the correct chamber.",
+          "It’s not the first corridor; choose the third turning on the left."
+        ]
+      },
+      {
+        "question": "What is the name written on the glowing vial found in the alchemist’s chamber?",
+        "answer": "Vita ex Morte",
+        "hints": [
+          "The label is Latin and contrasts life with death.",
+          "Translate each word if you’re unsure: 'Vita' and 'Morte' are key.",
+          "It’s the tonic described as 'Life from Death' in the chamber notes."
+        ]
+      },
+      {
+        "question": "Which ingredient order stabilizes the vial to form an effective antidote in your trial?",
+        "answer": "Boil Vinegar, Add Garlic, Stir with Rat’s Oil",
+        "hints": [
+          "The Medicina Obscura hints at acids first, then pungent botanicals.",
+          "Think about extracting active compounds by heat before combining with oils.",
+          "Follow the alchemist’s marginalia: acid, herb, oil."
+        ]
+      },
+      {
+        "question": "Which statements will convince the Inquisitor to allow you to distribute the cure (select the truthful ones)?",
+        "answer": "This treatment reduces swelling; The formula uses known household items",
+        "hints": [
+          "Choose statements that are demonstrable by observation and not theoretical.",
+          "The Inquisitor trusts empirical signs like reduced symptoms.",
+          "Avoid claims that appear to challenge doctrine directly."
+        ]
+      },
+      {
+        "question": "What final phrase do you record in your journal to represent the lesson of your work and complete the escape?",
+        "answer": "Knowledge Heals",
+        "hints": [
+          "It’s a short motto linking science and salvation.",
+          "The phrase emphasizes education and reason over superstition.",
+          "Write the concise two-word message that becomes your legacy."
+        ]
+      }
+    ]
+ }
+]
+
+
+
+
+
+

@@ -1,7 +1,7 @@
 [
     {
         "theme": "Mystery",
-        "description": "A mystery escape room.",
+        "description": "You - Arthur. A mystery escape room set in your late father’s mansion. After being left out of his will, you suspect a hidden inheritance. Solve codes, decipher blueprints, and uncover the truth your father buried within the walls of the estate.",
         "challenges": [
             {
                 "question": "What hidden message is written along the blueprint’s borders?",
