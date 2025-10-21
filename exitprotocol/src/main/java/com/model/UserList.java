@@ -42,14 +42,18 @@ public class UserList {
                 System.out.println("Enter a valid number");
                 continue;
             }
+
             System.out.println("Welcome " + playerUser.getFirstName() + "\nMake a Game below: \n");
             System.out.println("-----------------------------\nMAKE A SESSION BELOW:\n");
+
             Game testingGame = new Game("Medieval", 2, 3, "saucy");
+            //here would go addGame,
             addSession(playerUser, testingGame);
 
             DataWriter.saveUsers();
             //this is just testing template question generation
             //gameList.showGames();
+            //session test
 
         }
     }

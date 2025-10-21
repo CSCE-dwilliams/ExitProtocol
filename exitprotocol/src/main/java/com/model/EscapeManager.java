@@ -20,6 +20,7 @@ public class EscapeManager {
     }
 
     public void loadGame() {
+
     }
 
     public void endGame() {

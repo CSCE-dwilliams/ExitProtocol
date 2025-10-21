@@ -52,11 +52,20 @@ public class DataWriter extends DataConstants {
 
             GameSession userSession = user.getSession(UUID.fromString(sessionKeys.get(i)));
             JSONObject sessionYo = new JSONObject();
+            JSONObject storedGame = new JSONObject();
 
             sessionYo.put("id", userSession.getSessionID().toString());
             sessionYo.put("teamname", userSession.getTeamName());
             sessionYo.put("score", userSession.getScore());
             // sessionYo.put("progress") idk jsonObject man
+            Game sessionGame = userSession.getSessiongame();
+            storedGame.put("theme",sessionGame.getTheme());
+            storedGame.put("difficulty", sessionGame.getDifficulty());
+            storedGame.put("playercount", sessionGame.getPlayerCount());
+            sessionYo.put("gamespec", storedGame);
+
+
+
             sessionYo.put("currentChallengeIndex", userSession.getCurrentChallengeIndex());
             sessionYo.put("state", userSession.getState().toString());
             sessionYo.put("sessionName", userSession.getSessionName());

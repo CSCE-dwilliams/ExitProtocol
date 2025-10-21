@@ -21,6 +21,16 @@ public class Game {
         return "";
     }
 
+    public String getTheme(){
+        return this.theme;
+    }
+    public int getDifficulty(){
+        return this.difficulty;
+    }
+    public int getPlayerCount(){
+        return this.playerCount;
+    }
+
     public UUID getID()
     {
         return gameID;
