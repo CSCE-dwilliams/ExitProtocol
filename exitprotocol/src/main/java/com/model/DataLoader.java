@@ -10,10 +10,6 @@ import org.json.simple.parser.JSONParser;
 
 public class DataLoader extends DataConstants {
     public static void main(String[] args) {
-        // Platform.runLater(() -> {
-        // Stage stage = new Stage();
-        // Timer.timerStart(stage);
-        // });
 
         System.out.println("test");
         ArrayList<User> users = getUsers();
@@ -43,6 +39,10 @@ public class DataLoader extends DataConstants {
                 int avatar = ((Long) personJSON.get(USER_AVATAR)).intValue();
                 int score = ((Long) personJSON.get(USER_SCORE)).intValue();
                 User addUser = new User(firstName, lastName, email, passWord, avatar, id);
+                if(personJSON.containsKey("sessions")){
+                    UUID sessionID = UUID.fromString((String) personJSON.get("id"));
+
+                }
                 for (int j = 0; i < sessionsArray.size(); i++) {
 
                 }
@@ -81,8 +81,8 @@ public class DataLoader extends DataConstants {
 
                         JSONArray hintArray = (JSONArray) phraseObj.get("hints");
                         
-                        // for(int k =0; k < hintArray.size();k++){
-                        //     String hint = (String) hintArray.get(k);
+                        // for(int l =0; l < hintArray.size();l++){
+                        //     String hint = (String) hintArray.get(l);
                         //     newGame.hintSet.get(h).add(hint);
                         // }
                         

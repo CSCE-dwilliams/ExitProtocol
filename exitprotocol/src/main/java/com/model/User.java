@@ -12,7 +12,8 @@ public class User {
     private String email;
     private String password;
     private int avatar;
-    private Integer score;
+    private Integer score;//remove later
+    //sessionID to session object 
     private HashMap<UUID, GameSession> sessions = new HashMap<>();
 
     public User(String firstName, String lastName, String email,
@@ -35,8 +36,17 @@ public class User {
         sessions.put(session.getSessionID(), session);
     }
 
-    public GameSession createAndAddSession(Game game) {
-        GameSession s = new GameSession(game, this.id);
+
+    public ArrayList<String> getSessionIDS(){
+        ArrayList<String> sessionKeys = new ArrayList<>();
+        for(UUID id: sessions.keySet()){
+            sessionKeys.add(id.toString());
+        }
+        return sessionKeys;
+
+    }
+    public GameSession createAndAddSession(Game game, String teamName, String sessionName) {
+        GameSession s = new GameSession(game, this.id, teamName, sessionName);
         storeGameSession(s);
         return s;
     }
@@ -44,7 +54,7 @@ public class User {
     public GameSession getSession(UUID sessionID) {
         return sessions.get(sessionID);
     }
-
+    
     public ArrayList<GameSession> getAllSessions() {
         return new ArrayList<>(sessions.values());
     }

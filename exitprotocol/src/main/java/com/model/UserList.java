@@ -8,18 +8,19 @@ public class UserList {
     private static UserList userList;
     private ArrayList<User> users;
 
-    private UserList() {}
+    private UserList() {
+    }
 
     /**
      * Demo Test Session methods
      */
-    
+
     // public static void main(String[] args) {
-    //     System.out.println("\nTesting game\n\n");
-    //     runGame();
+    // System.out.println("\nTesting game\n\n");
+    // runGame();
     // }
 
-    public static void runGame() {
+    public static void signIn() {
         UserList userList = UserList.getInstance();
         userList.loadUsers();
         GameList gameList = GameList.getInstance();
@@ -29,6 +30,7 @@ public class UserList {
             System.out.println("Input:\n1. For Returning User\n2. For New User");
             int choice = userInput.nextInt();
             User playerUser;
+
             if (choice == 1) {
                 playerUser = returnUser();
                 System.out.println("\n------\nUser accessed: " + playerUser);
@@ -40,18 +42,26 @@ public class UserList {
                 System.out.println("Enter a valid number");
                 continue;
             }
+            System.out.println("Welcome " + playerUser.getFirstName() + "\nMake a Game below: \n");
+            System.out.println("-----------------------------\nMAKE A SESSION BELOW:\n");
             Game testingGame = new Game("Medieval", 2, 3, "saucy");
-            for(int i =0; i < 4; i++){
-              playerUser.createAndAddSession(testingGame);
-            }
+            addSession(playerUser, testingGame);
+
             DataWriter.saveUsers();
-            System.out.println("Welcome "+ playerUser.getFirstName() + "\nMake a Game below: \n");
-            gameList.showGames();
-            // System.out.println(playerUser.getAllSessions());
-            //here provide option to view all sessions and make session
-            //making session initiates game, creates object based on specification
+            //this is just testing template question generation
+            //gameList.showGames();
 
         }
+    }
+
+    public static void addSession(User addUser, Game sessionGame) {
+        Scanner u = new Scanner(System.in);
+        System.out.println("Enter the details for your new game session.\nEnter Team Name: ");
+        String teamName = u.nextLine();
+        System.out.println("Enter Session Name:");
+        String sessionName = u.nextLine();
+        addUser.createAndAddSession(sessionGame, teamName, sessionName);
+
     }
 
     public static User returnUser() {
@@ -92,7 +102,6 @@ public class UserList {
             User add = new User(firstName, lastName, email, password, avatar, UUID.randomUUID());
             userList.createAccount(firstName, lastName, email, password, avatar, UUID.randomUUID());
             return add;
-
         }
     }
 

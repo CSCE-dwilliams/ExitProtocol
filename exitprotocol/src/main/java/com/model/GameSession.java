@@ -8,21 +8,33 @@ public class GameSession{
     private UUID gameTemplateID; // consider later
     private int currentChallengeIndex;
     private String teamName;
-    private int Score;
+    private int score;
     private ChallengeProgress progress;
     private SessionState state;
     private String sessionName;
 
 
-    public GameSession(Game aGame, UUID userID){
+    public GameSession(Game aGame, UUID userID,String teamName, String sessionName){
+        // need to pass game session and then progress session
         this.sessionID = UUID.randomUUID();
         this.progress = new ChallengeProgress();
         this.state = SessionState.ACTIVE;
         this.currentChallengeIndex = 0;
         this.state = SessionState.ACTIVE;
+        this.teamName = teamName;
+        this.sessionName = sessionName;
     }
     public UUID getSessionID(){
         return this.sessionID;
+    }
+    public String getTeamName(){
+        return teamName;
+    }
+    public int getScore(){
+        return score;
+    }
+    public int getCurrentChallengeIndex(){
+        return currentChallengeIndex;
     }
     public ChallengeProgress getProgress(){
         return progress;

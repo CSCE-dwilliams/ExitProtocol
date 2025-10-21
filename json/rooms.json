@@ -1,7 +1,7 @@
 [
     {
         "theme": "Medieval",
-        "description": "A medieval escape room.",
+        "description": "Insert intro text for game theme here", 
         "challenges": [
             {
                 "phrasechallenges": [
@@ -20,10 +20,13 @@
                             "Think about what you're using right now."
                         ],
                         "clue": "/images/ancienttypewriter"
-                    },
+                    }
+                ],
+                "tfchallenges": [
+
                     {
-                        "question": "I speak without a mouth and hear without ears. I have no body, but come alive with wind. What am I?",
-                        "answer": "An echo",
+                        "question": "True or false, the largest Island in the world is Honshu",
+                        "answer": "False",
                         "hints": [
                             "Listen carefully in these stone halls."
                         ],
