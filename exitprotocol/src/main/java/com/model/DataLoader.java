@@ -61,6 +61,8 @@ public class DataLoader extends DataConstants {
             FileReader reader = new FileReader(GAMES_FILE_NAME);
             JSONArray peopleJSON = (JSONArray) new JSONParser().parse(reader);
 
+            //think through helper logic
+            //pass to it 
             for (int i = 0; i < peopleJSON.size(); i++) {
                 JSONObject personJSON = (JSONObject) peopleJSON.get(i);
                 String theme = (String) personJSON.get("theme");
@@ -101,4 +103,29 @@ public class DataLoader extends DataConstants {
         return games;
     }
 
+    private static GameTemplate parseGame(JSONObject personJSON){
+        String theme = (String) personJSON.get("theme");
+        String intro = (String) personJSON.get("description");
+
+        GameTemplate newGame = new GameTemplate(theme, intro);
+
+        JSONArray questionsArray = (JSONArray) personJSON.get("challenges");
+
+        for(Object obj : questionsArray){
+
+        }
+
+
+        return newGame;
+    }
+
+    private static void parseQuestion(JSONObject questionObj, GameTemplate game){
+        JSONArray phraseArray = (JSONArray) questionObj.get("phrasechallenges");
+
+        for(Object obj : phraseArray){
+            JSONObject phraseObj = (JSONObject) obj;
+            
+        }
+
+    }
 }
