@@ -13,7 +13,7 @@ public class GameSession{
     private SessionState state;
     private String sessionName;
     private Game sessionGame;
-
+    public Countdown countdown;
 
     public GameSession(Game aGame, UUID userID,String teamName, String sessionName){
         this.sessionGame = aGame;
@@ -47,9 +47,17 @@ public class GameSession{
         return sessionGame;
     }
     public SessionState getState(){ return state;}
-    public void pause(){state = SessionState.PAUSED;}
-    public void resume(){state = SessionState.ACTIVE;}
-    public void complete(){ state = SessionState.COMPLETED;}
+    public void pause(){
+        state = SessionState.PAUSED;
+        countdown.pause();}
+    public void resume(){
+        state = SessionState.ACTIVE;
+        countdown.resume();}
+    public void complete(){
+        state = SessionState.COMPLETED;
+        countdown.pause();
+
+    }
     
     public void advancePuzzle(){currentChallengeIndex++;}
 
