@@ -2,7 +2,7 @@ package com.model;
 
 public class EscapeManager {
     private Leaderboard leaderboard;
-    private Timer timer;
+    //private Timer timer;
     // private Avatar avatar;
     // private Theme theme;
     // private GameSession gameSession;
