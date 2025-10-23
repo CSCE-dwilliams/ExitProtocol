@@ -4,6 +4,8 @@
         "description": "You - Arthur. A mystery escape room set in your late father’s mansion. After being left out of his will, you suspect a hidden inheritance. Solve codes, decipher blueprints, and uncover the truth your father buried within the walls of the estate.",
         "challenges": [
             {
+                "phrasechallenges": [
+                    {
                 "question": "What hidden message is written along the blueprint’s borders?",
                 "answer": "Go Below the Study",
                 "hints": [
@@ -20,15 +22,6 @@
                     "It’s something you hear — not see.",
                     "It repeats after you speak.",
                     "The word literally means “the reflection of sound.”"
-                ]
-            },
-            {
-                "question": "Which combination of True/False answers reveals the correct code to continue?",
-                "answer": "False, True, False",
-                "hints": [
-                    "You must decide which statements about your father’s will are real or lies.",
-                    "The pattern alternates — not everything false is wrong.",
-                    "The sequence forms a three-part truth pattern: first and last are false, middle is true."
                 ]
             },
             {
@@ -68,15 +61,6 @@
                 ]
             },
             {
-                "question": "What choice opens the final safe — Truth or Lie?",
-                "answer": "True",
-                "hints": [
-                    "The plaque literally tells you the answer.",
-                    "Between Truth or Lie, one word opens the way.",
-                    "Your father always believed truth would prevail."
-                ]
-            },
-            {
                 "question": "What is the English translation of “Veritas Vincit”?",
                 "answer": "Truth Prevails",
                 "hints": [
@@ -92,6 +76,34 @@
                     "Look for a single Latin word engraved on the final key.",
                     "It’s the same word your father wrote on many of his letters.",
                     "It means “Truth.”"
+                ]
+            }
+                ],
+            "tfchallenges": [
+                {
+                "question": "Which combination of True/False answers reveals the correct code to continue?",
+                "answer": "False, True, False",
+                "hints": [
+                    "You must decide which statements about your father’s will are real or lies.",
+                    "The pattern alternates — not everything false is wrong.",
+                    "The sequence forms a three-part truth pattern: first and last are false, middle is true."
+                ]
+                },
+                {
+                "question": "What choice opens the final safe — Truth or Lie?",
+                "answer": "True",
+                "hints": [
+                    "The plaque literally tells you the answer.",
+                    "Between Truth or Lie, one word opens the way.",
+                    "Your father always believed truth would prevail."
+                ]
+                }
+                ],
+                "cipherchallenges": [
+
+                ],
+                "interactivechallenges": [
+
                 ]
             }
         ]
