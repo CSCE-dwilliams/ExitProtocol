@@ -41,41 +41,74 @@ public class UserList {
                 continue;
             }
 
-            System.out.println("Welcome " + playerUser.getFirstName() + "\n-----------------------------\n");
-            System.out.println("Here are your sessions\n______________________");
+            System.out.println("-----------------------------\nWelcome " + playerUser.getFirstName()
+                    + "\n-----------------------------\n");
 
-            for (GameSession s : playerUser.getAllSessions()) {
-                System.out.println(s);
-                System.out.println("----------");
-            }
-
-            System.out.println("Which session would you like to play?\nEnter Session Name:");
-            userInput.nextLine();
-            String sessionChoice = userInput.nextLine();
-           
-           
-            GameSession sessionCurrent = playerUser.chooseSession(sessionChoice);
-            if (sessionCurrent != null) {
-                System.out.println("Your session selection is:\n" + sessionCurrent);
-            } else {
-                System.out.println("Session name did not match, try again");
-                continue;
-            }
-            System.out.println("Creating Game...\n");
-
-            Game startGame = new Game(sessionCurrent);
-            GameList gameList = GameList.getInstance();
-            gameList.loadGames();
-            gameList.getGameData(startGame);
-            startGame.challengeStart(sessionCurrent.getChallengeIndex());
-
+            seeAllSessions(playerUser, userInput);
+            startGame(playerUser, userInput);
             DataWriter.saveUsers();
-            
+
         }
     }
 
-    public static void addSession(User addUser) {
-        Scanner u = new Scanner(System.in);
+    public static void startGame(User accessUser, Scanner u) {
+        System.out.println("Which session would you like to play?\nEnter Session Name:");
+        u.nextLine();
+        String sessionChoice = u.nextLine();
+        GameSession sessionCurrent = accessUser.chooseSession(sessionChoice);
+        // while (true) {
+        //     if (sessionCurrent != null) {
+        //         System.out.println("Your session selection is:\n" + sessionCurrent);
+        //         break;
+        //     } else {
+        //         System.out.println("Session name did not match, try again");
+        //         continue;
+        //     }
+        // }
+        System.out.println("Creating Game...\n");
+
+        Game startGame = new Game(sessionCurrent);
+        GameList gameList = GameList.getInstance();
+        gameList.loadGames();
+        gameList.getGameData(startGame);
+        startGame.challengeStart(sessionCurrent.getChallengeIndex());
+
+    }
+
+    public static void seeAllSessions(User accessUser, Scanner u) {
+        u.nextLine();
+        System.out.println("Press 1. To see all sessions\nPress 2. To create new session");
+        while (true) {
+            int choice = u.nextInt();
+            if (choice == 1) {
+                if (!accessUser.getAllSessions().isEmpty()) {
+                    System.out.println("Here are your sessions\n______________________");
+                    for (GameSession s : accessUser.getAllSessions()) {
+                        System.out.println(s);
+                        System.out.println("----------");
+                    }
+                    break;
+                } else {
+                    System.out.println("No sessions found, press 2 to create a new session");
+                }
+            } else if (choice == 2) {
+                addSession(accessUser, u);
+                System.out.println("Here are your sessions\n______________________");
+                for (GameSession s : accessUser.getAllSessions()) {
+                    System.out.println(s);
+                    System.out.println("----------");
+                }
+                DataWriter.saveUsers();
+                break;
+            } else {
+                System.out.println("Enter a valid number choice");
+                continue;
+            }
+        }
+    }
+
+    public static void addSession(User addUser, Scanner u) {
+        u.nextLine();
         System.out.println("Enter the details for your new game session.\nEnter Team Name: ");
         String teamName = u.nextLine();
         System.out.println("Enter Session Name:");
@@ -102,6 +135,7 @@ public class UserList {
         System.out.println("Enter the number of players [1-4]");
         int playerCount = u.nextInt();
         addUser.createAndAddSession(teamName, sessionName, themeName, difficulty, playerCount);
+        DataWriter.saveUsers();
 
     }
 
@@ -128,22 +162,26 @@ public class UserList {
     }
 
     public static User newUser() {
-        while (true) {
-            Scanner userInput = new Scanner(System.in);
-            System.out.println("Enter an associated email with the account:");
-            String email = userInput.nextLine();
-            System.out.println("Enter a password for the account:");
-            String password = userInput.nextLine();
-            System.out.println("Enter a First Name for the account:");
-            String firstName = userInput.nextLine();
-            System.out.println("Enter a Last Name for the account:");
-            String lastName = userInput.nextLine();
-            System.out.println("Enter an avatar selection for the account:");
-            int avatar = userInput.nextInt();
-            User add = new User(firstName, lastName, email, password, avatar, UUID.randomUUID());
-            userList.createAccount(firstName, lastName, email, password, avatar, UUID.randomUUID());
-            return add;
+        Scanner userInput = new Scanner(System.in);
+        System.out.println("Enter an associated email with the account:");
+        String email = userInput.nextLine();
+        while (userList.emailAlreadyExists(email)) {
+            System.out.println("Email is already in use");
+            System.out.println("Enter a new email:");
+            email = userInput.nextLine();
         }
+        System.out.println("Enter a password for the account:");
+        String password = userInput.nextLine();
+        System.out.println("Enter a First Name for the account:");
+        String firstName = userInput.nextLine();
+        System.out.println("Enter a Last Name for the account:");
+        String lastName = userInput.nextLine();
+        System.out.println("Enter an avatar selection for the account:");
+        int avatar = userInput.nextInt();
+        User add = new User(firstName, lastName, email, password, avatar, UUID.randomUUID());
+        userList.createAccount(firstName, lastName, email, password, avatar, UUID.randomUUID());
+        DataWriter.saveUsers();
+        return add;
     }
 
     public static UserList getInstance() {
@@ -158,6 +196,16 @@ public class UserList {
 
     public ArrayList<User> getUsers() {
         return this.users;
+    }
+
+    public boolean emailAlreadyExists(String email) {
+        boolean exists = false;
+        for (User u : this.users) {
+            if (u.getEmail().equalsIgnoreCase(email)) {
+                exists = true;
+            }
+        }
+        return exists;
     }
 
     public boolean testEmail(String email) {
