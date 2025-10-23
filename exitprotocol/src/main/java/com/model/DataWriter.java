@@ -41,8 +41,7 @@ public class DataWriter extends DataConstants {
         o.put("email", user.getEmail());
         o.put("password", user.getPassword());
         o.put("avatar", user.getAvatar());
-        o.put("score", user.getScore());
-
+        
         ArrayList<String> sessionKeys = user.getSessionIDS();
 
         JSONArray jsonSessions = new JSONArray();

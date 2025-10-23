@@ -9,7 +9,8 @@
                         "question": "She sells sea shells by the sea shore?",
                         "answer": "She selled sea shells at the sea shore.",
                         "hints": [
-                            "Use your brain."
+                            "Use your brain.",
+                            "hint"
                         ],
                         "clue": "/images/shadowedcircularsilhouette"
                     },

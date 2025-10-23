@@ -74,13 +74,12 @@ public class GameSession{
     public void advancePuzzle(){challengeIndex++;}
 
     public void saveSession(){
-        
     }
     @Override
     public String toString(){
         return "Session Name: "+ this.getSessionName()+ "\nSession Team Name: " + this.getTeamName()+
         "\nSession Theme: "+ this.getSessionTheme() + "\nDifficulty: " + this.getDifficulty() + 
-        "\nPlayer Count: " + this.getPlayerCount();
+        "\nPlayer Count: " + this.getPlayerCount() + "\nCurrent Score: "+ this.getScore();
         
     }
 }

@@ -6,7 +6,9 @@ public class UI{
     }
 
     public void loginSuccessfulAndAnswerFirstQuestion() {
-        EscapeManager manager = new EscapeManager();
+        
+        EscapeManager manager = EscapeManager.getInstance();
+
 /*
         if(!manager.logIn("mister@email.com", "1234")){
             System.out.println("Sorry");

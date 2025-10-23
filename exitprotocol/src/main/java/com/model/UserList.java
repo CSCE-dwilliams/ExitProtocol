@@ -11,14 +11,79 @@ public class UserList {
     private UserList() {
     }
 
-    /**
-     * Demo Test Session methods
-     */
+    public static UserList getInstance() {
+        if (userList == null)
+            userList = new UserList();
+        return userList;
+    }
 
-    // public static void main(String[] args) {
-    // System.out.println("\nTesting game\n\n");
-    // runGame();
-    // }
+    public void loadUsers() {
+        users = DataLoader.getUsers();
+    }
+
+    public ArrayList<User> getUsers() {
+        return this.users;
+    }
+
+    public boolean emailAlreadyExists(String email) {
+        boolean exists = false;
+        for (User u : this.users) {
+            if (u.getEmail().equalsIgnoreCase(email)) {
+                exists = true;
+            }
+        }
+        return exists;
+    }
+
+    public boolean testEmailSignIn(String email) {
+        for (User u : users) {
+            if (u.getEmail().toLowerCase().equals(email.toLowerCase())) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean testPassword(String email, String pass) {
+        for (int i = 0; i < users.size(); i++) {
+            if (users.get(i).getEmail().equals(email)
+                    && users.get(i).getPassword().equals(pass)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+
+    public User getUser(String email, String password) {
+        for (int i = 0; i < users.size(); i++) {
+            if (users.get(i).getEmail().equals(email)
+                    && users.get(i).getPassword().equals(password)) {
+                return users.get(i);
+            }
+        }
+        return null;
+    }
+
+    public void createAccount(
+            String firstName,
+            String lastName,
+            String email,
+            String password,
+            int avatar,
+            UUID id) {
+        User newUser = new User(firstName, lastName, email, password, avatar, id);
+        getUsers().add(newUser);
+        DataWriter.saveUsers();
+    }
+
+    /*
+     *
+     * 
+     * DEMOING USER ACCESS AND SESSION CREATION
+     * 
+     * 
+     */
 
     public static void signIn() {
         UserList userList = UserList.getInstance();
@@ -32,7 +97,7 @@ public class UserList {
 
             if (choice == 1) {
                 playerUser = returnUser();
-                System.out.println("\n------\nUser accessed: " + playerUser);
+                System.out.println("\n------\nUser accessed: \n" + playerUser);
             } else if (choice == 2) {
                 playerUser = newUser();
                 User test = userList.getUser(playerUser.getEmail(), playerUser.getPassword());
@@ -57,13 +122,13 @@ public class UserList {
         String sessionChoice = u.nextLine();
         GameSession sessionCurrent = accessUser.chooseSession(sessionChoice);
         // while (true) {
-        //     if (sessionCurrent != null) {
-        //         System.out.println("Your session selection is:\n" + sessionCurrent);
-        //         break;
-        //     } else {
-        //         System.out.println("Session name did not match, try again");
-        //         continue;
-        //     }
+        // if (sessionCurrent != null) {
+        // System.out.println("Your session selection is:\n" + sessionCurrent);
+        // break;
+        // } else {
+        // System.out.println("Session name did not match, try again");
+        // continue;
+        // }
         // }
         System.out.println("Creating Game...\n");
 
@@ -144,7 +209,7 @@ public class UserList {
             Scanner userInput = new Scanner(System.in);
             System.out.println("Enter email associated with account:");
             String emailAttempt = userInput.nextLine();
-            if (userList.testEmail(emailAttempt.toLowerCase())) {
+            if (userList.testEmailSignIn(emailAttempt.toLowerCase())) {
                 System.out.println("Enter password for the account:");
                 String passAttempt = userInput.nextLine();
                 if (userList.testPassword(emailAttempt, passAttempt)) {
@@ -184,68 +249,4 @@ public class UserList {
         return add;
     }
 
-    public static UserList getInstance() {
-        if (userList == null)
-            userList = new UserList();
-        return userList;
-    }
-
-    public void loadUsers() {
-        users = DataLoader.getUsers();
-    }
-
-    public ArrayList<User> getUsers() {
-        return this.users;
-    }
-
-    public boolean emailAlreadyExists(String email) {
-        boolean exists = false;
-        for (User u : this.users) {
-            if (u.getEmail().equalsIgnoreCase(email)) {
-                exists = true;
-            }
-        }
-        return exists;
-    }
-
-    public boolean testEmail(String email) {
-        for (int i = 0; i < users.size(); i++) {
-            if (users.get(i).getEmail().toLowerCase().equals(email.toLowerCase())) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    public boolean testPassword(String email, String pass) {
-        for (int i = 0; i < users.size(); i++) {
-            if (users.get(i).getEmail().equals(email)
-                    && users.get(i).getPassword().equals(pass)) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    public User getUser(String email, String password) {
-        for (int i = 0; i < users.size(); i++) {
-            if (users.get(i).getEmail().equals(email)
-                    && users.get(i).getPassword().equals(password)) {
-                return users.get(i);
-            }
-        }
-        return null;
-    }
-
-    public void createAccount(
-            String firstName,
-            String lastName,
-            String email,
-            String password,
-            int avatar,
-            UUID id) {
-        User newUser = new User(firstName, lastName, email, password, avatar, id);
-        getUsers().add(newUser);
-        DataWriter.saveUsers();
-    }
 }

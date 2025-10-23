@@ -43,7 +43,6 @@ public class DataLoader extends DataConstants {
                     for(int j =0; j < sessionsArray.size();j++){
                         JSONObject sessionDat = (JSONObject) sessionsArray.get(j);
                         int difficulty =  ((Long) sessionDat.get("difficulty")).intValue();
-                        int score = ((Long) sessionDat.get("playercount")).intValue();
                         int playerCount = ((Long) sessionDat.get("playercount")).intValue();
                         String sessionName = (String) sessionDat.get("sessionName");
                         String theme = (String) sessionDat.get("theme");
@@ -78,10 +77,10 @@ public class DataLoader extends DataConstants {
                 String intro = (String) personJSON.get("intro");
                 
                 GameTemplate newGame = new GameTemplate(theme, intro);
-                JSONArray questionsArray = (JSONArray) personJSON.get("challenges");
+                JSONArray challengeArray = (JSONArray) personJSON.get("challenges");
 
-                for(int j =0; j < questionsArray.size(); j++) {
-                    JSONObject questionObj = (JSONObject) questionsArray.get(j);
+                for(int j =0; j < challengeArray.size(); j++) {
+                    JSONObject questionObj = (JSONObject) challengeArray.get(j);
                     JSONArray phraseArray = (JSONArray) questionObj.get("phrasechallenges");
 
                     for(int h =0; h < phraseArray.size(); h++) {
@@ -91,11 +90,11 @@ public class DataLoader extends DataConstants {
                         String answer = (String) phraseObj.get("answer");
 
                         JSONArray hintArray = (JSONArray) phraseObj.get("hints");
-                        
-                        // for(int l =0; l < hintArray.size();l++){
-                        //     String hint = (String) hintArray.get(l);
-                        //     newGame.hintSet.get(h).add(hint);
-                        // }
+                        for(int l =0; l < hintArray.size();l++){
+                            
+                            String hint = hintArray.get(l).toString();
+                            newGame.addHints(l, hint);
+                        }
                         
                         String clue = (String) phraseObj.get("clue");
                         newGame.addClues(clue);

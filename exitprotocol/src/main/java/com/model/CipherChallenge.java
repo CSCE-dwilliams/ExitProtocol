@@ -13,7 +13,6 @@ public class CipherChallenge extends Challenge {
 
     public CipherChallenge(String correctAnswer, int shift, ArrayList<String> hints, Image clue) {
         super(hints, clue);
-
         this.shift = shift;
         this.correctAnswer = correctAnswer;
         this.encryptedAnswer = getEncryptedAnswer();

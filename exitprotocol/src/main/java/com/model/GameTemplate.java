@@ -40,11 +40,13 @@ public class GameTemplate {
     public void addAnswers(String answer){
         answerSet.add(answer);
     }
-    // public ArrayList<String> getHints() {
-    //     return hintSet;
-    // }
-    // public void addHints(String hints){
-    //     hintSet.add(hints);
-    // }
+    public ArrayList<ArrayList<String>> getHints() {
+        return hintSet;
+    }
+    public void addHints(int index, String hint){
+        ArrayList<String> nuSet = new ArrayList<String>();
+        hintSet.add(nuSet);
+        hintSet.get(index).add(hint);
+    }
 
 }
