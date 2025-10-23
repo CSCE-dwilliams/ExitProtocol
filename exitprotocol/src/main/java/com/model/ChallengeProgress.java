@@ -7,6 +7,8 @@ public class ChallengeProgress{
     private HashMap<Challenge, ChallengeProgress> challengeProgress;
     private boolean solved;
     private ArrayList<Item> items;
+    private int numHintsUsed;
+    
 
     
 

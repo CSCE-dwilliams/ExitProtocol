@@ -3,7 +3,8 @@
     "theme": "Historical",
     "description": "You - Dr. Elias Mercer. A historical escape room set during the European bubonic plague (1348). You are a scientist racing to discover the cause and produce a cure before the infection reaches your community.",
     "challenges": [
-      {
+      { "phrasechallenges": [
+        {
         "question": "What warning phrase do you decode from the first coroner's journal entry describing the corpse with black swellings?",
         "answer": "The air carries death",
         "hints": [
@@ -93,8 +94,19 @@
           "Write the concise two-word message that becomes your legacy."
         ]
       }
+      ],
+      "tfchallenges": [
+
+      ],
+      "cipherchallenges": [
+
+      ],
+      "interactivechallenges": [
+
+      ]
+      }
     ]
- }
+}
 ]
 
 

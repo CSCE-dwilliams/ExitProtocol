@@ -1,7 +1,7 @@
 [
     {
-        "theme": "Medieval",
-        "description": "A medieval escape room.",
+        "theme": "Historical",
+        "intro": "You - Dr. Elias Mercer. A historical escape room set during the European bubonic plague (1348). You are a scientist racing to discover the cause and produce a cure before the infection reaches your community.", 
         "challenges": [
             {
                 "phrasechallenges": [
@@ -20,10 +20,13 @@
                             "Think about what you're using right now."
                         ],
                         "clue": "/images/ancienttypewriter"
-                    },
+                    }
+                ],
+                "tfchallenges": [
+
                     {
-                        "question": "I speak without a mouth and hear without ears. I have no body, but come alive with wind. What am I?",
-                        "answer": "An echo",
+                        "question": "True or false, the largest Island in the world is Honshu",
+                        "answer": "False",
                         "hints": [
                             "Listen carefully in these stone halls."
                         ],
@@ -51,7 +54,7 @@
     },
     {
         "theme": "Horror",
-        "description": "A horrific escape room.",
+        "intro": "A horrific escape room.",
         "challenges": [
             {
                 "phrasechallenges": [

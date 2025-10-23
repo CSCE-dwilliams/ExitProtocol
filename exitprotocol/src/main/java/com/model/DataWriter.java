@@ -9,8 +9,9 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 public class DataWriter extends DataConstants {
-    // public ArrayList<Challenge> setTheme(String theme, int difficulty, int playerCount) {}    
-    
+    // public ArrayList<Challenge> setTheme(String theme, int difficulty, int
+    // playerCount) {}
+
     public static void saveUsers() {
         UserList userList = UserList.getInstance();
         ArrayList<User> users = userList.getUsers();
@@ -28,6 +29,10 @@ public class DataWriter extends DataConstants {
         }
     }
 
+    public static void saveSessions() {
+
+    }
+
     public static JSONObject getUserJSON(User user) {
         JSONObject o = new JSONObject();
         o.put("firstname", user.getFirstName());
@@ -37,19 +42,40 @@ public class DataWriter extends DataConstants {
         o.put("password", user.getPassword());
         o.put("avatar", user.getAvatar());
         o.put("score", user.getScore());
-        ArrayList<GameSession> session = user.getAllSessions();
+
+        ArrayList<String> sessionKeys = user.getSessionIDS();
+
         JSONArray jsonSessions = new JSONArray();
-        for (GameSession s : session) {
-            jsonSessions.add(s.toString());
-        }
         o.put("sessions", jsonSessions);
+
+        for (int i = 0; i < sessionKeys.size(); i++) {
+
+            GameSession userSession = user.getSession(UUID.fromString(sessionKeys.get(i)));
+            JSONObject sessionYo = new JSONObject();
+
+            sessionYo.put("id", userSession.getSessionID().toString());
+            sessionYo.put("teamname", userSession.getTeamName());
+            sessionYo.put("score", userSession.getScore());
+            // sessionYo.put("progress") idk jsonObject man
+            sessionYo.put("theme",userSession.getSessionTheme());
+            sessionYo.put("difficulty", userSession.getDifficulty());
+            sessionYo.put("playercount", userSession.getPlayerCount());
+
+            sessionYo.put("currentChallengeIndex", userSession.getChallengeIndex());
+            sessionYo.put("state", userSession.getState().toString());
+            sessionYo.put("sessionName", userSession.getSessionName());
+            jsonSessions.add(sessionYo);
+
+            o.put("sessions", jsonSessions);
+        }
+
         return o;
     }
 
-    public static JSONObject getGameJSON(Game game){
+    public static JSONObject getGameJSON(Game game) {
         JSONObject o = new JSONObject();
-        //game params theme,difficul,playercount,teamname,id
-        o.put("difficulty",game);
+        // game params theme,difficul,playercount,teamname,id
+        o.put("difficulty", game);
         return o;
     }
 

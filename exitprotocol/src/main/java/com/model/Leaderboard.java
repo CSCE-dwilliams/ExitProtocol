@@ -1,9 +1,9 @@
 package com.model;
-
 import java.util.HashMap;
 import java.util.UUID;
-import java.util.Comparator;
 import java.util.Collection;
+import java.util.SortedSet;
+import java.util.TreeSet;
 
 public class Leaderboard {
 
@@ -28,8 +28,11 @@ public class Leaderboard {
 
     }
 
-    public void sortScore()
+    public void sortScores()
     {
-        
-    }
+        SortedSet<Integer> ranking = new TreeSet<>(scoreSet.values());
+        for(Integer ranks: ranking ){
+            System.out.println(ranks);
+        }
+    }//Might need to change how this works
 }

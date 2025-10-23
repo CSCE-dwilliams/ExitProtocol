@@ -4,6 +4,8 @@
     "description": "You - Liam. A horror escape room where you and three friends must break a 15-day death curse tied to a pair of haunted glasses before it kills everyone who tried them.",
     "challenges": [
       {
+        "phrasechallenges": [
+        {
         "question": "What hidden name is spelled out by the bold letters on the antique shop receipt?",
         "answer": "Rowan",
         "hints": [
@@ -11,8 +13,8 @@
           "Read the bold letters in order from left to right across the receipt.",
           "The name belongs to the boy whose soul is trapped in the glasses."
         ]
-      },
-      {
+        },
+        {
         "question": "What do you find when you zoom in on the selfie reflection showing the pale face in the window?",
         "answer": "Glasses Symbol",
         "hints": [
@@ -20,17 +22,8 @@
           "The reflection shows a motif identical to the antique lens frame.",
           "The mark points to the object that’s attached to the ghost."
         ]
-      },
-      {
-        "question": "Which pattern of True/False about the mirror markings reveals the next clue?",
-        "answer": "True, False, False",
-        "hints": [
-          "One of the three statements about the carvings is factual; the others are red herrings.",
-          "The correct selection highlights which night the carving first appeared.",
-          "Trust the statement that directly references the glasses, not the handwriting style."
-        ]
-      },
-      {
+        },
+        {
         "question": "What hidden instruction do you decode from the final diary fragment found in the shop basement?",
         "answer": "Destroy What Sees",
         "hints": [
@@ -38,8 +31,8 @@
           "Think about how Eli trapped his soul — something that sees (the glasses) must be undone.",
           "The diary urges an action, not a place."
         ]
-      },
-      {
+        },
+        {
         "question": "What creature do your microscope sketches match as the vector for the curse’s spread?",
         "answer": "Fleas",
         "hints": [
@@ -47,8 +40,8 @@
           "The alchemist’s note hinted at 'the breath of the rat' — think parasite.",
           "Match the magnified drawing to the small, six-legged insect."
         ]
-      },
-      {
+        },
+        {
         "question": "Which oasis in the desert island mirage puzzle is real when tested under sunlight?",
         "answer": "The central oasis",
         "hints": [
@@ -56,8 +49,8 @@
           "The center option remains stable when you change perspective.",
           "Choose the oasis that does not shimmer or ripple when observed."
         ]
-      },
-      {
+        },
+        {
         "question": "What phrase do the broken beakers form when arranged correctly in Eli’s lab?",
         "answer": "Reverse the Reflection",
         "hints": [
@@ -65,8 +58,8 @@
           "Think of doing the opposite of what the glasses do.",
           "The phrase hints at how to undo the trapped sight."
         ]
-      },
-      {
+        },
+        {
         "question": "What object must you use to melt the glasses in the glass furnace without looking at their reflection?",
         "answer": "Mirrored Shards Shield",
         "hints": [
@@ -74,8 +67,8 @@
           "The solution uses pieces of broken mirrors arranged to redirect light.",
           "It’s not a single key — it’s a protective assembly made from the environment."
         ]
-      },
-      {
+        },
+        {
         "question": "During the final confrontation, what truth does Eli plead you to choose — destroy him or the glasses?",
         "answer": "Destroy the Glasses",
         "hints": [
@@ -83,14 +76,33 @@
           "The diary and the alchemist’s note both instruct you to target the object that traps the soul.",
           "Choosing to destroy the vessel frees the soul without direct killing."
         ]
-      },
-      {
+        },
+        {
         "question": "What final phrase will you enter after the glasses shatter and the curse lifts?",
         "answer": "Sight Restored",
         "hints": [
           "It’s the two-word confirmation that the curse is broken.",
           "The words describe what happens to those afflicted once the lens is destroyed.",
           "Use the past-tense phrase that signals completion of the ritual."
+        ]
+        }
+        ],
+        "tfchallenges": [
+          {
+        "question": "Which pattern of True/False about the mirror markings reveals the next clue?",
+        "answer": "True, False, False",
+        "hints": [
+          "One of the three statements about the carvings is factual; the others are red herrings.",
+          "The correct selection highlights which night the carving first appeared.",
+          "Trust the statement that directly references the glasses, not the handwriting style."
+        ]
+        }
+        ],
+        "cipherchallenges": [
+
+        ],
+        "interactivechallenges": [
+
         ]
       }
     ]

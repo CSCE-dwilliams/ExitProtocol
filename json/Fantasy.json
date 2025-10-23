@@ -4,6 +4,8 @@
     "description": "A fantasy escape room where you, Taren the cursed ogre, travel with the wizard Aldric to collect relics that will restore your humanity.",
     "challenges": [
       {
+        "phrasechallenges": [
+          {
         "question": "What does the prophecy’s glowing runes reveal when decoded?",
         "answer": "Seek the Iron Mountains",
         "hints": [
@@ -91,6 +93,17 @@
           "Combine the words from all relics you’ve gathered.",
           "It signals completion of the transformation.",
           "It means the soul and body are made whole again."
+        ]
+      }
+        ],
+        "tfchallenges": [
+
+        ],
+        "cipherchallenges": [
+
+        ],
+        "interactivechallenges": [
+          
         ]
       }
     ]
