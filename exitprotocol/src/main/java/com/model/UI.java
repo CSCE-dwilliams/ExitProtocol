@@ -1,7 +1,6 @@
 package com.model;
 
-public class UI {
-    
+public class UI{
     public void runScenarios() {
         loginSuccessfulAndAnswerFirstQuestion();
     }

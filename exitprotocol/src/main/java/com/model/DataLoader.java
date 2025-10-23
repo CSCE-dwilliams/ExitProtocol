@@ -29,22 +29,31 @@ public class DataLoader extends DataConstants {
 
             for (int i = 0; i < peopleJSON.size(); i++) {
                 JSONObject personJSON = (JSONObject) peopleJSON.get(i);
-                JSONArray sessionsArray = (JSONArray) personJSON.get(SESSIONS);
                 UUID id = UUID.fromString((String) personJSON.get(USER_ID));
                 String firstName = (String) personJSON.get(USER_FIRST_NAME);
                 String lastName = (String) personJSON.get(USER_LAST_NAME);
                 String email = (String) personJSON.get(USER_EMAIL);
                 String passWord = (String) personJSON.get(USER_PASSWORD);
-                String teamName = (String) personJSON.get(USER_TEAM_NAME);
+                // String teamName = (String) personJSON.get(USER_TEAM_NAME);
                 int avatar = ((Long) personJSON.get(USER_AVATAR)).intValue();
-                int score = ((Long) personJSON.get(USER_SCORE)).intValue();
+                // int score = ((Long) personJSON.get(USER_SCORE)).intValue();
                 User addUser = new User(firstName, lastName, email, passWord, avatar, id);
                 if(personJSON.containsKey("sessions")){
-                    UUID sessionID = UUID.fromString((String) personJSON.get("id"));
-
-                }
-                for (int j = 0; i < sessionsArray.size(); i++) {
-
+                    JSONArray sessionsArray = (JSONArray) personJSON.get(SESSIONS);
+                    for(int j =0; j < sessionsArray.size();j++){
+                        JSONObject sessionDat = (JSONObject) sessionsArray.get(j);
+                        int difficulty =  ((Long) sessionDat.get("difficulty")).intValue();
+                        int score = ((Long) sessionDat.get("playercount")).intValue();
+                        int playerCount = ((Long) sessionDat.get("playercount")).intValue();
+                        String sessionName = (String) sessionDat.get("sessionName");
+                        String theme = (String) sessionDat.get("theme");
+                        UUID sessionID = UUID.fromString((String) personJSON.get("id"));
+                        String state = (String) sessionDat.get("state");
+                        int challengeIndex = ((Long) sessionDat.get("currentChallengeIndex")).intValue();
+                        String teamname = (String) sessionDat.get("teamname");
+                        GameSession addSession =  new GameSession(sessionID, teamname, sessionName, theme, difficulty, playerCount);
+                        addUser.storeGameSession(addSession);
+                    }
                 }
                 users.add(addUser);
             }
@@ -61,10 +70,12 @@ public class DataLoader extends DataConstants {
             FileReader reader = new FileReader(GAMES_FILE_NAME);
             JSONArray peopleJSON = (JSONArray) new JSONParser().parse(reader);
 
+            //think through helper logic
+            //pass to it 
             for (int i = 0; i < peopleJSON.size(); i++) {
                 JSONObject personJSON = (JSONObject) peopleJSON.get(i);
                 String theme = (String) personJSON.get("theme");
-                String intro = (String) personJSON.get("description");
+                String intro = (String) personJSON.get("intro");
                 
                 GameTemplate newGame = new GameTemplate(theme, intro);
                 JSONArray questionsArray = (JSONArray) personJSON.get("challenges");
@@ -89,7 +100,7 @@ public class DataLoader extends DataConstants {
                         String clue = (String) phraseObj.get("clue");
                         newGame.addClues(clue);
                         newGame.addQuestions(question);
-                        newGame.answerSet.add(answer);
+                        newGame.addAnswers(answer);
                     }
 
                 }
@@ -101,4 +112,29 @@ public class DataLoader extends DataConstants {
         return games;
     }
 
+    private static GameTemplate parseGame(JSONObject personJSON){
+        String theme = (String) personJSON.get("theme");
+        String intro = (String) personJSON.get("description");
+
+        GameTemplate newGame = new GameTemplate(theme, intro);
+
+        JSONArray questionsArray = (JSONArray) personJSON.get("challenges");
+
+        for(Object obj : questionsArray){
+
+        }
+
+
+        return newGame;
+    }
+
+    private static void parseQuestion(JSONObject questionObj, GameTemplate game){
+        JSONArray phraseArray = (JSONArray) questionObj.get("phrasechallenges");
+
+        for(Object obj : phraseArray){
+            JSONObject phraseObj = (JSONObject) obj;
+
+        }
+
+    }
 }
