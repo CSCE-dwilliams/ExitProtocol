@@ -45,8 +45,17 @@ public class User {
         return sessionKeys;
 
     }
-    public GameSession createAndAddSession(Game game, String teamName, String sessionName) {
-        GameSession s = new GameSession(game, this.id, teamName, sessionName);
+
+    public GameSession chooseSession(String sessionName){
+        for(GameSession s: sessions.values()){
+            if(s.getSessionName().equalsIgnoreCase(sessionName)){
+                return s;
+            }
+        }
+        return null;
+    }
+    public GameSession createAndAddSession(String teamName, String sessionName, String theme, int difficulty, int playerCount) {
+        GameSession s = new GameSession(this.id, teamName, sessionName,theme, difficulty,playerCount);
         storeGameSession(s);
         return s;
     }

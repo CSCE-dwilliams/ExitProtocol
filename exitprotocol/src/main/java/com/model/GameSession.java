@@ -5,59 +5,72 @@ import java.util.UUID;
 
 public class GameSession{
     private UUID sessionID;
-    private UUID gameTemplateID; // consider later
-    private int currentChallengeIndex;
     private String teamName;
+    private String sessionName;
+    private String gameTheme;
+    private int difficulty;
+    private int playerCount;
+    private int challengeIndex;
     private int score;
     private ChallengeProgress progress;
     private SessionState state;
-    private String sessionName;
-    private Game sessionGame;
 
 
-    public GameSession(Game aGame, UUID userID,String teamName, String sessionName){
-        this.sessionGame = aGame;
+    public GameSession(UUID userID,String teamName, String sessionName, String theme, int difficulty, int playerCount){
         this.sessionID = UUID.randomUUID();
-        this.progress = new ChallengeProgress();
-        this.state = SessionState.ACTIVE;
-        this.currentChallengeIndex = 0;
-        this.state = SessionState.ACTIVE;
         this.teamName = teamName;
         this.sessionName = sessionName;
+        this.difficulty = difficulty;
+        this.playerCount = playerCount;
+        this.gameTheme = theme;
+        this.progress = new ChallengeProgress();
+        this.state = SessionState.ACTIVE;
+        this.challengeIndex = 0;
+
     }
     public UUID getSessionID(){
         return this.sessionID;
     }
     public String getTeamName(){
         return teamName;
+    }   
+    public String getSessionName(){ 
+        return sessionName;
+    }
+    public String getSessionTheme(){
+        return gameTheme;
+    }
+    public int getDifficulty(){
+        return difficulty;
+    }
+    public int getPlayerCount(){
+        return playerCount;
+    }
+    public int getChallengeIndex(){
+        return challengeIndex;
     }
     public int getScore(){
         return score;
     }
-    public int getCurrentChallengeIndex(){
-        return currentChallengeIndex;
-    }
     public ChallengeProgress getProgress(){
         return progress;
     }
-    public String getSessionName(){ 
-        return sessionName;
-    }
-    public Game getSessiongame(){
-        return sessionGame;
-    }
+
     public SessionState getState(){ return state;}
     public void pause(){state = SessionState.PAUSED;}
     public void resume(){state = SessionState.ACTIVE;}
     public void complete(){ state = SessionState.COMPLETED;}
     
-    public void advancePuzzle(){currentChallengeIndex++;}
+    public void advancePuzzle(){challengeIndex++;}
 
     public void saveSession(){
         
     }
     @Override
     public String toString(){
-        return sessionID.toString();
+        return "Session Name: "+ this.getSessionName()+ "\nSession Team Name: " + this.getTeamName()+
+        "\nSession Theme: "+ this.getSessionTheme() + "\nDifficulty: " + this.getDifficulty() + 
+        "\nPlayer Count: " + this.getPlayerCount();
+        
     }
 }

@@ -1,7 +1,7 @@
 [
     {
-        "theme": "Medieval",
-        "description": "Insert intro text for game theme here", 
+        "theme": "Historical",
+        "intro": "You - Dr. Elias Mercer. A historical escape room set during the European bubonic plague (1348). You are a scientist racing to discover the cause and produce a cure before the infection reaches your community.", 
         "challenges": [
             {
                 "phrasechallenges": [
@@ -54,7 +54,7 @@
     },
     {
         "theme": "Horror",
-        "description": "A horrific escape room.",
+        "intro": "A horrific escape room.",
         "challenges": [
             {
                 "phrasechallenges": [

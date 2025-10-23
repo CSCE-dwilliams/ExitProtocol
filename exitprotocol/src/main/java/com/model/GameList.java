@@ -37,6 +37,15 @@ public class GameList {
             }
         }
     }
+
+    public void getGameData(Game aGame){
+        String gameTheme = aGame.getTheme();
+        for(GameTemplate g : games){
+            if(g.getTheme().equalsIgnoreCase(gameTheme)){
+                aGame.setGameSet(g);
+            }
+        }
+    }
     // public Game getGame() {}
 
     public void saveGame() {

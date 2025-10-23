@@ -25,22 +25,30 @@
         "password": "1234",
         "sessions": [
             {
+                "difficulty": 2,
                 "score": 0,
-                "gamespec": {
-                    "difficulty": 2,
-                    "playercount": 3,
-                    "theme": "Medieval"
-                },
-                "sessionName": "sessionclank",
-                "id": "04773b8d-127d-40c6-9d2f-422f0a50bc18",
+                "playercount": 3,
+                "sessionName": "session1",
+                "theme": "Historical",
+                "id": "4b5d9fe4-d0e9-467d-8401-f5abdc5c465c",
                 "state": "ACTIVE",
                 "currentChallengeIndex": 0,
-                "teamname": "team clankers"
+                "teamname": "clankers"
             }
         ],
         "id": "64b80d89-20d2-45c8-ad9b-96b701d93e9a",
         "avatar": 2,
         "email": "mister@email.com",
         "lastname": "super"
+    },
+    {
+        "score": 0,
+        "firstname": "Zobo",
+        "password": "1234",
+        "sessions": [],
+        "id": "4f151def-8ecb-46f4-931a-db40f764faf1",
+        "avatar": 2,
+        "email": "zobo",
+        "lastname": "Jeffe"
     }
 ]
