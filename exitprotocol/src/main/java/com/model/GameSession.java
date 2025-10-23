@@ -57,9 +57,17 @@ public class GameSession{
     }
 
     public SessionState getState(){ return state;}
-    public void pause(){state = SessionState.PAUSED;}
-    public void resume(){state = SessionState.ACTIVE;}
-    public void complete(){ state = SessionState.COMPLETED;}
+    public void pause(){
+        state = SessionState.PAUSED;
+        countdown.pause();}
+    public void resume(){
+        state = SessionState.ACTIVE;
+        countdown.resume();}
+    public void complete(){
+        state = SessionState.COMPLETED;
+        countdown.pause();
+
+    }
     
     public void advancePuzzle(){challengeIndex++;}
 
