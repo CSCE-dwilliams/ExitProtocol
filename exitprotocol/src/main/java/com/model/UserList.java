@@ -26,6 +26,7 @@ public class UserList {
     }
 
     public boolean emailAlreadyExists(String email) {
+        
         boolean exists = false;
         for (User u : this.users) {
             if (u.getEmail().equalsIgnoreCase(email)) {
@@ -34,6 +35,7 @@ public class UserList {
         }
         return exists;
     }
+
 
     public boolean testEmailSignIn(String email) {
         for (User u : users) {
@@ -121,6 +123,7 @@ public class UserList {
         u.nextLine();
         String sessionChoice = u.nextLine();
         GameSession sessionCurrent = accessUser.chooseSession(sessionChoice);
+        
         // while (true) {
         // if (sessionCurrent != null) {
         // System.out.println("Your session selection is:\n" + sessionCurrent);

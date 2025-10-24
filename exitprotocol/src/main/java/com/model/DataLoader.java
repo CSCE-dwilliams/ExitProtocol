@@ -91,9 +91,9 @@ public class DataLoader extends DataConstants {
 
                         JSONArray hintArray = (JSONArray) phraseObj.get("hints");
                         for(int l =0; l < hintArray.size();l++){
-                            
+
                             String hint = hintArray.get(l).toString();
-                            newGame.addHints(l, hint);
+                            newGame.addHints(h, hint);
                         }
                         
                         String clue = (String) phraseObj.get("clue");

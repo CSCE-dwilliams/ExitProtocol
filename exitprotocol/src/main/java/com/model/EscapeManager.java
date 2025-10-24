@@ -17,6 +17,7 @@ public class EscapeManager {
         }
         return escapeManager;
     }
+    
     public static void main(String[] args) {
         startGame();
     }

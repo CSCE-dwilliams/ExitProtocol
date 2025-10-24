@@ -19,7 +19,9 @@ public class GameTemplate {
         return gameTheme;
     }
     public String getIntro(){
-        return intro;
+        String introFull = "\n[Introduction].....\n****************************************\n" + intro 
+        + "\n****************************************\n";
+        return introFull;
     }
     public ArrayList<String> getQuestions() {
         return questionSet;

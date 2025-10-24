@@ -1,22 +1,22 @@
 [
     {
         "theme": "Historical",
-        "intro": "You - Dr. Elias Mercer. A historical escape room set during the European bubonic plague (1348). You are a scientist racing to discover the cause and produce a cure before the infection reaches your community.", 
+       "intro": "The year is 1927 Its the roaring twenties - an\nage of jazz, prohibition, and industrial power. \n\n_____________________\nYou push open the door to a long-abandoned\nnewsroom in downtown Chicago. Visible faintly through the glow\nof a flickering bulb, the room is enveloped in\na thin veil of dust. Sprawled across desks and\npooling onto the floor are various newspaper articles, letters,\nand typewriters frozen mid-sentence. Though you\nare keenly aware of how much you are NOT supposed\nto be in this room, strewn across the newspapers\nare scathing headlines that do everything to catch your eye.\n\n\nMayors running speakeasies, covered-up murders of\nfamous musicians. This was the office of Gordon Parker,\na newspaper editor and political whistleblower who vanished after\nclaiming to uncover a government cover-up tied to\nthe citys booming industries.\n_____________________\nFiles, telegrams, coded notes. Time may have erased Gordon Parkers name, \nbut not his truth-if youre willing to search for it.",
         "challenges": [
             {
                 "phrasechallenges": [
                     {
-                        "question": "She sells sea shells by the sea shore?",
-                        "answer": "She selled sea shells at the sea shore.",
+                        "question": "\nLooking across the cluttered desk, you find a torn newspaper dated March 3, 1927\nHeadline: 'Mayor Declares Crackdown on Booze Rings.'\nScrawled beneath it in red ink:\n'Im outlawed by day, poured by night, and found beneath the floorboards.'",
+                        "answer": "Liquor",
                         "hints": [
-                            "Use your brain.",
-                            "hint"
+                            "Outlawed by prohibition",
+                            "L_ _ _ _ _ "
                         ],
-                        "clue": "/images/shadowedcircularsilhouette"
+                        "clue": ""
                     },
                     {
-                        "question": "What has keys but no locks?",
-                        "answer": "A keyboard",
+                        "question": "You notice a small note hidden under an ashtray.\nIt reads: 'Fhvw Elooru Sdunhu.'\nA penciled clue underneath: 'Shift equals the years last digit.'", 
+                        "answer": "Test floor parker",
                         "hints": [
                             "Think about what you're using right now."
                         ],
