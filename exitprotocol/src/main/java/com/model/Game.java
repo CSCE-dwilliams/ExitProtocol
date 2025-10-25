@@ -10,10 +10,15 @@ public class Game {
     private int difficulty;
     private int playerCount;
     private UUID gameID;
+    private int score =0;
     // public ArrayList<Challenge> gameset = new ArrayList<Challenge>();
+
+
+    // thinking solution to item problem is to have another loop that checks if 
     ArrayList<String> questions = new ArrayList<>();
     ArrayList<String> answers = new ArrayList<>();
-    ArrayList<String> clues = new ArrayList<>();
+    ArrayList<String> postQuestions = new ArrayList<>();
+    ArrayList<Item> items = new ArrayList<>();
     ArrayList<ArrayList<String>> hints = new ArrayList<>();
 
     private GameTemplate gameSet;
@@ -45,11 +50,18 @@ public class Game {
     }
 
     public void challengeStart(int startingIndex) {
-        System.out.println(gameSet.getIntro());
+        gameSet.getIntro();
+        try {
+            Thread.sleep(10000);
+        } catch (InterruptedException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
         questions = gameSet.getQuestions();
         answers = gameSet.getAnswers();
-        clues = gameSet.getClues();
+        postQuestions = gameSet.getPostQuestions();
         hints = gameSet.getHints();
+        items = gameSet.getItems();
 
         for (int i = 0; i < questions.size(); i++) {
             int challengeNo = 1;
@@ -65,9 +77,47 @@ public class Game {
         Scanner u = new Scanner(System.in);
         boolean gameValid = true;
         System.out.println(questions.get(startingIndex));
-        System.out.println(clues.get(startingIndex));
+        // System.out.println(clues.get(startingIndex)); No clue for now
         int hintIndex = 0;
         while (gameValid) {
+            if(items.size() >0){
+                 System.out.println("Press 1. To attempt question\nPress 2. To get hint");
+            int choice = u.nextInt();
+            switch (choice) {
+                case 1:
+                    System.out.println("\nAttempt question:");
+                    u.nextLine();
+                    String attempt = u.nextLine();
+                    if (attempt.equalsIgnoreCase(answers.get(startingIndex))) {
+                        System.out.println("\nCorrect | + 100points \n");
+                        System.out.println(postQuestions.get(startingIndex)+"\n________________");
+                        score += 100;
+                        gameValid = false;
+                        try {
+                            Thread.sleep(2000);
+                        } catch (InterruptedException e) {
+                            // TODO Auto-generated catch block
+                            e.printStackTrace();
+                        }
+                    }else{
+                        System.out.println("Incorrect, try again");
+                        break;
+                    }
+                    break;
+                case 2:
+                    if (hints.get(startingIndex).size() > hintIndex) {
+                        String hint = hints.get(startingIndex).get(hintIndex);
+                        if (hint != null) {
+                            System.out.println(hint + "| -50 points");
+                            score -= 50;
+                        }
+                    } else {
+                        System.out.println("No more hints remaining");
+                    }
+                    hintIndex++;
+                    break;
+            }
+            }
             System.out.println("Press 1. To attempt question\nPress 2. To get hint");
             int choice = u.nextInt();
             switch (choice) {
@@ -76,15 +126,27 @@ public class Game {
                     u.nextLine();
                     String attempt = u.nextLine();
                     if (attempt.equalsIgnoreCase(answers.get(startingIndex))) {
-                        System.out.println("Correct");
+                        System.out.println("\nCorrect | + 100points \n");
+                        System.out.println(postQuestions.get(startingIndex)+"\n________________");
+                        score += 100;
                         gameValid = false;
+                        try {
+                            Thread.sleep(2000);
+                        } catch (InterruptedException e) {
+                            // TODO Auto-generated catch block
+                            e.printStackTrace();
+                        }
+                    }else{
+                        System.out.println("Incorrect, try again");
+                        break;
                     }
                     break;
                 case 2:
                     if (hints.get(startingIndex).size() > hintIndex) {
                         String hint = hints.get(startingIndex).get(hintIndex);
                         if (hint != null) {
-                            System.out.println(hint);
+                            System.out.println(hint + "| -50 points");
+                            score -= 50;
                         }
                     } else {
                         System.out.println("No more hints remaining");

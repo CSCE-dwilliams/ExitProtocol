@@ -9,18 +9,31 @@
                         "question": "\nLooking across the cluttered desk, you find a torn newspaper dated March 3, 1927\nHeadline: 'Mayor Declares Crackdown on Booze Rings.'\nScrawled beneath it in red ink:\n'Im outlawed by day, poured by night, and found beneath the floorboards.'",
                         "answer": "Liquor",
                         "hints": [
-                            "Outlawed by prohibition",
-                            "L_ _ _ _ _ "
+                            "L_ _ _ _ _ ",
+                            "Rum, Vodka, Tequila"
                         ],
-                        "clue": ""
+                        "post_question": "\nYou find a note tucked in the fold:\n'Follow the bottle to its source'"
                     },
                     {
-                        "question": "You notice a small note hidden under an ashtray.\nIt reads: 'Fhvw Elooru Sdunhu.'\nA penciled clue underneath: 'Shift equals the years last digit.'", 
-                        "answer": "Test floor parker",
+                        "question": "Looking further around the desk you spot a headline reading:\n'THE NOBLE EXPERIMENT'\nwith a political cartoon containing liquor bottles and Uncle Sam below.\nWritten below: 'They outlawed one vice to hide another.'\nTrue or false: The 18th amendment in 1920 began prohibition:", 
+                        "answer": "True",
                         "hints": [
-                            "Think about what you're using right now."
+                            "This short lived amendment was very controversial",
+                            "Instigated the start of 'Speakeasies'"
                         ],
-                        "clue": "/images/ancienttypewriter"
+                        "post_question": "A paperclip holding the the newspaper together slips out of place. Attached to it was a photograph of the mayor outside a jazz club.\n You got a new Item:Photograph",
+                        "item":{
+                            "name": "Photograph",
+                            "description": ""
+                        }
+                    },
+                    {
+                        "question": "",
+                        "answer": "",
+                        "hints": [
+
+                        ],
+                        "post-question":""
                     }
                 ],
                 "tfchallenges": [

@@ -96,7 +96,15 @@ public class DataLoader extends DataConstants {
                             newGame.addHints(h, hint);
                         }
                         
-                        String clue = (String) phraseObj.get("clue");
+                        String clue = (String) phraseObj.get("post_question");
+                        if(phraseObj.containsKey("item")){
+                            JSONObject itemObject = (JSONObject) phraseObj.get("item");
+                            String itemName = (String) itemObject.get("name");
+                            String itemDesc = (String) itemObject.get("description");
+                            Item newItem = new Item(itemName,itemDesc);
+                            newGame.addItem(newItem);
+                        }
+                        //
                         newGame.addClues(clue);
                         newGame.addQuestions(question);
                         newGame.addAnswers(answer);

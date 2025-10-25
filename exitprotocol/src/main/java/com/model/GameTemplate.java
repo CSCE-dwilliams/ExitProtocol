@@ -6,7 +6,8 @@ public class GameTemplate {
     private ArrayList<String> questionSet = new ArrayList<>();
     private ArrayList<String> answerSet = new ArrayList<>();
     private ArrayList<ArrayList<String>> hintSet = new ArrayList<>();
-    private ArrayList<String> clueSet = new ArrayList<>();
+    private ArrayList<String> postQuestionSet = new ArrayList<>();
+    private ArrayList<Item> items = new ArrayList<>();
     private String gameTheme;
     private String intro;
 
@@ -18,10 +19,11 @@ public class GameTemplate {
     public String getTheme(){
         return gameTheme;
     }
-    public String getIntro(){
+    public void getIntro(){
         String introFull = "\n[Introduction].....\n****************************************\n" + intro 
         + "\n****************************************\n";
-        return introFull;
+        System.out.println(introFull);
+        TTSUtils.speak(intro);
     }
     public ArrayList<String> getQuestions() {
         return questionSet;
@@ -29,11 +31,11 @@ public class GameTemplate {
     public void addQuestions(String question){
         questionSet.add(question);
     }
-    public ArrayList<String> getClues() {
-        return clueSet;
+    public ArrayList<String> getPostQuestions() {
+        return postQuestionSet;
     }
     public void addClues(String clue){
-        clueSet.add(clue);
+        postQuestionSet.add(clue);
     }
 
     public ArrayList<String> getAnswers(){
@@ -50,5 +52,10 @@ public class GameTemplate {
         hintSet.add(nuSet);
         hintSet.get(index).add(hint);
     }
-
+    public ArrayList<Item> getItems(){
+        return items;
+    }
+    public void addItem(Item item){
+        items.add(item);
+    }
 }
