@@ -4,14 +4,40 @@ import java.util.HashMap;
 import java.util.UUID;
 import java.util.ArrayList;
 import javafx.scene.image.Image;
-public class Challenge {
-    HashMap<UUID, Integer> scoreSet = new HashMap<>();
-    public String hint;
-    public Image clue;
-    public ArrayList<String> hints;
+public abstract class Challenge {
+    private HashMap<UUID, Integer> scoreSet;
+    private String hint;
+    private Item requiredItem;
+    private Item rewardedItem;
+    private Image clue;
+    private ArrayList<String> hints;
 
-    public Challenge(ArrayList<String> hints, Image clue){
+    public Challenge(ArrayList<String> hints, Image clue) {
+        this.scoreSet = new HashMap<>();
+        this.hints = hints;
+        this.clue = clue;
+        this.requiredItem = null;
+        this.rewardedItem = null;
+    }
 
+    public boolean requiresItem() {
+        return this.requiredItem != null;
+    }
+
+    public Item getRequiredItem() {
+        return this.requiredItem;
+    }
+
+    public boolean rewardsItem() {
+        return this.rewardedItem != null;
+    }
+
+    public Item getRewardedItem() {
+        return this.rewardedItem;
+    }
+
+    public void setRewardedItem(Item rewardedItem) {
+        this.rewardedItem = rewardedItem;
     }
 
     public void addScore(UUID id, Integer score)
