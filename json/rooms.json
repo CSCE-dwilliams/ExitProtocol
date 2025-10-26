@@ -35,33 +35,6 @@
                         ],
                         "post-question":""
                     }
-                ],
-                "tfchallenges": [
-
-                    {
-                        "question": "True or false, the largest Island in the world is Honshu",
-                        "answer": "False",
-                        "hints": [
-                            "Listen carefully in these stone halls."
-                        ],
-                        "clue": "/images/cavernentrance"
-                    },
-                    {
-                        "question": "The more of me you take, the more you leave behind. What am I?",
-                        "answer": "Footsteps",
-                        "hints": [
-                            "Look down at the dusty floor."
-                        ],
-                        "clue": "/images/muddybootprints"
-                    },
-                    {
-                        "question": "I have cities, but no houses. I have mountains, but no trees. I have water, but no fish. What am I?",
-                        "answer": "A map",
-                        "hints": [
-                            "Navigate your way to the answer."
-                        ],
-                        "clue": "/images/ancientscroll"
-                    }
                 ]
             }
         ]

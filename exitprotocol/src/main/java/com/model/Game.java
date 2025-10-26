@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.UUID;
 
-public class Game {
+public class Game{
     private String theme;
     private int difficulty;
     private int playerCount;
@@ -15,11 +15,12 @@ public class Game {
 
 
     // thinking solution to item problem is to have another loop that checks if 
-    ArrayList<String> questions = new ArrayList<>();
-    ArrayList<String> answers = new ArrayList<>();
-    ArrayList<String> postQuestions = new ArrayList<>();
-    ArrayList<Item> items = new ArrayList<>();
-    ArrayList<ArrayList<String>> hints = new ArrayList<>();
+    // ArrayList<String> questions = new ArrayList<>();
+    // ArrayList<String> answers = new ArrayList<>();
+    // ArrayList<String> postQuestions = new ArrayList<>();
+    // ArrayList<Item> items = new ArrayList<>();
+    // ArrayList<ArrayList<String>> hints = new ArrayList<>();
+    ArrayList<Challenge> challenges = new ArrayList<>();
 
     private GameTemplate gameSet;
 
@@ -49,6 +50,10 @@ public class Game {
         this.gameSet = aGameTemplate;
     }
 
+    public void initializeGame(GameTemplate template, int startingIndex){
+        //
+    }
+
     public void challengeStart(int startingIndex) {
         gameSet.getIntro();
         try {
@@ -57,13 +62,14 @@ public class Game {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-        questions = gameSet.getQuestions();
-        answers = gameSet.getAnswers();
-        postQuestions = gameSet.getPostQuestions();
-        hints = gameSet.getHints();
-        items = gameSet.getItems();
+        // questions = gameSet.getQuestions();
+        // answers = gameSet.getAnswers();
+        // postQuestions = gameSet.getPostQuestions();
+        // hints = gameSet.getHints();
+        // items = gameSet.getItems();
+        challenges = gameSet.getChallenges();
 
-        for (int i = 0; i < questions.size(); i++) {
+        for (int i = 0; i < challenges.size(); i++) {
             int challengeNo = 1;
             challengeNo += startingIndex;
             System.out.println("ATTEMPT CHALLENGE " + challengeNo + ":\n");
@@ -76,21 +82,40 @@ public class Game {
     public void attemptQuestion(int startingIndex) {
         Scanner u = new Scanner(System.in);
         boolean gameValid = true;
-        System.out.println(questions.get(startingIndex));
-        // System.out.println(clues.get(startingIndex)); No clue for now
+        Challenge currentChallenge = challenges.get(startingIndex);
+
+        ArrayList<String> hintList = challenges.get(startingIndex).getHints();
+        ArrayList<Item> itemList = challenges.get(startingIndex).getItems();
+
+        String questionString = currentChallenge.getQuestion();
+        String questionAnswer = currentChallenge.getAnswer();
+        String questionPost = currentChallenge.getPostQuestion();
+
         int hintIndex = 0;
+
+        System.out.println(questionString);
+        // System.out.println(clues.get(startingIndex)); No clue for now
         while (gameValid) {
-            if(items.size() >0){
-                 System.out.println("Press 1. To attempt question\nPress 2. To get hint");
+            /**
+             * 
+             * LOOP THAT RUNS IF ITEMS ARE PRESENT 
+             * Will present 
+             * [Game options]
+             * [Press x button to see items]
+             *              ->[Press to view x item]
+             * 
+             */
+            if(itemList.size() >0){
+                 System.out.println("Press 1. To attempt question\nPress 2. To get hint\nPress 3. To exit and quit\nPress 4. to View Items");
             int choice = u.nextInt();
             switch (choice) {
                 case 1:
                     System.out.println("\nAttempt question:");
                     u.nextLine();
                     String attempt = u.nextLine();
-                    if (attempt.equalsIgnoreCase(answers.get(startingIndex))) {
+                    if (attempt.equalsIgnoreCase(questionAnswer)) {
                         System.out.println("\nCorrect | + 100points \n");
-                        System.out.println(postQuestions.get(startingIndex)+"\n________________");
+                        System.out.println(questionPost+"\n________________");
                         score += 100;
                         gameValid = false;
                         try {
@@ -105,8 +130,8 @@ public class Game {
                     }
                     break;
                 case 2:
-                    if (hints.get(startingIndex).size() > hintIndex) {
-                        String hint = hints.get(startingIndex).get(hintIndex);
+                    if (hintList.size() > hintIndex) {
+                        String hint = hintList.get(hintIndex);
                         if (hint != null) {
                             System.out.println(hint + "| -50 points");
                             score -= 50;
@@ -116,8 +141,24 @@ public class Game {
                     }
                     hintIndex++;
                     break;
+                case 3:
+                    System.out.println("Here are your items:");
+                    int i =0;
+                    for(Item item : itemList){
+                        i++;
+                        System.out.println(i+"."+item.getName());
+                    }
+                    System.out.println("Press X to go back ");
+
+                    break;
             }
             }
+/**
+ * 
+ * DEFAULT CASE WHERE THERE IS NO ITEM
+ * Probably can break these 2 loops into methods fr fr 
+ * 
+ */
             System.out.println("Press 1. To attempt question\nPress 2. To get hint");
             int choice = u.nextInt();
             switch (choice) {
@@ -125,9 +166,9 @@ public class Game {
                     System.out.println("\nAttempt question:");
                     u.nextLine();
                     String attempt = u.nextLine();
-                    if (attempt.equalsIgnoreCase(answers.get(startingIndex))) {
+                    if (attempt.equalsIgnoreCase(questionAnswer)) {
                         System.out.println("\nCorrect | + 100points \n");
-                        System.out.println(postQuestions.get(startingIndex)+"\n________________");
+                        System.out.println(questionPost+"\n________________");
                         score += 100;
                         gameValid = false;
                         try {
@@ -142,8 +183,8 @@ public class Game {
                     }
                     break;
                 case 2:
-                    if (hints.get(startingIndex).size() > hintIndex) {
-                        String hint = hints.get(startingIndex).get(hintIndex);
+                    if (hintList.size() > hintIndex) {
+                        String hint = hintList.get(hintIndex);
                         if (hint != null) {
                             System.out.println(hint + "| -50 points");
                             score -= 50;
@@ -156,6 +197,8 @@ public class Game {
             }
         }
     }
+
+
 
     public UUID getID() {
         return gameID;

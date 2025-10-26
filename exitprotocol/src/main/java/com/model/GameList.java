@@ -31,11 +31,11 @@ public class GameList {
     }
     public void showGames() {
         System.out.println("Set of Games:");
-        for (int i = 0; i < games.size(); i++) {
-            for (String s : games.get(i).getQuestions()) {
-                System.out.println(s);
-            }
-        }
+        // for (int i = 0; i < games.size(); i++) {
+        //     for (String s : games.get(i).getQuestions()) {
+        //         System.out.println(s);
+        //     }
+        // }
     }
 
     public void getGameData(Game aGame){

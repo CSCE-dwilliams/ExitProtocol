@@ -3,11 +3,7 @@ package com.model;
 import java.util.ArrayList;
 
 public class GameTemplate {
-    private ArrayList<String> questionSet = new ArrayList<>();
-    private ArrayList<String> answerSet = new ArrayList<>();
-    private ArrayList<ArrayList<String>> hintSet = new ArrayList<>();
-    private ArrayList<String> postQuestionSet = new ArrayList<>();
-    private ArrayList<Item> items = new ArrayList<>();
+    private ArrayList<Challenge> challenges = new ArrayList<>();
     private String gameTheme;
     private String intro;
 
@@ -23,39 +19,13 @@ public class GameTemplate {
         String introFull = "\n[Introduction].....\n****************************************\n" + intro 
         + "\n****************************************\n";
         System.out.println(introFull);
-        TTSUtils.speak(intro);
+        // TTSUtils.speak(intro);
     }
-    public ArrayList<String> getQuestions() {
-        return questionSet;
+    public ArrayList<Challenge> getChallenges(){
+        return challenges;
     }
-    public void addQuestions(String question){
-        questionSet.add(question);
-    }
-    public ArrayList<String> getPostQuestions() {
-        return postQuestionSet;
-    }
-    public void addClues(String clue){
-        postQuestionSet.add(clue);
+    public void addChallenge(Challenge addChallenge){
+        challenges.add(addChallenge);
     }
 
-    public ArrayList<String> getAnswers(){
-        return answerSet;
-    }
-    public void addAnswers(String answer){
-        answerSet.add(answer);
-    }
-    public ArrayList<ArrayList<String>> getHints() {
-        return hintSet;
-    }
-    public void addHints(int index, String hint){
-        ArrayList<String> nuSet = new ArrayList<String>();
-        hintSet.add(nuSet);
-        hintSet.get(index).add(hint);
-    }
-    public ArrayList<Item> getItems(){
-        return items;
-    }
-    public void addItem(Item item){
-        items.add(item);
-    }
 }

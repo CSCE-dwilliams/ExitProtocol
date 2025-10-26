@@ -36,7 +36,6 @@ public class UserList {
         return exists;
     }
 
-
     public boolean testEmailSignIn(String email) {
         for (User u : users) {
             if (u.getEmail().toLowerCase().equals(email.toLowerCase())) {
@@ -55,7 +54,6 @@ public class UserList {
         }
         return false;
     }
-
 
     public User getUser(String email, String password) {
         for (int i = 0; i < users.size(); i++) {
@@ -135,11 +133,14 @@ public class UserList {
         // }
         System.out.println("Creating Game...\n");
 
-        Game startGame = new Game(sessionCurrent);
+        Game gameObject = new Game(sessionCurrent);
         GameList gameList = GameList.getInstance();
+        //this loads in game sets of questions,answers, etc into respective tempate objects
         gameList.loadGames();
-        gameList.getGameData(startGame);
-        startGame.challengeStart(sessionCurrent.getChallengeIndex());
+
+        gameList.getGameData(gameObject);
+        
+        gameObject.challengeStart(sessionCurrent.getChallengeIndex());
 
     }
 

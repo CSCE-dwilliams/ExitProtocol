@@ -6,13 +6,12 @@ import java.util.UUID;
 
 import javafx.scene.image.Image;
 
-public class CipherChallenge extends Challenge {
+public class CipherChallenge{
     private int shift;
     private String correctAnswer;
     private String encryptedAnswer;
 
     public CipherChallenge(String correctAnswer, int shift, ArrayList<String> hints, Image clue) {
-        super(hints, clue);
         this.shift = shift;
         this.correctAnswer = correctAnswer;
         this.encryptedAnswer = getEncryptedAnswer();
@@ -64,4 +63,3 @@ public class CipherChallenge extends Challenge {
         }
     }
 }
-

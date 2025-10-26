@@ -88,26 +88,26 @@ public class DataLoader extends DataConstants {
 
                         String question = (String) phraseObj.get("question");
                         String answer = (String) phraseObj.get("answer");
+                        String postQuestion = (String) phraseObj.get("post_question");
+
+                        Challenge addChallenge = new Challenge(question,answer,postQuestion);
 
                         JSONArray hintArray = (JSONArray) phraseObj.get("hints");
                         for(int l =0; l < hintArray.size();l++){
-
                             String hint = hintArray.get(l).toString();
-                            newGame.addHints(h, hint);
+                            addChallenge.addHint(hint);
                         }
                         
-                        String clue = (String) phraseObj.get("post_question");
                         if(phraseObj.containsKey("item")){
                             JSONObject itemObject = (JSONObject) phraseObj.get("item");
                             String itemName = (String) itemObject.get("name");
                             String itemDesc = (String) itemObject.get("description");
                             Item newItem = new Item(itemName,itemDesc);
-                            newGame.addItem(newItem);
+                            addChallenge.addItem(newItem);
                         }
-                        //
-                        newGame.addClues(clue);
-                        newGame.addQuestions(question);
-                        newGame.addAnswers(answer);
+                        
+                        newGame.addChallenge(addChallenge);
+
                     }
 
                 }

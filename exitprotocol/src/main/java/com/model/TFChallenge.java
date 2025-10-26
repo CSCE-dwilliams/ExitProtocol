@@ -3,7 +3,7 @@ package com.model;
 import java.util.ArrayList;
 import javafx.scene.image.Image;
 
-public class TFChallenge extends Challenge{
+public class TFChallenge{
 
     public String question;
     public String answer;
@@ -11,7 +11,6 @@ public class TFChallenge extends Challenge{
 
     public TFChallenge(String theQuestion, String theAnswer, ArrayList<String> hints, Image clue)
     {
-        super(hints, clue);
         setQuestion(theQuestion);
         setAnswer(theAnswer);
     }

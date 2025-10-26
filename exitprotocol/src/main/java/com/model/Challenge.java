@@ -4,74 +4,42 @@ import java.util.HashMap;
 import java.util.UUID;
 import java.util.ArrayList;
 import javafx.scene.image.Image;
-public abstract class Challenge {
-    private HashMap<UUID, Integer> scoreSet;
-    private String hint;
-    private Item requiredItem;
-    private Item rewardedItem;
-    private Image clue;
-    private ArrayList<String> hints;
+public class Challenge {
 
-    public Challenge(ArrayList<String> hints, Image clue) {
-        this.scoreSet = new HashMap<>();
-        this.hints = hints;
-        this.clue = clue;
-        this.requiredItem = null;
-        this.rewardedItem = null;
+    private String question;
+    private String answer;
+    private ArrayList<String> hints = new ArrayList<>();
+    private String postQuestion;
+    private ArrayList<Item> items = new ArrayList<>();
+
+    public Challenge(String question, String answer, String postQuestion) {
+        this.question = question;
+        this.answer = answer;
+        this.postQuestion = postQuestion;
     }
 
-    public boolean requiresItem() {
-        return this.requiredItem != null;
+    public String getQuestion(){
+        return question;
     }
-
-    public Item getRequiredItem() {
-        return this.requiredItem;
+    public String getAnswer(){
+        return answer;
     }
-
-    public boolean rewardsItem() {
-        return this.rewardedItem != null;
+    public String getPostQuestion(){
+        return postQuestion;
     }
-
-    public Item getRewardedItem() {
-        return this.rewardedItem;
+    public ArrayList<String> getHints(){
+        return hints;
     }
-
-    public void setRewardedItem(Item rewardedItem) {
-        this.rewardedItem = rewardedItem;
+    public ArrayList<Item> getItems(){
+        return items;
     }
-
-    public void addScore(UUID id, Integer score)
-    {
-        scoreSet.put(id,score);
-    }
-
-    public Integer getScore(UUID id)
-    {
-        return scoreSet.get(id);
-    }
-
-    public ArrayList<String> getHints()
-    {
-        return this.hints;
-    }
-
-    public void addHint(String hint)
-    {
+    public void addHint(String hint){
         hints.add(hint);
     }
-
-    public String getHint()
-    {
-        return this.hint;
+    public void addItem(Item item){
+        items.add(item);
     }
 
-    public void setClue(Image theClue)
-    {
-        this.clue = theClue;
-    }
 
-    public Image getClue()
-    {
-        return this.clue;
-    }
+    
 }
