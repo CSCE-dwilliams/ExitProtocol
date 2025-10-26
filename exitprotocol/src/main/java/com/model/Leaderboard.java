@@ -8,6 +8,14 @@ import java.util.Comparator;
 import java.util.SortedSet;
 import java.util.TreeSet;
 
+/**
+ * The {@code Leaderboard} class will manage and display a list of users
+ * ranked by total scores. It interacts with {@link UserList}, {@code DataLoader}, and {@link DataWriter} to 
+ * load, update, and persist user data. The scores are computed based on the {@code GameSession} scores
+ * associated with each user. 
+ * 
+ * @author Clankers
+ */
 public class Leaderboard {
 
 /*  private HashMap<UUID, Integer> scoreSet = new HashMap<>();
@@ -39,54 +47,115 @@ public class Leaderboard {
         }
     */   //}//Might need to change how this works
 
-    // jadas idea for the leaderboard
-    //private ArrayList<User> users;
+    /**
+     * Singleton of {@link UserList} with all of the registered users.
+     */
     private UserList userList; // singleton
 
+    /**
+     * Constructs a {@code Leaderboard} object.
+     * Retrieves the most recent user data from the json file
+     * and loads it into the current leaderboard. 
+     */
     public Leaderboard() 
     {
-        // load from the most recent version from JSON file
-        //this.users = DataLoader.getUsers();
         this.userList = UserList.getInstance();
-        reloadUsers();
+        reloadUsers(); 
     }
 
-    // refresh from json to grab new users and include them on the leaderboard
+    /**
+     * Reloads all users from the json file to ensure that the leaderboard
+     * shows the most recent information from the user.
+     * 
+     * For existing users the {@code UserList} are cleared and replaced with the latest
+     * data form the {@link DataLoader}.
+     */
     public void reloadUsers() 
     {
         ArrayList<User> loadedUsers = DataLoader.getUsers();
         userList.getUsers().clear();
-        userList.getUsers().addAll(DataLoader.getUsers());
-        //this.users = DataLoader.getUsers();
+        userList.getUsers().addAll(loadedUsers);
     }
 
-    // add a new user to the leaderboard and save to file
+    /**
+     * Adds a new {@link User} to the leaderboard and saves the updated
+     * list to the json file.
+     * @param user the {@code User} object to add
+     */
     public void addUser(User user) 
     {
         userList.getUsers().add(user);
-        DataWriter.saveUsers(); // write to json
+        DataWriter.saveUsers(); 
     }
 
-    // sort users by total score starting with highest
+    /**
+     * Calculates the total score for a single user by summing all the scores 
+     * of the {@link GameSession} objects.
+     * @param user the {@code User} whose total score is calculated
+     * @return the total score across all game sessions and returns 0 if the user has no sessions
+     */
+    private int calculateTotalScore(User user) 
+    {
+        int totalScore = 0;
+
+        ArrayList<GameSession> sessions = user.getAllSessions();
+        if (sessions != null && !sessions.isEmpty()) 
+        {
+            for (GameSession session : sessions) 
+            {
+                totalScore += session.getScore();
+            }
+        }
+
+        return totalScore;
+    }
+
+    /**
+     * Sorts all users in the leaderboard by their scores in descending 
+     * order. The total score for each user is calculated through the {@link calculateTotalScore} method.
+     * This method will not modify user data, it will rearrange the list
+     * within the {@link UserList}.
+     */
     public void sortByScore() 
     {
-        userList.getUsers().sort(Comparator.comparingInt(User::getScore).reversed());
-
+        java.util.Comparator<User> scoreComparator = new java.util.Comparator<User>() 
+        {
+            @Override
+            public int compare(User u1, User u2) 
+            {
+                int total1 = calculateTotalScore(u1);
+                int total2 = calculateTotalScore(u2);
+                return Integer.compare(total2, total1);
+            }
+        };
+        userList.getUsers().sort(scoreComparator);
     }
+    
 
-    public void displayLeaderBoard() 
-    {
-        reloadUsers();
-        sortByScore();
-        System.out.println("------LeaderBoard------");
+    /**
+     * Displays the leaderboard with highest to lowest without modifying user data.
+     */
+    public void displayLeaderBoard() {
+        reloadUsers();  
+        sortByScore(); 
+
+        System.out.println("------ Leaderboard ------");
         int rank = 1;
         for (User user : userList.getUsers()) {
-            System.out.println(rank++ + ". " + user.getFirstName() + " " + user.getLastName()
-                    + " - " + user.getScore());
+            int totalScore = calculateTotalScore(user);
+            System.out.println(rank++ + ". " 
+                + user.getFirstName() + " " + user.getLastName() 
+                + " - " + totalScore);
         }
     }
 
-    // my use this instaed to get all users, ideal
+
+    /**
+     * Returns the list of users currently stored in the leaderboard.
+     * 
+     * The list will reflect the most recent state {@link UserList}.
+     * @return an {@code ArrayList<User>} containg all users in the leaderboard.
+     */
     public ArrayList<User> getUsers() 
     {
         return userList.getUsers();
@@ -101,14 +170,10 @@ public class Leaderboard {
 
         // example add new players, delete from json later
         User newPlayer = new User("Jada", "Young", "Jada@email.com", "12345", 0, UUID.randomUUID());
-        newPlayer.setScore(0); // in order for this to work 
-                                // get score and set score in the user class returns 0.
-                                // there is also no setter for score
         leaderboard.addUser(newPlayer);
 
         System.out.println("For testing: Jada was added!");
 
-        //leaderboard.reloadUsers();
         leaderboard.displayLeaderBoard();
     }
 }

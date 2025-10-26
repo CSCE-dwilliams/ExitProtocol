@@ -9,6 +9,7 @@ public class UserList {
     private ArrayList<User> users;
 
     private UserList() {
+        users = new ArrayList<>(); // added to ensure user is not null
     }
 
     /**
