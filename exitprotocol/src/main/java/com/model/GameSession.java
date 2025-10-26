@@ -49,8 +49,14 @@ public class GameSession{
     public int getChallengeIndex(){
         return challengeIndex;
     }
+    public void setChallengeIndex(int index){
+        this.challengeIndex = index;
+    }
     public int getScore(){
         return score;
+    }
+    public void setScore(int score){
+        this.score = score;
     }
     public ChallengeProgress getProgress(){
         return progress;

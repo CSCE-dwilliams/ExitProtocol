@@ -20,7 +20,9 @@ public class UserList {
     public void loadUsers() {
         users = DataLoader.getUsers();
     }
-
+    public void saveUsers(){
+        DataWriter.saveUsers();
+    }
     public ArrayList<User> getUsers() {
         return this.users;
     }
@@ -77,6 +79,13 @@ public class UserList {
         DataWriter.saveUsers();
     }
 
+    public void updateUser(User u ){
+        for(int i =0; i < users.size();i++){
+            if(users.get(i).getID().equals(u.getID())){
+                users.set(i,u);
+            }
+        }
+    }
     /*
      *
      *
@@ -111,7 +120,9 @@ public class UserList {
 
             seeAllSessions(playerUser, userInput);
             startGame(playerUser, userInput);
-            DataWriter.saveUsers();
+            userList.saveUsers();
+            userList.loadUsers();
+            signIn();
 
         }
     }
@@ -126,20 +137,42 @@ public class UserList {
 
         while (sessionCurrent == null) {
             System.out.println("Invalid session name: '" + sessionChoice + "'");
-            System.out.println("Please choose from the available sessions above:");
+            System.out.println("Please type session name from the named sessions above:");
             sessionChoice = u.nextLine().trim();
             sessionCurrent = accessUser.chooseSession(sessionChoice);
         }
         System.out.println("Creating Game...\n");
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
 
         Game gameObject = new Game(sessionCurrent);
         GameList gameList = GameList.getInstance();
-        //this loads in game sets of questions,answers, etc into respective tempate objects
+        //this loads in game sets of questions,answers, etc into respective template objects
         gameList.loadGames();
 
         gameList.getGameData(gameObject);
-        
+
         gameObject.challengeStart(sessionCurrent.getChallengeIndex());
+        gameObject.runGame();
+        
+        
+        int sessionScore = gameObject.getScore();
+        int sessionIndex = gameObject.getIndex();
+        sessionCurrent.setScore(sessionScore);
+        sessionCurrent.setChallengeIndex(sessionIndex);
+
+        accessUser.storeGameSession(sessionCurrent);
+        userList.updateUser(accessUser);
+
+        DataWriter.saveUsers();
+        
+        System.out.println("[SESSION END:]\n");
+        System.out.println(sessionCurrent+"\n");
+        signIn();
 
     }
 

@@ -97,11 +97,11 @@ public class User {
         return this.id;
     }
 
-    public void setScore(Integer newScore) {
+    public void setScore(int newScore) {
         score = newScore;
     }
 
-    public Integer getScore() {
+    public int getScore() {
         return score;
     }
 

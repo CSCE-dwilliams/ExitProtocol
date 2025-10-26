@@ -28,15 +28,7 @@ public class GameList {
     }
     public ArrayList<GameTemplate> getTemplates(){
         return games;
-    }
-    public void showGames() {
-        System.out.println("Set of Games:");
-        // for (int i = 0; i < games.size(); i++) {
-        //     for (String s : games.get(i).getQuestions()) {
-        //         System.out.println(s);
-        //     }
-        // }
-    }
+        }
 
     public void getGameData(Game aGame){
         String gameTheme = aGame.getTheme();
