@@ -19,8 +19,8 @@ Inside, you find a ring full of keys. Later that night, as you lie awake, you re
 The next morning, you return to your father’s office. On his desk lies a dusty blueprint of the mansion.
 
 1. The Blueprint
-You spread the blueprint across the desk. Faded ink circles mark several rooms — but one, labeled “Silence Room,” has been crossed out.
-
+You spread the blueprint across the desk. Faded ink circles mark several rooms — but one, labeled “Silence Room,” has been crossed out. The letters are 
+OG LOEBW TEH USTDY
 What hidden message is written along the blueprint’s borders?
 
 2. The Hidden Message 
@@ -51,9 +51,7 @@ Inside the drawer lies a tiny music box that plays four broken notes: 9, 1, 6, 4
 What number sequence opens the next lock?
 
 7. The Family Portrait
-The tune stops, revealing a slip of paper:
 “The answer lies where memories never fade.”
-
 What object in the mansion does this clue refer to?
 
 8. The Truth Lock
