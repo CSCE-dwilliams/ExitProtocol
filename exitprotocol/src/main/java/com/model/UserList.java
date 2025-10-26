@@ -3,26 +3,48 @@ package com.model;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.UUID;
-
+/**
+ * The user list class is a singleton that manages the user objects
+ * within the system. The methods provided are for loading, saving, 
+ * retrieving, and updating users, as well as for validating email 
+ * and password credentials.
+ */
 public class UserList {
     private static UserList userList;
     private ArrayList<User> users;
 
+    /**
+     * Private constrcutor for singleton pattern.
+     */
     private UserList() {
     }
 
+    /**
+     * Returns the singleton list of users, if none exist
+     * @return list of users
+     */
     public static UserList getInstance() {
         if (userList == null)
             userList = new UserList();
         return userList;
     }
 
+    /**
+     * Loads all users...
+     */
     public void loadUsers() {
         users = DataLoader.getUsers();
     }
+    /**
+     * Saves all users...
+     */
     public void saveUsers(){
         DataWriter.saveUsers();
     }
+    /**
+     * Returns the list of all User objects currently loaded.
+     * @return an ArrayList of user objects
+     */
     public ArrayList<User> getUsers() {
         return this.users;
     }
@@ -38,6 +60,11 @@ public class UserList {
         return exists;
     }
 
+    /**
+     * Test if a user with the given email exist in the system
+     * @param email email address to serach for
+     * @return if a user with that email exist
+     */
     public boolean testEmailSignIn(String email) {
         for (User u : users) {
             if (u.getEmail().toLowerCase().equals(email.toLowerCase())) {
@@ -47,6 +74,14 @@ public class UserList {
         return false;
     }
 
+    /**
+     * Verifies whether the provided email and password combination matches 
+     * a user in the system, if not return false.
+     * @param email the email provided by the user 
+     * @param pass the password to verify 
+     * @return if both the email and password match return true,
+     * if they do not match return false. 
+     */
     public boolean testPassword(String email, String pass) {
         for (int i = 0; i < users.size(); i++) {
             if (users.get(i).getEmail().equals(email)
@@ -57,6 +92,12 @@ public class UserList {
         return false;
     }
 
+    /**
+     * Retrieves a user object based on email and password
+     * @param email users email address
+     * @param password users password
+     * @return user if the credentials match
+     */
     public User getUser(String email, String password) {
         for (int i = 0; i < users.size(); i++) {
             if (users.get(i).getEmail().equals(email)
@@ -67,6 +108,15 @@ public class UserList {
         return null;
     }
 
+    /**
+     * Creates account based on user credentials and adds it to the list
+     * @param firstName first name provided by user
+     * @param lastName last name provided by user
+     * @param email email provided by user
+     * @param password password provided by user
+     * @param avatar an integer representing the users avatar choice
+     * @param id unique id of the user
+     */
     public void createAccount(
             String firstName,
             String lastName,
@@ -79,6 +129,10 @@ public class UserList {
         DataWriter.saveUsers();
     }
 
+    /**
+     * Updates an existing users credentials
+     * @param u user object to be updated 
+     */
     public void updateUser(User u ){
         for(int i =0; i < users.size();i++){
             if(users.get(i).getID().equals(u.getID())){
