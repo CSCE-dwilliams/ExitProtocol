@@ -26,7 +26,7 @@ public class UserList {
     }
 
     public boolean emailAlreadyExists(String email) {
-        
+
         boolean exists = false;
         for (User u : this.users) {
             if (u.getEmail().equalsIgnoreCase(email)) {
@@ -79,10 +79,10 @@ public class UserList {
 
     /*
      *
-     * 
+     *
      * DEMOING USER ACCESS AND SESSION CREATION
-     * 
-     * 
+     *
+     *
      */
 
     public static void signIn() {
@@ -117,20 +117,19 @@ public class UserList {
     }
 
     public static void startGame(User accessUser, Scanner u) {
-        System.out.println("Which session would you like to play?\nEnter Session Name:");
+        GameSession sessionCurrent = null;
+
         u.nextLine();
-        String sessionChoice = u.nextLine();
-        GameSession sessionCurrent = accessUser.chooseSession(sessionChoice);
-        
-        // while (true) {
-        // if (sessionCurrent != null) {
-        // System.out.println("Your session selection is:\n" + sessionCurrent);
-        // break;
-        // } else {
-        // System.out.println("Session name did not match, try again");
-        // continue;
-        // }
-        // }
+        System.out.println("\nWhich session would you like to play?\nEnter Session Name:");
+        String sessionChoice = u.nextLine().trim();
+        sessionCurrent = accessUser.chooseSession(sessionChoice);
+
+        while (sessionCurrent == null) {
+            System.out.println("Invalid session name: '" + sessionChoice + "'");
+            System.out.println("Please choose from the available sessions above:");
+            sessionChoice = u.nextLine().trim();
+            sessionCurrent = accessUser.chooseSession(sessionChoice);
+        }
         System.out.println("Creating Game...\n");
 
         Game gameObject = new Game(sessionCurrent);
