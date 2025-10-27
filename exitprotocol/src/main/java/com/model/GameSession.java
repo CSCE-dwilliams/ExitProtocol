@@ -1,5 +1,10 @@
 package com.model;
-
+/**
+ * Acts as both a save state for the users current position and score within a game. As well as the construction means 
+ * for any given game. Contains the theme data and index which allow the GameList to properly construct the corresponding
+ * template and run the game at the proper index. These are stored within keyed hashmap inside USER class.
+ * @author The Clankers
+ */
 import java.util.HashMap;
 import java.util.UUID;
 
@@ -29,9 +34,17 @@ public class GameSession{
         this.hintsUsed = 0;
 
     }
+    /**
+     * Returns session ID
+     * @return sessionID
+     */
     public UUID getSessionID(){
         return this.sessionID;
     }
+    /**
+     * Returns the current team name
+     * @return a string of team name
+     */
     public String getTeamName(){
         return teamName;
     }   
@@ -63,15 +76,31 @@ public class GameSession{
     public String getSessionName(){ 
         return sessionName;
     }
+    /**
+     * Returns session theme
+     * @return a string of a session theme
+     */
     public String getSessionTheme(){
         return gameTheme;
     }
+    /**
+     * Returns a difficulty level
+     * @return an integer of difficulty level
+     */
     public int getDifficulty(){
         return difficulty;
     }
+    /**
+     * Returns the amount of players in the game
+     * @return returns an integer of player count
+     */
     public int getPlayerCount(){
         return playerCount;
     }
+    /**
+     * Returns the current challenge index
+     * @return an integer of challenge index
+     */
     public int getChallengeIndex(){
         return challengeIndex;
     }
@@ -107,6 +136,10 @@ public class GameSession{
 
     public void saveSession(){
     }
+    /**
+     * Returns a string representation of the game session
+     * @return a string of the game session details
+     */
     @Override
     public String toString(){
         return "Session Name: "+ this.getSessionName()+ "\nSession Team Name: " + this.getTeamName()+

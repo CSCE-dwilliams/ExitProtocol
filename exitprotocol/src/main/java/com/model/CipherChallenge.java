@@ -8,19 +8,37 @@ import javafx.scene.image.Image;
 
 public class CipherChallenge{
     private int shift;
+    /** The correct answer for the challenge (unencrypted). */
     private String correctAnswer;
+    /** The encrytpted version of the correct answer. */
     private String encryptedAnswer;
 
+    /**
+     * Constructs a new {@code CipherChallenge}.
+     * @param correctAnswer the correct answer will be encrypted
+     * @param shift the number of positions to shift letters in the cipher
+     * @param hints a list of hints for the challenge
+     * @param clue an optional image clue for the challenge
+     */
     public CipherChallenge(String correctAnswer, int shift, ArrayList<String> hints, Image clue) {
         this.shift = shift;
         this.correctAnswer = correctAnswer;
         this.encryptedAnswer = getEncryptedAnswer();
     }
 
+    /**
+     * Checks if the provided answer matches with the correct answer.
+     * @param answer the answer to verify
+     * @return {@code true} if the answer is correct, {@code false} otherwise
+     */
     public boolean isCorrect(String answer) {
         return answer.equals(this.correctAnswer);
     }
 
+    /**
+     * Encrypts the correct answer using a cipher based on the shift value.
+     * @return the encrypted answer as a {@code String}
+     */
     private String getEncryptedAnswer() {
         String encryptedAnswer = "";
 
@@ -38,6 +56,10 @@ public class CipherChallenge{
         return encryptedAnswer;
     }
 
+    /**
+     * Returns a string representation of the challenge, showing the encrypted phrase.
+     * @return the encrypted phrase as a {@code String}
+     */
     public String toString() {
         return "Reverse-engineer this encrypted phrase:\n\n" + this.encryptedAnswer;
     }

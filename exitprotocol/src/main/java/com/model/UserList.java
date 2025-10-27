@@ -17,6 +17,7 @@ public class UserList {
      * Private constrcutor for singleton pattern.
      */
     private UserList() {
+        users = new ArrayList<>(); // added to ensure user is not null
     }
 
     /**

@@ -1,5 +1,9 @@
 package com.model;
-
+/**
+ * Game class helps run the game based off of the Game session parameters.
+ * It holds the theme, difficulty, and player count for the game session.
+ * @author The Clankers
+ */
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -24,7 +28,12 @@ public class Game {
     ArrayList<Item> gameItems = new ArrayList<>();
     ArrayList<String> hints = new ArrayList<>();
     private GameTemplate gameSet;
-
+    /**
+     * Creates  a game session based on the theme, difficulty, and player count
+     * @param theme is used in game generation
+     * @param difficulty is used to set the level of challenge
+     * @param playerCount is used to set how many players are in the game
+     */
     public Game(GameSession session) {
         this.theme = session.getSessionTheme();
         this.difficulty = session.getDifficulty();

@@ -1,5 +1,9 @@
 package com.model;
-
+/**
+ * Class to represent the progress of a user in a challenge.
+ * It tracks whether the challenge is solved, items collected, and amount of hints used.
+ * @author The Clankers
+ */
 import java.util.ArrayList;
 import java.util.HashMap;
 /**
@@ -8,6 +12,12 @@ import java.util.HashMap;
  * items obtained, and progress in related sub-challenges. It is useful for
  * representing complex or multi-part challenge structures.
  * @author Clankers
+/**
+ * hashmap of challenge to challenge progress
+ * solved questions is a boolean
+ * arraylist of items collected
+ * number of hints used is an integer
+
  */
 public class ChallengeProgress{
     /**
@@ -16,6 +26,10 @@ public class ChallengeProgress{
      * Useful for tracking progress in multi-part challenges.
      */
     private HashMap<Challenge, ChallengeProgress> challengeProgress;
+
+    /**
+     * Indicates whether this challenge has been solved by the player.
+     */
     private boolean solved;
     private int numHintsUsed;
     private ArrayList<String> questionSet = new ArrayList<>();

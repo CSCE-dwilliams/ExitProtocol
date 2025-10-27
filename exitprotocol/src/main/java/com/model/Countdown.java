@@ -13,11 +13,16 @@ import java.util.TimerTask;
  * @author Clankers
  */
 public class Countdown {
+    /**The {@link Timer} that schedules countdown tasks. */
     private Timer timer;
     
+    /**Indicates whether the timer is currently paused */
     private boolean isPaused = false;
+    /**The total time limit for the countdown in seconds. */
     private int timeLimit = 900;
+    /**The remaining time in seconds. */
     private int timeRemaining;
+    /**Initial time for the countdown in seconds */
     private static int initialTime = 1800;
 
     /**

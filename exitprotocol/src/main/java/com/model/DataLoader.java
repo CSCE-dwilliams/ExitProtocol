@@ -8,7 +8,19 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
+/**
+ * Handles loading of user and game data from json files.
+ * 
+ * Extends {@link DataConstants} to access file paths and json keys.
+ * Provides static methods to parse and return collections of {@link User}
+ * and {@link GameTemplate} objects from stroed json files.
+ * 
+ * @author Clankers
+ */
 public class DataLoader extends DataConstants {
+/**
+ * Loads users form json file and prints them to the console.
+ */
     public static void main(String[] args) {
 
         System.out.println("test");
@@ -20,6 +32,14 @@ public class DataLoader extends DataConstants {
         }
     }
 
+    /**
+     * Loads and returns a list of {@link User} objects from the json file specified
+     * in {@link DataConstants USER_FILE_NAME}.
+     * 
+     * This method parses user fields including first name, last name, 
+     * email, avatar, and UUID. It also loads stored game sessions if present.
+     * @return an {@link ArrayList} of {@link User} objects
+     */
     public static ArrayList<User> getUsers() {
         ArrayList<User> users = new ArrayList<User>();
 
@@ -67,6 +87,14 @@ public class DataLoader extends DataConstants {
         return users;
     }
 
+    /**
+     * Loads and returns a list of {@link GameTemplate} objects from the json file
+     * specified in {@link DataConstants GAMES_FILE_NAME}.
+     * 
+     * This method parses game templates, their challenges, and associated clues, questions,
+     * and answers. 
+     * @return an {@link ArrayList} of {@link GameTemplate} objects
+     */
     public static ArrayList<GameTemplate> getGames() {
         ArrayList<GameTemplate> games = new ArrayList<GameTemplate>();
 
