@@ -63,6 +63,7 @@ public class DataWriter extends DataConstants {
             sessionYo.put("currentChallengeIndex", userSession.getChallengeIndex());
             sessionYo.put("state", userSession.getState().toString());
             sessionYo.put("sessionName", userSession.getSessionName());
+            sessionYo.put("hintsUsed", userSession.getHintsUsed());
             jsonSessions.add(sessionYo);
 
             o.put("sessions", jsonSessions);

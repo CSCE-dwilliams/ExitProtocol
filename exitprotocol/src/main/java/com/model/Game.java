@@ -10,29 +10,27 @@ public class Game {
     private int difficulty;
     private int playerCount;
     private UUID gameID;
-    private int score = 0;
+    private int score;
     private int itemIndex;
     private int playerIndex;
     private int hintIndex;
     private int hintPenalty = 25;
     private int correctPoints = 100;
     private boolean quit = false;
-    // public ArrayList<Challenge> gameset = new ArrayList<Challenge>();
 
-    // thinking solution to item problem is to have another loop that checks if
-    // ArrayList<String> questions = new ArrayList<>();
-    // ArrayList<String> answers = new ArrayList<>();
-    // ArrayList<String> postQuestions = new ArrayList<>();
-    // ArrayList<Item> items = new ArrayList<>();
-    // ArrayList<ArrayList<String>> hints = new ArrayList<>();
+    private GameSession session;
+
     ArrayList<Challenge> challenges = new ArrayList<>();
-    ArrayList<Item> sessionItems = new ArrayList();
+    ArrayList<Item> gameItems = new ArrayList<>();
+    ArrayList<String> hints = new ArrayList<>();
     private GameTemplate gameSet;
 
     public Game(GameSession session) {
         this.theme = session.getSessionTheme();
         this.difficulty = session.getDifficulty();
         this.playerCount = session.getPlayerCount();
+        this.score = session.getScore();
+        this.session = session;
     }
 
     public String getIntro() {
@@ -51,16 +49,21 @@ public class Game {
         return this.playerCount;
     }
 
-    public int getIndex(){
+    public int getIndex() {
         return playerIndex;
     }
+
+    public ArrayList<Challenge> getChallenges() {
+        return challenges;
+    }
+
     public void setGameSet(GameTemplate aGameTemplate) {
         this.gameSet = aGameTemplate;
     }
 
     public void challengeStart(int startingIndex) {
         // printing intro flavor text
-        gameSet.getIntro();
+
         // try {
         // Thread.sleep(10000);
         // } catch (InterruptedException e) {
@@ -69,26 +72,69 @@ public class Game {
         // }
         // instantiating all arraylists and pointing player index
         playerIndex = startingIndex;
+        if (playerIndex < 1) {
+            gameSet.getIntro();
+        }
+        challenges = gameSet.getChallenges();
+    }
+
+    public void assignChallenges() {
         challenges = gameSet.getChallenges();
     }
 
     public void runGame() {
-        while(!quit){
-        for (int i = 0; i < challenges.size(); i++) {
+        
+        for (int i = 0; i < playerIndex; i++) {
+            ArrayList<Item> items = challenges.get(i).getItems();
+            if (items.size() > 0) {
+                gameItems.add(items.get(0));
+            }
+        }
+
+        while (!quit && playerIndex < challenges.size()) {
             int challengeNo = 1 + playerIndex;
             System.out.println("ATTEMPT CHALLENGE " + challengeNo + ":\n");
             System.out.println("Correct answers +100 points\nUsing a hint: -25 points\nSkipping: -75 points");
             System.out.println("--------------------------");
 
-
             questionLoop(playerIndex);
-            if(quit){
+            if (quit) {
                 break;
             }
             playerIndex++;
         }
-        break;
-    }
+
+        if (playerIndex >= challenges.size()) {
+            String diff;
+
+            if (this.difficulty == 1) {
+                diff = "Easy";
+            } else if (this.difficulty == 2) {
+                diff = "Medium";
+            } else {
+                diff = "Hard";
+            }
+            
+            try (java.io.FileWriter writer = new java.io.FileWriter("Certificate.txt")) {
+                writer.write("========================================\n");
+                writer.write("              EXIT PROTOCOL             \n");
+                writer.write("========================================\n\n");
+                writer.write("Thanks for following the Exit Protocol.\n");
+                writer.write("You have escaped ... for now.\n");
+                writer.write("Game Details:\n");
+                writer.write("-------------\n");
+                writer.write("Theme: " + this.theme + "\n");
+                writer.write("Difficulty: " + diff + "\n");
+                writer.write("Player Count: " + this.playerCount + "\n");
+                writer.write("Hints Used: " + session.getHintsUsed() + "\n");
+                writer.write("Final Score: " + this.score + "\n\n");
+                writer.write("Well done on your achievement!\n");
+                writer.write("========================================\n");
+                System.out.println("Certificate saved to Certificate.txt");
+            } catch (java.io.IOException e) {
+                System.out.println("Error writing certificate file: " + e.getMessage());
+            }
+        }
 
     }
 
@@ -104,11 +150,11 @@ public class Game {
                 }
             } else {
                 if (attemptQuestionNoItems(u)) {
+
                     gameValid = false;
                 }
             }
-
-            if(quit){
+            if (quit) {
                 gameValid = false;
             }
         }
@@ -150,20 +196,20 @@ public class Game {
                     if (attempt.equalsIgnoreCase(questionAnswer)) {
                         System.out.println("\nCorrect | +100 points\n");
                         System.out.println(questionPost + "\n________________");
+
+                        try {
+                            Thread.sleep(2000);
+                        } catch (InterruptedException ignored) {
+                        }
                         score += correctPoints;
                         questionCorrect = true;
 
-                        // If the challenge unexpectedly has items, add them safely
                         if (currentChallenge.getItems() != null && currentChallenge.getItems().size() > 0) {
                             Item challengeItem = currentChallenge.getItems().get(itemIndex);
-                            sessionItems.add(challengeItem);
+                            gameItems.add(challengeItem);
                             itemIndex++;
                         }
 
-                        try {
-                            Thread.sleep(1000);
-                        } catch (InterruptedException ignored) {
-                        }
                     } else {
                         System.out.println("Incorrect, try again");
                     }
@@ -177,6 +223,8 @@ public class Game {
                             score -= hintPenalty;
                         }
                         hintIndex++;
+
+                        session.addHintUsed();
                     } else {
                         System.out.println("\nNo more hints remaining\n");
                     }
@@ -246,7 +294,7 @@ public class Game {
                         if (currentChallenge.getItems().size() > 0) {
                             // only add if there are items in the challenge itself
                             Item challengeItem = currentChallenge.getItems().get(itemIndex);
-                            sessionItems.add(challengeItem);
+                            gameItems.add(challengeItem);
                             itemIndex++;
                         }
                         questionCorrect = true;
@@ -266,34 +314,54 @@ public class Game {
                             score -= hintPenalty;
                         }
                         hintIndex++;
+                        session.addHintUsed();
                     } else {
                         System.out.println("\nNo more hints remaining\n");
                     }
                     break;
                 case 3:
                     System.out.println("\nHere are your items:\n");
-                    if (sessionItems.isEmpty()) {
+                    if (gameItems.isEmpty()) {
                         System.out.println("You have no items.\n");
                     } else {
                         int i = 0;
-                        for (Item item : sessionItems) {
+                        for (Item item : gameItems) {
                             i++;
                             System.out.println(i + ". " + item.getName());
                         }
                         // Optionally print descriptions for all items (safely)
+                        System.out.println("--------------");
                         System.out.println("\nDescriptions:");
-                        for (int j = 0; j < sessionItems.size(); j++) {
-                            Item it = sessionItems.get(j);
+                        for (int j = 0; j < gameItems.size(); j++) {
+                            Item it = gameItems.get(j);
                             System.out.println((j + 1) + ". " + it.getDescription() + "\n");
                         }
+                        Scanner userInput = new Scanner(System.in);
+                        System.out.println("\nPress 1. To select and Item\nPress 2. To return to question");
+                        int selectInt = u.nextInt();
+                        switch (selectInt) {
+                            case 1:
+                                System.out.println("Enter the number of the item you want to use");
+                                int itemSelection = u.nextInt() - 1;
+                                u.nextLine();
+                                String itemUse = gameItems.get(itemSelection).getUseCase();
+                                System.out.println(itemUse);
+                                break;
+                            case 2:
+                                break;
+                            default:
+                                System.out.println("Invalid choice");
+                                break;
+                        }
+
                     }
                     try {
-                        Thread.sleep(800);
+                        Thread.sleep(1000);
                     } catch (InterruptedException ignored) {
                     }
+                    System.out.println("----------");
                     System.out.println(questionString);
                     System.out.println("----------");
-
                     break;
                 case 4:
                     // implement save/quit behavior here; for now return false so outer loop can
@@ -322,7 +390,7 @@ public class Game {
     }
 
     public boolean hasItems() {
-        if (sessionItems.size() > 0) {
+        if (gameItems.size() > 0) {
             return true;
         } else {
             return false;
@@ -333,36 +401,12 @@ public class Game {
         return gameID;
     }
 
-   public void puzzleCompleted() {
+    public void puzzleCompleted() {
 
     }
 
-    public int getScore(){
+    public int getScore() {
         return score;
-    }
-    /*
-     * public void updateScore(Integer currentScore){
-     * currentScore = Challenge.getScore(gameID);
-     * 
-     * }
-     * Need to think about the implementation of Challenge it is the same as the
-     * leaderboard right now
-     */
-    public void calculateScore(int currentScore) {
-
-    }
-
-    public void attemptQuestion(String userAttempt) {
-        /*
-         * if (userAttempt == gameset.get())
-         * {
-         * 
-         * }
-         * else
-         * {
-         * System.out.println("Incorrect Answer");
-         * }
-         */
     }
 
 }

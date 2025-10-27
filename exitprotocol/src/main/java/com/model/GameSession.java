@@ -12,9 +12,9 @@ public class GameSession{
     private int playerCount;
     private int challengeIndex;
     private int score;
+    private int hintsUsed;
     private ChallengeProgress progress;
     private SessionState state;
-
 
     public GameSession(UUID userID,String teamName, String sessionName, String theme, int difficulty, int playerCount){
         this.sessionID = UUID.randomUUID();
@@ -26,6 +26,7 @@ public class GameSession{
         this.progress = new ChallengeProgress();
         this.state = SessionState.ACTIVE;
         this.challengeIndex = 0;
+        this.hintsUsed = 0;
 
     }
     public UUID getSessionID(){
@@ -34,6 +35,31 @@ public class GameSession{
     public String getTeamName(){
         return teamName;
     }   
+    public int getPercent(){
+        GameList gameList = GameList.getInstance();
+        gameList.loadGames();
+        Game testGame = new Game(this);
+        gameList.getGameData(testGame);
+        testGame.assignChallenges();
+
+
+        int totalChallenges = testGame.getChallenges().size();
+        float percent = (((float)challengeIndex) / totalChallenges)*100;
+        return Math.round(percent);
+    }
+
+    public int getHintsUsed() {
+        return this.hintsUsed;
+    }
+
+    public void setHintsUsed(int hintsUsed) {
+        this.hintsUsed = hintsUsed;
+    }
+
+    public void addHintUsed() {
+        this.hintsUsed += 1;
+    }
+
     public String getSessionName(){ 
         return sessionName;
     }

@@ -6,41 +6,17 @@ import java.util.ArrayList;
 import javafx.scene.image.Image;
 
 /**
- * This class manages challenge questions, answers associated with challenges, 
+ * This class manages challenge questions, answers associated with challenge questions, 
  * and post questions that will be asked to the user.
  * 
- * This class also manages hints and items that the user will be able to use
- * during the game to help with their progression through the challenge.
+ * This class also manages hints and items respective to this specific challenge/question. 
  * @author Clankers
  */
 public class Challenge {
-
-    /**
-     * The question associated with the challenge 
-     */
     private String question;
-
-    /** 
-     * The answer associated with the challenges question
-     */
     private String answer;
-
-    /** 
-     * A list of hints that the user will be able to access when completing
-     * a challenge.
-     */
     private ArrayList<String> hints = new ArrayList<>();
-
-    /**
-     * This will show a post answer to the user after 
-     * showing the initial question??.
-     */
     private String postQuestion;
-
-    /**
-     * This a list of items that will hold the users inventory.
-     * Users will be able to use these items to help them through challenges.
-     */
     private ArrayList<Item> items = new ArrayList<>();
 
     /**
@@ -48,7 +24,7 @@ public class Challenge {
      * and post question
      * @param question main question for the challenge
      * @param answer the correct answer associated with the problem 
-     * @param postQuestion follow up question shown after the main question
+     * @param postQuestion follow up text shown after the main question, linking/leading to next question
      */
     public Challenge(String question, String answer, String postQuestion) {
         this.question = question;

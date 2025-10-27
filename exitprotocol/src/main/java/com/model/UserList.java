@@ -17,6 +17,9 @@ public class UserList {
         return userList;
     }
 
+    /*
+     * points this Instances user ArrayList to the DataLoaders, loaded and generated User arraylist
+     */
     public void loadUsers() {
         users = DataLoader.getUsers();
     }
@@ -86,6 +89,7 @@ public class UserList {
             }
         }
     }
+    
     /*
      *
      *
@@ -94,13 +98,13 @@ public class UserList {
      *
      */
 
-    public static void signIn() {
-        UserList userList = UserList.getInstance();
+
+    public static void signInOptions(UserList userList) {
         userList.loadUsers();
 
         while (true) {
             Scanner userInput = new Scanner(System.in);
-            System.out.println("Input:\n1. For Returning User\n2. For New User");
+            System.out.println("Input:\n1. For Returning User\n2. For New User\n3. For Leaderboard");
             int choice = userInput.nextInt();
             User playerUser;
 
@@ -110,6 +114,10 @@ public class UserList {
             } else if (choice == 2) {
                 playerUser = newUser();
                 User test = userList.getUser(playerUser.getEmail(), playerUser.getPassword());
+            } else if (choice == 3) {
+                Leaderboard lb = new Leaderboard();
+                lb.displayLeaderBoard();
+                continue;
             } else {
                 System.out.println("Enter a valid number");
                 continue;
@@ -122,14 +130,15 @@ public class UserList {
             startGame(playerUser, userInput);
             userList.saveUsers();
             userList.loadUsers();
-            signIn();
+            userList.signInOptions(userList);
 
         }
     }
 
+
     public static void startGame(User accessUser, Scanner u) {
         GameSession sessionCurrent = null;
-
+        DataLoader.getUsers();
         u.nextLine();
         System.out.println("\nWhich session would you like to play?\nEnter Session Name:");
         String sessionChoice = u.nextLine().trim();
@@ -141,6 +150,17 @@ public class UserList {
             sessionChoice = u.nextLine().trim();
             sessionCurrent = accessUser.chooseSession(sessionChoice);
         }
+        if(sessionCurrent.getChallengeIndex()>0){
+        System.out.println("Would you like to see the challenges answered\n1.For yes\n2.For no");
+        int challengeInt = u.nextInt();
+        if(challengeInt ==1){
+            for(int i =0; i < sessionCurrent.getChallengeIndex();i++){
+                int challengeNumber = i+1;
+                System.out.println("CHALLENGE No."+ challengeNumber + " Completed");
+                //insert hints used here
+            }
+        }
+    }
         System.out.println("Creating Game...\n");
         try {
             Thread.sleep(1000);
@@ -172,7 +192,7 @@ public class UserList {
         
         System.out.println("[SESSION END:]\n");
         System.out.println(sessionCurrent+"\n");
-        signIn();
+        // signInOptions();
 
     }
 
@@ -186,6 +206,7 @@ public class UserList {
                     System.out.println("Here are your sessions\n______________________");
                     for (GameSession s : accessUser.getAllSessions()) {
                         System.out.println(s);
+                        System.out.println("Percentage of progress: "+ s.getPercent() + "% done");
                         System.out.println("----------");
                     }
                     break;
@@ -197,6 +218,7 @@ public class UserList {
                 System.out.println("Here are your sessions\n______________________");
                 for (GameSession s : accessUser.getAllSessions()) {
                     System.out.println(s);
+                    System.out.println("Percentage of progress: "+ s.getPercent() + "% done");
                     System.out.println("----------");
                 }
                 DataWriter.saveUsers();

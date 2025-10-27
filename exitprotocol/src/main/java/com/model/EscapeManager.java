@@ -18,14 +18,19 @@ public class EscapeManager {
         return escapeManager;
     }
     
-    public static void main(String[] args) {
+    public void main(String[] args) {
         startGame();
     }
 
-    public static void startGame() {
-        UserList.signIn();
+    public void startGame() {
+        
     }
+    public void logIn(){
+        Driver.signInStart();
+    }
+    public void returningUser(){
 
+    }
     public void loadGame() {
 
     }
@@ -51,10 +56,6 @@ public class EscapeManager {
     }
 
     public void logOut() {
-    }
-
-    public void logIn() {
-
     }
 
     public void createAccount() {

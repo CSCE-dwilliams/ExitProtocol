@@ -19,7 +19,7 @@ public class GameTemplate {
         String introFull = "\n[Introduction].....\n****************************************\n" + intro 
         + "\n****************************************\n";
         System.out.println(introFull);
-        // TTSUtils.speak(intro);
+        TTSUtils.speak(intro);
     }
     public ArrayList<Challenge> getChallenges(){
         return challenges;
