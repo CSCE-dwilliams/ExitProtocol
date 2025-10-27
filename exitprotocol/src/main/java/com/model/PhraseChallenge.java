@@ -3,14 +3,13 @@ package com.model;
 import java.util.ArrayList;
 import javafx.scene.image.Image;
 
-public class PhraseChallenge extends Challenge{
+public class PhraseChallenge{
 
     private String question;
     private String answer;
     
     public PhraseChallenge(String theQuestion, String theAnswer, ArrayList<String> hints, Image clue)
     {
-        super(hints,clue);
         setAnswer(theAnswer);
         setQuestion(theQuestion);
 

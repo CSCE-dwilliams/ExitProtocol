@@ -1,53 +1,66 @@
 [
     {
         "theme": "Historical",
-        "intro": "You - Dr. Elias Mercer. A historical escape room set during the European bubonic plague (1348). You are a scientist racing to discover the cause and produce a cure before the infection reaches your community.", 
+       "intro": "The year is 1927 Its the roaring twenties - an\nage of jazz, prohibition, and industrial power. \n\nYou push open the door to a long-abandoned\nnewsroom in downtown Chicago. Visible faintly through the glow\nof a flickering bulb, the room is enveloped in\na thin veil of dust. Sprawled across desks and\npooling onto the floor are various newspaper articles, letters,\nand typewriters frozen mid-sentence. Though you\nare keenly aware of how much you are NOT supposed\nto be in this room, strewn across the newspapers\nare scathing headlines that do everything to catch your eye.\n\n\nMayors running speakeasies, covered-up murders of\nfamous musicians. This was the office of Gordon Parker,\na newspaper editor and political whistleblower who vanished after\nclaiming to uncover a government cover-up tied to\nthe citys booming industries. Files, telegrams, coded notes. Time may have erased Gordon Parkers name, \nbut not his truth-if youre willing to search for it.",
         "challenges": [
             {
                 "phrasechallenges": [
                     {
-                        "question": "She sells sea shells by the sea shore?",
-                        "answer": "She selled sea shells at the sea shore.",
+                        "question": "\nLooking across the cluttered desk, you find a torn newspaper dated March 3, 1927\nHeadline: 'Mayor Declares Crackdown on Booze Rings.'\nScrawled beneath it in red ink:\n'Im outlawed by day, poured by night, and found beneath the floorboards.'",
+                        "answer": "Liquor",
                         "hints": [
-                            "Use your brain."
+                            "L_ _ _ _ _ ",
+                            "Rum, Vodka, Tequila"
                         ],
-                        "clue": "/images/shadowedcircularsilhouette"
+                        "postQuestion": "\nYou find a note tucked in the fold:\n'Follow the bottle to its source' as well as a reference guide for a 'Caeser Cipher'\nYou got a new Item: Caesar Guide",
+                        "item": {
+                            "name": "Caesar Guide",
+                            "description":"A guide for how to complete a Caesar cipher.",
+                            "useCase":"Take the string ABC, if we want to incorporate a cipher shift of +1, it would then translate as the following:\nA B C ->\nB C D\nFor a shift of +2:\nA B C->\nC D E"
+                        }
                     },
                     {
-                        "question": "What has keys but no locks?",
-                        "answer": "A keyboard",
+                        "question": "Looking further around the desk you spot a headline reading:\n'THE NOBLE EXPERIMENT'\nwith a political cartoon containing liquor bottles and Uncle Sam below.\nWritten below: 'They outlawed one vice to hide another.'\nTrue or false: The 18th amendment in 1920 began prohibition:", 
+                        "answer": "True",
                         "hints": [
-                            "Think about what you're using right now."
+                            "This short lived amendment was very controversial",
+                            "Instigated the start of 'Speakeasies'"
                         ],
-                        "clue": "/images/ancienttypewriter"
+                        "postQuestion": "A paperclip holding the the newspaper together slips out of place. Attached to it is a torn photograph of the mayor outside a jazz club.\nYou got a new Item:Photograph",
+                        "item":{
+                            "name": "Torn Photograph",
+                            "description": "The photo roughly shows a jazz band playing in front of night club, with the name of the band listed as [BLUE M-] - before being cut off \nOn the backside of the photo is written, 'my favorite jazz band'.",
+                            "useCase": "You hold up the photograph, the cut off name of the band still reads:\n[BLUE M-]\nThe note on the back seems to suggest that the band name is of some importance....But where might you find the other half of the name?"
+                        }
+                    },
+                    {
+                        "question": "Behind the pamphlet is a torn telegram:\nQeb kbuq zirb fp fk obzloap\nThe telegram seemed to be encoded with some sort of cipher, attached is an ad:\n[CAESARS PIZZERIA] with the phone number: 281-330-8004. With the first 3 in the phone number underlined.\n[Enter the decoded text below:]",
+                        "answer": "The next clue is in records",
+                        "hints": [
+                            "Caesar Cipher",
+                            "Use a caesar cipher with a +3 shift"
+                        ],
+                        "postQuestion":"You notice a filing cabinet labeled RECORDS - BLUE CANARY CLUB."
+                    },
+                    {
+                        "question": "Inside the RECORDS cabinet are payroll sheets and a speakeasy poster with a tear in it reading\n‘The Blue Canary – Live Tonight!’ Performing:[-E MIRAGE]\n The first half of the band name seems to be missing...",
+                        "answer": "Blue",
+                        "hints": [
+                            "Check your items for something useful",
+                            "The name of the band is in the 'Photograph' item"
+                        ],
+                        "postQuestion":"Skimming through the record cabinet for the 'Blue Mirage' band, sticking out of its record sleeve appears to be an article\n\nIt's an unfinished draft of an article titled: [CHICAGO MAYOR EXPOSED FOR COLLUSION],\nit seems like Parker was in the middle of writing until it abruptly stops… \n\nThe last line written reads sloppily as : 'uNdeR the dEskk iS… '"
+                    },
+                    {
+                        "question": "Frantically making your way back towards Parkers desk, you see below; a generic looking envelope you previously overlooked.\nAppearing to be just an unanswered utility bill the envelopes return address is labeled 'NRG Energy'.\nNothing would otherwise indicate its importance,\nHowever…\nscrawled on the corner of the envelope, in small print, is the message:\nOcz adivg zqdyzixz dn czmz\nAssuming it to be yet another cipher, you see in faint ink beside it:, '+5'",
+                        "answer": "The final evidence is here",
+                        "hints": [
+                            "Caesar Cipher",
+                            "Use a caesar cipher with +5 shift"
+                        ],
+                        "postQuestion":"Opening the plainly marked envelope, inside you find various documents. \nPhoto evidence linking the running mayor to illegal drug deals with the speakeasy.\nPhone logs of illicit transactions between musicians and the mayor, \nAnd Lastly: A a signed contract linking Mayor Whitmore to liquor shipments \nand the Deed of the illegal night Speakeasy.\n\nEpilogue:\n\n Having the smoking gun to Parkers unfinished article, you decide to expose the truth.\nThe signatures from the mayor himself tying him to the Speakeasy, photos of him and the Jazz players in obviously illicit scenarios. The Whitmore dynasty collapses, and Parker’s story finally runs on the front page.\nChicago celebrates you as the journalist who finished what Gordon started."
                     }
-                ],
-                "tfchallenges": [
-
-                    {
-                        "question": "True or false, the largest Island in the world is Honshu",
-                        "answer": "False",
-                        "hints": [
-                            "Listen carefully in these stone halls."
-                        ],
-                        "clue": "/images/cavernentrance"
-                    },
-                    {
-                        "question": "The more of me you take, the more you leave behind. What am I?",
-                        "answer": "Footsteps",
-                        "hints": [
-                            "Look down at the dusty floor."
-                        ],
-                        "clue": "/images/muddybootprints"
-                    },
-                    {
-                        "question": "I have cities, but no houses. I have mountains, but no trees. I have water, but no fish. What am I?",
-                        "answer": "A map",
-                        "hints": [
-                            "Navigate your way to the answer."
-                        ],
-                        "clue": "/images/ancientscroll"
-                    }
+                    
                 ]
             }
         ]

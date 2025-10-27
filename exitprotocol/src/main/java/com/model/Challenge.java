@@ -4,103 +4,84 @@ import java.util.HashMap;
 import java.util.UUID;
 import java.util.ArrayList;
 import javafx.scene.image.Image;
-public abstract class Challenge {
-    private HashMap<UUID, Integer> scoreSet;
-    private String hint;
-    private Item requiredItem;
-    private Item rewardedItem;
-    private Image clue;
-    private ArrayList<String> hints;
+
 /**
- * Represents a challenge that includes a set of hints, clues,
- * and a score system for players identified by UUIDS.
+ * This class manages challenge questions, answers associated with challenge questions, 
+ * and post questions that will be asked to the user.
  * 
- * This class manages player scores, challenge hints, and an image clue
- * that can be used to help solve a challenge.
- * 
+ * This class also manages hints and items respective to this specific challenge/question. 
  * @author Clankers
  */
 public class Challenge {
-    /**Stores the score of each participant, mapped by their UUID. */
-    HashMap<UUID, Integer> scoreSet = new HashMap<>();
-    /**The current hint being displayed or used.*/
-    public String hint;
-    /**The image clue associated with the challenge. */
-    public Image clue;
-    /**A list of all hints available for this challenge. */
-    public ArrayList<String> hints;
+    private String question;
+    private String answer;
+    private ArrayList<String> hints = new ArrayList<>();
+    private String postQuestion;
+    private ArrayList<Item> items = new ArrayList<>();
 
     /**
-     * Constructs a new {@code Challenge} with the specified list of hints and clue image.
-     * @param hints a list of hint strings to assist in solvinf the challenge
-     * @param clue an image representing the visual clue for the challenge
+     * Constructs a new {@code Challenge} with a specified question, answer,
+     * and post question
+     * @param question main question for the challenge
+     * @param answer the correct answer associated with the problem 
+     * @param postQuestion follow up text shown after the main question, linking/leading to next question
      */
-    public Challenge(ArrayList<String> hints, Image clue){
-
+    public Challenge(String question, String answer, String postQuestion) {
+        this.question = question;
+        this.answer = answer;
+        this.postQuestion = postQuestion;
     }
 
     /**
-     * Adds or updates a players score in the challenge.
-     * @param id the identifier of a player
-     * @param score the score associated with that player
+     * Returns the main question for the challenge
+     * @return the challenge question
      */
-    public void addScore(UUID id, Integer score)
-    {
-        scoreSet.put(id,score);
+    public String getQuestion(){
+        return question;
     }
-
     /**
-     * Retrives the score for a specific player.
-     * @param id the identifier of a player
-     * @return the players score, or {@code null} if no score is recorded
+     * Returns the answer associated with the challenge
+     * @return the correct answer 
      */
-    public Integer getScore(UUID id)
-    {
-        return scoreSet.get(id);
+    public String getAnswer(){
+        return answer;
     }
-
     /**
-     * Returns the list of all hints associated with this challenge.
-     * @return an {@code ArrayList<String>} of hints
+     * Retunrs post question associated with the challenge
+     * @return the post question
      */
-    public ArrayList<String> getHints()
-    {
-        return this.hints;
+    public String getPostQuestion(){
+        return postQuestion;
     }
-
+    /**
+     * Returns an array list of hints that the user will be able to use 
+     * to help them get through the challenge.
+     * @return array list of hints
+     */
+    public ArrayList<String> getHints(){
+        return hints;
+    }
+    /**
+     * Returns an array list of items that the user will be able to 
+     * use during the challenge.
+     * @return array list of items
+     */
+    public ArrayList<Item> getItems(){
+        return items;
+    }
     /**
      * Adds a new hint to the list of available hints.
      * @param hint the hint string to add
      */
-    public void addHint(String hint)
-    {
+    public void addHint(String hint){
         hints.add(hint);
     }
-
     /**
-     * Retrives the current or last hint used.
-     * @return the current hint string
+     * Will add a new item to the list of items.
+     * @param item the item to add
      */
-    public String getHint()
-    {
-        return this.hint;
+    public void addItem(Item item){
+        items.add(item);
     }
 
-    /**
-     * Sets the image clue for this challenge.
-     * @param theClue the {@code Image} to be used as the clue
-     */
-    public void setClue(Image theClue)
-    {
-        this.clue = theClue;
-    }
-
-    /**
-     * Returns the image clue associated with the appropriate challenge.
-     * @return the {@code Image} clue
-     */
-    public Image getClue()
-    {
-        return this.clue;
-    }
 }

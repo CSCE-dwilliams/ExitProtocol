@@ -6,16 +6,7 @@ import java.util.UUID;
 
 import javafx.scene.image.Image;
 
-/**
- * A challenge where the player deciphers a phrase.
- * Extends {@link Challenge} and adds functionality specific to 
- * encrypted text challenges, including encryption logic, answer checking,
- * and optional hints and visual clues.
- * 
- * @author Clankers
- */
-public class CipherChallenge extends Challenge {
-    /** The number of positions to shift each letter in the cipher */
+public class CipherChallenge{
     private int shift;
     /** The correct answer for the challenge (unencrypted). */
     private String correctAnswer;
@@ -30,8 +21,6 @@ public class CipherChallenge extends Challenge {
      * @param clue an optional image clue for the challenge
      */
     public CipherChallenge(String correctAnswer, int shift, ArrayList<String> hints, Image clue) {
-        super(hints, clue);
-
         this.shift = shift;
         this.correctAnswer = correctAnswer;
         this.encryptedAnswer = getEncryptedAnswer();
@@ -96,4 +85,3 @@ public class CipherChallenge extends Challenge {
         }
     }
 }
-

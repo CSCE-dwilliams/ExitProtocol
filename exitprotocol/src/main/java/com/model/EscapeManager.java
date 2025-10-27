@@ -7,22 +7,27 @@ public class EscapeManager {
     // private Theme theme;
     // private GameSession gameSession;
     private User user;
+    private static EscapeManager escapeManager;
+    private EscapeManager() {}
 
-    public EscapeManager() {
+
+    public static EscapeManager getInstance(){
+        if(escapeManager ==null){
+            escapeManager = new EscapeManager();
+        }
+        return escapeManager;
     }
-
-    public static void main(String[] args) {
+    
+    public void main(String[] args) {
         startGame();
     }
 
-    public static void startGame() {
-        UserList.signIn();
+    public void startGame() {
+        
     }
-
-    public void loadGame() {
-
+    public void logIn(){
+        Driver.signInStart();
     }
-
     public void endGame() {
     }
 
@@ -44,10 +49,6 @@ public class EscapeManager {
     }
 
     public void logOut() {
-    }
-
-    public void logIn() {
-
     }
 
     public void createAccount() {
