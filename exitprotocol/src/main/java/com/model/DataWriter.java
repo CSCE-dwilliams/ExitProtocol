@@ -7,11 +7,20 @@ import java.util.UUID;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
-
+/**
+ * This class gathers the atrributes from the user. 
+ * The attributes being first name, last name id, email, password, and avatar. 
+ * All of these attributes will be written and saved to a json file
+ * @author Clankers
+ */
 public class DataWriter extends DataConstants {
-    // public ArrayList<Challenge> setTheme(String theme, int difficulty, int
-    // playerCount) {}
-
+    
+    /**
+     * Saves all user data from the UserList singleton instance into a json file.
+     * The json file location is defined by the USER_FILE_NAME constant in the DataConstants.
+     * Each User and their associated GameSessions are serialized into json format
+     * and written to disk.
+     */
     public static void saveUsers() {
         UserList userList = UserList.getInstance();
         ArrayList<User> users = userList.getUsers();
@@ -29,10 +38,20 @@ public class DataWriter extends DataConstants {
         }
     }
 
+    /**
+     * Method used for saving game session data
+     */
     public static void saveSessions() {
 
     }
 
+    /**
+     * Converts a User object and all its associated GameSessions
+     * into a json object representation suitable for saving to disk.
+     *
+     * @param user the User object to convert
+     * @return a json oject containing all user data, including session details
+     */
     public static JSONObject getUserJSON(User user) {
         JSONObject o = new JSONObject();
         o.put("firstname", user.getFirstName());
@@ -55,7 +74,7 @@ public class DataWriter extends DataConstants {
             sessionYo.put("id", userSession.getSessionID().toString());
             sessionYo.put("teamname", userSession.getTeamName());
             sessionYo.put("score", userSession.getScore());
-            // sessionYo.put("progress") idk jsonObject man
+        
             sessionYo.put("theme",userSession.getSessionTheme());
             sessionYo.put("difficulty", userSession.getDifficulty());
             sessionYo.put("playercount", userSession.getPlayerCount());
@@ -72,9 +91,13 @@ public class DataWriter extends DataConstants {
         return o;
     }
 
+     /**
+     * Converts a Game object into a json object representation.
+     * @param game the Game object to convert
+     * @return a json object containing game data
+     */
     public static JSONObject getGameJSON(Game game) {
         JSONObject o = new JSONObject();
-        // game params theme,difficul,playercount,teamname,id
         o.put("difficulty", game);
         return o;
     }
