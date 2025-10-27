@@ -28,13 +28,6 @@ public class EscapeManager {
     public void logIn(){
         Driver.signInStart();
     }
-    public void returningUser(){
-
-    }
-    public void loadGame() {
-
-    }
-
     public void endGame() {
     }
 

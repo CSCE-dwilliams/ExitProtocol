@@ -19,7 +19,7 @@ public class Item {
      * @param name the name of the item
      * @param description the description of the item
      */
-    public Item(String name, String description) {
+    public Item(String name, String description, String itemUseCase) {
         this.itemName = name;
         this.itemDesc = description;
         this.itemUseCase = itemUseCase;

@@ -34,5 +34,4 @@ public class GameTemplate {
     public void addChallenge(Challenge addChallenge){
         challenges.add(addChallenge);
     }
-
 }
