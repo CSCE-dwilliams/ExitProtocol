@@ -7,6 +7,7 @@ import java.util.List;
  * The GameList class is a singleton that manages a collection of
  * GameTemplate objects. It serves as a list of game templates
  * that users can select and use to create or load game instances.
+ * @author Clankers
  */
 public class GameList {
     private static GameList gameList;
