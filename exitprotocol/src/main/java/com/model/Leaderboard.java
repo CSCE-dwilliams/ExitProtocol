@@ -17,36 +17,6 @@ import java.util.TreeSet;
  * @author Clankers
  */
 public class Leaderboard {
-
-/*  private HashMap<UUID, Integer> scoreSet = new HashMap<>();
-
-    public void addScore(UUID id, Integer score) {
-        this.scoreSet.put(id, score);
-    }
-
-    public Integer getScore(UUID id)
-    {
-        return this.scoreSet.get(id);
-    }
-
-    public void getScores()
-    {
-        Collection<Integer> scores = scoreSet.values();
-        for(Integer score : scores)
-        {
-            System.out.println(score);
-        }
-
-    }
-
-    public void sortScores()
-    {
-        SortedSet<Integer> ranking = new TreeSet<>(scoreSet.values());
-        for(Integer ranks: ranking ){
-            System.out.println(ranks);
-        }
-    */   //}//Might need to change how this works
-
     /**
      * Singleton of {@link UserList} with all of the registered users.
      */
@@ -60,6 +30,7 @@ public class Leaderboard {
     public Leaderboard() 
     {
         this.userList = UserList.getInstance();
+        userList.loadUsers();
         reloadUsers(); 
     }
 
@@ -135,8 +106,8 @@ public class Leaderboard {
     /**
      * Displays the leaderboard with highest to lowest without modifying user data.
      */
-    public void displayLeaderBoard() {
-        reloadUsers();  
+    public void displayLeaderBoard(){
+        userList.loadUsers();
         sortByScore(); 
 
         System.out.println("------ Leaderboard ------");
@@ -163,19 +134,18 @@ public class Leaderboard {
 
     public static void main(String[] args) 
     {
-        Leaderboard leaderboard = new Leaderboard();
+        /*Leaderboard leaderboard = new Leaderboard();
 
         // display leaderboard 
         leaderboard.displayLeaderBoard();
 
         // example add new players, delete from json later
-        User newPlayer = new User("Jada", "Young", "Jada@email.com", "12345", 0, UUID.randomUUID());
+        User newPlayer = new User("Jada", "Young", "Jada@email.com", "12345", 0, UUID.randomUUID());            
         leaderboard.addUser(newPlayer);
 
         System.out.println("For testing: Jada was added!");
 
-        leaderboard.displayLeaderBoard();
+        leaderboard.displayLeaderBoard();*/
     }
 }
-
 

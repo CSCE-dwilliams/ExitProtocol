@@ -13,6 +13,9 @@ public class TTSUtils {
 
         if (voice != null) {
             voice.allocate();
+            voice.setRate(113);
+            voice.setPitch(200);
+            voice.setPitchRange(7);
             voice.speak(text);
             voice.deallocate();
         } else {

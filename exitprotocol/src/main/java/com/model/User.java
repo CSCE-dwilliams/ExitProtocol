@@ -15,8 +15,8 @@ public class User {
     private String email;
     private String password;
     private int avatar;
-    private Integer score;//remove later
-    //sessionID to session object 
+    private Integer score;// remove later
+    // sessionID to session object
     private HashMap<UUID, GameSession> sessions = new HashMap<>();
     /**
      * Constructor for User
@@ -54,42 +54,27 @@ public class User {
         sessions.put(session.getSessionID(), session);
     }
 
-    /**
-     * Returns a list of session IDs associated with the user
-     * @return an array list of session IDs
-     */
-    public ArrayList<String> getSessionIDS(){
+    public ArrayList<String> getSessionIDS() {
         ArrayList<String> sessionKeys = new ArrayList<>();
-        for(UUID id: sessions.keySet()){
+        for (UUID id : sessions.keySet()) {
             sessionKeys.add(id.toString());
         }
         return sessionKeys;
 
     }
-    /**
-     * Stores a game session based on the session named by the user
-     * @param sessionName is the name of the session to be chosen
-     * @return
-     */
-    public GameSession chooseSession(String sessionName){
-        for(GameSession s: sessions.values()){
-            if(s.getSessionName().equalsIgnoreCase(sessionName)){
+
+    public GameSession chooseSession(String sessionName) {
+        for (GameSession s : sessions.values()) {
+            if (s.getSessionName().equalsIgnoreCase(sessionName)) {
                 return s;
             }
         }
         return null;
     }
-    /**
-     * Creates and adds a new game session to the user's session list
-     * @param teamName is the name of the team
-     * @param sessionName is the name of the session
-     * @param theme is the theme of the game
-     * @param difficulty is the difficulty level of the game
-     * @param playerCount is the number of players in the game
-     * @return the newly created game session
-     */
-    public GameSession createAndAddSession(String teamName, String sessionName, String theme, int difficulty, int playerCount) {
-        GameSession s = new GameSession(this.id, teamName, sessionName,theme, difficulty,playerCount);
+
+    public GameSession createAndAddSession(String teamName, String sessionName, String theme, int difficulty,
+            int playerCount) {
+        GameSession s = new GameSession(this.id, teamName, sessionName, theme, difficulty, playerCount);
         storeGameSession(s);
         return s;
     }
@@ -101,10 +86,7 @@ public class User {
     public GameSession getSession(UUID sessionID) {
         return sessions.get(sessionID);
     }
-    /**
-     * Retrieves all game sessions associated with the user
-     * @return an array list of all game sessions
-     */
+
     public ArrayList<GameSession> getAllSessions() {
         return new ArrayList<>(sessions.values());
     }
@@ -157,13 +139,13 @@ public class User {
     public UUID getUUID() {
         return this.id;
     }
-    /**
-     * Returns score of user
-     * @return integer of score
-     */
-    public Integer getScore() {
-        return 0;
 
+    public void setScore(int newScore) {
+        score = newScore;
+    }
+
+    public int getScore() {
+        return score;
     }
     /**
      * Returns a string of the users information
@@ -174,8 +156,7 @@ public class User {
         return "First Name: " + firstName +
                 "\nLast Name: " + lastName +
                 "\nEmail: " + email +
-                "\nAvatar Selection No.:" + avatar +
-                "\nScore: " + score;
+                "\nAvatar Selection No.:" + avatar;
     }
 
 }

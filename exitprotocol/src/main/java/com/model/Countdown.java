@@ -26,8 +26,8 @@ public class Countdown {
     private static int initialTime = 1800;
 
     /**
-     * Constructs a new {@code Countdown} timer.
-     * Initializes the remaining time to the {@link #initialTime} value and prepares the timer.
+     * Constructs a new Countdown timer.
+     * Initializes the remaining time to the initialTime value and prepares the timer.
      */
     public Countdown(){
         this.timeRemaining = initialTime;
@@ -100,12 +100,14 @@ public class Countdown {
     public void player(){
         //Not sure what this is needed for will leave it just in case
     }
+
     /**
      * Resets timer once limit is reached.
      */
     public void resetTimer(){
         timeRemaining = timeLimit;
     }
+
     /**
      * Reduces time when player answers a question incorrectly.
      */

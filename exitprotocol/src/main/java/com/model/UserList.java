@@ -3,40 +3,173 @@ package com.model;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.UUID;
-
+/**
+ * The user list class is a singleton that manages the user objects
+ * within the system. The methods provided are for loading, saving, 
+ * retrieving, and updating users, as well as for validating email 
+ * and password credentials.
+ */
 public class UserList {
     private static UserList userList;
     private ArrayList<User> users;
 
+    /**
+     * Private constrcutor for singleton pattern.
+     */
     private UserList() {
         users = new ArrayList<>(); // added to ensure user is not null
     }
 
     /**
-     * Demo Test Session methods
+     * Returns the singleton list of users, if none exist
+     * @return list of users
+     */
+    public static UserList getInstance() {
+        if (userList == null)
+            userList = new UserList();
+        return userList;
+    }
+
+    /**
+     * Loads all users...
+     */
+    public void loadUsers() {
+        users = DataLoader.getUsers();
+    }
+    /**
+     * Saves all users...
+     */
+    public void saveUsers(){
+        DataWriter.saveUsers();
+    }
+    /**
+     * Returns the list of all User objects currently loaded.
+     * @return an ArrayList of user objects
+     */
+    public ArrayList<User> getUsers() {
+        return this.users;
+    }
+
+    public boolean emailAlreadyExists(String email) {
+
+        boolean exists = false;
+        for (User u : this.users) {
+            if (u.getEmail().equalsIgnoreCase(email)) {
+                exists = true;
+            }
+        }
+        return exists;
+    }
+
+    /**
+     * Test if a user with the given email exist in the system
+     * @param email email address to serach for
+     * @return if a user with that email exist
+     */
+    public boolean testEmailSignIn(String email) {
+        for (User u : users) {
+            if (u.getEmail().toLowerCase().equals(email.toLowerCase())) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * Verifies whether the provided email and password combination matches 
+     * a user in the system, if not return false.
+     * @param email the email provided by the user 
+     * @param pass the password to verify 
+     * @return if both the email and password match return true,
+     * if they do not match return false. 
+     */
+    public boolean testPassword(String email, String pass) {
+        for (int i = 0; i < users.size(); i++) {
+            if (users.get(i).getEmail().equals(email)
+                    && users.get(i).getPassword().equals(pass)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * Retrieves a user object based on email and password
+     * @param email users email address
+     * @param password users password
+     * @return user if the credentials match
+     */
+    public User getUser(String email, String password) {
+        for (int i = 0; i < users.size(); i++) {
+            if (users.get(i).getEmail().equals(email)
+                    && users.get(i).getPassword().equals(password)) {
+                return users.get(i);
+            }
+        }
+        return null;
+    }
+
+    /**
+     * Creates account based on user credentials and adds it to the list
+     * @param firstName first name provided by user
+     * @param lastName last name provided by user
+     * @param email email provided by user
+     * @param password password provided by user
+     * @param avatar an integer representing the users avatar choice
+     * @param id unique id of the user
+     */
+    public void createAccount(
+            String firstName,
+            String lastName,
+            String email,
+            String password,
+            int avatar,
+            UUID id) {
+        User newUser = new User(firstName, lastName, email, password, avatar, id);
+        getUsers().add(newUser);
+        DataWriter.saveUsers();
+    }
+
+    /**
+     * Updates an existing users credentials
+     * @param u user object to be updated 
+     */
+    public void updateUser(User u ){
+        for(int i =0; i < users.size();i++){
+            if(users.get(i).getID().equals(u.getID())){
+                users.set(i,u);
+            }
+        }
+    }
+    
+    /*
+     *
+     *
+     * DEMOING USER ACCESS AND SESSION CREATION
+     *
+     *
      */
 
-    // public static void main(String[] args) {
-    // System.out.println("\nTesting game\n\n");
-    // runGame();
-    // }
 
-    public static void signIn() {
-        UserList userList = UserList.getInstance();
+    public static void signInOptions(UserList userList) {
         userList.loadUsers();
 
         while (true) {
             Scanner userInput = new Scanner(System.in);
-            System.out.println("Input:\n1. For Returning User\n2. For New User");
+            System.out.println("Input:\n1. For Returning User\n2. For New User\n3. For Leaderboard");
             int choice = userInput.nextInt();
             User playerUser;
 
             if (choice == 1) {
                 playerUser = returnUser();
-                System.out.println("\n------\nUser accessed: " + playerUser);
+                System.out.println("\n------\nUser accessed: \n" + playerUser);
             } else if (choice == 2) {
                 playerUser = newUser();
                 User test = userList.getUser(playerUser.getEmail(), playerUser.getPassword());
+            } else if (choice == 3) {
+                Leaderboard lb = new Leaderboard();
+                lb.displayLeaderBoard();
+                continue;
             } else {
                 System.out.println("Enter a valid number");
                 continue;
@@ -47,32 +180,71 @@ public class UserList {
 
             seeAllSessions(playerUser, userInput);
             startGame(playerUser, userInput);
-            DataWriter.saveUsers();
+            userList.saveUsers();
+            userList.loadUsers();
+            userList.signInOptions(userList);
 
         }
     }
 
-    public static void startGame(User accessUser, Scanner u) {
-        System.out.println("Which session would you like to play?\nEnter Session Name:");
-        u.nextLine();
-        String sessionChoice = u.nextLine();
-        GameSession sessionCurrent = accessUser.chooseSession(sessionChoice);
-        // while (true) {
-        //     if (sessionCurrent != null) {
-        //         System.out.println("Your session selection is:\n" + sessionCurrent);
-        //         break;
-        //     } else {
-        //         System.out.println("Session name did not match, try again");
-        //         continue;
-        //     }
-        // }
-        System.out.println("Creating Game...\n");
 
-        Game startGame = new Game(sessionCurrent);
+    public static void startGame(User accessUser, Scanner u) {
+        GameSession sessionCurrent = null;
+        DataLoader.getUsers();
+        u.nextLine();
+        System.out.println("\nWhich session would you like to play?\nEnter Session Name:");
+        String sessionChoice = u.nextLine().trim();
+        sessionCurrent = accessUser.chooseSession(sessionChoice);
+
+        while (sessionCurrent == null) {
+            System.out.println("Invalid session name: '" + sessionChoice + "'");
+            System.out.println("Please type session name from the named sessions above:");
+            sessionChoice = u.nextLine().trim();
+            sessionCurrent = accessUser.chooseSession(sessionChoice);
+        }
+        if(sessionCurrent.getChallengeIndex()>0){
+        System.out.println("Would you like to see the challenges answered\n1.For yes\n2.For no");
+        int challengeInt = u.nextInt();
+        if(challengeInt ==1){
+            for(int i =0; i < sessionCurrent.getChallengeIndex();i++){
+                int challengeNumber = i+1;
+                System.out.println("CHALLENGE No."+ challengeNumber + " Completed");
+                //insert hints used here
+            }
+        }
+    }
+        System.out.println("Creating Game...\n");
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+
+        Game gameObject = new Game(sessionCurrent);
         GameList gameList = GameList.getInstance();
+        //this loads in game sets of questions,answers, etc into respective template objects
         gameList.loadGames();
-        gameList.getGameData(startGame);
-        startGame.challengeStart(sessionCurrent.getChallengeIndex());
+
+        gameList.getGameData(gameObject);
+
+        gameObject.challengeStart(sessionCurrent.getChallengeIndex());
+        gameObject.runGame();
+        
+        
+        int sessionScore = gameObject.getScore();
+        int sessionIndex = gameObject.getIndex();
+        sessionCurrent.setScore(sessionScore);
+        sessionCurrent.setChallengeIndex(sessionIndex);
+
+        accessUser.storeGameSession(sessionCurrent);
+        userList.updateUser(accessUser);
+
+        DataWriter.saveUsers();
+        
+        System.out.println("[SESSION END:]\n");
+        System.out.println(sessionCurrent+"\n");
+        // signInOptions();
 
     }
 
@@ -86,6 +258,7 @@ public class UserList {
                     System.out.println("Here are your sessions\n______________________");
                     for (GameSession s : accessUser.getAllSessions()) {
                         System.out.println(s);
+                        System.out.println("Percentage of progress: "+ s.getPercent() + "% done");
                         System.out.println("----------");
                     }
                     break;
@@ -97,6 +270,7 @@ public class UserList {
                 System.out.println("Here are your sessions\n______________________");
                 for (GameSession s : accessUser.getAllSessions()) {
                     System.out.println(s);
+                    System.out.println("Percentage of progress: "+ s.getPercent() + "% done");
                     System.out.println("----------");
                 }
                 DataWriter.saveUsers();
@@ -145,7 +319,7 @@ public class UserList {
             Scanner userInput = new Scanner(System.in);
             System.out.println("Enter email associated with account:");
             String emailAttempt = userInput.nextLine();
-            if (userList.testEmail(emailAttempt.toLowerCase())) {
+            if (userList.testEmailSignIn(emailAttempt.toLowerCase())) {
                 System.out.println("Enter password for the account:");
                 String passAttempt = userInput.nextLine();
                 if (userList.testPassword(emailAttempt, passAttempt)) {
@@ -185,68 +359,4 @@ public class UserList {
         return add;
     }
 
-    public static UserList getInstance() {
-        if (userList == null)
-            userList = new UserList();
-        return userList;
-    }
-
-    public void loadUsers() {
-        users = DataLoader.getUsers();
-    }
-
-    public ArrayList<User> getUsers() {
-        return this.users;
-    }
-
-    public boolean emailAlreadyExists(String email) {
-        boolean exists = false;
-        for (User u : this.users) {
-            if (u.getEmail().equalsIgnoreCase(email)) {
-                exists = true;
-            }
-        }
-        return exists;
-    }
-
-    public boolean testEmail(String email) {
-        for (int i = 0; i < users.size(); i++) {
-            if (users.get(i).getEmail().toLowerCase().equals(email.toLowerCase())) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    public boolean testPassword(String email, String pass) {
-        for (int i = 0; i < users.size(); i++) {
-            if (users.get(i).getEmail().equals(email)
-                    && users.get(i).getPassword().equals(pass)) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    public User getUser(String email, String password) {
-        for (int i = 0; i < users.size(); i++) {
-            if (users.get(i).getEmail().equals(email)
-                    && users.get(i).getPassword().equals(password)) {
-                return users.get(i);
-            }
-        }
-        return null;
-    }
-
-    public void createAccount(
-            String firstName,
-            String lastName,
-            String email,
-            String password,
-            int avatar,
-            UUID id) {
-        User newUser = new User(firstName, lastName, email, password, avatar, id);
-        getUsers().add(newUser);
-        DataWriter.saveUsers();
-    }
 }

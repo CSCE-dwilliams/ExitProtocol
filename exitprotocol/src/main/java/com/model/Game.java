@@ -8,16 +8,25 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.UUID;
+
 public class Game {
     private String theme;
     private int difficulty;
     private int playerCount;
     private UUID gameID;
-    // public ArrayList<Challenge> gameset = new ArrayList<Challenge>();
-    ArrayList<String> questions = new ArrayList<>();
-    ArrayList<String> answers = new ArrayList<>();
-    ArrayList<String> clues = new ArrayList<>();
+    private int score;
+    private int itemIndex;
+    private int playerIndex;
+    private int hintIndex;
+    private int hintPenalty = 25;
+    private int correctPoints = 100;
+    private boolean quit = false;
 
+    private GameSession session;
+
+    ArrayList<Challenge> challenges = new ArrayList<>();
+    ArrayList<Item> gameItems = new ArrayList<>();
+    ArrayList<String> hints = new ArrayList<>();
     private GameTemplate gameSet;
     /**
      * Creates  a game session based on the theme, difficulty, and player count
@@ -29,138 +38,384 @@ public class Game {
         this.theme = session.getSessionTheme();
         this.difficulty = session.getDifficulty();
         this.playerCount = session.getPlayerCount();
+        this.score = session.getScore();
+        this.session = session;
     }
-    /**
-     * Returns intro of the game
-     * @return a string intro per theme
-     */
-    public String getIntro(){
+
+    public String getIntro() {
         return "";
     }
-    /**
-     * Returns theme of the game
-     * @return one of 4 themes
-     */
-    public String getTheme(){
+
+    public String getTheme() {
         return this.theme;
     }
-    /**
-     * Returns difficulty of the game
-     * @return integer of difficulty level
-     */
-    public int getDifficulty(){
+
+    public int getDifficulty() {
         return this.difficulty;
     }
-    /**
-     * Returns the amount of players in the game
-     * @return returns an integer of player count
-     */
-    public int getPlayerCount(){
+
+    public int getPlayerCount() {
         return this.playerCount;
     }
-   /**
-    * Sets the game template based on the theme and difficulty
-    * @param aGameTemplate is used to set a game template
-    */
-    public void setGameSet(GameTemplate aGameTemplate){
+
+    public int getIndex() {
+        return playerIndex;
+    }
+
+    public ArrayList<Challenge> getChallenges() {
+        return challenges;
+    }
+
+    public void setGameSet(GameTemplate aGameTemplate) {
         this.gameSet = aGameTemplate;
     }
-    /**
-     * Start the challenge
-     * @param startingIndex is used to start the challenge from a specific index
-     */
-    public void challengeStart(int startingIndex){
-        System.out.println(gameSet.getIntro());
-        questions = gameSet.getQuestions();
-        answers = gameSet.getAnswers();
-        clues = gameSet.getClues();
 
-        for(int i =0; i < questions.size();i++){
+    public void challengeStart(int startingIndex) {
+        // printing intro flavor text
+
+        // try {
+        // Thread.sleep(10000);
+        // } catch (InterruptedException e) {
+        // // TODO Auto-generated catch block
+        // e.printStackTrace();
+        // }
+        // instantiating all arraylists and pointing player index
+        playerIndex = startingIndex;
+        if (playerIndex < 1) {
+            gameSet.getIntro();
+        }
+        challenges = gameSet.getChallenges();
+    }
+
+    public void assignChallenges() {
+        challenges = gameSet.getChallenges();
+    }
+
+    public void runGame() {
+        
+        for (int i = 0; i < playerIndex; i++) {
+            ArrayList<Item> items = challenges.get(i).getItems();
+            if (items.size() > 0) {
+                gameItems.add(items.get(0));
+            }
+        }
+
+        while (!quit && playerIndex < challenges.size()) {
+            int challengeNo = 1 + playerIndex;
+            System.out.println("ATTEMPT CHALLENGE " + challengeNo + ":\n");
+            System.out.println("Correct answers +100 points\nUsing a hint: -25 points\nSkipping: -75 points");
+            System.out.println("--------------------------");
+
+            questionLoop(playerIndex);
+            if (quit) {
+                break;
+            }
+            playerIndex++;
+        }
+
+        if (playerIndex >= challenges.size()) {
+            String diff;
+
+            if (this.difficulty == 1) {
+                diff = "Easy";
+            } else if (this.difficulty == 2) {
+                diff = "Medium";
+            } else {
+                diff = "Hard";
+            }
             
-            int challengeNo = 1;
-            challengeNo += startingIndex;
-            System.out.println("ATTEMPT CHALLENGE "+ challengeNo + ":\n");
-            attemptQuestion(startingIndex);
-            startingIndex++;
+            try (java.io.FileWriter writer = new java.io.FileWriter("Certificate.txt")) {
+                writer.write("========================================\n");
+                writer.write("              EXIT PROTOCOL             \n");
+                writer.write("========================================\n\n");
+                writer.write("Thanks for following the Exit Protocol.\n");
+                writer.write("You have escaped ... for now.\n");
+                writer.write("Game Details:\n");
+                writer.write("-------------\n");
+                writer.write("Theme: " + this.theme + "\n");
+                writer.write("Difficulty: " + diff + "\n");
+                writer.write("Player Count: " + this.playerCount + "\n");
+                writer.write("Hints Used: " + session.getHintsUsed() + "\n");
+                writer.write("Final Score: " + this.score + "\n\n");
+                writer.write("Well done on your achievement!\n");
+                writer.write("========================================\n");
+                System.out.println("Certificate saved to Certificate.txt");
+            } catch (java.io.IOException e) {
+                System.out.println("Error writing certificate file: " + e.getMessage());
+            }
         }
 
     }
-    /**
-     * Creates how many attempts a user has to answer a question and chacks if the answer is correct
-     * @param startingIndex is used to start the challenge from a specific index
-     */
-    public void attemptQuestion(int startingIndex){
+
+    public void questionLoop(int startingIndex) {
         Scanner u = new Scanner(System.in);
+        hintIndex = 0;
+        itemIndex = 0;
         boolean gameValid = true;
-        System.out.println(questions.get(startingIndex));
-        System.out.println(clues.get(startingIndex));
-        while(gameValid){
-        System.out.println("Press 1. To attempt question\nPress 2. To get hint");
-        int choice = u.nextInt();
-        switch(choice){
-            case 1:
-                System.out.println("\nAttempt question:");
-                u.nextLine();
-                String attempt = u.nextLine();
-                if(attempt.equalsIgnoreCase(answers.get(startingIndex))){
-                    System.out.println("Correct");
+        while (gameValid && !quit) {
+            if (hasItems()) {
+                if (attemptQuestionWithItems(u)) {
                     gameValid = false;
                 }
-                break;
-            case 2:
-                break;
+            } else {
+                if (attemptQuestionNoItems(u)) {
+
+                    gameValid = false;
+                }
+            }
+            if (quit) {
+                gameValid = false;
+            }
         }
     }
+
+    public boolean attemptQuestionNoItems(Scanner u) {
+        Challenge currentChallenge = challenges.get(playerIndex);
+        String questionString = currentChallenge.getQuestion();
+        String questionAnswer = currentChallenge.getAnswer();
+        String questionPost = currentChallenge.getPostQuestion();
+        ArrayList<String> hintList = currentChallenge.getHints();
+
+        System.out.println(questionString);
+        System.out.println("----------");
+
+        boolean questionCorrect = false;
+
+        // Menu loop so user can try, ask for hints, or quit without leaving the
+        // question
+        while (!questionCorrect) {
+            System.out.println("Press 1. To attempt question");
+            System.out.println("Press 2. To get hint");
+            System.out.println("Press 4. To save and quit");
+            System.out.print("> ");
+
+            String line = u.nextLine().trim();
+            int choice;
+            try {
+                choice = Integer.parseInt(line);
+            } catch (NumberFormatException e) {
+                System.out.println("Please enter a valid choice (1, 2 or 4).");
+                continue;
+            }
+
+            switch (choice) {
+                case 1:
+                    System.out.println("\nAttempt question:");
+                    String attempt = u.nextLine();
+                    if (attempt.equalsIgnoreCase(questionAnswer)) {
+                        System.out.println("\nCorrect | +100 points\n");
+                        System.out.println(questionPost + "\n________________");
+
+                        try {
+                            Thread.sleep(2000);
+                        } catch (InterruptedException ignored) {
+                        }
+                        score += correctPoints;
+                        questionCorrect = true;
+
+                        if (currentChallenge.getItems() != null && currentChallenge.getItems().size() > 0) {
+                            Item challengeItem = currentChallenge.getItems().get(itemIndex);
+                            gameItems.add(challengeItem);
+                            itemIndex++;
+                        }
+
+                    } else {
+                        System.out.println("Incorrect, try again");
+                    }
+                    break; // prevent fall-through
+
+                case 2:
+                    if (hintList.size() > hintIndex) {
+                        String hint = hintList.get(hintIndex);
+                        if (hint != null) {
+                            System.out.println("\n" + hint + " | -25 points" + "\n");
+                            score -= hintPenalty;
+                        }
+                        hintIndex++;
+
+                        session.addHintUsed();
+                    } else {
+                        System.out.println("\nNo more hints remaining\n");
+                    }
+                    break;
+
+                case 4:
+                    // handle save & quit: adjust to your save implementation
+                    // saveGame();
+                    System.out.println("Game saved. Exiting question...");
+                    try {
+                        Thread.sleep(1000);
+                    } catch (InterruptedException e) {
+                        // TODO Auto-generated catch block
+                        e.printStackTrace();
+                    }
+                    quit = true;
+                    return false; // not correct, outer loop can handle overall quit
+
+                default:
+                    System.out.println("Invalid choice. Enter 1, 2 or 4.");
+                    break;
+            }
+        }
+
+        return questionCorrect;
     }
-    /**
-     * Returnes the unique ID of the game
-     * @return UUID of the game
-     */
-    public UUID getID()
-    {
+
+    public boolean attemptQuestionWithItems(Scanner u) {
+
+        // instantiating variables 4 logic
+        Challenge currentChallenge = challenges.get(playerIndex);
+        String questionString = currentChallenge.getQuestion();
+        String questionAnswer = currentChallenge.getAnswer();
+        String questionPost = currentChallenge.getPostQuestion();
+        ArrayList<String> hintList = currentChallenge.getHints();
+
+        boolean questionCorrect = false;
+
+        System.out.println(questionString);
+        System.out.println("----------");
+        // Menu loop for this single question so user can press 1/2/3 multiple times
+        // until they answer or quit
+        while (!questionCorrect) {
+            System.out.println("Press 1. To attempt question");
+            System.out.println("Press 2. To get hint");
+            System.out.println("Press 3. To look at items");
+            System.out.println("Press 4. To save and quit");
+            System.out.print("> ");
+
+            String line = u.nextLine().trim();
+            int choice;
+            try {
+                choice = Integer.parseInt(line);
+            } catch (NumberFormatException e) {
+                System.out.println("Please enter a valid number (1-4).");
+                continue;
+            }
+
+            switch (choice) {
+                case 1:
+                    System.out.println("\nAttempt question:");
+                    String attempt = u.nextLine();
+                    if (attempt.equalsIgnoreCase(questionAnswer)) {
+                        System.out.println("\nCorrect | +100 points\n");
+                        System.out.println(questionPost + "\n________________");
+                        score += correctPoints;
+                        if (currentChallenge.getItems().size() > 0) {
+                            // only add if there are items in the challenge itself
+                            Item challengeItem = currentChallenge.getItems().get(itemIndex);
+                            gameItems.add(challengeItem);
+                            itemIndex++;
+                        }
+                        questionCorrect = true;
+                        try {
+                            Thread.sleep(1000);
+                        } catch (InterruptedException ignored) {
+                        }
+                    } else {
+                        System.out.println("Incorrect, try again");
+                    }
+                    break;
+                case 2:
+                    if (hintList.size() > hintIndex) {
+                        String hint = hintList.get(hintIndex);
+                        if (hint != null) {
+                            System.out.println("\n" + hint + " | -25 points" + "\n");
+                            score -= hintPenalty;
+                        }
+                        hintIndex++;
+                        session.addHintUsed();
+                    } else {
+                        System.out.println("\nNo more hints remaining\n");
+                    }
+                    break;
+                case 3:
+                    System.out.println("\nHere are your items:\n");
+                    if (gameItems.isEmpty()) {
+                        System.out.println("You have no items.\n");
+                    } else {
+                        int i = 0;
+                        for (Item item : gameItems) {
+                            i++;
+                            System.out.println(i + ". " + item.getName());
+                        }
+                        // Optionally print descriptions for all items (safely)
+                        System.out.println("--------------");
+                        System.out.println("\nDescriptions:");
+                        for (int j = 0; j < gameItems.size(); j++) {
+                            Item it = gameItems.get(j);
+                            System.out.println((j + 1) + ". " + it.getDescription() + "\n");
+                        }
+                        Scanner userInput = new Scanner(System.in);
+                        System.out.println("\nPress 1. To select and Item\nPress 2. To return to question");
+                        int selectInt = u.nextInt();
+                        switch (selectInt) {
+                            case 1:
+                                System.out.println("Enter the number of the item you want to use");
+                                int itemSelection = u.nextInt() - 1;
+                                u.nextLine();
+                                String itemUse = gameItems.get(itemSelection).getUseCase();
+                                System.out.println(itemUse);
+                                break;
+                            case 2:
+                                break;
+                            default:
+                                System.out.println("Invalid choice");
+                                break;
+                        }
+
+                    }
+                    try {
+                        Thread.sleep(1000);
+                    } catch (InterruptedException ignored) {
+                    }
+                    System.out.println("----------");
+                    System.out.println(questionString);
+                    System.out.println("----------");
+                    break;
+                case 4:
+                    // implement save/quit behavior here; for now return false so outer loop can
+                    // handle quitting
+                    // saveGame();
+                    System.out.println("Game saved. Exiting...");
+                    try {
+                        Thread.sleep(1000);
+                    } catch (InterruptedException e) {
+                        // TODO Auto-generated catch block
+                        e.printStackTrace();
+                    }
+                    quit = true;
+                    // Decide: should quitting count as "questionCorrect"? probably not,
+                    // so return false or handle game state elsewhere. Here we return false.
+                    return false;
+                default:
+                    System.out.println("Invalid choice. Enter 1-4.");
+                    break;
+            }
+        }
+
+        // when questionCorrect == true we return true to signal the outer loop to
+        // advance
+        return questionCorrect;
+    }
+
+    public boolean hasItems() {
+        if (gameItems.size() > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public UUID getID() {
         return gameID;
     }
-    //working on challenge implementation 
-   /*  public ArrayList<Challenge> getQuestions(){
-        return 
-    }
-    public Challenge getquestion(){
-    
-    }
-    */
 
-    public void getClues(){
+    public void puzzleCompleted() {
 
     }
 
-    public void getAnswer(){
-
-    }    
-    public void skipPuzzle(){
-
+    public int getScore() {
+        return score;
     }
-    public void questionValidity(){
-
-    }
-    public void puzzleCompleted(){
-
-    }
-    public void calculateScore(int currentScore){
-        
-    }
-
-    public void attemptQuestion(String userAttempt)
-    {
-        /*
-        if (userAttempt == gameset.get())
-        {
-            
-        }
-        else
-        {
-            System.out.println("Incorrect Answer");
-        }
-        */
-    } 
 
 }

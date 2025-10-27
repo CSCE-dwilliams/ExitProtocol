@@ -17,19 +17,10 @@ public class GameSession{
     private int playerCount;
     private int challengeIndex;
     private int score;
+    private int hintsUsed;
     private ChallengeProgress progress;
     private SessionState state;
 
-
-     /**
-      * Creates a Game Session that takes in user parameters
-      * @param userID assigns unique user ID to each constructed User object
-      * @param teamName assigns team name to the game session
-      * @param sessionName assigns a name to the game session
-      * @param theme - is used to map to Game generation through game template 
-      * @param difficulty - used to set the difficulty of the game session
-      * @param playerCount - used to set the number of players in the game session
-      */
     public GameSession(UUID userID,String teamName, String sessionName, String theme, int difficulty, int playerCount){
         this.sessionID = UUID.randomUUID();
         this.teamName = teamName;
@@ -40,6 +31,7 @@ public class GameSession{
         this.progress = new ChallengeProgress();
         this.state = SessionState.ACTIVE;
         this.challengeIndex = 0;
+        this.hintsUsed = 0;
 
     }
     /**
@@ -56,10 +48,31 @@ public class GameSession{
     public String getTeamName(){
         return teamName;
     }   
-    /**
-     * Returns session name
-     * @return a string of a session name
-     */
+    public int getPercent(){
+        GameList gameList = GameList.getInstance();
+        gameList.loadGames();
+        Game testGame = new Game(this);
+        gameList.getGameData(testGame);
+        testGame.assignChallenges();
+
+
+        int totalChallenges = testGame.getChallenges().size();
+        float percent = (((float)challengeIndex) / totalChallenges)*100;
+        return Math.round(percent);
+    }
+
+    public int getHintsUsed() {
+        return this.hintsUsed;
+    }
+
+    public void setHintsUsed(int hintsUsed) {
+        this.hintsUsed = hintsUsed;
+    }
+
+    public void addHintUsed() {
+        this.hintsUsed += 1;
+    }
+
     public String getSessionName(){ 
         return sessionName;
     }
@@ -91,17 +104,15 @@ public class GameSession{
     public int getChallengeIndex(){
         return challengeIndex;
     }
-    /**
-     * Returns the score of the game
-     * @return the score as an integer
-     */
+    public void setChallengeIndex(int index){
+        this.challengeIndex = index;
+    }
     public int getScore(){
         return score;
     }
-    /**
-     * Returns the progress of the challenge
-     * @return the challenge progress
-     */
+    public void setScore(int score){
+        this.score = score;
+    }
     public ChallengeProgress getProgress(){
         return progress;
     }
@@ -124,7 +135,6 @@ public class GameSession{
     public void advancePuzzle(){challengeIndex++;}
 
     public void saveSession(){
-        
     }
     /**
      * Returns a string representation of the game session
@@ -134,7 +144,7 @@ public class GameSession{
     public String toString(){
         return "Session Name: "+ this.getSessionName()+ "\nSession Team Name: " + this.getTeamName()+
         "\nSession Theme: "+ this.getSessionTheme() + "\nDifficulty: " + this.getDifficulty() + 
-        "\nPlayer Count: " + this.getPlayerCount();
+        "\nPlayer Count: " + this.getPlayerCount() + "\nCurrent Score: "+ this.getScore();
         
     }
 }

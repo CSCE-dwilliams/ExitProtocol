@@ -6,27 +6,23 @@ package com.model;
  */
 import java.util.ArrayList;
 import java.util.HashMap;
-<<<<<<< HEAD
+/**
+ * Represents a user's progress in completing challenges.
+ * This class tracks whether a challenge has been solved, the number of hints used,
+ * items obtained, and progress in related sub-challenges. It is useful for
+ * representing complex or multi-part challenge structures.
+ * @author Clankers
 /**
  * hashmap of challenge to challenge progress
  * solved questions is a boolean
  * arraylist of items collected
  * number of hints used is an integer
-=======
 
-/**
- * Represents the progress of a user in completing challenges.
- * 
- * This class also tracks whether a challenge has been solved,
- * the number of hints used by the user, any items obtained during the challenge,
- * and maintains progress for related sub-challenges.
- * @author Clankers
->>>>>>> 53b353d7f511aefcb46169abe352c722ce99e166
  */
 public class ChallengeProgress{
     /**
      * Stores progress for sub-challenges related to this challenge.
-     *  Maps each {@link Challenge} to its corresponding {@link ChallengeProgress}.
+     * Maps each Challenge to its corresponding ChallengeProgress.
      * Useful for tracking progress in multi-part challenges.
      */
     private HashMap<Challenge, ChallengeProgress> challengeProgress;
@@ -35,15 +31,12 @@ public class ChallengeProgress{
      * Indicates whether this challenge has been solved by the player.
      */
     private boolean solved;
-
-    /**
-     * A list of items collected while working on this challenge.
-     */
-    private ArrayList<Item> items;
-    /**
-     * The number of hints that the players used for a challenge.
-     */
     private int numHintsUsed;
+    private ArrayList<String> questionSet = new ArrayList<>();
+    private ArrayList<String> answerSet = new ArrayList<>();
+    private ArrayList<ArrayList<String>> hintSet = new ArrayList<>();
+    private ArrayList<String> postQuestionSet = new ArrayList<>();
+    private ArrayList<Item> items = new ArrayList<>();
     
 
     
