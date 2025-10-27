@@ -9,7 +9,7 @@ public class GameList {
     private ArrayList<GameTemplate> games = new ArrayList<>();
 
     private GameList() { }
-
+   
     public static GameList getInstance() {
         if (gameList == null) {
             gameList = new GameList();
@@ -26,6 +26,7 @@ public class GameList {
     public void loadGames() {
         games = DataLoader.getGames();
     }
+   
     public ArrayList<GameTemplate> getTemplates(){
         return games;
     }

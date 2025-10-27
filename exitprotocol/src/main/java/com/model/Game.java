@@ -1,5 +1,9 @@
 package com.model;
-
+/**
+ * Game class helps run the game based off of the Game session parameters.
+ * It holds the theme, difficulty, and player count for the game session.
+ * @author The Clankers
+ */
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -15,29 +19,56 @@ public class Game {
     ArrayList<String> clues = new ArrayList<>();
 
     private GameTemplate gameSet;
-
+    /**
+     * Creates  a game session based on the theme, difficulty, and player count
+     * @param theme is used in game generation
+     * @param difficulty is used to set the level of challenge
+     * @param playerCount is used to set how many players are in the game
+     */
     public Game(GameSession session) {
         this.theme = session.getSessionTheme();
         this.difficulty = session.getDifficulty();
         this.playerCount = session.getPlayerCount();
     }
-
+    /**
+     * Returns intro of the game
+     * @return a string intro per theme
+     */
     public String getIntro(){
         return "";
     }
+    /**
+     * Returns theme of the game
+     * @return one of 4 themes
+     */
     public String getTheme(){
         return this.theme;
     }
+    /**
+     * Returns difficulty of the game
+     * @return integer of difficulty level
+     */
     public int getDifficulty(){
         return this.difficulty;
     }
+    /**
+     * Returns the amount of players in the game
+     * @return returns an integer of player count
+     */
     public int getPlayerCount(){
         return this.playerCount;
     }
+   /**
+    * Sets the game template based on the theme and difficulty
+    * @param aGameTemplate is used to set a game template
+    */
     public void setGameSet(GameTemplate aGameTemplate){
         this.gameSet = aGameTemplate;
     }
-
+    /**
+     * Start the challenge
+     * @param startingIndex is used to start the challenge from a specific index
+     */
     public void challengeStart(int startingIndex){
         System.out.println(gameSet.getIntro());
         questions = gameSet.getQuestions();
@@ -54,6 +85,10 @@ public class Game {
         }
 
     }
+    /**
+     * Creates how many attempts a user has to answer a question and chacks if the answer is correct
+     * @param startingIndex is used to start the challenge from a specific index
+     */
     public void attemptQuestion(int startingIndex){
         Scanner u = new Scanner(System.in);
         boolean gameValid = true;
@@ -77,6 +112,10 @@ public class Game {
         }
     }
     }
+    /**
+     * Returnes the unique ID of the game
+     * @return UUID of the game
+     */
     public UUID getID()
     {
         return gameID;
@@ -106,11 +145,6 @@ public class Game {
     public void puzzleCompleted(){
 
     }
-/*  public void updateScore(Integer currentScore){
-        currentScore = Challenge.getScore(gameID);
-        
-    }
-        Need to think about the implementation of Challenge it is the same as the leaderboard right now*/
     public void calculateScore(int currentScore){
         
     }
