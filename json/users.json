@@ -1,1 +1,64 @@
-[{"score":0,"firstname":"John","password":"1234","sessions":[],"id":"0e41ba50-9f6c-4f35-8ea1-6c34070122cd","avatar":1,"email":"jodoe@email.sc.edu","lastname":"Doe"},{"score":0,"firstname":"Johnathan","password":"1234","sessions":[],"id":"b86498c6-06d7-4252-a715-3fcadda97d18","avatar":4,"email":"wick@email.sc.edu","lastname":"Wickerton"},{"score":0,"firstname":"mister","password":"1234","sessions":[{"difficulty":2,"score":0,"playercount":3,"sessionName":"session1","theme":"Historical","id":"369cbee5-0599-487e-a399-ceff9afaf4c4","state":"ACTIVE","currentChallengeIndex":0,"teamname":"clankers"}],"id":"64b80d89-20d2-45c8-ad9b-96b701d93e9a","avatar":2,"email":"mister@email.com","lastname":"super"},{"score":0,"firstname":"g","password":"e","sessions":[],"id":"872c627e-dbdb-49d1-8a37-d91cc0a23780","avatar":2,"email":"express","lastname":"123"}]
+[
+    {
+        "score": 0,
+        "firstname": "John",
+        "password": "1234",
+        "sessions": [],
+        "id": "0e41ba50-9f6c-4f35-8ea1-6c34070122cd",
+        "avatar": 1,
+        "email": "jodoe@email.sc.edu",
+        "lastname": "Doe"
+    },
+    {
+        "score": 0,
+        "firstname": "Johnathan",
+        "password": "1234",
+        "sessions": [],
+        "id": "b86498c6-06d7-4252-a715-3fcadda97d18",
+        "avatar": 4,
+        "email": "wick@email.sc.edu",
+        "lastname": "Wickerton"
+    },
+    {
+        "score": 0,
+        "firstname": "mister",
+        "password": "1234",
+        "sessions": [
+            {
+                "difficulty": 2,
+                "score": 0,
+                "playercount": 3,
+                "sessionName": "session1",
+                "theme": "Historical",
+                "id": "5ca40bac-3c44-4028-afa4-abe828f498b3",
+                "state": "ACTIVE",
+                "currentChallengeIndex": 0,
+                "teamname": "clankers"
+            }
+        ],
+        "id": "64b80d89-20d2-45c8-ad9b-96b701d93e9a",
+        "avatar": 2,
+        "email": "mister@email.com",
+        "lastname": "super"
+    },
+    {
+        "score": 0,
+        "firstname": "Zobo",
+        "password": "1234",
+        "sessions": [],
+        "id": "4f151def-8ecb-46f4-931a-db40f764faf1",
+        "avatar": 2,
+        "email": "zobo",
+        "lastname": "Jeffe"
+    },
+    {
+        "score": 0,
+        "firstname": "Jada",
+        "password": "12345",
+        "sessions": [],
+        "id": "8dbd49e3-a83f-4153-a84c-a72a73f0cc47",
+        "avatar": 0,
+        "email": "Jada@email.com",
+        "lastname": "Young"
+    }
+]
