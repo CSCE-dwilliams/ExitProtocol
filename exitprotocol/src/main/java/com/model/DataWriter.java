@@ -14,9 +14,7 @@ import org.json.simple.JSONObject;
  * @author Clankers
  */
 public class DataWriter extends DataConstants {
-    // public ArrayList<Challenge> setTheme(String theme, int difficulty, int
-    // playerCount) {}
-
+    
     /**
      * Saves all user data from the UserList singleton instance into a json file.
      * The json file location is defined by the USER_FILE_NAME constant in the DataConstants.
@@ -76,7 +74,7 @@ public class DataWriter extends DataConstants {
             sessionYo.put("id", userSession.getSessionID().toString());
             sessionYo.put("teamname", userSession.getTeamName());
             sessionYo.put("score", userSession.getScore());
-            // sessionYo.put("progress") idk jsonObject man
+        
             sessionYo.put("theme",userSession.getSessionTheme());
             sessionYo.put("difficulty", userSession.getDifficulty());
             sessionYo.put("playercount", userSession.getPlayerCount());
@@ -99,7 +97,6 @@ public class DataWriter extends DataConstants {
      */
     public static JSONObject getGameJSON(Game game) {
         JSONObject o = new JSONObject();
-        // game params theme,difficul,playercount,teamname,id
         o.put("difficulty", game);
         return o;
     }
