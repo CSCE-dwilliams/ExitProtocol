@@ -6,5 +6,7 @@ module com.theclankers {
     requires junit;
 
     opens com.theclankers to javafx.fxml;
+    opens com.model to junit;
     exports com.theclankers;
+    exports com.model;
 }

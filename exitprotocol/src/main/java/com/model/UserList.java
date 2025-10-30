@@ -15,9 +15,9 @@ public class UserList {
     private ArrayList<User> users;
 
     /*
-     * 
+     * -----------------------------------
      *[BASE FUNCTIONALITY METHODS]
-     * 
+     * -----------------------------------
      */
     /**
      * Private constrcutor for singleton pattern.
@@ -75,9 +75,9 @@ public class UserList {
 
 
     /*
-     * 
+     * -----------------------------------
      * USER ACCESS/SIGN IN, NEW USER OPTIONS
-     * 
+     * -----------------------------------
      */
 
     /*
@@ -85,6 +85,7 @@ public class UserList {
      */
     public User returningUser(String email, String pass) {
         if (!userList.testEmailSignIn(email.toLowerCase())) {
+            //4 demo/debug
             System.out.println("Email address not associated with account, try again");
             return null;
         } else if (userList.getUser(email, pass) == null) {
@@ -157,8 +158,6 @@ public class UserList {
     }
 
 
-
-
     /**
      * Creates account based on user credentials and adds it to the list
      * 
@@ -176,6 +175,10 @@ public class UserList {
             String password,
             int avatar,
             UUID id) {
+        if(userList.testEmailSignIn(email)){
+            System.out.println("Email already in use");
+            return;
+        }
         User newUser = new User(firstName, lastName, email, password, avatar, id);
         getUsers().add(newUser);
         DataWriter.saveUsers();
@@ -217,7 +220,7 @@ public class UserList {
         }
     }
 
-    // FE Implementation:
+    // FE Implementation with add session incorporated
     public static void seeAllSessions(User accessUser, Scanner u) {
         u.nextLine();
         System.out.println("Press 1. To see all sessions\nPress 2. To create new session");
@@ -255,6 +258,13 @@ public class UserList {
 
     // wont need userlist implementation as User.createAndAddSession essentially does this
     //might need to address issues of loading and writing to data
+
+
+    public static void addSession2(User addUser, String teamName, String sessionName,int difficulty, int playerCount ){
+        addUser.createAndAddSession(teamName, sessionName, sessionName, difficulty, playerCount);
+        userList.updateUser(addUser);
+    }
+    //FE implementation
     public static void addSession(User addUser, Scanner u) {
         u.nextLine();
         System.out.println("Enter the details for your new game session.\nEnter Team Name: ");
@@ -285,6 +295,17 @@ public class UserList {
         addUser.createAndAddSession(teamName, sessionName, themeName, difficulty, playerCount);
         DataWriter.saveUsers();
 
+    }
+
+
+
+    public GameSession chooseSession(User u, String sessionName){
+        DataLoader.getUsers();
+        if(u.chooseSession(sessionName)==null){
+            return null;
+        }else{
+            return u.chooseSession(sessionName);
+        }
     }
 
 
@@ -322,6 +343,8 @@ public class UserList {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
+
+
 
         Game gameObject = new Game(sessionCurrent);
         GameList gameList = GameList.getInstance();
