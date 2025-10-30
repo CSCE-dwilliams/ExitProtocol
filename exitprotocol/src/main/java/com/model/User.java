@@ -76,6 +76,7 @@ public class User {
             int playerCount) {
         GameSession s = new GameSession(this.id, teamName, sessionName, theme, difficulty, playerCount);
         storeGameSession(s);
+        DataWriter.saveUsers(); 
         return s;
     }
     /**
