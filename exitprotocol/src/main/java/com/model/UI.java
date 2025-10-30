@@ -1,24 +1,20 @@
 package com.model;
 
 public class UI{
-    public void runScenarios() {
-    
-    }
 
     public void mainLoop(){
         System.out.println("WELCOME TO EXIT PROTOCOL\n*********************\nAn Escape Room Bonanza Picture by The Clankers (Copyright 2006)\n");
-        System.out.println(
-  "+----------------------------------------+\n" +
-  "|  _____  _  _  _   _  _____  _   _  _   |\n" +
-  "| |  ___|| || || | | ||_   _|| \\ | || |  |\n" +
-  "| | |__  | || || |_| |  | |  |  \\| || |  |\n" +
-  "| |  __| | || ||  _  |  | |  | . ` || |  |\n" +
-  "| | |___ | || || | | |  | |  | |\\  || |  |\n" +
-  "| |_____||_||_||_| |_|  |_|  |_| \\_||_|  |\n" +
-  "|                                        |\n" +
-  "|            EXIT   PROTOCOL             |\n" +
-  "+----------------------------------------+\n"
-);  
+        System.out.println("""
+  ________   _______ _______   _____  _____   ____ _______ ____   _____ ____  _      
+ |  ____\\ \\ / /_   _|__   __| |  __ \\|  __ \\ / __ \\__   __/ __ \\ / ____/ __ \\| |     
+ | |__   \\ V /  | |    | |    | |__) | |__) | |  | | | | | |  | | |   | |  | | |     
+ |  __|   > <   | |    | |    |  ___/|  _  /| |  | | | | | |  | | |   | |  | | |     
+ | |____ / . \\ _| |_   | |    | |    | | \\ \\| |__| | | | | |__| | |___| |__| | |____ 
+ |______/_/ \\_\\_____|  |_|    |_|    |_|  \\_\\\\____/  |_|  \\____/ \\_____\\____/|______|
+                                                                                     
+                                                                                     
+""");  
+        System.out.println("------------------------------------------------");
         EscapeManager manager = EscapeManager.getInstance();
         manager.logIn();
 
@@ -27,7 +23,6 @@ public class UI{
     }
     public void signInLoop(){
         UserList userList = UserList.getInstance(); 
-
     }
 
     public static void main(String[] args){

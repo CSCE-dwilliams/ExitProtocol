@@ -1,5 +1,27 @@
 [
     {
+        "firstname": "Henry",
+        "password": "as",
+        "sessions": [
+            {
+                "difficulty": 1,
+                "score": 325,
+                "playercount": 1,
+                "sessionName": "Session",
+                "theme": "Historical",
+                "id": "9219ef72-0f3c-4814-97a6-cbebbc080179",
+                "state": "ACTIVE",
+                "currentChallengeIndex": 4,
+                "hintsUsed": 3,
+                "teamname": "Clanker"
+            }
+        ],
+        "id": "a745fd0c-dd0d-4bf2-a4e9-9e5e48fb4d5e",
+        "avatar": 1,
+        "email": "hi@henry.moe",
+        "lastname": "Monteith"
+    },
+    {
         "firstname": "Brayden",
         "password": "123",
         "sessions": [
@@ -9,7 +31,7 @@
                 "playercount": 2,
                 "sessionName": "SessionOSU",
                 "theme": "Historical",
-                "id": "77518188-ffd8-42e0-a40f-259584ae0480",
+                "id": "f44de107-21ab-4e0f-be5c-f1856af6e69e",
                 "state": "ACTIVE",
                 "currentChallengeIndex": 0,
                 "hintsUsed": 0,
@@ -27,51 +49,15 @@
         "sessions": [
             {
                 "difficulty": 2,
-                "score": 50,
+                "score": 175,
                 "playercount": 1,
-                "sessionName": "Session5",
+                "sessionName": "SessionNew",
                 "theme": "Historical",
-                "id": "c31ffb9d-95a8-4f9d-84d5-88073d135b83",
-                "state": "ACTIVE",
-                "currentChallengeIndex": 1,
-                "hintsUsed": 2,
-                "teamname": "clankers"
-            },
-            {
-                "difficulty": 2,
-                "score": 450,
-                "playercount": 1,
-                "sessionName": "session3",
-                "theme": "Historical",
-                "id": "46759989-bcf5-4840-89c8-5d8380a38136",
+                "id": "ef2507c2-df92-4281-a438-1ca3510acee1",
                 "state": "ACTIVE",
                 "currentChallengeIndex": 5,
-                "hintsUsed": 0,
-                "teamname": "clankers"
-            },
-            {
-                "difficulty": 2,
-                "score": 500,
-                "playercount": 2,
-                "sessionName": "session2",
-                "theme": "Historical",
-                "id": "1e53b40e-295a-41c4-86c8-345696ce179a",
-                "state": "ACTIVE",
-                "currentChallengeIndex": 5,
-                "hintsUsed": 0,
-                "teamname": "clankers"
-            },
-            {
-                "difficulty": 2,
-                "score": 450,
-                "playercount": 1,
-                "sessionName": "Session",
-                "theme": "Historical",
-                "id": "b987496b-e4f2-4d7e-aac3-95a15f1ae642",
-                "state": "ACTIVE",
-                "currentChallengeIndex": 5,
-                "hintsUsed": 0,
-                "teamname": "clankers"
+                "hintsUsed": 1,
+                "teamname": "Clankers"
             }
         ],
         "id": "64b80d89-20d2-45c8-ad9b-96b701d93e9a",

@@ -18,42 +18,9 @@ public class EscapeManager {
         return escapeManager;
     }
     
-    public void main(String[] args) {
-        startGame();
-    }
-
-    public void startGame() {
-        
-    }
     public void logIn(){
         Driver.signInStart();
     }
-    public void endGame() {
-    }
+    
 
-    public void pauseGame() {
-    }
-
-    public void unpauseGame() {
-    }
-
-    public void showLeaderboard() {
-    }
-
-    public void showNextQuestion() {
-    }
-
-    public void attemptQuestion() {
-        // Either take in a value and test it against the puzzle answer or call other
-        // methods
-    }
-
-    public void logOut() {
-    }
-
-    public void createAccount() {
-    }
-
-    public void addScore() {
-    }
 }
