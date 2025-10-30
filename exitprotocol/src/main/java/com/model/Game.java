@@ -71,17 +71,9 @@ public class Game {
     }
 
     public void challengeStart(int startingIndex) {
-        // printing intro flavor text
-
-        // try {
-        // Thread.sleep(10000);
-        // } catch (InterruptedException e) {
-        // // TODO Auto-generated catch block
-        // e.printStackTrace();
-        // }
-        // instantiating all arraylists and pointing player index
         playerIndex = startingIndex;
         if (playerIndex < 1) {
+            //printing intro
             gameSet.getIntro();
         }
         challenges = gameSet.getChallenges();
@@ -92,7 +84,8 @@ public class Game {
     }
 
     public void runGame() {
-        
+        //loads game items back into game if game is started at index
+        //besides 0
         for (int i = 0; i < playerIndex; i++) {
             ArrayList<Item> items = challenges.get(i).getItems();
             if (items.size() > 0) {
