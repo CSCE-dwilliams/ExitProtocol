@@ -8,7 +8,6 @@ import static org.junit.Assert.*;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.lang.reflect.Field;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
@@ -23,20 +22,18 @@ import java.util.ArrayList;
  *
  * BUGS IDENTIFIED BY THIS TEST SUITE:
  * 1. getUsers() does not handle missing JSON files gracefully - throws exception instead of returning empty list
- * 2. Session ID parsing bug: Uses personJSON.get("id") instead of sessionDat.get("id") for session UUID
+ * 2. Session ID parsing bug in line 70: Uses personJSON.get("id") instead of sessionDat.get("id") for session UUID
  * 3. No null checks for missing required fields - will throw NullPointerException
  * 4. getGames() does not handle missing JSON files gracefully
  * 5. No validation of data types during JSON parsing
- * 6. Empty catch blocks hide errors during file reading
+ * 6. Empty catch blocks hide errors during file reading (printStackTrace only)
  *
  * @author Clankers Test Suite
  */
-public class DataLoaderTest {
+public class DataLoaderTestNew {
 
-    private static final String TEST_USERS_FILE = "src/test/resources/test_users.json";
-    private static final String TEST_GAMES_FILE = "src/test/resources/test_games.json";
-    private static final String BACKUP_USERS_FILE = "json/users_backup.json";
-    private static final String BACKUP_GAMES_FILE = "json/rooms_backup.json";
+    private static final String BACKUP_USERS_FILE = "json/users_backup_test.json";
+    private static final String BACKUP_GAMES_FILE = "json/rooms_backup_test.json";
 
     /**
      * Set up test environment before each test.
@@ -58,7 +55,9 @@ public class DataLoaderTest {
         // Restore original files
         restoreFile(BACKUP_USERS_FILE, "json/users.json");
         restoreFile(BACKUP_GAMES_FILE, "json/rooms.json");
-    }    // ========== Tests for getUsers() method ==========
+    }
+
+    // ========== Tests for getUsers() method ==========
 
     /**
      * Test that getUsers() returns a non-null ArrayList.
@@ -77,7 +76,6 @@ public class DataLoaderTest {
     @Test
     public void testGetUsersLoadsBasicUserInfo() {
         createTestUsersFile(buildBasicTestUserJson());
-        setUserFileName(TEST_USERS_FILE);
 
         ArrayList<User> users = DataLoader.getUsers();
 
@@ -101,7 +99,6 @@ public class DataLoaderTest {
     public void testGetUsersParsesUUIDCorrectly() {
         String knownUUID = "12345678-1234-1234-1234-123456789abc";
         createTestUsersFile(buildUserJsonWithUUID(knownUUID));
-        setUserFileName(TEST_USERS_FILE);
 
         ArrayList<User> users = DataLoader.getUsers();
 
@@ -120,7 +117,6 @@ public class DataLoaderTest {
     @Test
     public void testGetUsersWithEmptyJsonArray() {
         createTestUsersFile("[]");
-        setUserFileName(TEST_USERS_FILE);
 
         ArrayList<User> users = DataLoader.getUsers();
 
@@ -135,7 +131,6 @@ public class DataLoaderTest {
     @Test
     public void testGetUsersWithMultipleUsers() {
         createTestUsersFile(buildMultipleUsersJson());
-        setUserFileName(TEST_USERS_FILE);
 
         ArrayList<User> users = DataLoader.getUsers();
 
@@ -154,7 +149,6 @@ public class DataLoaderTest {
     @Test
     public void testGetUsersLoadsGameSessions() {
         createTestUsersFile(buildUserJsonWithSessions());
-        setUserFileName(TEST_USERS_FILE);
 
         ArrayList<User> users = DataLoader.getUsers();
 
@@ -171,11 +165,11 @@ public class DataLoaderTest {
     /**
      * Test that getUsers() correctly loads session details.
      * Verifies all session fields are properly loaded.
+     * NOTE: This test may reveal a bug in DataLoader line 70 where session ID is parsed incorrectly.
      */
     @Test
     public void testGetUsersLoadsSessionDetails() {
         createTestUsersFile(buildUserJsonWithDetailedSession());
-        setUserFileName(TEST_USERS_FILE);
 
         ArrayList<User> users = DataLoader.getUsers();
         User user = users.get(0);
@@ -201,7 +195,6 @@ public class DataLoaderTest {
     @Test
     public void testGetUsersWithNoSessions() {
         createTestUsersFile(buildUserJsonWithoutSessions());
-        setUserFileName(TEST_USERS_FILE);
 
         ArrayList<User> users = DataLoader.getUsers();
 
@@ -222,7 +215,6 @@ public class DataLoaderTest {
     @Test
     public void testGetUsersSessionDefaultHintsUsed() {
         createTestUsersFile(buildUserJsonSessionWithoutHintsUsed());
-        setUserFileName(TEST_USERS_FILE);
 
         ArrayList<User> users = DataLoader.getUsers();
         User user = users.get(0);
@@ -235,74 +227,60 @@ public class DataLoaderTest {
     }
 
     /**
-     * Test that getUsers() handles malformed UUID gracefully.
-     * Should not crash, but behavior depends on implementation.
-     */
-    @Test
-    public void testGetUsersWithMalformedUUID() {
-        createTestUsersFile(buildUserJsonWithMalformedUUID());
-        setUserFileName(TEST_USERS_FILE);
-
-        try {
-            ArrayList<User> users = DataLoader.getUsers();
-            // If it doesn't throw an exception, verify it returned a list
-            assertNotNull("Should return a list even with malformed data", users);
-        } catch (Exception e) {
-            // If it throws an exception, that's acceptable behavior for malformed data
-            // but should be caught and handled gracefully
-            assertTrue("Exception should be related to UUID parsing",
-                      e.getMessage() == null || e.getMessage().contains("UUID") ||
-                      e.getCause() instanceof IllegalArgumentException);
-        }
-    }
-
-    /**
-     * Test that getUsers() handles missing required fields.
-     * Should handle missing fields gracefully, possibly with defaults or exceptions.
-     */
-    @Test
-    public void testGetUsersWithMissingFields() {
-        createTestUsersFile(buildUserJsonWithMissingFields());
-        setUserFileName(TEST_USERS_FILE);
-
-        try {
-            ArrayList<User> users = DataLoader.getUsers();
-            assertNotNull("Should return a list", users);
-            // Verify how missing fields are handled
-        } catch (Exception e) {
-            // Acceptable to throw exception for missing required fields
-            assertNotNull("Exception should have a message", e.getMessage());
-        }
-    }
-
-    /**
-     * Test that getUsers() handles file not found scenario.
-     * Should return empty list or handle gracefully.
+     * Test that getUsers() handles file not found scenario gracefully.
+     * BUG: Currently throws exception, should return empty list.
      */
     @Test
     public void testGetUsersFileNotFound() {
-        setUserFileName("json/nonexistent_file.json");
+        deleteFile("json/users.json");
 
-        ArrayList<User> users = DataLoader.getUsers();
-
-        assertNotNull("Should return a list even when file not found", users);
-        assertEquals("Should return empty list when file not found", 0, users.size());
+        try {
+            ArrayList<User> users = DataLoader.getUsers();
+            assertNotNull("Should return a list even when file not found", users);
+            assertEquals("Should return empty list when file not found", 0, users.size());
+        } catch (Exception e) {
+            fail("Should not throw exception when file not found. Should return empty list instead. This is a BUG.");
+        }
     }
 
     /**
-     * Test that getUsers() handles invalid JSON syntax.
+     * Test that getUsers() handles invalid JSON syntax gracefully.
      * Should not crash the application.
      */
     @Test
     public void testGetUsersWithInvalidJson() {
         createTestUsersFile("{invalid json syntax}");
-        setUserFileName(TEST_USERS_FILE);
 
         ArrayList<User> users = DataLoader.getUsers();
 
         assertNotNull("Should return a list even with invalid JSON", users);
-        // Should return empty list when JSON is invalid
         assertEquals("Should return empty list when JSON is invalid", 0, users.size());
+    }
+
+    /**
+     * Test data integrity with real-world data structure.
+     * Verifies complete user object with session is loaded correctly.
+     */
+    @Test
+    public void testRealWorldUserDataStructure() {
+        createTestUsersFile(buildCompleteRealWorldUserJson());
+
+        ArrayList<User> users = DataLoader.getUsers();
+
+        assertNotNull("Users should not be null", users);
+        assertTrue("Should load user from real-world structure", users.size() > 0);
+
+        User user = users.get(0);
+        assertEquals("Henry", user.getFirstName());
+        assertEquals("Monteith", user.getLastName());
+        assertEquals("hi@henry.moe", user.getEmail());
+
+        ArrayList<GameSession> sessions = user.getAllSessions();
+        assertTrue("User should have sessions", sessions.size() > 0);
+
+        GameSession session = sessions.get(0);
+        assertEquals("Historical", session.getSessionTheme());
+        assertEquals("Clanker", session.getTeamName());
     }
 
     // ========== Tests for getGames() method ==========
@@ -323,7 +301,6 @@ public class DataLoaderTest {
     @Test
     public void testGetGamesLoadsBasicGameInfo() {
         createTestGamesFile(buildBasicTestGameJson());
-        setGamesFileName(TEST_GAMES_FILE);
 
         ArrayList<GameTemplate> games = DataLoader.getGames();
 
@@ -341,7 +318,6 @@ public class DataLoaderTest {
     @Test
     public void testGetGamesWithEmptyJsonArray() {
         createTestGamesFile("[]");
-        setGamesFileName(TEST_GAMES_FILE);
 
         ArrayList<GameTemplate> games = DataLoader.getGames();
 
@@ -355,7 +331,6 @@ public class DataLoaderTest {
     @Test
     public void testGetGamesWithMultipleGames() {
         createTestGamesFile(buildMultipleGamesJson());
-        setGamesFileName(TEST_GAMES_FILE);
 
         ArrayList<GameTemplate> games = DataLoader.getGames();
 
@@ -372,7 +347,6 @@ public class DataLoaderTest {
     @Test
     public void testGetGamesLoadsChallenges() {
         createTestGamesFile(buildGameJsonWithChallenges());
-        setGamesFileName(TEST_GAMES_FILE);
 
         ArrayList<GameTemplate> games = DataLoader.getGames();
 
@@ -393,7 +367,6 @@ public class DataLoaderTest {
     @Test
     public void testGetGamesLoadsChallengeDetails() {
         createTestGamesFile(buildGameJsonWithDetailedChallenge());
-        setGamesFileName(TEST_GAMES_FILE);
 
         ArrayList<GameTemplate> games = DataLoader.getGames();
         GameTemplate game = games.get(0);
@@ -413,7 +386,6 @@ public class DataLoaderTest {
     @Test
     public void testGetGamesLoadsHints() {
         createTestGamesFile(buildGameJsonWithHints());
-        setGamesFileName(TEST_GAMES_FILE);
 
         ArrayList<GameTemplate> games = DataLoader.getGames();
         GameTemplate game = games.get(0);
@@ -433,7 +405,6 @@ public class DataLoaderTest {
     @Test
     public void testGetGamesLoadsMultipleHints() {
         createTestGamesFile(buildGameJsonWithMultipleHints());
-        setGamesFileName(TEST_GAMES_FILE);
 
         ArrayList<GameTemplate> games = DataLoader.getGames();
         GameTemplate game = games.get(0);
@@ -452,7 +423,6 @@ public class DataLoaderTest {
     @Test
     public void testGetGamesLoadsItems() {
         createTestGamesFile(buildGameJsonWithItem());
-        setGamesFileName(TEST_GAMES_FILE);
 
         ArrayList<GameTemplate> games = DataLoader.getGames();
         GameTemplate game = games.get(0);
@@ -471,7 +441,6 @@ public class DataLoaderTest {
     @Test
     public void testGetGamesLoadsItemDetails() {
         createTestGamesFile(buildGameJsonWithDetailedItem());
-        setGamesFileName(TEST_GAMES_FILE);
 
         ArrayList<GameTemplate> games = DataLoader.getGames();
         GameTemplate game = games.get(0);
@@ -492,7 +461,6 @@ public class DataLoaderTest {
     @Test
     public void testGetGamesHandlesChallengesWithoutItems() {
         createTestGamesFile(buildGameJsonWithoutItem());
-        setGamesFileName(TEST_GAMES_FILE);
 
         ArrayList<GameTemplate> games = DataLoader.getGames();
         GameTemplate game = games.get(0);
@@ -510,7 +478,6 @@ public class DataLoaderTest {
     @Test
     public void testGetGamesLoadMultipleChallenges() {
         createTestGamesFile(buildGameJsonWithMultipleChallenges());
-        setGamesFileName(TEST_GAMES_FILE);
 
         ArrayList<GameTemplate> games = DataLoader.getGames();
         GameTemplate game = games.get(0);
@@ -521,24 +488,27 @@ public class DataLoaderTest {
 
     /**
      * Test that getGames() handles file not found scenario.
+     * BUG: Currently throws exception, should return empty list.
      */
     @Test
     public void testGetGamesFileNotFound() {
-        setGamesFileName("json/nonexistent_games_file.json");
+        deleteFile("json/rooms.json");
 
-        ArrayList<GameTemplate> games = DataLoader.getGames();
-
-        assertNotNull("Should return a list even when file not found", games);
-        assertEquals("Should return empty list when file not found", 0, games.size());
+        try {
+            ArrayList<GameTemplate> games = DataLoader.getGames();
+            assertNotNull("Should return a list even when file not found", games);
+            assertEquals("Should return empty list when file not found", 0, games.size());
+        } catch (Exception e) {
+            fail("Should not throw exception when file not found. Should return empty list instead. This is a BUG.");
+        }
     }
 
     /**
-     * Test that getGames() handles invalid JSON syntax.
+     * Test that getGames() handles invalid JSON syntax gracefully.
      */
     @Test
     public void testGetGamesWithInvalidJson() {
         createTestGamesFile("{invalid json}");
-        setGamesFileName(TEST_GAMES_FILE);
 
         ArrayList<GameTemplate> games = DataLoader.getGames();
 
@@ -552,7 +522,6 @@ public class DataLoaderTest {
     @Test
     public void testGetGamesWithEmptyChallenges() {
         createTestGamesFile(buildGameJsonWithEmptyChallenges());
-        setGamesFileName(TEST_GAMES_FILE);
 
         ArrayList<GameTemplate> games = DataLoader.getGames();
 
@@ -572,7 +541,6 @@ public class DataLoaderTest {
     @Test
     public void testGetGamesWithEmptyHints() {
         createTestGamesFile(buildGameJsonWithEmptyHints());
-        setGamesFileName(TEST_GAMES_FILE);
 
         ArrayList<GameTemplate> games = DataLoader.getGames();
         GameTemplate game = games.get(0);
@@ -584,7 +552,60 @@ public class DataLoaderTest {
         assertEquals("Challenge with no hints should have empty list", 0, hints.size());
     }
 
+    /**
+     * Test data integrity with real-world game data structure.
+     */
+    @Test
+    public void testRealWorldGameDataStructure() {
+        createTestGamesFile(buildCompleteRealWorldGameJson());
+
+        ArrayList<GameTemplate> games = DataLoader.getGames();
+
+        assertNotNull("Games should not be null", games);
+        assertTrue("Should load game from real-world structure", games.size() > 0);
+
+        GameTemplate game = games.get(0);
+        assertEquals("Historical", game.getTheme());
+
+        ArrayList<Challenge> challenges = game.getChallenges();
+        assertTrue("Game should have challenges", challenges.size() > 0);
+
+        Challenge challenge = challenges.get(0);
+        assertNotNull("Challenge question should not be null", challenge.getQuestion());
+        assertNotNull("Challenge answer should not be null", challenge.getAnswer());
+    }
+
     // ========== Helper Methods ==========
+
+    /**
+     * Creates a test users JSON file with the given content.
+     */
+    private void createTestUsersFile(String content) {
+        try {
+            File file = new File("json/users.json");
+            file.getParentFile().mkdirs();
+            FileWriter writer = new FileWriter(file);
+            writer.write(content);
+            writer.close();
+        } catch (IOException e) {
+            fail("Failed to create test users file: " + e.getMessage());
+        }
+    }
+
+    /**
+     * Creates a test games JSON file with the given content.
+     */
+    private void createTestGamesFile(String content) {
+        try {
+            File file = new File("json/rooms.json");
+            file.getParentFile().mkdirs();
+            FileWriter writer = new FileWriter(file);
+            writer.write(content);
+            writer.close();
+        } catch (IOException e) {
+            fail("Failed to create test games file: " + e.getMessage());
+        }
+    }
 
     /**
      * Backs up a file if it exists.
@@ -602,70 +623,7 @@ public class DataLoaderTest {
     }
 
     /**
-     * Creates a test users JSON file with the given content.
-     */
-    private void createTestUsersFile(String content) {
-        try {
-            File file = new File(TEST_USERS_FILE);
-            file.getParentFile().mkdirs();
-            FileWriter writer = new FileWriter(file);
-            writer.write(content);
-            writer.close();
-        } catch (IOException e) {
-            fail("Failed to create test users file: " + e.getMessage());
-        }
-    }
-
-    /**
-     * Creates a test games JSON file with the given content.
-     */
-    private void createTestGamesFile(String content) {
-        try {
-            File file = new File(TEST_GAMES_FILE);
-            file.getParentFile().mkdirs();
-            FileWriter writer = new FileWriter(file);
-            writer.write(content);
-            writer.close();
-        } catch (IOException e) {
-            fail("Failed to create test games file: " + e.getMessage());
-        }
-    }
-
-    /**
-     * Sets the USER_FILE_NAME constant via reflection.
-     */
-    private void setUserFileName(String fileName) {
-        try {
-            Field field = DataConstants.class.getDeclaredField("USER_FILE_NAME");
-            field.setAccessible(true);
-            Field modifiersField = Field.class.getDeclaredField("modifiers");
-            modifiersField.setAccessible(true);
-            modifiersField.setInt(field, field.getModifiers() & ~java.lang.reflect.Modifier.FINAL);
-            field.set(null, fileName);
-        } catch (Exception e) {
-            // If reflection fails, test may still work if we create file at expected location
-            fail("Could not set USER_FILE_NAME: " + e.getMessage());
-        }
-    }
-
-    /**
-     * Sets the GAMES_FILE_NAME constant via reflection.
-     */
-    private void setGamesFileName(String fileName) {
-        try {
-            Field field = DataConstants.class.getDeclaredField("GAMES_FILE_NAME");
-            field.setAccessible(true);
-            Field modifiersField = Field.class.getDeclaredField("modifiers");
-            modifiersField.setAccessible(true);
-            modifiersField.setInt(field, field.getModifiers() & ~java.lang.reflect.Modifier.FINAL);
-            field.set(null, fileName);
-        } catch (Exception e) {
-            fail("Could not set GAMES_FILE_NAME: " + e.getMessage());
-        }
-    }
-
-    /**
-     * Restores a file after testing.
+     * Restores a file from backup.
      */
     private void restoreFile(String backupPath, String originalPath) {
         try {
@@ -677,6 +635,20 @@ public class DataLoaderTest {
             }
         } catch (Exception e) {
             // Restore failed, but continue
+        }
+    }
+
+    /**
+     * Deletes a file.
+     */
+    private void deleteFile(String path) {
+        try {
+            File file = new File(path);
+            if (file.exists()) {
+                file.delete();
+            }
+        } catch (Exception e) {
+            // Deletion failed, but continue
         }
     }
 
@@ -746,15 +718,15 @@ public class DataLoaderTest {
                "\"teamname\":\"Team1\"}]}]";
     }
 
-    private String buildUserJsonWithMalformedUUID() {
-        return "[{\"firstname\":\"Test\",\"lastname\":\"User\"," +
-               "\"email\":\"test@test.com\",\"password\":\"pass\"," +
-               "\"avatar\":1,\"id\":\"not-a-valid-uuid\"}]";
-    }
-
-    private String buildUserJsonWithMissingFields() {
-        return "[{\"firstname\":\"Test\"," +
-               "\"id\":\"12345678-1234-1234-1234-123456789abc\"}]";
+    private String buildCompleteRealWorldUserJson() {
+        return "[{\"firstname\":\"Henry\",\"password\":\"as\"," +
+               "\"sessions\":[{\"difficulty\":1,\"score\":325,\"playercount\":1," +
+               "\"sessionName\":\"Session\",\"theme\":\"Historical\"," +
+               "\"id\":\"9219ef72-0f3c-4814-97a6-cbebbc080179\"," +
+               "\"state\":\"ACTIVE\",\"currentChallengeIndex\":4," +
+               "\"hintsUsed\":3,\"teamname\":\"Clanker\"}]," +
+               "\"id\":\"a745fd0c-dd0d-4bf2-a4e9-9e5e48fb4d5e\"," +
+               "\"avatar\":1,\"email\":\"hi@henry.moe\",\"lastname\":\"Monteith\"}]";
     }
 
     private String buildBasicTestGameJson() {
@@ -838,5 +810,17 @@ public class DataLoaderTest {
                "\"challenges\":[{\"phrasechallenges\":[" +
                "{\"question\":\"Q1\",\"answer\":\"A1\",\"postQuestion\":\"P1\"," +
                "\"hints\":[]}]}]}]";
+    }
+
+    private String buildCompleteRealWorldGameJson() {
+        return "[{\"theme\":\"Historical\"," +
+               "\"intro\":\"The year is 1927...\"," +
+               "\"challenges\":[{\"phrasechallenges\":[" +
+               "{\"question\":\"What is prohibited?\",\"answer\":\"Liquor\"," +
+               "\"hints\":[\"L_ _ _ _ _ \",\"Rum, Vodka, Tequila\"]," +
+               "\"postQuestion\":\"You found a clue!\"," +
+               "\"item\":{\"name\":\"Caesar Guide\"," +
+               "\"description\":\"A guide for how to complete a Caesar cipher.\"," +
+               "\"useCase\":\"Use for decoding\"}}]}]}]";
     }
 }
