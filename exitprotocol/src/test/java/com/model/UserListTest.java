@@ -8,6 +8,12 @@ import java.util.ArrayList;
 import java.util.UUID;
 import static org.junit.Assert.*;
 
+import static org.junit.Assert.assertTrue;
+
+import org.junit.Test;
+import org.junit.Assert;
+import com.model.*;
+
 public class UserListTest {
     private UserList list;
 
