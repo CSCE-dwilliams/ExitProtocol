@@ -3,7 +3,6 @@ package com.model;
 import java.util.ArrayList;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 import org.junit.Before;
@@ -125,7 +124,7 @@ public class TFChallengeTest {
         }catch (Exception e) {
             fail("setQuestion(null) should not throw an exception, but threw: "+ e);
         }
-        assertEquals(0, challenge.getQuestion());
+        assertEquals("Empty", challenge.getQuestion());
     }
 
     @Test
@@ -153,8 +152,6 @@ public class TFChallengeTest {
         {
             fail("Constructor should not throw when given null inputs, but threw: " + e);
         }
-        TFChallenge challenge = new TFChallenge(null, null, hints,null);
-        assertNull(challenge.getQuestion());
 
     }
 

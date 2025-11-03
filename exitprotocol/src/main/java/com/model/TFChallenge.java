@@ -41,7 +41,7 @@ public class TFChallenge{
     public void setQuestion(String theQuestion)
     {
         if (theQuestion == null){
-            System.out.println("Null Question Encountered, please check if the pointer is outside the bounds of the array or if the question hasn't been filled in.");
+            this.question = "Empty";
         }
         else{
             this.question = theQuestion;
@@ -63,7 +63,7 @@ public class TFChallenge{
     public void setAnswer(String theAnswer)
     {
         if(theAnswer == null){
-            System.out.println("Null Answer Encountered, please check if the pointer is outside the bounds of the array or if the answer hasn't been filled in.");
+            tf = 0;
         }
         else{
             if (theAnswer.equalsIgnoreCase("True") || theAnswer.equalsIgnoreCase("t"))
