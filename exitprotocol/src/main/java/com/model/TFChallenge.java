@@ -5,6 +5,7 @@ package com.model;
  * @author The Clankers
  */
 import java.util.ArrayList;
+
 import javafx.scene.image.Image;
 
 public class TFChallenge{
@@ -39,7 +40,13 @@ public class TFChallenge{
      */
     public void setQuestion(String theQuestion)
     {
-        this.question = theQuestion;
+        if (theQuestion == null){
+            System.out.println("Null Question Encountered, please check if the pointer is outside the bounds of the array or if the question hasn't been filled in.");
+        }
+        else{
+            this.question = theQuestion;
+        }
+        
     }
     /**
      * Returns the answer of the True/False challenge
@@ -55,16 +62,18 @@ public class TFChallenge{
      */
     public void setAnswer(String theAnswer)
     {
-        if (theAnswer.equalsIgnoreCase("True") || theAnswer.equalsIgnoreCase("t"))
-        {
-            tf = 1;
+        if(theAnswer == null){
+            System.out.println("Null Answer Encountered, please check if the pointer is outside the bounds of the array or if the answer hasn't been filled in.");
         }
-
-
-
+        else{
+            if (theAnswer.equalsIgnoreCase("True") || theAnswer.equalsIgnoreCase("t"))
+            {
+                tf = 1;
+            }
         else
-        {
-            tf = 0;
+            {
+                tf = 0;
+            }
         }
     }
 }
