@@ -1,0 +1,7 @@
+[
+    {
+        "firstname": "Malformed",
+        "id": "not-a-valid-uuid",
+        "email": "malformed@test.com"
+    }
+]
