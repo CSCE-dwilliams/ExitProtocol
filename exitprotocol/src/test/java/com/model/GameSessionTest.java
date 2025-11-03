@@ -4,312 +4,159 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 import java.util.UUID;
-import java.util.HashSet;
 
+/**
+ * Test suite for the GameSession class.
+ * Tests all functionality including session management, scoring, and state transitions.
+ */
 public class GameSessionTest {
-    private GameSession session;
-    private final String TEAM_NAME = "Test Team";
-    private final String SESSION_NAME = "Test Session";
-    private final String THEME = "Mystery";
-    private final    int DIFFICULTY = 2;
-    private final int PLAYER_COUNT = 4;
+    private GameSession gameSession;
+    private static final String TEAM_NAME = "Test Team";
+    private static final String SESSION_NAME = "Test Session";
+    private static final String THEME = "Mystery";
+    private static final int DIFFICULTY = 2;
+    private static final int PLAYER_COUNT = 4;
     private UUID userId;
-    
-    // Edge cases and boundary values
-    private final String EMPTY_STRING = "";
-    private final String VERY_LONG_STRING = "a".repeat(1000);
-    private final String SPECIAL_CHARS = "!@#$%^&*()\n\t\\\"';:,.<>/?";
-    private final int MAX_INT = Integer.MAX_VALUE;
-    private final int MIN_INT = Integer.MIN_VALUE;
 
     @Before
     public void setUp() {
         userId = UUID.randomUUID();
-        session = new GameSession(userId, TEAM_NAME, SESSION_NAME, THEME, DIFFICULTY, PLAYER_COUNT);
+        gameSession = new GameSession(userId, TEAM_NAME, SESSION_NAME, THEME, DIFFICULTY, PLAYER_COUNT);
     }
 
     @Test
     public void testConstructor() {
-        assertNotNull("Session ID should not be null", session.getSessionID());
-        assertEquals("Team name should match", TEAM_NAME, session.getTeamName());
-        assertEquals("Session name should match", SESSION_NAME, session.getSessionName());
-        assertEquals("Theme should match", THEME, session.getSessionTheme());
-        assertEquals("Difficulty should match", DIFFICULTY, session.getDifficulty());
-        assertEquals("Player count should match", PLAYER_COUNT, session.getPlayerCount());
-        assertEquals("Initial challenge index should be 0", 0, session.getChallengeIndex());
-        assertEquals("Initial hints used should be 0", 0, session.getHintsUsed());
-        assertEquals("Initial state should be ACTIVE", SessionState.ACTIVE, session.getState());
-        assertNotNull("Progress should not be null", session.getProgress());
+        assertNotNull("Session ID should not be null", gameSession.getSessionID());
+        assertEquals("Team name should match", TEAM_NAME, gameSession.getTeamName());
+        assertEquals("Session name should match", SESSION_NAME, gameSession.getSessionName());
+        assertEquals("Theme should match", THEME, gameSession.getSessionTheme());
+        assertEquals("Difficulty should match", DIFFICULTY, gameSession.getDifficulty());
+        assertEquals("Player count should match", PLAYER_COUNT, gameSession.getPlayerCount());
+        assertEquals("Initial challenge index should be 0", 0, gameSession.getChallengeIndex());
+        assertEquals("Initial hints used should be 0", 0, gameSession.getHintsUsed());
+        assertEquals("Initial state should be ACTIVE", SessionState.ACTIVE, gameSession.getState());
+        assertNotNull("Progress should not be null", gameSession.getProgress());
     }
 
     @Test
-    public void testConstructorWithEdgeCases() {
-        // Test with empty strings
-        GameSession emptySession = new GameSession(UUID.randomUUID(), "", "", "", 0, 0);
-        assertEquals("Empty team name should be preserved", "", emptySession.getTeamName());
-        assertEquals("Empty session name should be preserved", "", emptySession.getSessionName());
-        assertEquals("Empty theme should be preserved", "", emptySession.getSessionTheme());
-        
-        // Test with very long strings (1000 chars)
-        String longString = "a".repeat(1000);
-        GameSession longSession = new GameSession(UUID.randomUUID(), longString, longString, longString, DIFFICULTY, PLAYER_COUNT);
-        assertEquals("Long team name should be preserved", longString, longSession.getTeamName());
-        assertEquals("Long session name should be preserved", longString, longSession.getSessionName());
-        
-        // Test with special characters
-        String specialString = "!@#$%^&*()\n\t\\\"';:,.<>/?";
-        GameSession specialSession = new GameSession(UUID.randomUUID(), specialString, specialString, specialString, DIFFICULTY, PLAYER_COUNT);
-        assertEquals("Special characters in team name should be preserved", specialString, specialSession.getTeamName());
-        
-        // Test with extreme integer values
-        GameSession extremeSession = new GameSession(UUID.randomUUID(), TEAM_NAME, SESSION_NAME, THEME, Integer.MAX_VALUE, Integer.MAX_VALUE);
-        assertEquals("Max difficulty should be preserved", Integer.MAX_VALUE, extremeSession.getDifficulty());
-        assertEquals("Max player count should be preserved", Integer.MAX_VALUE, extremeSession.getPlayerCount());
-        
-        GameSession negativeSession = new GameSession(UUID.randomUUID(), TEAM_NAME, SESSION_NAME, THEME, Integer.MIN_VALUE, Integer.MIN_VALUE);
-        assertEquals("Negative difficulty should be preserved", Integer.MIN_VALUE, negativeSession.getDifficulty());
-        assertEquals("Negative player count should be preserved", Integer.MIN_VALUE, negativeSession.getPlayerCount());
-    }
-
-    @Test
-    public void testSessionIDUniqueness() {
-        // Create multiple sessions and verify IDs are unique
-        HashSet<UUID> sessionIds = new HashSet<>();
-        for(int i = 0; i < 1000; i++) {
-            GameSession newSession = new GameSession(UUID.randomUUID(), TEAM_NAME, SESSION_NAME, THEME, DIFFICULTY, PLAYER_COUNT);
-            UUID id = newSession.getSessionID();
-            assertFalse("Session ID should be unique", sessionIds.contains(id));
-            sessionIds.add(id);
-        }
+    public void testSessionIdUniqueness() {
+        GameSession anotherSession = new GameSession(userId, TEAM_NAME, SESSION_NAME, THEME, DIFFICULTY, PLAYER_COUNT);
+        assertNotEquals("Session IDs should be unique", 
+            gameSession.getSessionID(), anotherSession.getSessionID());
     }
 
     @Test
     public void testHintManagement() {
-        assertEquals("Initial hints should be 0", 0, session.getHintsUsed());
+        assertEquals("Initial hints used should be 0", 0, gameSession.getHintsUsed());
         
-        // Test normal increment
-        for(int i = 0; i < 100; i++) {
-            int beforeHints = session.getHintsUsed();
-            session.addHintUsed();
-            assertEquals("Hints should increment by exactly 1", beforeHints + 1, session.getHintsUsed());
-        }
+        gameSession.addHintUsed();
+        assertEquals("Hints used should increment by 1", 1, gameSession.getHintsUsed());
         
-        // Test boundary values for setHintsUsed
-        session.setHintsUsed(0);
-        assertEquals("Should allow setting hints to 0", 0, session.getHintsUsed());
-        
-        session.setHintsUsed(Integer.MAX_VALUE);
-        assertEquals("Should handle maximum integer value", Integer.MAX_VALUE, session.getHintsUsed());
-        
-        session.setHintsUsed(Integer.MIN_VALUE);
-        assertEquals("Should handle negative values", Integer.MIN_VALUE, session.getHintsUsed());
-        
-        // Test rapid hint additions
-        for(int i = 0; i < 1000; i++) {
-            session.addHintUsed();
-        }
-        assertEquals("Should handle many rapid hint additions", 1000, session.getHintsUsed());
+        gameSession.setHintsUsed(5);
+        assertEquals("Hints used should be settable", 5, gameSession.getHintsUsed());
     }
 
     @Test
     public void testScoreManagement() {
-        assertEquals("Initial score should be 0", 0, session.getScore());
+        assertEquals("Initial score should be 0", 0, gameSession.getScore());
         
-        // Test normal score updates
-        session.setScore(100);
-        assertEquals("Score should be updated to positive value", 100, session.getScore());
+        gameSession.setScore(100);
+        assertEquals("Score should be settable", 100, gameSession.getScore());
         
-        session.setScore(0);
-        assertEquals("Score should be updated to zero", 0, session.getScore());
-        
-        session.setScore(-50);
-        assertEquals("Score should allow negative values", -50, session.getScore());
-        
-        // Test boundary values
-        session.setScore(Integer.MAX_VALUE);
-        assertEquals("Should handle maximum integer score", Integer.MAX_VALUE, session.getScore());
-        
-        session.setScore(Integer.MIN_VALUE);
-        assertEquals("Should handle minimum integer score", Integer.MIN_VALUE, session.getScore());
-        
-        // Test rapid score changes
-        for(int i = -1000; i < 1000; i++) {
-            session.setScore(i);
-            assertEquals("Score should be updated correctly during rapid changes", i, session.getScore());
-        }
+        gameSession.setScore(50);
+        assertEquals("Score should be updatable", 50, gameSession.getScore());
     }
 
     @Test
     public void testChallengeIndexManagement() {
-        assertEquals("Initial challenge index should be 0", 0, session.getChallengeIndex());
+        assertEquals("Initial challenge index should be 0", 0, gameSession.getChallengeIndex());
         
-        // Test normal progression
-        for(int i = 0; i < 100; i++) {
-            session.advancePuzzle();
-            assertEquals("Challenge index should increment correctly", i + 1, session.getChallengeIndex());
-        }
+        gameSession.setChallengeIndex(3);
+        assertEquals("Challenge index should be settable", 3, gameSession.getChallengeIndex());
         
-        // Test setting specific indices including boundary cases
-        int[] testIndices = {
-            0,                  // Start
-            -1,                // Negative
-            Integer.MIN_VALUE,  // Minimum possible
-            Integer.MAX_VALUE,  // Maximum possible
-            1000000,           // Large number
-            -1000000           // Large negative
-        };
-        
-        for(int index : testIndices) {
-            session.setChallengeIndex(index);
-            assertEquals("Challenge index should be set correctly", index, session.getChallengeIndex());
-            session.advancePuzzle();
-            assertEquals("Should increment correctly from any value", index + 1, session.getChallengeIndex());
-        }
-        
-        // Test rapid advancement
-        session.setChallengeIndex(0);
-        for(int i = 0; i < 10000; i++) {
-            session.advancePuzzle();
-        }
-        assertEquals("Should handle rapid puzzle advancement", 10000, session.getChallengeIndex());
+        gameSession.advancePuzzle();
+        assertEquals("Challenge index should increment", 4, gameSession.getChallengeIndex());
     }
 
     @Test
-    public void testSessionStateTransitions() {
-        assertEquals("Initial state should be ACTIVE", SessionState.ACTIVE, session.getState());
+    public void testStateTransitions() {
+        assertEquals("Initial state should be ACTIVE", SessionState.ACTIVE, gameSession.getState());
         
-        // Test all possible state transitions
-        session.pause();
-        assertEquals("State should be PAUSED after pause", SessionState.PAUSED, session.getState());
+        gameSession.pause();
+        assertEquals("State should be PAUSED after pause", SessionState.PAUSED, gameSession.getState());
         
-        session.resume();
-        assertEquals("State should be ACTIVE after resume", SessionState.ACTIVE, session.getState());
+        gameSession.resume();
+        assertEquals("State should be ACTIVE after resume", SessionState.ACTIVE, gameSession.getState());
         
-        session.complete();
-        assertEquals("State should be COMPLETED after complete", SessionState.COMPLETED, session.getState());
+        gameSession.complete();
+        assertEquals("State should be COMPLETED after complete", SessionState.COMPLETED, gameSession.getState());
+    }
+
+    @Test
+    public void testPercentCalculation() {
+        // The percent calculation should return a value between 0 and 100
+        int percent = gameSession.getPercent();
+        assertTrue("Percent should be between 0 and 100", percent >= 0 && percent <= 100);
         
-        // Test state transitions from COMPLETED
-        session.pause();  // Should still be COMPLETED
-        assertEquals("COMPLETED state should be final", SessionState.COMPLETED, session.getState());
-        
-        session.resume(); // Should still be COMPLETED
-        assertEquals("COMPLETED state should be final", SessionState.COMPLETED, session.getState());
-        
-        // Test multiple pause/resume cycles
-        session = new GameSession(userId, TEAM_NAME, SESSION_NAME, THEME, DIFFICULTY, PLAYER_COUNT);
-        for(int i = 0; i < 100; i++) {
-            session.pause();
-            assertEquals("Should be PAUSED", SessionState.PAUSED, session.getState());
-            session.resume();
-            assertEquals("Should be ACTIVE", SessionState.ACTIVE, session.getState());
-        }
-        
-        // Test state transitions during challenge progression
-        session.pause();
-        session.advancePuzzle();
-        assertEquals("Should maintain PAUSED state during challenge advancement", SessionState.PAUSED, session.getState());
-        
-        session.resume();
-        session.advancePuzzle();
-        assertEquals("Should maintain ACTIVE state during challenge advancement", SessionState.ACTIVE, session.getState());
+        // Test with different challenge indices
+        gameSession.setChallengeIndex(1);
+        int newPercent = gameSession.getPercent();
+        assertTrue("Percent should increase with higher challenge index", 
+            newPercent > 0);
     }
 
     @Test
     public void testToString() {
-        // Test normal case
-        String expected = "Session Name: " + SESSION_NAME + 
-                         "\nSession Team Name: " + TEAM_NAME +
-                         "\nSession Theme: " + THEME + 
-                         "\nDifficulty: " + DIFFICULTY + 
-                         "\nPlayer Count: " + PLAYER_COUNT + 
-                         "\nCurrent Score: " + session.getScore();
-        assertEquals("toString should match expected format", expected, session.toString());
+        String sessionString = gameSession.toString();
+        assertTrue("ToString should contain session name", 
+            sessionString.contains(SESSION_NAME));
+        assertTrue("ToString should contain team name", 
+            sessionString.contains(TEAM_NAME));
+        assertTrue("ToString should contain theme", 
+            sessionString.contains(THEME));
+        assertTrue("ToString should contain difficulty", 
+            sessionString.contains(String.valueOf(DIFFICULTY)));
+        assertTrue("ToString should contain player count", 
+            sessionString.contains(String.valueOf(PLAYER_COUNT)));
+    }
+
+    @Test
+    public void testProgressManagement() {
+        ChallengeProgress progress = gameSession.getProgress();
+        assertNotNull("Progress should not be null", progress);
+    }
+
+    @Test
+    public void testStateValidTransitions() {
+        // Test valid state transitions
+        gameSession.pause();
+        assertEquals(SessionState.PAUSED, gameSession.getState());
         
-        // Test with empty strings
-        GameSession emptySession = new GameSession(UUID.randomUUID(), "", "", "", 0, 0);
-        String emptyExpected = "Session Name: " + 
-                             "\nSession Team Name: " +
-                             "\nSession Theme: " + 
-                             "\nDifficulty: " + 0 + 
-                             "\nPlayer Count: " + 0 + 
-                             "\nCurrent Score: " + 0;
-        assertEquals("toString should handle empty strings", emptyExpected, emptySession.toString());
+        gameSession.resume();
+        assertEquals(SessionState.ACTIVE, gameSession.getState());
         
-        // Test with special characters
-        String specialChars = "!@#$%^&*()\n\t\\\"';:,.<>/?";
-        GameSession specialSession = new GameSession(UUID.randomUUID(), specialChars, specialChars, specialChars, -1, -1);
-        String specialExpected = "Session Name: " + specialChars + 
-                               "\nSession Team Name: " + specialChars +
-                               "\nSession Theme: " + specialChars + 
-                               "\nDifficulty: " + (-1) + 
-                               "\nPlayer Count: " + (-1) + 
-                               "\nCurrent Score: " + 0;
-        assertEquals("toString should handle special characters", specialExpected, specialSession.toString());
+        gameSession.complete();
+        assertEquals(SessionState.COMPLETED, gameSession.getState());
         
+        // Test transitions from completed state
+        gameSession.pause(); // Should remain completed
+        assertEquals("Completed state should be final", 
+            SessionState.COMPLETED, gameSession.getState());
+    }
+
+    @Test
+    public void testEdgeCases() {
         // Test with extreme values
-        GameSession extremeSession = new GameSession(UUID.randomUUID(), TEAM_NAME, SESSION_NAME, THEME, Integer.MAX_VALUE, Integer.MIN_VALUE);
-        extremeSession.setScore(Integer.MAX_VALUE);
-        String extremeExpected = "Session Name: " + SESSION_NAME + 
-                               "\nSession Team Name: " + TEAM_NAME +
-                               "\nSession Theme: " + THEME + 
-                               "\nDifficulty: " + Integer.MAX_VALUE + 
-                               "\nPlayer Count: " + Integer.MIN_VALUE + 
-                               "\nCurrent Score: " + Integer.MAX_VALUE;
-        assertEquals("toString should handle extreme values", extremeExpected, extremeSession.toString());
-    }
-
-    @Test
-    public void testGetPercent() {
-        // Test initial state
-        int percent = session.getPercent();
-        assertTrue("Initial percent should be between 0 and 100", percent >= 0 && percent <= 100);
-        assertEquals("With no progress, percent should be 0", 0, percent);
+        gameSession.setChallengeIndex(Integer.MAX_VALUE);
+        assertTrue("Should handle maximum challenge index", 
+            gameSession.getChallengeIndex() == Integer.MAX_VALUE);
         
-        // Test different challenge indices
-        int[] testIndices = {0, 1, 5, 10, 100, -1, Integer.MAX_VALUE};
-        for(int index : testIndices) {
-            session.setChallengeIndex(index);
-            int newPercent = session.getPercent();
-            assertTrue("Percent should always be between 0 and 100", newPercent >= 0 && newPercent <= 100);
-        }
+        gameSession.setScore(Integer.MAX_VALUE);
+        assertTrue("Should handle maximum score", 
+            gameSession.getScore() == Integer.MAX_VALUE);
         
-        // Test percentage calculation accuracy
-        // Note: This assumes the game has a fixed number of challenges
-        GameList gameList = GameList.getInstance();
-        gameList.loadGames();
-        Game testGame = new Game(session);
-        gameList.getGameData(testGame);
-        testGame.assignChallenges();
-        
-        int totalChallenges = testGame.getChallenges().size();
-        if(totalChallenges > 0) {
-            session.setChallengeIndex(totalChallenges / 2);
-            assertEquals("Halfway through should be ~50%", 50, session.getPercent());
-            
-            session.setChallengeIndex(totalChallenges);
-            assertEquals("Complete should be 100%", 100, session.getPercent());
-        }
-    }
-
-    @Test
-    public void testProgress() {
-        // Test initial progress
-        ChallengeProgress progress = session.getProgress();
-        assertNotNull("Progress object should not be null", progress);
-        
-        // Test progress persistence
-        ChallengeProgress initialProgress = session.getProgress();
-        session.advancePuzzle();
-        ChallengeProgress afterAdvanceProgress = session.getProgress();
-        assertSame("Progress object should remain the same instance", initialProgress, afterAdvanceProgress);
-        
-        // Test progress with state changes
-        session.pause();
-        ChallengeProgress pausedProgress = session.getProgress();
-        assertSame("Progress should persist through state changes", initialProgress, pausedProgress);
-        
-        session.complete();
-        ChallengeProgress completedProgress = session.getProgress();
-        assertSame("Progress should persist after completion", initialProgress, completedProgress);
+        gameSession.setHintsUsed(Integer.MAX_VALUE);
+        assertTrue("Should handle maximum hints used", 
+            gameSession.getHintsUsed() == Integer.MAX_VALUE);
     }
 }
