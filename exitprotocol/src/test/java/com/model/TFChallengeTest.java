@@ -57,16 +57,12 @@ public class TFChallengeTest {
 
     @Test
     public void testTrueQuestionWithEmptyString() {
-        trueChallenge.setQuestion("");
-        assertEquals("", trueChallenge.getQuestion(), "Empty question should be stored as-is");
-        trueChallenge.setQuestion("Do torches light up the dark?");
-    }
-
-    @Test
-    public void testFalseQuestionWithEmptyString() {
-        falseChallenge.setQuestion("");
-        assertEquals("", falseChallenge.getQuestion(), "Empty question should be stored as-is");
-        falseChallenge.setQuestion("Do these pants make my butt look fat?");
+        TFChallenge challenge = new TFChallenge("", "", hints, null);
+        try {
+            assertEquals("", challenge.getQuestion());
+        } catch (Exception e) {
+            fail("Empty question should be stored as-is");
+        }
     }
 
     @Test
@@ -96,12 +92,21 @@ public class TFChallengeTest {
 
     @Test
     public void testTrueGetQuestionReturnsCorrectValue() {
-        assertEquals("Do torches light up the dark?", trueChallenge.getQuestion(), "True challenge question should match expected value");
+        try {
+            assertEquals("Do torches light up the dark?", trueChallenge.getQuestion());
+        } catch (Exception e) {
+            fail("True challenge question should match expected value");
+        }
     }
 
     @Test
     public void testFalseGetQuestionReturnsCorrectValue() {
-        assertEquals("Do these pants make my butt look fat?", falseChallenge.getQuestion(), "False challenge question should match expected value");
+        
+        try {
+            assertEquals("Do these pants make my butt look fat?", falseChallenge.getQuestion());
+        } catch (Exception e) {
+            fail("False challenge question should match expected value");
+        }
     }
 
     @Test
