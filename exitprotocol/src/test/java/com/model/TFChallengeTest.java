@@ -118,6 +118,17 @@ public class TFChallengeTest {
     }
 
     @Test
+    public void testSetQuestionWithNullDoesNotThrow() {
+        TFChallenge challenge = new TFChallenge("Null test", "True", hints, null);
+        try {
+            challenge.setQuestion(null);
+        }catch (Exception e) {
+            fail("setQuestion(null) should not throw an exception, but threw: "+ e);
+        }
+        assertEquals(0, challenge.getQuestion());
+    }
+
+    @Test
     public void testSetAnswerWithNullDoesNotThrow() {
         TFChallenge challenge = new TFChallenge("Null test", "True", hints, null);
         try {
@@ -126,7 +137,6 @@ public class TFChallengeTest {
             fail("setAnswer(null) should not throw an exception, but threw: "+ e);
         }
         assertEquals(0, challenge.getAnswer());
-        //Null input should safely default to 0 (false)
     }
 
     @Test
