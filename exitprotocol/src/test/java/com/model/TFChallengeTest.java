@@ -32,55 +32,55 @@ public class TFChallengeTest {
     }
 
     @Test
-    void testTrueQuestion() {
-        assertEquals("Is the sky blue?", trueChallenge.getQuestion());
+    public void testTrueQuestion() {
+        assertEquals("Do torches light up the dark?", trueChallenge.getQuestion());
     }
 
     @Test
-    void testFalseQuestion() {
-        assertEquals("Is fire cold?", falseChallenge.getQuestion());
+    public void testFalseQuestion() {
+        assertEquals("Do these pants make my butt look fat?", falseChallenge.getQuestion());
     }
 
     @Test
-    void testTrueQuestionUpdateValue() {
+    public void testTrueQuestionUpdateValue() {
         trueChallenge.setQuestion("New Question");
         assertEquals("New Question", trueChallenge.getQuestion());
         trueChallenge.setQuestion("Do torches light up the dark?");
     }
 
     @Test
-    void testFalseQuestionUpdateValue() {
+    public void testFalseQuestionUpdateValue() {
         falseChallenge.setQuestion("New Question");
         assertEquals("New Question", falseChallenge.getQuestion());
         falseChallenge.setQuestion("Do these pants make my butt look fat?");
     }
 
     @Test
-    void testTrueQuestionWithEmptyString() {
+    public void testTrueQuestionWithEmptyString() {
         trueChallenge.setQuestion("");
         assertEquals("", trueChallenge.getQuestion(), "Empty question should be stored as-is");
         trueChallenge.setQuestion("Do torches light up the dark?");
     }
 
     @Test
-    void testFalseQuestionWithEmptyString() {
+    public void testFalseQuestionWithEmptyString() {
         falseChallenge.setQuestion("");
         assertEquals("", falseChallenge.getQuestion(), "Empty question should be stored as-is");
         falseChallenge.setQuestion("Do these pants make my butt look fat?");
     }
 
     @Test
-    void testAnswerIsTrueWhenStringIsTrue() {
+    public void testAnswerIsTrueWhenStringIsTrue() {
         assertEquals(1, trueChallenge.getAnswer());
     }
 
     @Test
-    void testAnswerIsFalseWhenStringIsFalse() {
+    public void testAnswerIsFalseWhenStringIsFalse() {
         assertEquals(0, falseChallenge.getAnswer());
     }
 
     @Test
-    void testSetAnswerHandlesCaseInsensitivity() {
+    public void testSetAnswerHandlesCaseInsensitivity() {
         assertEquals(1, trueChallenge.getAnswer());
         trueChallenge.setAnswer("fAlSe");
         assertEquals(0, trueChallenge.getAnswer());
@@ -88,23 +88,24 @@ public class TFChallengeTest {
     }
 
     @Test
-    void testSetAnswerWithInvalidString() {
+    public void testSetAnswerWithInvalidString() {
         TFChallenge challenge = new TFChallenge("Weird input", "maybe", hints, null);
         assertEquals(0, challenge.getAnswer());
         System.out.println("Invalid input should default to 0 (false)");
     }
 
-     @Test
-    void testTrueGetQuestionReturnsCorrectValue() {
-        assertEquals("Is the sky blue?", trueChallenge.getQuestion(), "True challenge question should match expected value");
-    }
     @Test
-    void testFalseGetQuestionReturnsCorrectValue() {
-        assertEquals("Is fire cold?", falseChallenge.getQuestion(), "False challenge question should match expected value");
+    public void testTrueGetQuestionReturnsCorrectValue() {
+        assertEquals("Do torches light up the dark?", trueChallenge.getQuestion(), "True challenge question should match expected value");
     }
 
     @Test
-    void testSetAnswerWithEmptyString() {
+    public void testFalseGetQuestionReturnsCorrectValue() {
+        assertEquals("Do these pants make my butt look fat?", falseChallenge.getQuestion(), "False challenge question should match expected value");
+    }
+
+    @Test
+    public void testSetAnswerWithEmptyString() {
         TFChallenge challenge = new TFChallenge("Empty input", "", hints, null);
         assertEquals(0, challenge.getAnswer());
         //Empty input should default to 0 (false)
@@ -112,7 +113,7 @@ public class TFChallengeTest {
     }
 
     @Test
-    void testSetAnswerWithNullDoesNotThrow() {
+    public void testSetAnswerWithNullDoesNotThrow() {
         TFChallenge challenge = new TFChallenge("Null test", "True", hints, null);
         try {
             challenge.setAnswer(null);
@@ -124,13 +125,13 @@ public class TFChallengeTest {
     }
 
     @Test
-    void testConstructorWithValidInputs() {
-        assertEquals("Is the sky blue?", trueChallenge.getQuestion());
+    public void testConstructorWithValidInputs() {
+        assertEquals("Do torches light up the dark?", trueChallenge.getQuestion());
         assertEquals(1, trueChallenge.getAnswer());
     }
 
     @Test
-    void testConstructorHandlesNullQuestion() {
+    public void testConstructorHandlesNullQuestion() {
         try{
             new TFChallenge(null, null, hints, null);
         } catch(Exception e)
@@ -143,7 +144,7 @@ public class TFChallengeTest {
     }
 
     @Test
-    void testConstructorHandlesNullAnswer() {
+    public void testConstructorHandlesNullAnswer() {
         try{
             new TFChallenge(null, null, hints, null);
         } catch(Exception e)
@@ -155,19 +156,19 @@ public class TFChallengeTest {
     }
 
     @Test
-    void testAnswerHandlesEmptyStrings() {
+    public void testAnswerHandlesEmptyStrings() {
         TFChallenge challenge = new TFChallenge("", "", hints,null);
         assertEquals(0, challenge.getAnswer());
     }
 
     @Test
-    void testQuestionHandlesEmptyStrings() {
+    public void testQuestionHandlesEmptyStrings() {
         TFChallenge challenge = new TFChallenge("", "", hints,null);
         assertEquals("", challenge.getQuestion());
     }
 
     @Test
-    void testQuestionHandlesNullHints() {
+    public void testQuestionHandlesNullHints() {
         try {
             new TFChallenge("Q?", "True", null, null);
         } catch (Exception e) {
@@ -178,7 +179,7 @@ public class TFChallengeTest {
     }
 
     @Test
-    void testAnswerHandlesNullHints() {
+    public void testAnswerHandlesNullHints() {
         try {
             new TFChallenge("Q?", "True", null, null);
         } catch (Exception e) {
