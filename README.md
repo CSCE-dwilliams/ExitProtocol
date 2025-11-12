@@ -5,3 +5,7 @@
 
 YouTube Link: https://youtu.be/8c-ahw_KzOo
 Prototype Link: https://youtu.be/4UaN7FLo-so
+
+Mockitt: https://mockitt.com/proto/bvPpZ4vnt5hgu7Purcswhg/sharing?view_mode=read_only #exitprotocol Prototype-分享
+
+Alt: https://mockitt.com/proto/bvPpZ4vnt5hgu7Purcswhg/sharing?view_mode=device&screen=rbpV26GVNoenEO5K2&canvasId=rcV26O1vdufkdxX2
