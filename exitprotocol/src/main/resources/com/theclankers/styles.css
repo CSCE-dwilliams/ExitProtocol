@@ -1,0 +1,11 @@
+.label {
+    -fx-text-fill: black;
+}
+
+.button {
+    -fx-background-color: black;
+    -background-color: black;
+    background-color: black;
+    color: white;
+    -fx-text-fill: white;
+}

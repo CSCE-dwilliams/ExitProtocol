@@ -259,7 +259,6 @@ public class UserList {
     // wont need userlist implementation as User.createAndAddSession essentially does this
     //might need to address issues of loading and writing to data
 
-
     public static void addSession2(User addUser, String teamName, String sessionName,int difficulty, int playerCount ){
         addUser.createAndAddSession(teamName, sessionName, sessionName, difficulty, playerCount);
         userList.updateUser(addUser);
@@ -298,7 +297,6 @@ public class UserList {
     }
 
 
-
     public GameSession chooseSession(User u, String sessionName){
         DataLoader.getUsers();
         if(u.chooseSession(sessionName)==null){
@@ -308,6 +306,13 @@ public class UserList {
         }
     }
 
+
+    public void initiateGame(GameSession session){
+        GameList gameList = GameList.getInstance();
+        gameList.loadGames();
+        Game gameObject = new Game(session);
+
+    }
 
 //Might migrate these internal methods to GameList for clarity, but these have otherwise have not been
 //restructured or organized    
@@ -348,6 +353,7 @@ public class UserList {
 
         Game gameObject = new Game(sessionCurrent);
         GameList gameList = GameList.getInstance();
+        
         // this loads in game sets of questions,answers, etc into respective template
         // objects
         gameList.loadGames();

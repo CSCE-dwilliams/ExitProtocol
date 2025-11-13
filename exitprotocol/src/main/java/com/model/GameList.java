@@ -50,6 +50,20 @@ public class GameList {
      *
      * @param aGame the game instances populated data
      */
+
+
+//lowkey this should probably return a game with the selected theme, would make management easier
+
+    public Game selectAndCreateGame(GameSession session){
+        Game gameObject = new Game(session);
+        String theme = gameObject.getTheme();
+        for(GameTemplate g : games){
+            if(g.getTheme().equalsIgnoreCase(theme)){
+                gameObject.setGameSet(g);
+            }
+        }
+        return null;
+    }
     public void getGameData(Game aGame){
         String gameTheme = aGame.getTheme();
         for(GameTemplate g : games){
