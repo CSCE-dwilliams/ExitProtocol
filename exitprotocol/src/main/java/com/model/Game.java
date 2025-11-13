@@ -83,6 +83,30 @@ public class Game {
         challenges = gameSet.getChallenges();
     }
 
+    public int getScore() {
+        return score;
+    }
+
+    public boolean hasItems() {
+        if (gameItems.size() > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public UUID getID() {
+        return gameID;
+    }
+
+
+    /*
+     * 
+     * 
+     * [GAME LOOP SECTION]
+     * 
+     */
+    
     public void runGame() {
         //loads game items back into game if game is started at index
         //besides 0
@@ -391,24 +415,11 @@ public class Game {
         return questionCorrect;
     }
 
-    public boolean hasItems() {
-        if (gameItems.size() > 0) {
-            return true;
-        } else {
-            return false;
-        }
-    }
 
-    public UUID getID() {
-        return gameID;
-    }
 
+    //unused 
     public void puzzleCompleted() {
 
-    }
-
-    public int getScore() {
-        return score;
     }
 
 }
