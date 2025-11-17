@@ -5,6 +5,7 @@
 
 ### Updated Prototype 11/16/2025: https://csce-dwilliams.github.io/ExitProtocol/
 ### Updated Prototype Walkthrough: https://www.youtube.com/watch?v=mwY1g1oHj3U
+### 11/16/2025 Prototype Checklist: https://github.com/CSCE-dwilliams/ExitProtocol/blob/main/docs/ProtoType%20Checklist.pdf
 
 YouTube Link: https://youtu.be/8c-ahw_KzOo
 Prototype Link: https://youtu.be/4UaN7FLo-so
