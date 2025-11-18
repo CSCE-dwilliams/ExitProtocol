@@ -1,18 +1,20 @@
 package com.model;
 
-public class Driver{
+/**
+ * Driver class for the Exit Protocol application
+ * Main entry point has been moved to UI.main()
+ */
+public class Driver {
 
-    private UserList userList = UserList.getInstance();
-
-    public Driver(){
-        
-    }
-    public static void signInStart(){
-        UserList userList = UserList.getInstance();
-        userList.signInOptions(userList);
-
+    public Driver() {
     }
 
-
-
+    /**
+     * @deprecated Use UI.main() instead
+     */
+    @Deprecated
+    public static void signInStart() {
+        UI ui = new UI();
+        ui.mainLoop();
+    }
 }
