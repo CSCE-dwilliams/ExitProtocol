@@ -13,11 +13,11 @@ public class PrimaryController {
 
     @FXML
     private void switchToSignInScreen() throws IOException {
-        System.exit(0);
+        App.setRoot("login");
     }
 
     @FXML
     private void switchToCreateAccountScreen() throws IOException {
-        System.exit(0);
+        App.setRoot("createAccount");
     }
 }
