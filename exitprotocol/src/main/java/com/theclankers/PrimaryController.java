@@ -21,9 +21,9 @@ public class PrimaryController {
         App.setRoot("createAccount");
     }
 
-    //USE THIS TO DEMO ANY DESIRED SCREEN 
+    //USE THIS TO DEMO ANY DESIRED SCREEN
     @FXML
     private void testScreen() throws IOException{
-        App.setRoot("themeselection");
+        App.setRoot("questiontemplate");
     }
 }

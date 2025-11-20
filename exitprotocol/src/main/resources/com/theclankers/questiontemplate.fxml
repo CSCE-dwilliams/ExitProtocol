@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
+<?import java.net.URL?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
@@ -19,7 +21,7 @@
    <children>
       <ImageView fitHeight="400.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../../source_images/HISTORICAL%20main%20game%20state.png" />
+            <Image url="@images/HISTORICAL%20main%20game%20state.png" />
          </image>
       </ImageView>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fbfbfb" height="221.0" layoutX="498.0" layoutY="90.0" opacity="0.76" stroke="BLACK" strokeType="INSIDE" styleClass="hintbox" width="87.0" />
@@ -78,4 +80,7 @@
       <ImageView fitHeight="44.0" fitWidth="54.0" layoutX="3.0" layoutY="351.0" pickOnBounds="true" preserveRatio="true" styleClass="pauseimage" />
       <ImageView fitHeight="44.0" fitWidth="54.0" layoutX="3.0" layoutY="351.0" pickOnBounds="true" preserveRatio="true" styleClass="resumeimage" />
    </children>
+   <stylesheets>
+      <URL value="@css/questiontemplate.css" />
+   </stylesheets>
 </AnchorPane>
