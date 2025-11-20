@@ -16,6 +16,7 @@
       <Label text="[ exitprotocol. ]" />
       <Button fx:id="signInButton" mnemonicParsing="false" onAction="#switchToSignInScreen" text="[ sign in ]" />
       <Button fx:id="createAccountButton" mnemonicParsing="false" onAction="#switchToCreateAccountScreen" text="[ create account ]" />
+      <Button fx:id="testButton" mnemonicParsing ="false" onAction= "#testScreen" text = "test your screen"/>
    </children>
    <padding>
       <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />

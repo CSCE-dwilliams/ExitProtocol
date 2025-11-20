@@ -37,7 +37,7 @@ public class SignUpController implements Initializable {
 
     @FXML
     private void btnSignupClicked(MouseEvent event) throws IOException {
-        String email = txt_email.getText();
+        String username = txt_username.getText();
         String password = txt_password.getText();
         String firstName = txt_first_name.getText();
         String lastName = txt_last_name.getText();

@@ -20,4 +20,10 @@ public class PrimaryController {
     private void switchToCreateAccountScreen() throws IOException {
         App.setRoot("createAccount");
     }
+
+    //USE THIS TO DEMO ANY DESIRED SCREEN 
+    @FXML
+    private void testScreen() throws IOException{
+        App.setRoot("questiontemplate");
+    }
 }
