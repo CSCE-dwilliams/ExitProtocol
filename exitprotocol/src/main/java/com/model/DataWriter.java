@@ -3,21 +3,23 @@ package com.model;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.UUID;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
+
 /**
- * This class gathers the atrributes from the user. 
- * The attributes being first name, last name id, email, password, and avatar. 
+ * This class gathers the atrributes from the user.
+ * The attributes being first name, last name id, email, password, and avatar.
  * All of these attributes will be written and saved to a json file
+ * 
  * @author Clankers
  */
 public class DataWriter extends DataConstants {
-    
+
     /**
      * Saves all user data from the UserList singleton instance into a json file.
-     * The json file location is defined by the USER_FILE_NAME constant in the DataConstants.
+     * The json file location is defined by the USER_FILE_NAME constant in the
+     * DataConstants.
      * Each User and their associated GameSessions are serialized into json format
      * and written to disk.
      */
@@ -60,39 +62,35 @@ public class DataWriter extends DataConstants {
         o.put("email", user.getEmail());
         o.put("password", user.getPassword());
         o.put("avatar", user.getAvatar());
-        
-        ArrayList<String> sessionKeys = user.getSessionIDS();
 
+        ArrayList<String> sessionThemes = user.getSessionThemes();
         JSONArray jsonSessions = new JSONArray();
-        o.put("sessions", jsonSessions);
 
-        for (int i = 0; i < sessionKeys.size(); i++) {
-
-            GameSession userSession = user.getSession(UUID.fromString(sessionKeys.get(i)));
+        for (String theme : sessionThemes) {
+            GameSession userSession = user.getSession(theme); // Get by theme string
             JSONObject sessionYo = new JSONObject();
 
             sessionYo.put("id", userSession.getSessionID().toString());
             sessionYo.put("teamname", userSession.getTeamName());
             sessionYo.put("score", userSession.getScore());
-        
-            sessionYo.put("theme",userSession.getSessionTheme());
+            sessionYo.put("theme", userSession.getSessionTheme());
             sessionYo.put("difficulty", userSession.getDifficulty());
             sessionYo.put("playercount", userSession.getPlayerCount());
-
             sessionYo.put("currentChallengeIndex", userSession.getChallengeIndex());
             sessionYo.put("state", userSession.getState().toString());
             sessionYo.put("sessionName", userSession.getSessionName());
             sessionYo.put("hintsUsed", userSession.getHintsUsed());
-            jsonSessions.add(sessionYo);
 
-            o.put("sessions", jsonSessions);
+            jsonSessions.add(sessionYo);
         }
 
+        o.put("sessions", jsonSessions);
         return o;
     }
 
-     /**
+    /**
      * Converts a Game object into a json object representation.
+     * 
      * @param game the Game object to convert
      * @return a json object containing game data
      */

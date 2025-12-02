@@ -1,0 +1,11 @@
+.questionheader {
+    -fx-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-family: 'monospace';
+}
+
+.questioncontent {
+    -fx-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-family: 'monospace';
+}
