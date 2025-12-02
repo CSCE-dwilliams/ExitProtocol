@@ -7,13 +7,12 @@ package com.theclankers;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
-import com.model.UserList;
-import com.theclankers.App;
 
 /**
  *
@@ -51,23 +50,27 @@ public class SignUpController implements Initializable {
             return;
         }
 
-        // check for empty fields
-        if (username.equals("") || password.equals("") || firstName.equals("") || lastName.equals("")
-                || phoneNumber.equals("")) {
-            lbl_error.setText("Sorry, You cannot leave blank fields");
-            return;
-        }
+        // // check for empty fields
+        // if (username.equals("") || password.equals("") || firstName.equals("") ||
+        // lastName.equals("")
+        // || phoneNumber.equals("")) {
+        // lbl_error.setText("Sorry, You cannot leave blank fields");
+        // return;
+        // }
 
-        Library library = Library.getInstance();
+        // Library library = Library.getInstance();
 
-        if (!library.createAccount(username, firstName, lastName, age, phoneNumber)) {
-            lbl_error.setText("Sorry, this user couldn't be created.");
-            return;
-        }
+        // UserList userList = UserList.getInstance();
 
-        library.login(username);
-        User user = library.getCurrentUser();
-        App.setRoot("user_home");
+        // if (!library.createAccount(username, firstName, lastName, age, phoneNumber))
+        // {
+        // lbl_error.setText("Sorry, this user couldn't be created.");
+        // return;
+        // }
+
+        // library.login(username);
+        // User user = library.getCurrentUser();
+        // App.setRoot("user_home");
     }
 
     @FXML

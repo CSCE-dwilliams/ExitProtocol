@@ -15,14 +15,14 @@ public class UserList {
 
     /*
      * -----------------------------------
-     *[BASE FUNCTIONALITY METHODS]
+     * [BASE FUNCTIONALITY METHODS]
      * -----------------------------------
      */
     /**
      * Private constrcutor for singleton pattern.
      */
     private UserList() {
-        users = new ArrayList<>(); // added to ensure user is not null
+        users = DataLoader.getUsers(); // added to ensure user is not null
     }
 
     /**
@@ -72,26 +72,11 @@ public class UserList {
         }
     }
 
-
     /*
      * -----------------------------------
      * USER ACCESS/SIGN IN, NEW USER OPTIONS
      * -----------------------------------
      */
-
-    /**
-     * Authenticates a user with email and password
-     *
-     * @param email users email address
-     * @param password users password
-     * @return user if the credentials match, null otherwise
-     */
-    public User authenticateUser(String email, String password) {
-        if (!emailExists(email.toLowerCase())) {
-            return null;
-        }
-        return getUser(email, password);
-    }
 
     /**
      * Test if a user with the given email exist in the system
@@ -109,13 +94,13 @@ public class UserList {
     }
 
     /**
-     * Retrieves a user object based on email and password
+     * Authenticates and gets back a user object based on email and password
      *
      * @param email    users email address
      * @param password users password
      * @return user if the credentials match
      */
-    private User getUser(String email, String password) {
+    public User getUser(String email, String password) {
         for (int i = 0; i < users.size(); i++) {
             if (users.get(i).getEmail().equals(email)
                     && users.get(i).getPassword().equals(password)) {
@@ -124,7 +109,6 @@ public class UserList {
         }
         return null;
     }
-
 
     /**
      * Creates account based on user credentials and adds it to the list
@@ -144,14 +128,29 @@ public class UserList {
             String password,
             int avatar,
             UUID id) {
-        if(emailExists(email)){
+        if (emailExists(email)) {
             return null;
         }
         User newUser = new User(firstName, lastName, email, password, avatar, id);
         getUsers().add(newUser);
         DataWriter.saveUsers();
         return newUser;
-    }    /**
+    }
+
+    public boolean createAcc(
+            String firstName,
+            String lastName,
+            String email,
+            String password,
+            int avatar,
+            UUID id) {
+        if (emailExists(email))
+            return false;
+        users.add(new User(firstName, lastName, email, password, avatar, id));
+        return true;
+    }
+
+    /**
      * Gets all user sessions
      *
      * @param u the user
@@ -168,25 +167,30 @@ public class UserList {
     /**
      * Creates a new game session for a user
      *
-     * @param user the user creating the session
-     * @param teamName the team name
+     * @param user        the user creating the session
+     * @param teamName    the team name
      * @param sessionName the session name
-     * @param themeName the theme name
-     * @param difficulty the difficulty level
+     * @param themeName   the theme name
+     * @param difficulty  the difficulty level
      * @param playerCount the number of players
      * @return the newly created GameSession
      */
-    public GameSession createGameSession(User user, String teamName, String sessionName,
-                                        String themeName, int difficulty, int playerCount) {
-        GameSession session = user.createAndAddSession(teamName, sessionName, themeName, difficulty, playerCount);
+    public GameSession createGameSession(User user, String teamName,
+            String themeName, int difficulty, int playerCount) {
+        GameSession session = new GameSession(UUID.randomUUID(), teamName, themeName, difficulty,
+                playerCount);
+        user.storeGameSession(session);
+
         updateUser(user);
+        saveUsers();
+
         return session;
     }
 
     /**
      * Retrieves a specific game session for a user by session name
      *
-     * @param u the user
+     * @param u           the user
      * @param sessionName the name of the session
      * @return the GameSession if found, null otherwise
      */
@@ -197,7 +201,7 @@ public class UserList {
     /**
      * Initiates and runs a game session
      *
-     * @param user the user playing the game
+     * @param user    the user playing the game
      * @param session the game session to play
      * @return the updated GameSession with score and progress
      */
@@ -210,7 +214,6 @@ public class UserList {
         gameObject.challengeStart(session.getChallengeIndex());
         gameObject.runGame();
 
-        
         int sessionScore = gameObject.getScore();
         int sessionIndex = gameObject.getIndex();
         session.setScore(sessionScore);
@@ -221,4 +224,5 @@ public class UserList {
         saveUsers();
 
         return session;
-    }}
+    }
+}
