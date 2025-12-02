@@ -31,7 +31,7 @@
             <Font name="Arial" size="39.0" />
          </font>
       </Text>
-      <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Password:" translateY="10.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Password:" translateY="10.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
       <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Email:" translateY="-40.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
       <TextField fx:id="txt_email" promptText="Please enter email" style="-fx-background-color: white;" translateY="30.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
       <TextField fx:id="txt_password" promptText="Please enter password" style="-fx-background-color: white;" translateY="-20.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
