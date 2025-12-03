@@ -24,7 +24,7 @@
    <children>
       <ImageView fitHeight="400.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
          <image>
-            <Image url="@../../../../../../source_images/Main%20Splash%20(%20no%20title%20).png" />
+            <Image url="exitprotocol\src\main\resources\com\theclankers\images\Main Splash ( no title ).png" />
          </image></ImageView>
       <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Sign In" translateX="40.0" GridPane.columnIndex="1">
          <font>

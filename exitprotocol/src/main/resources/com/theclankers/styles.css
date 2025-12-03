@@ -13,3 +13,12 @@
 .themebutton {
     
 }
+
+.themeselect {
+    -fx-background-radius: 50%;
+}
+.themeselectgridpane {
+    -fx-background-image: url(\images\Main_Splash-no_title-.png);
+    -fx-background-size: stretch;
+    -fx-background-position: center;
+}
