@@ -1,10 +1,10 @@
 package com.model;
+
 /**
  * Game class helps run the game based off of the Game session parameters.
  * It holds the theme, difficulty, and player count for the game session.
  * @author The Clankers
  */
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.UUID;
@@ -28,10 +28,12 @@ public class Game {
     ArrayList<Item> gameItems = new ArrayList<>();
     ArrayList<String> hints = new ArrayList<>();
     private GameTemplate gameSet;
+
     /**
-     * Creates  a game session based on the theme, difficulty, and player count
-     * @param theme is used in game generation
-     * @param difficulty is used to set the level of challenge
+     * Creates a game session based on the theme, difficulty, and player count
+     * 
+     * @param theme       is used in game generation
+     * @param difficulty  is used to set the level of challenge
      * @param playerCount is used to set how many players are in the game
      */
     public Game(GameSession session) {
@@ -73,7 +75,7 @@ public class Game {
     public void challengeStart(int startingIndex) {
         playerIndex = startingIndex;
         if (playerIndex < 1) {
-            //printing intro
+            // printing intro
             gameSet.getIntro();
         }
         challenges = gameSet.getChallenges();
@@ -99,17 +101,16 @@ public class Game {
         return gameID;
     }
 
-
     /*
      * 
      * 
      * [GAME LOOP SECTION]
      * 
      */
-    
+
     public void runGame() {
-        //loads game items back into game if game is started at index
-        //besides 0
+        // loads game items back into game if game is started at index
+        // besides 0
         for (int i = 0; i < playerIndex; i++) {
             ArrayList<Item> items = challenges.get(i).getItems();
             if (items.size() > 0) {
@@ -140,7 +141,7 @@ public class Game {
             } else {
                 diff = "Hard";
             }
-            
+
             try (java.io.FileWriter writer = new java.io.FileWriter("Certificate.txt")) {
                 writer.write("========================================\n");
                 writer.write("              EXIT PROTOCOL             \n");
@@ -415,9 +416,7 @@ public class Game {
         return questionCorrect;
     }
 
-
-
-    //unused 
+    // unused
     public void puzzleCompleted() {
 
     }

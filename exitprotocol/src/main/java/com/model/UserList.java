@@ -93,6 +93,28 @@ public class UserList {
         return false;
     }
 
+    public boolean gameExists(User user, String theme) {
+        return user.getSession(theme) == null;
+    }
+
+    public boolean themeMatch(String theme) {
+        return (theme.equalsIgnoreCase("historical") ||
+                theme.equalsIgnoreCase("mystery") ||
+                theme.equalsIgnoreCase("medieval"));
+    }
+
+    public boolean difficultyCorrect(int difficulty) {
+        return (difficulty > 0 && difficulty <= 3);
+    }
+
+    public boolean playerCountCorrect(int playerCount) {
+        return (playerCount > 0 && playerCount <= 4);
+    }
+
+    public boolean gameDataMatch(String theme, int difficulty, int playerCount) {
+        return (difficultyCorrect(difficulty) && themeMatch(theme) && playerCountCorrect(playerCount));
+    }
+
     /**
      * Authenticates and gets back a user object based on email and password
      *
@@ -176,8 +198,15 @@ public class UserList {
      * @return the newly created GameSession
      */
     public GameSession createGameSession(User user, String teamName,
-            String themeName, int difficulty, int playerCount) {
-        GameSession session = new GameSession(UUID.randomUUID(), teamName, themeName, difficulty,
+            String theme, int difficulty, int playerCount) {
+        if (theme.equalsIgnoreCase("Historical")) {
+            theme = "Historical";
+        } else if (theme.equalsIgnoreCase("Medieval")) {
+            theme = "Medieval";
+        } else if (theme.equalsIgnoreCase("Mystery")) {
+            theme = "Mystery";
+        }
+        GameSession session = new GameSession(UUID.randomUUID(), teamName, theme, difficulty,
                 playerCount);
         user.storeGameSession(session);
 
