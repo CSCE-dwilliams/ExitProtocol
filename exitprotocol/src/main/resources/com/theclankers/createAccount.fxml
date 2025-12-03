@@ -25,7 +25,7 @@
    <children>
       <ImageView fx:id="imageView" fitHeight="402.0" fitWidth="606.0" pickOnBounds="true" preserveRatio="true" translateX="-400.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
          <image>
-            <Image url="@images/Main%20Splash%20(%20no%20title%20).png" />
+            <Image url="@Main%20Splash%20(%20no%20title%20).png" />
          </image>
       </ImageView>
       <Label text="Create Account" textAlignment="CENTER" textFill="WHITE" translateX="45.0" translateY="-30.0" GridPane.columnIndex="1">
