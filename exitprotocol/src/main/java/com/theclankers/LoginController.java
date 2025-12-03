@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import com.model.EscapeManager;
+
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
@@ -28,6 +30,7 @@ public class LoginController implements Initializable {
         String email = txt_email.getText();
         String password = txt_password.getText();
 
+        EscapeManager manager = EscapeManager.getInstance();
     }
 
 }

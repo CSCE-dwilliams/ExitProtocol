@@ -9,6 +9,8 @@ public class EscapeManager {
     private User currentUser;
     private UserList userList;
     private GameList gameList;
+    private Game currentGame;
+    private GameSession currentSession;
     private static EscapeManager escapeManager;
 
     private EscapeManager() {
@@ -28,6 +30,33 @@ public class EscapeManager {
         if (signUser == null)
             return false;
         currentUser = signUser;
+        return true;
+    }
+
+    public boolean selectExistingGame(String theme) {
+        if (userList.gameExists(currentUser, theme)) {
+            return false;
+        }
+        Game game = new Game(currentUser.getSession(theme));
+        currentGame = game;
+        return true;
+    }
+
+    public boolean createGame(String teamName, String theme, int difficulty, int playercount) {
+        if (!userList.gameDataMatch(theme, difficulty, playercount)) {
+            return false;
+        }
+        GameSession session = userList.createGameSession(currentUser, teamName, theme, difficulty, playercount);
+        Game game = new Game(session);
+
+        currentSession = session;
+        currentGame = game;
+
+        return true;
+    }
+
+    public boolean startGame() {
+        userList.playGameSession(currentUser, currentSession);
         return true;
     }
 

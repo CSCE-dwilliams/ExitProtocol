@@ -86,7 +86,7 @@ public class GameSession {
      * @return a string of a session theme
      */
     public String getSessionTheme() {
-        return gameTheme;
+        return this.gameTheme;
     }
 
     /**
