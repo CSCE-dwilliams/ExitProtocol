@@ -34,16 +34,24 @@ public class UserHomeController implements Initializable {
 
         System.out.println("testing");
         System.out.println(manager.selectExistingGame("Historical"));
-        if (manager.selectExistingGame("Historical")) {
+
+        if (checkSession("Historical")) {
             historicalResume.setVisible(true);
         }
-        if (manager.getCurrentUser().getSession("Mystery") != null) {
-            if (manager.selectExistingGame("Mystery")) {
-                mysteryResume.setVisible(true);
-
-            }
+        if (checkSession("Mystery")) {
+            mysteryResume.setVisible(true);
+        }
+        if (checkSession("Medieval")) {
+            medievalResume.setVisible(true);
         }
 
+    }
+
+    private boolean checkSession(String theme) {
+        if (theme == null) {
+            return false;
+        }
+        return manager.selectExistingGame(theme);
     }
 
     private void actionStatus() {
