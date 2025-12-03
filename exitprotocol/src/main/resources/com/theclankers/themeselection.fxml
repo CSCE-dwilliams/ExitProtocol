@@ -28,34 +28,50 @@
       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
    </rowConstraints>
    <children>
+      <ImageView fitHeight="400.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true"
+         GridPane.halignment="LEFT" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
+         <image>
+            <Image url="@images/Main_Splash-no_title-.png" />
+         </image>
+      </ImageView>
       <ImageView id="MysteryImage" fx:id="ImgMystery" fitHeight="300.0" fitWidth="150.0"
          pickOnBounds="true" style="-fx-border-radius: 50%;" styleClass="themeselect"
-         translateX="15.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+         GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1"
+         GridPane.valignment="CENTER">
          <image>
+            <Image url="@images/Main_Splash-no_title-.png" />
+         </image>
+      </ImageView>
+      <ImageView id="MysteryImage" fx:id="ImgMystery" fitHeight="300.0" fitWidth="150.0"
+         pickOnBounds="true" style="-fx-border-radius: 50%;" styleClass="themeselect"
+         GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1"
+         GridPane.valignment="CENTER"> >>>>>>> 32393c5331acf855e3107de78c1653be3053af20 <image>
             <Image url="@images/Mystery%20theme%20banner.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="300.0" fitWidth="150.0" pickOnBounds="true" translateX="15.0"
-         GridPane.columnIndex="2" GridPane.rowIndex="1">
+      <ImageView fitHeight="300.0" fitWidth="150.0" pickOnBounds="true" GridPane.columnIndex="2"
+         GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
          <image>
             <Image url="@images/Horror%20theme%20banner.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="300.0" fitWidth="150.0" pickOnBounds="true" translateX="15.0"
-         GridPane.columnIndex="3" GridPane.rowIndex="1">
+      <ImageView fitHeight="300.0" fitWidth="150.0" pickOnBounds="true" GridPane.columnIndex="3"
+         GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
          <image>
             <Image url="@images/Historical%20theme%20banner.png" />
          </image>
       </ImageView>
-      <Button id="MysteryPlayButton" mnemonicParsing="false" style="-fx-background-color: crimson;"
-         text="Play" textFill="WHITE" translateX="60.0" translateY="-110.0" GridPane.columnIndex="1"
+      <Button id="MysteryPlayButton" fx:id="btnPlayMystery" mnemonicParsing="false"
+         style="-fx-background-color: crimson; -fx-background-radius: 10;" text="Play"
+         textFill="WHITE" translateX="60.0" translateY="-110.0" GridPane.columnIndex="1"
          GridPane.rowIndex="1">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Button id="MysteryPlayButton" mnemonicParsing="false" style="-fx-background-color: crimson;"
-         text="Play" textFill="WHITE" translateX="60.0" translateY="-110.0" GridPane.columnIndex="2"
+      <Button id="MysteryPlayButton" fx:id="btnPlayHorror" mnemonicParsing="false"
+         style="-fx-background-color: crimson; -fx-background-radius: 10;" text="Play"
+         textFill="WHITE" translateX="60.0" translateY="-110.0" GridPane.columnIndex="2"
          GridPane.rowIndex="1">
          <font>
             <Font name="System Bold" size="12.0" />
@@ -64,24 +80,31 @@
       <Button id="MysteryPlayButton" mnemonicParsing="false" style="-fx-background-color: crimson;"
          text="Play" textFill="WHITE" translateX="60.0" translateY="-110.0" GridPane.columnIndex="3"
          GridPane.rowIndex="1">
+      <Button id="MysteryPlayButton" fx:id="btnPlayHistorial" mnemonicParsing="false"
+         style="-fx-background-color: crimson; -fx-background-radius: 10;" text="Play"
+         textFill="WHITE" translateX="60.0" translateY="-110.0" GridPane.columnIndex="3"
+         GridPane.rowIndex="1">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true"
-         translateX="120.0" translateY="-110.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+      <ImageView fx:id="imgLMystery" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true"
+         preserveRatio="true" translateX="120.0" translateY="-110.0" GridPane.columnIndex="1"
+         GridPane.rowIndex="1">
          <image>
             <Image url="@images/lb%20icon.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true"
-         translateX="120.0" translateY="-110.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+      <ImageView fx:id="imgLHorror" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true"
+         preserveRatio="true" translateX="120.0" translateY="-110.0" GridPane.columnIndex="2"
+         GridPane.rowIndex="1">
          <image>
             <Image url="@images/lb%20icon.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true"
-         translateX="120.0" translateY="-110.0" GridPane.columnIndex="3" GridPane.rowIndex="1">
+      <ImageView fx:id="imgLHistorial" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true"
+         preserveRatio="true" translateX="120.0" translateY="-110.0" GridPane.columnIndex="3"
+         GridPane.rowIndex="1">
          <image>
             <Image url="@images/lb%20icon.png" />
          </image>
