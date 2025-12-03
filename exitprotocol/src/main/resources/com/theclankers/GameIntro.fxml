@@ -24,7 +24,7 @@
    <children>
       <ImageView fitHeight="410.0" fitWidth="601.0" pickOnBounds="true" preserveRatio="true" translateX="-200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
          <image>
-            <Image url="@Historical%20theme%20banner.png" />
+            <Image url="@images/Historical%20theme%20banner.png" />
          </image>
       </ImageView>
       <Button mnemonicParsing="false" prefHeight="32.0" prefWidth="94.0" text="Start" translateX="85.0" translateY="35.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
