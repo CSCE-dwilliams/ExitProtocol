@@ -24,7 +24,7 @@
    <children>
       <ImageView fitHeight="400.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
          <image>
-            <Image url="@../../../../../../source_images/Main%20Splash%20(%20no%20title%20).png" />
+            <Image url="exitprotocol\src\main\resources\com\theclankers\images\Main Splash ( no title ).png" />
          </image></ImageView>
       <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Sign In" translateX="40.0" GridPane.columnIndex="1">
          <font>
@@ -33,8 +33,11 @@
       </Text>
       <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Password:" translateY="10.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
       <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Email:" translateY="-40.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-      <TextField fx:id="txt_email" promptText="Please enter email" style="-fx-background-color: white;" translateY="30.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-      <TextField fx:id="txt_password" promptText="Please enter password" style="-fx-background-color: white;" translateY="-20.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-      <Button mnemonicParsing="false" text="Sign In" translateX="75.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+      <TextField fx:id="txt_email" promptText="Please enter" style="-fx-background-color: white;" translateY="30.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+      <TextField fx:id="txt_password" promptText="Please enter" style="-fx-background-color: white;" translateY="-20.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+      <Button fx:id="btnSignIn" mnemonicParsing="false" prefHeight="31.0" prefWidth="84.0" style="-fx-background-color: crimson;" styleClass="SignInButton" text="Sign In" translateX="60.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></Button>
    </children>
 </GridPane>
