@@ -45,7 +45,8 @@
       <ImageView id="MysteryImage" fx:id="ImgMystery" fitHeight="300.0" fitWidth="150.0"
          pickOnBounds="true" style="-fx-border-radius: 50%;" styleClass="themeselect"
          GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1"
-         GridPane.valignment="CENTER"> >>>>>>> 32393c5331acf855e3107de78c1653be3053af20 <image>
+         GridPane.valignment="CENTER">
+         <image>
             <Image url="@images/Mystery%20theme%20banner.png" />
          </image>
       </ImageView>
@@ -80,6 +81,7 @@
       <Button id="MysteryPlayButton" mnemonicParsing="false" style="-fx-background-color: crimson;"
          text="Play" textFill="WHITE" translateX="60.0" translateY="-110.0" GridPane.columnIndex="3"
          GridPane.rowIndex="1">
+         </Button>
       <Button id="MysteryPlayButton" fx:id="btnPlayHistorial" mnemonicParsing="false"
          style="-fx-background-color: crimson; -fx-background-radius: 10;" text="Play"
          textFill="WHITE" translateX="60.0" translateY="-110.0" GridPane.columnIndex="3"
