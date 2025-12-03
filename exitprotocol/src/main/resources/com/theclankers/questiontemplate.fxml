@@ -1,13 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.String?>
-<?import java.net.URL?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
@@ -17,70 +13,62 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/25">
+  <columnConstraints>
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="195.33331298828125" minWidth="10.0" prefWidth="61.66667683919271" />
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="450.0" minWidth="10.0" prefWidth="430.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="112.0" minWidth="10.0" prefWidth="112.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints maxHeight="128.66665649414062" minHeight="0.0" prefHeight="23.333343029022217" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="369.3333485921224" minHeight="10.0" prefHeight="307.9999796549479" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="318.3333333333333" minHeight="10.0" prefHeight="47.33335367838538" vgrow="SOMETIMES" />
+  </rowConstraints>
    <children>
-      <ImageView fitHeight="400.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="400.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
          <image>
             <Image url="@images/HISTORICAL%20main%20game%20state.png" />
          </image>
       </ImageView>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fbfbfb" height="221.0" layoutX="498.0" layoutY="90.0" opacity="0.76" stroke="BLACK" strokeType="INSIDE" styleClass="hintbox" width="87.0" />
-      <Line endX="58.33331298828125" endY="1.52587890625E-5" layoutX="527.0" layoutY="161.0" startX="-28.33331298828125" startY="1.52587890625E-5" styleClass="hintline" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" height="308.0" layoutX="28.0" layoutY="33.0" opacity="0.82" stroke="BLACK" strokeLineCap="ROUND" strokeType="INSIDE" strokeWidth="0.0" styleClass="questionbox" width="446.0" />
-      <GridPane layoutX="498.0" layoutY="89.0" prefHeight="221.0" prefWidth="87.0" styleClass="hintgrid">
-        <columnConstraints>
-          <ColumnConstraints />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-        </columnConstraints>
-        <rowConstraints>
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        </rowConstraints>
-         <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="hintcontent" text="Text" textAlignment="CENTER" wrappingWidth="88.64975929260254" GridPane.columnIndex="1" />
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="hintcontent" text="Text" textAlignment="CENTER" wrappingWidth="87.31638526916504" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="hintcontent" text="Text" textAlignment="CENTER" wrappingWidth="87.98307228088379" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-         </children>
-      </GridPane>
-      <GridPane layoutX="39.0" layoutY="31.0" prefHeight="302.0" prefWidth="427.0">
+      <Rectangle arcHeight="40.0" arcWidth="40.0" height="315.0" opacity="0.65" stroke="BLACK" strokeType="INSIDE" width="425.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+      <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="[exit protocol.]" />
+      <Button mnemonicParsing="false" style="-fx-background-color: tan; -fx-text-fill: black; -fx-background-radius: 10;" text="Get hint" translateY="15.0" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <Circle fill="#309a45" radius="25.0" stroke="BLACK" strokeType="INSIDE" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+      <GridPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="250.0" prefWidth="80.0" style="-fx-background-color: tan; -fx-background-radius: 10;" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
         </columnConstraints>
         <rowConstraints>
-          <RowConstraints maxHeight="95.66667938232422" minHeight="10.0" prefHeight="67.00000762939453" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="169.999989827474" minHeight="10.0" prefHeight="159.33334350585938" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="115.99998474121097" minHeight="10.0" prefHeight="60.666656494140625" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="57.66668701171875" minHeight="3.6666641235351562" prefHeight="26.333333333333336" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="122.33333587646484" minHeight="10.0" prefHeight="71.66666666666666" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="79.66664632161459" minHeight="10.0" prefHeight="74.33333333333334" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="78.0" minHeight="10.0" prefHeight="70.66668701171875" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <TextField promptText="Please enter" style="-fx-background-color: white;" GridPane.rowIndex="2">
-               <GridPane.margin>
-                  <Insets bottom="20.0" left="20.0" right="100.0" top="20.0" />
-               </GridPane.margin>
-            </TextField>
-            <Button mnemonicParsing="false" text="Button" translateX="350.0" GridPane.rowIndex="2" />
-            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="questionheader" text="Text" textAlignment="CENTER" wrappingWidth="427.31641578674316">
-               <font>
-                  <Font size="33.0" />
-               </font>
-            </Text>
-            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="questioncontent" text="Text" wrappingWidth="427.31641578674316" GridPane.rowIndex="1">
-               <GridPane.margin>
-                  <Insets left="20.0" right="20.0" />
-               </GridPane.margin>
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </Text>
+            <Line endX="80.0" stroke="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP" />
+            <Text fx:id="txtHint1" opacity="0.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="75.0" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+            <Text fx:id="txtHint2" opacity="0.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="75.0" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+            <Text fx:id="txtHint3" opacity="0.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="75.0" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Hints" wrappingWidth="33.3163857460022" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+            <Line endX="80.0" stroke="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="TOP" />
+            <Line endX="80.0" stroke="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="TOP" />
          </children>
       </GridPane>
-      <Button layoutX="510.0" layoutY="45.0" mnemonicParsing="false" opacity="0.76" style="-fx-background-color: white;" styleClass="hintbutton" text="Get Hint" />
-      <Line endX="58.33331298828125" endY="1.52587890625E-5" layoutX="527.0" layoutY="238.0" startX="-28.33331298828125" startY="1.52587890625E-5" styleClass="hintline" />
-      <Circle fill="#238d3a" layoutX="30.0" layoutY="373.0" radius="22.0" stroke="BLACK" strokeType="INSIDE" styleClass="pausebutton" />
-      <ImageView fitHeight="44.0" fitWidth="54.0" layoutX="3.0" layoutY="351.0" pickOnBounds="true" preserveRatio="true" styleClass="pauseimage" />
-      <ImageView fitHeight="44.0" fitWidth="54.0" layoutX="3.0" layoutY="351.0" pickOnBounds="true" preserveRatio="true" styleClass="resumeimage" />
+      <TextField maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="30.0" prefWidth="250.0" promptText="Please enter" style="-fx-background-color: white; -fx-background-radius: 10;" translateX="30.0" translateY="-30.0" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="BOTTOM" />
+      <Button maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: purple; -fx-background-radius: 10;" text="Submit" textFill="WHITE" translateX="-20.0" translateY="-30.0" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="BOTTOM" />
+      <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" translateY="20.0" wrappingWidth="137.9831051826477" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="397.3164259791374" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Text>
    </children>
-   <stylesheets>
-      <URL value="@css/questiontemplate.css" />
-   </stylesheets>
-</AnchorPane>
+</GridPane>
