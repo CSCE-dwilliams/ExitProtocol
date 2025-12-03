@@ -15,7 +15,7 @@
    <children>
       <ImageView fitHeight="400.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../Downloads/HISTORICAL%20main%20game%20state.png" />
+            <Image url="@images/HISTORICAL%20main%20game%20state.png" />
          </image>
       </ImageView>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f5e2b3" height="280.0" layoutX="481.0" layoutY="60.0" stroke="BLACK" strokeLineCap="ROUND" strokeType="INSIDE" strokeWidth="0.0" width="105.0" />
