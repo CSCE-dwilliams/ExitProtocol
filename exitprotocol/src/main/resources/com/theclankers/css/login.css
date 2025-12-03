@@ -1,0 +1,12 @@
+.textInputLabel {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 1), 20, 0.8, 0, 0);
+}
+
+.signInHeader {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 1), 80, 0.8, 0, 0);
+}
+
+.SignInButton {
+    -fx-text-fill: black;
+    -fx-background-color: purple;
+}
