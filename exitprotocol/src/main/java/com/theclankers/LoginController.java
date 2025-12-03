@@ -8,9 +8,9 @@ import com.model.EscapeManager;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.text.Text;
 
 public class LoginController implements Initializable {
     @FXML
@@ -18,21 +18,28 @@ public class LoginController implements Initializable {
     @FXML
     private TextField txt_password;
     @FXML
-    private Label lbl_error;
+    private Text lbl_error;
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'initialize'");
-    }
-
-    private void onBtnClicked(MouseEvent event) throws IOException {
+    @FXML
+    public void onBtnClicked(MouseEvent event) throws IOException {
+        System.out.println(">>> Button clicked!");
         String email = txt_email.getText();
         String password = txt_password.getText();
 
         EscapeManager manager = EscapeManager.getInstance();
+        System.out.println(manager.signIn(email, password));
+        System.out.println("email: " + email + " pass: " + password);
+        if (!manager.signIn(email, password)) {
+            lbl_error.setText("Invalid login credentials");
+            lbl_error.setVisible(true); // Make it visible
+            return;
+        }
+        App.setRoot("themeselection");
     }
 
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+    }
 }
 
 // can debate about whether or not to include 'back' button

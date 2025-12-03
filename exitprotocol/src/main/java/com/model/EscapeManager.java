@@ -34,7 +34,7 @@ public class EscapeManager {
     }
 
     public boolean selectExistingGame(String theme) {
-        if (userList.gameExists(currentUser, theme)) {
+        if (!userList.gameExists(currentUser, theme)) {
             return false;
         }
         Game game = new Game(currentUser.getSession(theme));
