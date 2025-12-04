@@ -94,7 +94,7 @@ public class UserList {
     }
 
     public boolean gameExists(User user, String theme) {
-        return (user.getSession(theme) == null);
+        return (user.getSession(theme) != null);
     }
 
     public boolean themeMatch(String theme) {

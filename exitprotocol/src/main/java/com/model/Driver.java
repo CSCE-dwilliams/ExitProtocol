@@ -34,6 +34,9 @@ public class Driver {
             // Lets play a historical game
             System.out.println("-----------------------");
             manager.createGame("theClank", "Historical", difficulty, playerCount);
+            manager.createGame("theClank", "Mystery", difficulty, playerCount);
+            manager.createGame("theClank", "Medieval", difficulty, playerCount);
+
             for (GameSession s : currentUser.getAllSessions()) {
                 System.out.println(s);
             }
