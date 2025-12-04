@@ -57,27 +57,29 @@ public class GameHomeController implements Initializable {
     }
 
     public void buttonVisibility() {
-        for (int i = 0; i < game.getPlayerIndex(); i++) {
+        // for (int i = 0; i < game.getPlayerIndex(); i++) {
 
-        }
-        switch (game.getPlayerIndex()) {
-            case 0:
-                btnQ1.setVisible(true);
-                break;
-        }
+        // }
+        // switch (game.getPlayerIndex()) {
+        // case 0:
+        // btnQ1.setVisible(true);
+        // break;
+        // case 1:
 
-    }
-
-    public void primaryGameLoop() {
-
-        while (game.getPlayerIndex() >= 0) {
-
-            if (game.getItems().size() > 0) {
-                // logic for populating items here
-            }
-
-        }
+        // }
 
     }
+
+    // public void primaryGameLoop() {
+
+    // while (game.getPlayerIndex() >= 0) {
+
+    // if (game.getItems().size() > 0) {
+    // // logic for populating items here
+    // }
+
+    // }
+
+    // }
 
 }
