@@ -238,7 +238,7 @@ public class UserList {
         Game gameObject = new Game(session);
         GameList gameList = GameList.getInstance();
         gameList.loadGames();
-        gameList.getGameData(gameObject);
+        gameList.setGameData(gameObject);
 
         gameObject.challengeStart(session.getChallengeIndex());
         gameObject.runGame();

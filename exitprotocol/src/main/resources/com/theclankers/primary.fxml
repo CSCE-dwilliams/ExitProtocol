@@ -1,27 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.net.URL?>
-<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Button?>
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
 
-<VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.theclankers.PrimaryController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.theclankers.PrimaryController">
    <children>
-      <Label text="[ exitprotocol. ]" />
-      <Button fx:id="signInButton" mnemonicParsing="false" onAction="#switchToSignInScreen" text="[ sign in ]" />
-      <Button fx:id="createAccountButton" mnemonicParsing="false" onAction="#switchToCreateAccountScreen" text="[ create account ]" />
-      <Button fx:id="testButton" mnemonicParsing ="false" onAction= "#testScreen" text = "test your screen"/>
+      <ImageView fitHeight="421.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/Main_Splash-no_title-.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="signInButton" layoutX="43.0" layoutY="350.0" onAction="#switchToSignInScreen" text="[ returning user ] " />
+      <Button fx:id="createAccountButton" layoutX="43.0" layoutY="294.0" onAction="#switchToCreateAccountScreen" text="[ new user ]" />
+      <Text fill="WHITE" layoutX="133.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" text="[ exit protocol. ]">
+         <font>
+            <Font size="48.0" />
+         </font>
+      </Text>
+      <Button fx:id="testButton" layoutX="492.0" layoutY="350.0" onAction="#testBtnClick" text="[ test screen ]" />
    </children>
-   <padding>
-      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-   </padding>
    <stylesheets>
       <URL value="@css/styles.css" />
    </stylesheets>
-</VBox>
+</AnchorPane>

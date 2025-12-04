@@ -1,5 +1,7 @@
 package com.model;
 
+import java.util.UUID;
+
 public class EscapeManager {
     private Leaderboard leaderboard;
     // private Timer timer;
@@ -15,6 +17,7 @@ public class EscapeManager {
 
     private EscapeManager() {
         userList = UserList.getInstance();
+        userList.loadUsers();
         gameList = GameList.getInstance();
     }
 
@@ -33,6 +36,10 @@ public class EscapeManager {
         return true;
     }
 
+    public boolean emailAlreadyExists(String email) {
+        return userList.emailExists(email);
+    }
+
     public boolean selectExistingGame(String theme) {
         if (!userList.gameExists(currentUser, theme)) {
             return false;
@@ -48,16 +55,30 @@ public class EscapeManager {
         }
         GameSession session = userList.createGameSession(currentUser, teamName, theme, difficulty, playercount);
         Game game = new Game(session);
-
+        gameList.loadGames();
+        gameList.setGameData(game);
         currentSession = session;
         currentGame = game;
 
         return true;
     }
 
+    public GameSession getCurrentSession() {
+        return currentSession;
+    }
+
+    public Game getCurrentGame() {
+        return currentGame;
+    }
+
     public boolean startGame() {
         userList.playGameSession(currentUser, currentSession);
         return true;
+    }
+
+    public void createAccount(String firstName, String lastName, String email, String password, int avatar) {
+        userList.createAccount(firstName, lastName, email, password, avatar, UUID.randomUUID());
+        currentUser = userList.getUser(email, password);
     }
 
     public User getCurrentUser() {

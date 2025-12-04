@@ -26,7 +26,7 @@
    <children>
       <ImageView fitHeight="400.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
          <image>
-            <Image url="@images/Main Splash( no title ).png" />
+            <Image url="@images/Main_Splash-no_title-.png" />
          </image>
       </ImageView>
       <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="signInHeader" text="Sign In" translateX="40.0" GridPane.columnIndex="1">
@@ -50,6 +50,11 @@
       <Button fx:id="btnSignIn" mnemonicParsing="false" onMouseClicked="#onBtnClicked" prefHeight="31.0" prefWidth="84.0" styleClass="signInButton" text="Sign In" translateX="60.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
          <font>
             <Font name="System Bold" size="13.0" />
+         </font>
+      </Button>
+      <Button fx:id="backBtn" mnemonicParsing="false" onMouseClicked="#onBackBtn" prefHeight="31.0" prefWidth="84.0" styleClass="signInButton" text="&lt;- Back" translateX="20.0" translateY="30.0" GridPane.rowIndex="2">
+         <font>
+            <Font name="System Bold" size="11.0" />
          </font>
       </Button>
    </children>

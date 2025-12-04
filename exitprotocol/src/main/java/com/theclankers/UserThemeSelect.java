@@ -1,5 +1,6 @@
 package com.theclankers;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -9,12 +10,9 @@ import com.model.User;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.input.MouseEvent;
 
-/**
- *
- * @author portia
- */
-public class UserHomeController implements Initializable {
+public class UserThemeSelect implements Initializable {
 
     @FXML
     private Button medievalResume;
@@ -22,6 +20,12 @@ public class UserHomeController implements Initializable {
     private Button mysteryResume;
     @FXML
     private Button historicalResume;
+    @FXML
+    private Button btnPlayHistorical;
+    @FXML
+    private Button btnPlayMystery;
+    @FXML
+    private Button btnPlayMedieval;
 
     private EscapeManager manager;
     private User user;
@@ -30,10 +34,6 @@ public class UserHomeController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         manager = EscapeManager.getInstance();
         user = manager.getCurrentUser();
-        actionStatus();
-
-        System.out.println("testing");
-        System.out.println(manager.selectExistingGame("Historical"));
 
         if (checkSession("Historical")) {
             historicalResume.setVisible(true);
@@ -47,16 +47,36 @@ public class UserHomeController implements Initializable {
 
     }
 
+    public void btnHistoricalResume(MouseEvent event) throws IOException {
+
+    }
+
+    public void btnMysteryResume(MouseEvent event) throws IOException {
+
+    }
+
+    public void btnMedievalResume(MouseEvent event) throws IOException {
+
+    }
+
+    public void btnNewMystery(MouseEvent event) throws IOException {
+
+    }
+
+    public void btnNewMedieval(MouseEvent event) throws IOException {
+
+    }
+
+    public void btnNewHistorical(MouseEvent event) throws IOException {
+
+        App.setRoot("createSession");
+    }
+
     private boolean checkSession(String theme) {
         if (theme == null) {
             return false;
         }
         return manager.selectExistingGame(theme);
-    }
-
-    private void actionStatus() {
-        System.out.println(manager.getCurrentUser());
-
     }
 
 }

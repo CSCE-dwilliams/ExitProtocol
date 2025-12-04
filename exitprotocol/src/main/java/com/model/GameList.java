@@ -66,10 +66,10 @@ public class GameList {
                 gameObject.setGameSet(g);
             }
         }
-        return null;
+        return gameObject;
     }
 
-    public void getGameData(Game aGame) {
+    public void setGameData(Game aGame) {
         String gameTheme = aGame.getTheme();
         for (GameTemplate g : games) {
             if (g.getTheme().equalsIgnoreCase(gameTheme)) {

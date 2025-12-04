@@ -68,7 +68,8 @@ public class DataLoader extends DataConstants {
                         int score = ((Long) sessionDat.get("score")).intValue();
                         String sessionName = (String) sessionDat.get("sessionName");
                         String theme = (String) sessionDat.get("theme");
-                        UUID sessionID = UUID.fromString((String) personJSON.get("id"));
+                        UUID sessionID = UUID.fromString((String) sessionDat.get("id")); // Get from sessionDat, not
+                                                                                         // personJSON
                         String state = (String) sessionDat.get("state");
                         int challengeIndex = ((Long) sessionDat.get("currentChallengeIndex")).intValue();
                         int hintsUsed = sessionDat.get("hintsUsed") != null

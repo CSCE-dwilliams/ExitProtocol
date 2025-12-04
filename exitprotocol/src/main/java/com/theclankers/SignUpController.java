@@ -1,86 +1,61 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXML2.java to edit this template
- */
 package com.theclankers;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import com.model.EscapeManager;
+
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 
-/**
- *
- * @author portia
- */
 public class SignUpController implements Initializable {
     @FXML
-    private TextField txt_username;
+    private TextField newEmail;
     @FXML
-    private TextField txt_password;
+    private TextField newFirstName;
     @FXML
-    private TextField txt_first_name;
+    private TextField newLastName;
     @FXML
-    private TextField txt_last_name;
+    private TextField newPass;
     @FXML
-    private TextField txt_age;
-    @FXML
-    private TextField txt_phone_number;
+    private ChoiceBox<Integer> avatarSelect;
     @FXML
     private Label lbl_error;
 
     @FXML
     private void btnSignupClicked(MouseEvent event) throws IOException {
-        String username = txt_username.getText();
-        String password = txt_password.getText();
-        String firstName = txt_first_name.getText();
-        String lastName = txt_last_name.getText();
-        int age;
-        String phoneNumber = txt_phone_number.getText();
+        String firstName = newFirstName.getText();
+        String lastName = newLastName.getText();
+        String email = newEmail.getText();
+        String password = newPass.getText();
+        int avatarChoice = avatarSelect.getValue();
+        System.out.println(avatarChoice);
 
-        try {
-            age = Integer.parseInt(txt_age.getText());
-        } catch (Exception e) {
-            lbl_error.setText("Sorry, you must enter a valid age.");
+        EscapeManager manager = EscapeManager.getInstance();
+        if (manager.emailAlreadyExists(email)) {
+            lbl_error.setVisible(true);
             return;
         }
+        manager.createAccount(firstName, lastName, email, password, avatarChoice);
 
-        // // check for empty fields
-        // if (username.equals("") || password.equals("") || firstName.equals("") ||
-        // lastName.equals("")
-        // || phoneNumber.equals("")) {
-        // lbl_error.setText("Sorry, You cannot leave blank fields");
-        // return;
-        // }
-
-        // Library library = Library.getInstance();
-
-        // UserList userList = UserList.getInstance();
-
-        // if (!library.createAccount(username, firstName, lastName, age, phoneNumber))
-        // {
-        // lbl_error.setText("Sorry, this user couldn't be created.");
-        // return;
-        // }
-
-        // library.login(username);
-        // User user = library.getCurrentUser();
-        // App.setRoot("user_home");
+        App.setRoot("themeselection");
     }
 
     @FXML
-    private void back(MouseEvent event) throws IOException {
-        App.setRoot("home");
+    private void onBackBtn(MouseEvent event) throws IOException {
+        App.setRoot("primary");
     }
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        avatarSelect.getItems().addAll(1, 2, 3, 4);
+
     }
 
 }
