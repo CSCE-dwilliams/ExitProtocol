@@ -54,11 +54,20 @@ public class EscapeManager {
         }
         GameSession session = userList.createGameSession(currentUser, teamName, theme, difficulty, playercount);
         Game game = new Game(session);
-
+        gameList.loadGames();
+        gameList.setGameData(game);
         currentSession = session;
         currentGame = game;
 
         return true;
+    }
+
+    public GameSession getCurrentSession() {
+        return currentSession;
+    }
+
+    public Game getCurrentGame() {
+        return currentGame;
     }
 
     public boolean startGame() {
@@ -66,8 +75,8 @@ public class EscapeManager {
         return true;
     }
 
-    public void createAccount(String firstName, String latName, String email, String password, int avatar) {
-        userList.createAccount(firstName, firstName, email, password, avatar, UUID.randomUUID());
+    public void createAccount(String firstName, String lastName, String email, String password, int avatar) {
+        userList.createAccount(firstName, lastName, email, password, avatar, UUID.randomUUID());
         currentUser = userList.getUser(email, password);
     }
 

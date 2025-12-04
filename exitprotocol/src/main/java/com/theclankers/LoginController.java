@@ -37,6 +37,10 @@ public class LoginController implements Initializable {
         App.setRoot("themeselection");
     }
 
+    public void onBackBtn(MouseEvent event) throws IOException {
+        App.setRoot("primary");
+    }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
     }

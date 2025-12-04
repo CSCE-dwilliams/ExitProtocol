@@ -45,11 +45,22 @@ public class Game {
     }
 
     public String getIntro() {
+        if (gameSet != null) {
+            return gameSet.getIntroText();
+        }
         return "";
     }
 
     public String getTheme() {
         return this.theme;
+    }
+
+    public int getPlayerIndex() {
+        return this.playerIndex;
+    }
+
+    public int getHintIndex() {
+        return this.hintIndex;
     }
 
     public int getDifficulty() {
@@ -68,8 +79,17 @@ public class Game {
         return challenges;
     }
 
+    public int getScore() {
+        return score;
+    }
+
+    public ArrayList<Item> getItems() {
+        return gameItems;
+    }
+
     public void setGameSet(GameTemplate aGameTemplate) {
         this.gameSet = aGameTemplate;
+        challenges = gameSet.getChallenges();
     }
 
     public void challengeStart(int startingIndex) {
@@ -81,12 +101,9 @@ public class Game {
         challenges = gameSet.getChallenges();
     }
 
+    // outdated
     public void assignChallenges() {
         challenges = gameSet.getChallenges();
-    }
-
-    public int getScore() {
-        return score;
     }
 
     public boolean hasItems() {
@@ -419,6 +436,10 @@ public class Game {
     // unused
     public void puzzleCompleted() {
 
+    }
+
+    public String toString() {
+        return this.getTheme();
     }
 
 }

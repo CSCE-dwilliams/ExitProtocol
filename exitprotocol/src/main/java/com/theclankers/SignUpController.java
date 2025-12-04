@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXML2.java to edit this template
- */
 package com.theclankers;
 
 import java.io.IOException;
@@ -9,18 +5,14 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import com.model.EscapeManager;
+
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 
-/**
- *
- * @author portia
- */
 public class SignUpController implements Initializable {
     @FXML
     private TextField newEmail;
@@ -37,9 +29,10 @@ public class SignUpController implements Initializable {
 
     @FXML
     private void btnSignupClicked(MouseEvent event) throws IOException {
-        String email = newEmail.getText();
         String firstName = newFirstName.getText();
         String lastName = newLastName.getText();
+        String email = newEmail.getText();
+        String password = newPass.getText();
         int avatarChoice = avatarSelect.getValue();
         System.out.println(avatarChoice);
 
@@ -48,14 +41,14 @@ public class SignUpController implements Initializable {
             lbl_error.setVisible(true);
             return;
         }
-        manager.createAccount(firstName, firstName, email, lastName, avatarChoice);
+        manager.createAccount(firstName, lastName, email, password, avatarChoice);
 
         App.setRoot("themeselection");
     }
 
     @FXML
-    private void back(MouseEvent event) throws IOException {
-        App.setRoot("home");
+    private void onBackBtn(MouseEvent event) throws IOException {
+        App.setRoot("primary");
     }
 
     @Override

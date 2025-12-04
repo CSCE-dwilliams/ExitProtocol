@@ -56,7 +56,7 @@ public class GameSession {
         GameList gameList = GameList.getInstance();
         gameList.loadGames();
         Game testGame = new Game(this);
-        gameList.getGameData(testGame);
+        gameList.setGameData(testGame);
         testGame.assignChallenges();
 
         int totalChallenges = testGame.getChallenges().size();

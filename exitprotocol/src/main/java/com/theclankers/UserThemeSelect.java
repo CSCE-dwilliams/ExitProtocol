@@ -12,11 +12,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 
-/**
- *
- * @author portia
- */
-public class UserHomeController implements Initializable {
+public class UserThemeSelect implements Initializable {
 
     @FXML
     private Button medievalResume;
@@ -38,9 +34,6 @@ public class UserHomeController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         manager = EscapeManager.getInstance();
         user = manager.getCurrentUser();
-
-        System.out.println("testing");
-        System.out.println(manager.selectExistingGame("Historical"));
 
         if (checkSession("Historical")) {
             historicalResume.setVisible(true);
@@ -75,7 +68,8 @@ public class UserHomeController implements Initializable {
     }
 
     public void btnNewHistorical(MouseEvent event) throws IOException {
-        App.setRoot("GameIntro");
+
+        App.setRoot("createSession");
     }
 
     private boolean checkSession(String theme) {

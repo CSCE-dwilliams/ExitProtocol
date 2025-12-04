@@ -52,6 +52,11 @@
             <Font name="System Bold" size="13.0" />
          </font>
       </Button>
+      <Button fx:id="backBtn" mnemonicParsing="false" onMouseClicked="#onBackBtn" prefHeight="31.0" prefWidth="84.0" styleClass="signInButton" text="&lt;- Back" translateX="20.0" translateY="30.0" GridPane.rowIndex="2">
+         <font>
+            <Font name="System Bold" size="11.0" />
+         </font>
+      </Button>
    </children>
    <stylesheets>
       <URL value="@css/login.css" />
