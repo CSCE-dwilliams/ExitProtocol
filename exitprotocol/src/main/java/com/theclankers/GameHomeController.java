@@ -41,11 +41,14 @@ public class GameHomeController implements Initializable {
     @FXML
     Circle btnQ6;
 
+    public Circle[] buttons;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         manager = EscapeManager.getInstance();
         user = manager.getCurrentUser();
         game = manager.getCurrentGame();
+        buttons = new Circle[] { btnQ1, btnQ2, btnQ3, btnQ4, btnQ5, btnQ6 };
 
         String currentScore = Integer.toString(game.getScore());
         String teamName = manager.getCurrentSession().getTeamName();
@@ -53,18 +56,18 @@ public class GameHomeController implements Initializable {
         teamNameBox.setText(teamName);
         scoreBox.setText(currentScore);
         buttonVisibility();
+        // item visibility
 
     }
 
     public void buttonVisibility() {
-        Circle[] buttons = { btnQ1, btnQ2, btnQ3, btnQ4, btnQ5, btnQ6 };
         int currentIndex = game.getPlayerIndex();
 
         // Make all buttons up to current index visible and blue, except the current one
         for (int i = 0; i <= currentIndex; i++) {
             buttons[i].setVisible(true);
             if (i < currentIndex) {
-                buttons[i].setFill(Color.BLUE);
+                buttons[i].setFill(Color.BLACK);
             }
             // Current button keeps its default color
         }
@@ -72,6 +75,16 @@ public class GameHomeController implements Initializable {
         // Hide all buttons after current index
         for (int i = currentIndex + 1; i < buttons.length; i++) {
             buttons[i].setVisible(false);
+        }
+    }
+
+    public void handleBtn(MouseEvent event) throws IOException {
+        Circle clickedButton = (Circle) event.getSource();
+        for (int i = 0; i < buttons.length; i++) {
+            if (clickedButton == buttons[i]) {
+                game.setPlayerIndex(i);
+                App.setRoot("gameQuestion");
+            }
         }
     }
 

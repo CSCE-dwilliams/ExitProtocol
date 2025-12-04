@@ -17,6 +17,7 @@ public class EscapeManager {
 
     private EscapeManager() {
         userList = UserList.getInstance();
+        userList.loadUsers();
         gameList = GameList.getInstance();
     }
 
