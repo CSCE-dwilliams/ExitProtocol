@@ -42,5 +42,6 @@
       <Circle fx:id="btnQ4" fill="WHITE" layoutX="337.0" layoutY="120.0" onMouseClicked="#handleBtn" radius="11.0" stroke="BLACK" strokeType="INSIDE" visible="false" />
       <Circle fx:id="btnQ5" fill="WHITE" layoutX="378.0" layoutY="200.0" onMouseClicked="#handleBtn" radius="11.0" stroke="BLACK" strokeType="INSIDE" visible="false" />
       <Circle fx:id="btnQ6" fill="WHITE" layoutX="219.0" layoutY="106.0" onMouseClicked="#handleBtn" radius="11.0" stroke="BLACK" strokeType="INSIDE" visible="false" />
+      <ImageView fx:id="imgAvatar" fitHeight="75.0" fitWidth="75.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </Pane>
