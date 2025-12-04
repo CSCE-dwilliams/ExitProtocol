@@ -14,7 +14,7 @@
    <children>
       <ImageView fitHeight="408.0" fitWidth="616.0" layoutY="-4.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@Historical%20theme%20banner%20(1).png" />
+            <Image url="@images/Historical theme banner.png" />
          </image>
       </ImageView>
       <Text fill="#fff9f9" layoutX="110.0" layoutY="43.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="Historical Leaderboard">
