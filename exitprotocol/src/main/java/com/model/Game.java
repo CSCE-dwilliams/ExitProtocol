@@ -71,6 +71,11 @@ public class Game {
         return this.difficulty;
     }
 
+    public void decScore(int points) {
+        int replaceScore = this.score - points;
+        this.score = replaceScore;
+    }
+
     public int getPlayerCount() {
         return this.playerCount;
     }
