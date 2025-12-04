@@ -13,6 +13,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 
 public class GameHomeController implements Initializable {
@@ -51,35 +52,39 @@ public class GameHomeController implements Initializable {
 
         teamNameBox.setText(teamName);
         scoreBox.setText(currentScore);
-
-        // visibility of buttons AND items is determined here
+        buttonVisibility();
 
     }
 
     public void buttonVisibility() {
-        // for (int i = 0; i < game.getPlayerIndex(); i++) {
+        Circle[] buttons = { btnQ1, btnQ2, btnQ3, btnQ4, btnQ5, btnQ6 };
+        int currentIndex = game.getPlayerIndex();
 
-        // }
-        // switch (game.getPlayerIndex()) {
-        // case 0:
-        // btnQ1.setVisible(true);
-        // break;
-        // case 1:
+        // Make all buttons up to current index visible and blue, except the current one
+        for (int i = 0; i <= currentIndex; i++) {
+            buttons[i].setVisible(true);
+            if (i < currentIndex) {
+                buttons[i].setFill(Color.BLUE);
+            }
+            // Current button keeps its default color
+        }
 
-        // }
-
+        // Hide all buttons after current index
+        for (int i = currentIndex + 1; i < buttons.length; i++) {
+            buttons[i].setVisible(false);
+        }
     }
 
-    // public void primaryGameLoop() {
+    public void primaryGameLoop() {
 
-    // while (game.getPlayerIndex() >= 0) {
+        while (game.getPlayerIndex() >= 0) {
 
-    // if (game.getItems().size() > 0) {
-    // // logic for populating items here
-    // }
+            if (game.getItems().size() > 0) {
+                // logic for populating items here
+            }
 
-    // }
+        }
 
-    // }
+    }
 
 }
