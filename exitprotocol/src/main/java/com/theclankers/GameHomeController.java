@@ -18,16 +18,10 @@ import javafx.scene.shape.Circle;
 
 public class GameHomeController implements Initializable {
 
-    private EscapeManager manager;
-    private User user;
-    private Game game;
-
     @FXML
     Label teamNameBox;
-
     @FXML
     Label scoreBox;
-
     @FXML
     Circle btnQ1;
     @FXML
@@ -42,6 +36,9 @@ public class GameHomeController implements Initializable {
     Circle btnQ6;
 
     public Circle[] buttons;
+    private EscapeManager manager;
+    private User user;
+    private Game game;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -83,7 +80,7 @@ public class GameHomeController implements Initializable {
         for (int i = 0; i < buttons.length; i++) {
             if (clickedButton == buttons[i]) {
                 game.setPlayerIndex(i);
-                App.setRoot("gameQuestion");
+                App.setRoot("questiontemplate");
             }
         }
     }
