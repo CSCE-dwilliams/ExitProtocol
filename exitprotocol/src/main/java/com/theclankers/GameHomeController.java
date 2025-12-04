@@ -13,6 +13,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 
 public class GameHomeController implements Initializable {
@@ -40,32 +41,51 @@ public class GameHomeController implements Initializable {
     @FXML
     Circle btnQ6;
 
+    public Circle[] buttons;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         manager = EscapeManager.getInstance();
         user = manager.getCurrentUser();
         game = manager.getCurrentGame();
+        buttons = new Circle[] { btnQ1, btnQ2, btnQ3, btnQ4, btnQ5, btnQ6 };
 
         String currentScore = Integer.toString(game.getScore());
         String teamName = manager.getCurrentSession().getTeamName();
 
         teamNameBox.setText(teamName);
         scoreBox.setText(currentScore);
-
-        // visibility of buttons AND items is determined here
+        buttonVisibility();
+        // item visibility
 
     }
 
     public void buttonVisibility() {
-        for (int i = 0; i < game.getPlayerIndex(); i++) {
+        int currentIndex = game.getPlayerIndex();
 
-        }
-        switch (game.getPlayerIndex()) {
-            case 0:
-                btnQ1.setVisible(true);
-                break;
+        // Make all buttons up to current index visible and blue, except the current one
+        for (int i = 0; i <= currentIndex; i++) {
+            buttons[i].setVisible(true);
+            if (i < currentIndex) {
+                buttons[i].setFill(Color.BLACK);
+            }
+            // Current button keeps its default color
         }
 
+        // Hide all buttons after current index
+        for (int i = currentIndex + 1; i < buttons.length; i++) {
+            buttons[i].setVisible(false);
+        }
+    }
+
+    public void handleBtn(MouseEvent event) throws IOException {
+        Circle clickedButton = (Circle) event.getSource();
+        for (int i = 0; i < buttons.length; i++) {
+            if (clickedButton == buttons[i]) {
+                game.setPlayerIndex(i);
+                App.setRoot("gameQuestion");
+            }
+        }
     }
 
     public void primaryGameLoop() {

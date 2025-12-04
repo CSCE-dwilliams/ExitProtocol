@@ -23,6 +23,9 @@ public class PrimaryController {
 
     // USE THIS TO DEMO ANY DESIRED SCREEN
     @FXML
+    private void testScreen() throws IOException{
+        App.setRoot("Leaderboard");
+    }
     private void testBtnClick() throws IOException {
         App.setRoot("baseGameState");
     }

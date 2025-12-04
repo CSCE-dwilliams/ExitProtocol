@@ -59,6 +59,10 @@ public class Game {
         return this.playerIndex;
     }
 
+    public void setPlayerIndex(int index) {
+        this.playerIndex = index;
+    }
+
     public int getHintIndex() {
         return this.hintIndex;
     }
