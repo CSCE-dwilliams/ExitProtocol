@@ -17,7 +17,7 @@
             <Image url="@images/Historical%20theme%20banner.png" />
          </image>
       </ImageView>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" height="194.0" layoutX="15.0" layoutY="100.0" opacity="0.66" stroke="BLACK" strokeType="INSIDE" width="573.0" />
+      <Rectangle arcHeight="20.0" arcWidth="20.0" height="194.0" layoutX="15.0" layoutY="100.0" opacity="0.66" stroke="BLACK" strokeType="INSIDE" width="573.0" />
       <Text fill="WHITE" layoutX="44.0" layoutY="149.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Team Name:" wrappingWidth="158.16666412353516">
          <font>
             <Font size="18.0" />
