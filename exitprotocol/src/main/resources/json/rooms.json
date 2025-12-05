@@ -21,6 +21,21 @@
                         }
                     },
                     {
+                        "question": "You feel a persistent itch against your hip. At first, you dismiss it as dust from the newsroom, but the sensation only grows sharper — like something small is poking you through the fabric. Annoyed, you reach into your pocket and pull out a folded scrap of paper you don’t remember putting there.The note reads:“Hidden truths speak softly. Look at the start, not the end.” \nBelow the message are four handwritten words: Silent – Archive – Lies – Everywhere The writing matches the style you've seen in Parker’s other notes — rushed, but deliberate. \nUsing the clue on the note, what four-letter phrase do the words reveal?",
+                        "answer": "S A L E → “SALE”",
+                        "hints": [
+                            "The note says to look at the start of each word.",
+                            "Take the first letter from each of the four words.",
+                            "Read them in order to reveal a four-letter phrase."
+                        ],
+                        "postQuestion": "As you tuck the note away, you notice another slip of paper folded behind it. It’s much older and worn, with only a single penciled mark across the corner — as if it was torn from something larger. \nWhatever it once belonged to, Parker clearly thought it mattered. You get a new item: Paper Fragment.\nYou got a new Item:  Itching Pocket Note",
+                        "item": {
+                            "name": "Itching Pocket Note",
+                            "description": "A worn, torn piece of paper with a single faint diagonal pencil mark across the corner. Whatever it belonged to is missing.",
+                            "useCase": "The fragment looks like part of a larger document. Finding its matching piece may reveal something important."
+                        }
+                    },
+                      {
                         "question": "Looking further around the desk you spot a headline reading:\n'THE NOBLE EXPERIMENT'\nwith a political cartoon containing liquor bottles and Uncle Sam below.\nWritten below: 'They outlawed one vice to hide another.'\nTrue or false: The 18th amendment in 1920 began prohibition:",
                         "answer": "True",
                         "hints": [
