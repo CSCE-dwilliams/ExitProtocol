@@ -36,7 +36,8 @@ public class PauseController implements Initializable {
     }
 
     public void saveGameBtn(MouseEvent event) throws IOException {
-
+        manager.saveGame();
+        System.exit(0);
     }
 
 }
