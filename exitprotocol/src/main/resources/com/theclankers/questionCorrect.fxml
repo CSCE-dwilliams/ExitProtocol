@@ -25,7 +25,6 @@
       <Button fx:id="continueButton" layoutX="242.0" layoutY="273.0" mnemonicParsing="false" text="Continue" />
       <Circle fx:id="pauseButtonBackground" fill="#2e7339" layoutX="38.0" layoutY="370.0" radius="24.0" stroke="BLACK" strokeType="INSIDE" />
       <Button fx:id="pauseButton" layoutX="25.0" layoutY="357.0" mnemonicParsing="false" text="| |" />
-      <Button fx:id="getHintButton" layoutX="497.0" layoutY="63.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="97.0" style="-fx-background-color: #f5e2b3;" text="Get Hint" />
       <Rectangle fx:id="hintsBox" arcHeight="5.0" arcWidth="5.0" fill="#f5e2b3eb" height="235.0" layoutX="496.0" layoutY="111.0" stroke="BLACK" strokeType="INSIDE" width="100.0" />
       <Text fill="#0000009e" layoutX="527.0" layoutY="136.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="hintsTitle" text="Hints">
          <font>
