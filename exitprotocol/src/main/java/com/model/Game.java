@@ -71,9 +71,17 @@ public class Game {
         return this.difficulty;
     }
 
+    public Challenge getCurrentChallenge() {
+        return getChallenges().get(playerIndex);
+    }
+
     public void decScore(int points) {
         int replaceScore = this.score - points;
         this.score = replaceScore;
+    }
+
+    public boolean attemptQuestion(String answer) {
+        return getCurrentChallenge().getAnswer().equalsIgnoreCase(answer);
     }
 
     public int getPlayerCount() {
@@ -99,6 +107,10 @@ public class Game {
     public void setGameSet(GameTemplate aGameTemplate) {
         this.gameSet = aGameTemplate;
         challenges = gameSet.getChallenges();
+    }
+
+    public void attemptQuestion() {
+
     }
 
     public void challengeStart(int startingIndex) {
