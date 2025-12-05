@@ -10,7 +10,8 @@
                         "answer": "Liquor",
                         "hints": [
                             "L_ _ _ _ _ ",
-                            "Rum, Vodka, Tequila"
+                            "Rum, Vodka, Tequila",
+                            "It's illegal during Prohibition"
                         ],
                         "postQuestion": "\nYou find a note tucked in the fold:\n'Follow the bottle to its source' as well as a reference guide for a 'Caeser Cipher'\nYou got a new Item: Caesar Guide",
                         "item": {
@@ -24,7 +25,8 @@
                         "answer": "True",
                         "hints": [
                             "This short lived amendment was very controversial",
-                            "Instigated the start of 'Speakeasies'"
+                            "Instigated the start of 'Speakeasies'",
+                            "It was later repealed by the 21st amendment"
                         ],
                         "postQuestion": "A paperclip holding the the newspaper together slips out of place. Attached to it is a torn photograph of the mayor outside a jazz club.\nYou got a new Item:Photograph",
                         "item": {
@@ -38,7 +40,9 @@
                         "answer": "The next clue is in records",
                         "hints": [
                             "Caesar Cipher",
-                            "Use a caesar cipher with a +3 shift"
+                            "Use a caesar cipher with a +3 shift",
+                            "Once decoded, the sentence will clearly point you toward your next location."
+
                         ],
                         "postQuestion": "You notice a filing cabinet labeled RECORDS - BLUE CANARY CLUB."
                     },
@@ -47,7 +51,8 @@
                         "answer": "Blue",
                         "hints": [
                             "Check your items for something useful",
-                            "The name of the band is in the 'Photograph' item"
+                            "The name of the band is in the 'Photograph' item",
+                            "The missing word matches the part still visible in your torn photograph."
                         ],
                         "postQuestion": "Skimming through the record cabinet for the 'Blue Mirage' band, sticking out of its record sleeve appears to be an article\n\nIt's an unfinished draft of an article titled: [CHICAGO MAYOR EXPOSED FOR COLLUSION],\nit seems like Parker was in the middle of writing until it abruptly stops… \n\nThe last line written reads sloppily as : 'uNdeR the dEskk iS… '"
                     },
@@ -56,7 +61,8 @@
                         "answer": "The final evidence is here",
                         "hints": [
                             "Caesar Cipher",
-                            "Use a caesar cipher with +5 shift"
+                            "Use a caesar cipher with +5 shift",
+                            "When shifted correctly, the message reveals what Parker desperately wanted someone to discover."
                         ],
                         "postQuestion": "Opening the plainly marked envelope, inside you find various documents. \nPhoto evidence linking the running mayor to illegal drug deals with the speakeasy.\nPhone logs of illicit transactions between musicians and the mayor, \nAnd Lastly: A a signed contract linking Mayor Whitmore to liquor shipments \nand the Deed of the illegal night Speakeasy.\n\nEpilogue:\n\n Having the smoking gun to Parkers unfinished article, you decide to expose the truth.\nThe signatures from the mayor himself tying him to the Speakeasy, photos of him and the Jazz players in obviously illicit scenarios. The Whitmore dynasty collapses, and Parker’s story finally runs on the front page.\nChicago celebrates you as the journalist who finished what Gordon started."
                     }
