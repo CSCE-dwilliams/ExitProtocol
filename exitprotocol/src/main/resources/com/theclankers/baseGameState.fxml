@@ -37,5 +37,6 @@
       <Circle fx:id="btnQ5" fill="WHITE" layoutX="378.0" layoutY="200.0" onMouseClicked="#handleBtn" radius="11.0" stroke="BLACK" strokeType="INSIDE" visible="false" />
       <Circle fx:id="btnQ6" fill="WHITE" layoutX="219.0" layoutY="106.0" onMouseClicked="#handleBtn" radius="11.0" stroke="BLACK" strokeType="INSIDE" visible="false" />
       <ImageView fx:id="imgAvatar" fitHeight="75.0" fitWidth="75.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" />
+      <Circle fx:id="pauseBtn" fill="#3a9f46" layoutX="51.0" layoutY="351.0" onMouseClicked="#switchPause" radius="24.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
    </children>
 </Pane>
