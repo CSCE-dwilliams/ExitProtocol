@@ -35,8 +35,8 @@
       <ChoiceBox fx:id="avatarSelect" prefWidth="150.0" styleClass="AvatarSelection" translateY="-10.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
       <Button fx:id="signUpButton" mnemonicParsing="false" onMouseClicked="#btnSignupClicked" styleClass="menuButton" text="Sign Up" translateX="65.0" translateY="40.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
       <Label fx:id="lbl_error" text="Email already in use!" textFill="RED" visible="false" GridPane.columnIndex="2" />
-      <TextField fx:id="newEmail" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="TOP" />
-      <TextField fx:id="newFirstName" translateY="-30.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM" />
+      <TextField fx:id="newEmail" translateY="-30.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM" />
+      <TextField fx:id="newFirstName" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="TOP" />
       <TextField fx:id="newLastName" translateY="60.0" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="TOP" />
       <TextField fx:id="newPass" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="BOTTOM" />
       <Button fx:id="backBtn" mnemonicParsing="false" onMouseClicked="#onBackBtn" styleClass="menuButton" text="&lt;- Back" textFill="WHITE" translateX="20.0" translateY="30.0" GridPane.rowIndex="2" />

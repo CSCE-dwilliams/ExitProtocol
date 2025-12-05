@@ -42,7 +42,7 @@ public class EscapeManager {
     }
 
     public void hintPenalty() {
-        currentGame.decScore(25);
+        currentGame.decScore(5);
     }
 
     public void wrongAnswerPenalty() {
@@ -57,7 +57,11 @@ public class EscapeManager {
         if (!userList.gameExists(currentUser, theme)) {
             return false;
         }
-        Game game = new Game(currentUser.getSession(theme));
+        GameSession session = currentUser.getSession(theme);
+        Game game = new Game(session);
+        gameList.loadGames();
+        gameList.setGameData(game);
+        currentSession = session;
         currentGame = game;
         return true;
     }
@@ -87,6 +91,11 @@ public class EscapeManager {
     public boolean startGame() {
         userList.playGameSession(currentUser, currentSession);
         return true;
+    }
+
+    public void saveGame() {
+        userList.updateUser(currentUser);
+        userList.saveUsers();
     }
 
     public void createAccount(String firstName, String lastName, String email, String password, int avatar) {

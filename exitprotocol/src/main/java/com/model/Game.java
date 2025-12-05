@@ -41,6 +41,8 @@ public class Game {
         this.difficulty = session.getDifficulty();
         this.playerCount = session.getPlayerCount();
         this.score = session.getScore();
+        this.playerIndex = session.getChallengeIndex();
+        this.hintIndex = session.getHintsUsed();
         this.session = session;
     }
 
@@ -61,6 +63,9 @@ public class Game {
 
     public void setPlayerIndex(int index) {
         this.playerIndex = index;
+        if (this.session != null) {
+            this.session.setChallengeIndex(index);
+        }
     }
 
     public int getHintIndex() {
@@ -76,13 +81,17 @@ public class Game {
     }
 
     public void decScore(int points) {
-        int replaceScore = this.score - points;
-        this.score = replaceScore;
+        this.score -= points;
+        if (this.session != null) {
+            this.session.setScore(this.score); // Keep in sync!
+        }
     }
 
     public void addScore(int points) {
-        int replaceScore = this.score + points;
-        this.score = replaceScore;
+        this.score += points;
+        if (this.session != null) {
+            this.session.setScore(this.score); // Keep in sync!
+        }
     }
 
     public boolean attemptQuestion(String answer) {
@@ -171,7 +180,7 @@ public class Game {
             if (quit) {
                 break;
             }
-            playerIndex++;
+            setPlayerIndex(playerIndex + 1);
         }
 
         if (playerIndex >= challenges.size()) {
