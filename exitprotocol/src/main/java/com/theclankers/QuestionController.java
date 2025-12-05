@@ -78,7 +78,7 @@ public class QuestionController implements Initializable {
     public void getHintBtn(MouseEvent event) throws IOException {
         if (hintIndex < 3) {
             hints[hintIndex].setVisible(true);
-            game.decScore(25);
+            manager.hintPenalty();
             hintIndex++;
         } else {
             showHideText(noHintsLeft);
@@ -94,11 +94,12 @@ public class QuestionController implements Initializable {
         String attempt = answerField.getText();
         if (!manager.questionCorrect(attempt)) {
             showHideText(wrongAns);
-            game.decScore(10);
+            manager.wrongAnswerPenalty();
             return;
         }
+        manager.correctAnswer();
         manager.nextQuestion();
-        App.setRoot("baseGameState");
+        App.setRoot("questionCorrect");
     }
 
     private void showHideText(Text someText) {

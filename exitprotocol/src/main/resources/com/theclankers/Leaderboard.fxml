@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+   prefHeight="400.0" prefWidth="608.0" styleClass="introgridpane"
+   stylesheets="@css/gameintrohistorical.css" xmlns="http://javafx.com/javafx/25"
+   xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Text fill="#fff9f9" layoutX="110.0" layoutY="43.0" stroke="BLACK" strokeType="OUTSIDE"
+         strokeWidth="0.0" text="Historical Leaderboard">
+         <font>
+            <Font size="40.0" />
+         </font>
+      </Text>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="39.0" layoutX="-6.0" layoutY="89.0"
+         opacity="0.73" stroke="BLACK" strokeType="INSIDE" width="618.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="39.0" layoutX="-3.0" layoutY="144.0"
+         opacity="0.73" stroke="BLACK" strokeType="INSIDE" width="618.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="39.0" layoutX="-3.0" layoutY="200.0"
+         opacity="0.73" stroke="BLACK" strokeType="INSIDE" width="618.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="39.0" layoutX="-5.0" layoutY="255.0"
+         opacity="0.73" stroke="BLACK" strokeType="INSIDE" width="618.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="39.0" layoutX="-3.0" layoutY="311.0"
+         opacity="0.73" stroke="BLACK" strokeType="INSIDE" width="618.0" />
+      <Button layoutX="23.0" layoutY="361.0" mnemonicParsing="false" text="&lt;- Back" />
+      <Line endX="-18.5" endY="249.0" layoutX="178.0" layoutY="99.0" opacity="0.73"
+         startX="-18.499984741210938" startY="-8.0" strokeWidth="5.0" />
+      <Line endX="-18.5" endY="249.0" layoutX="328.0" layoutY="99.0" opacity="0.73"
+         startX="-18.499984741210938" startY="-8.0" strokeWidth="5.0" />
+      <Line endX="-18.5" endY="249.0" layoutX="466.0" layoutY="99.0" opacity="0.73"
+         startX="-18.499984741210938" startY="-8.0" strokeWidth="5.0" />
+      <Line endX="497.0" endY="11.0" layoutX="112.0" layoutY="76.0" opacity="0.73" startX="-115.0"
+         startY="11.0" strokeWidth="5.0" />
+      <Text fill="#fffbfb" layoutX="16.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0"
+         text="Team Name">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="206.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0"
+         text="Score">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <Text fill="#fffdfd" layoutX="328.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0"
+         text="Difficulty">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <Text fill="#fffafa" layoutX="451.0" layoutY="76.0" strokeType="OUTSIDE" strokeWidth="0.0"
+         text="No. of Players">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <Text layoutX="80.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+      <Text layoutX="224.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+      <Text layoutX="364.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+      <Text layoutX="497.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+      <Text layoutX="69.0" layoutY="168.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+      <Text layoutX="224.0" layoutY="168.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+      <Text layoutX="353.0" layoutY="168.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+      <Text layoutX="509.0" layoutY="168.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+      <Text layoutX="69.0" layoutY="224.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+      <Text layoutX="497.0" layoutY="168.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+      <Text layoutX="206.0" layoutY="224.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+      <Text layoutX="498.0" layoutY="224.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+      <Text layoutX="69.0" layoutY="279.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+      <Text layoutX="224.0" layoutY="279.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+      <Text layoutX="353.0" layoutY="279.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+      <Text layoutX="498.0" layoutY="279.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+      <Text layoutX="69.0" layoutY="335.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+      <Text layoutX="213.0" layoutY="335.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+      <Text layoutX="353.0" layoutY="335.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+      <Text layoutX="509.0" layoutY="335.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+      <Text layoutX="353.0" layoutY="224.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+   </children>
+</AnchorPane>
