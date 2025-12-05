@@ -1,0 +1,11 @@
+.leaderboardHeader {
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 1), 80, 0.8, 0, 0);
+
+}
+
+.leaderboardBig {
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 1), 80, 0.8, 0, 0);
+
+}
