@@ -1,8 +1,8 @@
 .label {
-    -fx-text-fill: black;
+    -fx-text-fill: white;
 }
 
-.button {
+.menuButton {
     -fx-background-color: black;
     -background-color: black;
     background-color: black;
@@ -11,7 +11,7 @@
 }
 
 .themebutton {
-    
+
 }
 
 .themeselect {

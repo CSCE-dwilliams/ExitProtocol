@@ -12,6 +12,7 @@ public class EscapeManager {
     private UserList userList;
     private GameList gameList;
     private Game currentGame;
+    private Challenge currentChallenge;
     private GameSession currentSession;
     private static EscapeManager escapeManager;
 
@@ -85,6 +86,13 @@ public class EscapeManager {
         return currentUser;
     }
 
+    public boolean questionCorrect(String answer) {
+        return currentGame.attemptQuestion(answer);
+    }
+
+    public void nextQuestion() {
+        currentGame.setPlayerIndex(currentGame.getPlayerIndex() + 1);
+    }
     // public ArrayList<Game> getPlayerGames() {
 
     // }

@@ -2,6 +2,7 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Glow?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
@@ -49,10 +50,11 @@
             <Text fx:id="txtHint3" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" visible="false" wrappingWidth="75.0" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
             <Line endX="80.0" stroke="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="TOP" />
             <Line endX="80.0" stroke="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="TOP" />
+            <Text fx:id="noHintsLeft" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="No more hints ! " translateY="260.0" visible="false" wrappingWidth="101.3163914680481" />
          </children>
       </GridPane>
       <TextField fx:id="answerField" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="30.0" prefWidth="250.0" promptText="Please enter" style="-fx-background-color: white; -fx-background-radius: 10;" translateX="30.0" translateY="-30.0" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="BOTTOM" />
-      <Button fx:id="btnSubmit" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: purple; -fx-background-radius: 10;" text="Submit" textFill="WHITE" translateX="-20.0" translateY="-30.0" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="BOTTOM" />
+      <Button fx:id="btnSubmit" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#attemptQuestionButton" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: purple; -fx-background-radius: 10;" text="Submit" textFill="WHITE" translateX="-20.0" translateY="-30.0" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="BOTTOM" />
       <Text fx:id="txtQNumber" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Question" translateY="20.0" wrappingWidth="137.9831051826477" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
          <font>
             <Font size="20.0" />
@@ -67,6 +69,11 @@
          <font>
             <Font size="15.0" />
          </font>
+      </Text>
+      <Text fx:id="wrongAns" fill="RED" stroke="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Incorrect Answer ! [ - 10pts ]" translateX="80.0" translateY="70.0" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="1">
+         <effect>
+            <Glow level="0.44" />
+         </effect>
       </Text>
    </children>
 </GridPane>
