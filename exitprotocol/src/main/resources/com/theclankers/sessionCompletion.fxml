@@ -36,17 +36,17 @@
          </font>
       </Text>
       <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Would you like to play another game?" translateY="-100.0" wrappingWidth="204.44012451171875" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM" />
-      <Button mnemonicParsing="false" text="Main Menu" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
+      <Button mnemonicParsing="false" styleClass="menuButton" stylesheets="@css/styles.css" text="Main Menu" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
          <GridPane.margin>
             <Insets bottom="60.0" left="10.0" />
          </GridPane.margin>
       </Button>
-      <Button mnemonicParsing="false" text="Theme Select" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
+      <Button mnemonicParsing="false" styleClass="menuButton" stylesheets="@css/styles.css" text="Theme Select" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
          <GridPane.margin>
             <Insets bottom="60.0" right="10.0" />
          </GridPane.margin>
       </Button>
-      <Button mnemonicParsing="false" text="Leaderboard" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
+      <Button mnemonicParsing="false" styleClass="menuButton" stylesheets="@css/styles.css" text="Leaderboard" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
          <GridPane.margin>
             <Insets bottom="20.0" />
          </GridPane.margin>
