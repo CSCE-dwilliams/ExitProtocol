@@ -80,6 +80,11 @@ public class Game {
         this.score = replaceScore;
     }
 
+    public void addScore(int points) {
+        int replaceScore = this.score + points;
+        this.score = replaceScore;
+    }
+
     public boolean attemptQuestion(String answer) {
         return getCurrentChallenge().getAnswer().equalsIgnoreCase(answer);
     }

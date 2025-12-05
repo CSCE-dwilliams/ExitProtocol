@@ -37,6 +37,18 @@ public class EscapeManager {
         return true;
     }
 
+    public void correctAnswer() {
+        currentGame.addScore(100);
+    }
+
+    public void hintPenalty() {
+        currentGame.decScore(25);
+    }
+
+    public void wrongAnswerPenalty() {
+        currentGame.decScore(10);
+    }
+
     public boolean emailAlreadyExists(String email) {
         return userList.emailExists(email);
     }
