@@ -27,11 +27,11 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <Label text="Email:" textFill="WHITE" translateY="-60.0" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.valignment="BOTTOM" />
-      <Label text="First Name:" textFill="WHITE" translateY="-20.0" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="TOP" />
-      <Label text="Last Name:" textFill="WHITE" translateY="40.0" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="TOP" />
-      <Label text="Password:" textFill="WHITE" translateY="-30.0" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="BOTTOM" />
-      <Label text="Avatar:" textFill="WHITE" translateY="-35.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+      <Label styleClass="textEntryLabel" text="Email:" textFill="WHITE" translateY="-60.0" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.valignment="BOTTOM" />
+      <Label styleClass="textEntryLabel" text="First Name:" textFill="WHITE" translateY="-20.0" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="TOP" />
+      <Label styleClass="textEntryLabel" text="Last Name:" textFill="WHITE" translateY="40.0" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="TOP" />
+      <Label styleClass="textEntryLabel" text="Password:" textFill="WHITE" translateY="-30.0" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="BOTTOM" />
+      <Label styleClass="textEntryLabel" text="Avatar:" textFill="WHITE" translateY="-35.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
       <ChoiceBox fx:id="avatarSelect" prefWidth="150.0" styleClass="AvatarSelection" translateY="-10.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
       <Button fx:id="signUpButton" mnemonicParsing="false" onMouseClicked="#btnSignupClicked" styleClass="menuButton" text="Sign Up" translateX="65.0" translateY="40.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
       <Label fx:id="lbl_error" text="Email already in use!" textFill="RED" visible="false" GridPane.columnIndex="2" />
