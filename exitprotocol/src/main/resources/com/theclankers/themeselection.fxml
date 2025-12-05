@@ -8,114 +8,76 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<GridPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0"
-   styleClass="themeselectgridpane" stylesheets="@css/styles.css"
-   xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1"
-   fx:controller="com.theclankers.UserThemeSelect">
+<GridPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="themeselectgridpane" stylesheets="@css/styles.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.theclankers.UserThemeSelect">
    <columnConstraints>
-      <ColumnConstraints hgrow="SOMETIMES" maxWidth="195.33331298828125" minWidth="0.0"
-         prefWidth="40.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="195.33331298828125" minWidth="0.0" prefWidth="40.0" />
       <ColumnConstraints hgrow="SOMETIMES" maxWidth="550.0" minWidth="10.0" prefWidth="180.0" />
       <ColumnConstraints hgrow="SOMETIMES" maxWidth="550.0" minWidth="10.0" prefWidth="180.0" />
       <ColumnConstraints hgrow="SOMETIMES" maxWidth="550.0" minWidth="10.0" prefWidth="180.0" />
       <ColumnConstraints hgrow="SOMETIMES" maxWidth="142.0" minWidth="0.0" prefWidth="40.0" />
    </columnConstraints>
    <rowConstraints>
-      <RowConstraints maxHeight="125.99999237060547" minHeight="2.9999972979227607"
-         prefHeight="2.9999972979227607" vgrow="SOMETIMES" />
-      <RowConstraints fillHeight="false" maxHeight="315.3333360354105" minHeight="10.0"
-         prefHeight="315.3333360354105" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="125.99999237060547" minHeight="2.9999972979227607" prefHeight="2.9999972979227607" vgrow="SOMETIMES" />
+      <RowConstraints fillHeight="false" maxHeight="315.3333360354105" minHeight="10.0" prefHeight="315.3333360354105" vgrow="SOMETIMES" />
       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
    </rowConstraints>
    <children>
-      <ImageView id="MysteryImage" fx:id="ImgMystery" fitHeight="300.0" fitWidth="150.0"
-         pickOnBounds="true" style="-fx-border-radius: 50%;" styleClass="themeselect"
-         GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1"
-         GridPane.valignment="CENTER">
+      <ImageView id="MysteryImage" fx:id="ImgMystery" fitHeight="300.0" fitWidth="150.0" pickOnBounds="true" style="-fx-border-radius: 50%;" styleClass="themeselect" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
          <image>
             <Image url="@images/Mystery%20theme%20banner.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="300.0" fitWidth="150.0" pickOnBounds="true" GridPane.columnIndex="2"
-         GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+      <ImageView fitHeight="300.0" fitWidth="150.0" pickOnBounds="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
          <image>
             <Image url="@images/medievalBanner.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="300.0" fitWidth="150.0" pickOnBounds="true" GridPane.columnIndex="3"
-         GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+      <ImageView fitHeight="300.0" fitWidth="150.0" pickOnBounds="true" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
          <image>
             <Image url="@images/historicalBanner.png" />
          </image>
       </ImageView>
-      <Button id="MysteryPlayButton" fx:id="btnPlayMystery" mnemonicParsing="false"
-         onMouseClicked="#btnNewMystery"
-         style="-fx-background-color: crimson; -fx-background-radius: 10;" text="Play"
-         textFill="WHITE" translateY="-120.0" GridPane.columnIndex="1" GridPane.halignment="CENTER"
-         GridPane.rowIndex="1" GridPane.valignment="CENTER">
+      <Button id="MysteryPlayButton" fx:id="btnPlayMystery" mnemonicParsing="false" onMouseClicked="#btnNewMystery" style="-fx-background-color: crimson; -fx-background-radius: 10;" text="Play" textFill="WHITE" translateY="-120.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Button id="MysteryPlayButton" fx:id="btnPlayMedieval" mnemonicParsing="false"
-         onMouseClicked="#btnNewMedieval"
-         style="-fx-background-color: crimson; -fx-background-radius: 10;" text="Play"
-         textFill="WHITE" translateY="-120.0" GridPane.columnIndex="2" GridPane.halignment="CENTER"
-         GridPane.rowIndex="1" GridPane.valignment="CENTER">
+      <Button id="MysteryPlayButton" fx:id="btnPlayMedieval" mnemonicParsing="false" onMouseClicked="#btnNewMedieval" style="-fx-background-color: crimson; -fx-background-radius: 10;" text="Play" textFill="WHITE" translateY="-120.0" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Button id="MysteryPlayButton" fx:id="btnPlayHistorial" mnemonicParsing="false"
-         onMouseClicked="#btnNewHistorical"
-         style="-fx-background-color: crimson; -fx-background-radius: 10;" text="Play"
-         textFill="WHITE" translateY="-120.0" GridPane.columnIndex="3" GridPane.halignment="CENTER"
-         GridPane.rowIndex="1" GridPane.valignment="CENTER">
+      <Button id="MysteryPlayButton" fx:id="btnPlayHistorial" mnemonicParsing="false" onMouseClicked="#btnNewHistorical" style="-fx-background-color: crimson; -fx-background-radius: 10;" text="Play" textFill="WHITE" translateY="-120.0" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <ImageView fx:id="imgLMystery" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true"
-         preserveRatio="true" translateX="50.0" translateY="-120.0" GridPane.columnIndex="1"
-         GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+      <ImageView fx:id="imgLMystery" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" translateX="50.0" translateY="-120.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
          <image>
             <Image url="@images/lb%20icon.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="imgLMedieval" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true"
-         preserveRatio="true" translateX="50.0" translateY="-120.0" GridPane.columnIndex="2"
-         GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+      <ImageView fx:id="imgLMedieval" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" translateX="50.0" translateY="-120.0" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
          <image>
             <Image url="@images/lb%20icon.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="imgLHistorial" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true"
-         preserveRatio="true" translateX="50.0" translateY="-120.0" GridPane.columnIndex="3"
-         GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+      <ImageView fx:id="imgLHistorial" fitHeight="40.0" fitWidth="40.0" onMouseClicked="#leaderboardBtn" pickOnBounds="true" preserveRatio="true" translateX="50.0" translateY="-120.0" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
          <image>
             <Image url="@images/lb%20icon.png" />
          </image>
       </ImageView>
-      <Button id="mysteryButton2" fx:id="mysteryResume" mnemonicParsing="false"
-         onMouseClicked="#btnMysteryResume" style="-fx-background-color: grey;" text="Resume"
-         textFill="WHITE" translateY="-50.0" visible="false" GridPane.columnIndex="1"
-         GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+      <Button id="mysteryButton2" fx:id="mysteryResume" mnemonicParsing="false" onMouseClicked="#btnMysteryResume" style="-fx-background-color: grey;" text="Resume" textFill="WHITE" translateY="-50.0" visible="false" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Button id="medievalButton2" fx:id="medievalResume" mnemonicParsing="false"
-         onMouseClicked="#btnMedievalResume" style="-fx-background-color: grey;" text="Resume"
-         textFill="WHITE" translateY="-50.0" visible="false" GridPane.columnIndex="2"
-         GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+      <Button id="medievalButton2" fx:id="medievalResume" mnemonicParsing="false" onMouseClicked="#btnMedievalResume" style="-fx-background-color: grey;" text="Resume" textFill="WHITE" translateY="-50.0" visible="false" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Button id="historicalButton2" fx:id="historicalResume" mnemonicParsing="false"
-         onMouseClicked="#btnHistoricalResume" style="-fx-background-color: grey;" text="Resume"
-         textFill="WHITE" translateY="-50.0" visible="false" GridPane.columnIndex="3"
-         GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+      <Button id="historicalButton2" fx:id="historicalResume" mnemonicParsing="false" onMouseClicked="#btnHistoricalResume" style="-fx-background-color: grey;" text="Resume" textFill="WHITE" translateY="-50.0" visible="false" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>

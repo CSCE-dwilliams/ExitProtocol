@@ -4,10 +4,10 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Line?>
-<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="608.0" styleClass="introgridpane" stylesheets="@css/gameintrohistorical.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1">
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="608.0" styleClass="introgridpane" stylesheets="@css/gameintrohistorical.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Text fill="#fff9f9" layoutX="110.0" layoutY="43.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="leaderboardHeader" text="Historical Leaderboard">
@@ -37,37 +37,17 @@
       </Text>
       <Text fill="#fffdfd" layoutX="328.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Difficulty">
          <font>
-            <Font size="24.0" />
+            <Font size="18.0" />
          </font>
       </Text>
       <Text fill="#fffafa" layoutX="451.0" layoutY="76.0" strokeType="OUTSIDE" strokeWidth="0.0" text="No. of Players">
          <font>
-            <Font size="24.0" />
+            <Font size="18.0" />
          </font>
       </Text>
-      <Text layoutX="80.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" />
-      <Text layoutX="224.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" />
-      <Text layoutX="364.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" />
-      <Text layoutX="497.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" />
-      <Text layoutX="69.0" layoutY="168.0" strokeType="OUTSIDE" strokeWidth="0.0" />
-      <Text layoutX="224.0" layoutY="168.0" strokeType="OUTSIDE" strokeWidth="0.0" />
-      <Text layoutX="353.0" layoutY="168.0" strokeType="OUTSIDE" strokeWidth="0.0" />
-      <Text layoutX="509.0" layoutY="168.0" strokeType="OUTSIDE" strokeWidth="0.0" />
-      <Text layoutX="69.0" layoutY="224.0" strokeType="OUTSIDE" strokeWidth="0.0" />
-      <Text layoutX="497.0" layoutY="168.0" strokeType="OUTSIDE" strokeWidth="0.0" />
-      <Text layoutX="206.0" layoutY="224.0" strokeType="OUTSIDE" strokeWidth="0.0" />
-      <Text layoutX="498.0" layoutY="224.0" strokeType="OUTSIDE" strokeWidth="0.0" />
-      <Text layoutX="69.0" layoutY="279.0" strokeType="OUTSIDE" strokeWidth="0.0" />
-      <Text layoutX="224.0" layoutY="279.0" strokeType="OUTSIDE" strokeWidth="0.0" />
-      <Text layoutX="353.0" layoutY="279.0" strokeType="OUTSIDE" strokeWidth="0.0" />
-      <Text layoutX="498.0" layoutY="279.0" strokeType="OUTSIDE" strokeWidth="0.0" />
-      <Text layoutX="69.0" layoutY="335.0" strokeType="OUTSIDE" strokeWidth="0.0" />
-      <Text layoutX="213.0" layoutY="335.0" strokeType="OUTSIDE" strokeWidth="0.0" />
-      <Text layoutX="353.0" layoutY="335.0" strokeType="OUTSIDE" strokeWidth="0.0" />
-      <Text layoutX="509.0" layoutY="335.0" strokeType="OUTSIDE" strokeWidth="0.0" />
-      <Text layoutX="353.0" layoutY="224.0" strokeType="OUTSIDE" strokeWidth="0.0" />
    </children>
    <stylesheets>
       <URL value="@css/leaderboard.css" />
    </stylesheets>
 </AnchorPane>
+

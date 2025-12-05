@@ -48,7 +48,12 @@ public class UserThemeSelect implements Initializable {
     }
 
     public void btnHistoricalResume(MouseEvent event) throws IOException {
+        manager.selectExistingGame("Historical");
+        App.setRoot("baseGameState");
+    }
 
+    public void leaderboardBtn(MouseEvent event) throws IOException {
+        App.setRoot("leaderboardHistorical");
     }
 
     public void btnMysteryResume(MouseEvent event) throws IOException {
