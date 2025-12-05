@@ -25,15 +25,15 @@
       <Button fx:id="continueBtn" layoutX="242.0" layoutY="273.0" mnemonicParsing="false" onMouseClicked="#continueGame" text="Continue" />
       <Circle fx:id="pauseButtonBackground" fill="#2e7339" layoutX="38.0" layoutY="370.0" radius="24.0" stroke="BLACK" strokeType="INSIDE" />
       <Button fx:id="pauseButton" layoutX="25.0" layoutY="357.0" mnemonicParsing="false" text="| |" />
-      <Rectangle fx:id="hintsBox" arcHeight="5.0" arcWidth="5.0" fill="#f5e2b3eb" height="235.0" layoutX="496.0" layoutY="111.0" stroke="BLACK" strokeType="INSIDE" width="100.0" />
-      <Text fill="#0000009e" layoutX="527.0" layoutY="136.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="hintsTitle" text="Hints">
+      <Rectangle fx:id="hintsBox" arcHeight="5.0" arcWidth="5.0" fill="#f5e2b3eb" height="250.0" layoutX="496.0" layoutY="97.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" style="-fx-arc-height: 20; -fx-arc-width: 20;" width="80.0" />
+      <Text fill="#0000009e" layoutX="516.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="hintsTitle" text="Hints">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
       </Text>
-      <Line endX="97.0" layoutX="496.0" layoutY="153.0" startX="3.0" stroke="#f7e5b4" strokeWidth="3.0" />
-      <Line endX="96.0" layoutX="497.0" layoutY="210.0" startX="2.0" stroke="#f7e5b4" strokeWidth="3.0" />
-      <Line endX="97.0" layoutX="496.0" layoutY="274.0" startX="3.0" stroke="#f7e5b4" strokeWidth="3.0" />
+      <Line endX="77.0" endY="1.52587890625E-5" layoutX="496.0" layoutY="128.0" startX="3.0" stroke="#f7e5b4" strokeWidth="3.0" />
+      <Line endX="76.0" endY="1.52587890625E-5" layoutX="496.0" layoutY="190.0" startX="3.0" stroke="#f7e5b4" strokeWidth="3.0" />
+      <Line endX="77.0" layoutX="496.0" layoutY="273.0" startX="3.0" stroke="#f7e5b4" strokeWidth="3.0" />
       <Rectangle fx:id="pointBox" arcHeight="5.0" arcWidth="5.0" fill="#488a00" height="28.0" layoutX="496.0" layoutY="356.0" stroke="BLACK" strokeLineCap="ROUND" strokeType="INSIDE" width="97.0" />
       <Text fill="WHITE" layoutX="516.0" layoutY="375.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="pointValue" text="+100 pts">
          <font>
