@@ -45,7 +45,7 @@
          </rowConstraints>
          <children>
             <Line endX="74.0" stroke="#f7e5b4" strokeWidth="3.0" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP" />
-            <Text id="HintTitle" strokeType="OUTSIDE" strokeWidth="0.0" text="Hints" wrappingWidth="41.983073234558105" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+            <Text id="HintTitle" fill="#0000009e" strokeType="OUTSIDE" strokeWidth="0.0" text="Hints" wrappingWidth="41.983073234558105" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font></Text>
