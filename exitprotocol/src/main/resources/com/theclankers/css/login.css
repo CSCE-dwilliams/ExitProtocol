@@ -14,3 +14,9 @@
     -fx-text-fill: black;
     -fx-background-color: purple;
 }
+
+.gridbackground {
+    -fx-background-image: url(../images/Main_Splash-no_title-.png);
+    -fx-background-size: stretch;
+    -fx-background-position: center;
+}

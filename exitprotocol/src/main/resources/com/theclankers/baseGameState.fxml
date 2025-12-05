@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.shape.Circle?>
@@ -10,13 +9,8 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.theclankers.GameHomeController">
+<Pane fx:id="pane" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="historicalpane" stylesheets="@css/basegamestate.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.theclankers.GameHomeController">
    <children>
-      <ImageView fitHeight="400.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@images/HISTORICAL%20main%20game%20state.png" />
-         </image>
-      </ImageView>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f5e2b3" height="280.0" layoutX="481.0" layoutY="60.0" stroke="BLACK" strokeLineCap="ROUND" strokeType="INSIDE" strokeWidth="0.0" width="105.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#00000096" height="55.0" layoutX="131.0" layoutY="323.0" stroke="BLACK" strokeLineCap="ROUND" strokeType="INSIDE" width="339.0" />
       <Label fx:id="baseClueLabel" layoutX="241.0" layoutY="300.0" prefHeight="23.0" prefWidth="118.0" textFill="#ffffffbd">
