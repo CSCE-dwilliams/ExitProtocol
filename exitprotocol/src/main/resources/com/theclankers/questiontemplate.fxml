@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.Glow?>
@@ -45,9 +46,18 @@
          <children>
             <Line endX="80.0" stroke="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP" />
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Hints" wrappingWidth="33.3163857460022" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-            <Text fx:id="txtHint1" strokeType="OUTSIDE" strokeWidth="0.0" text="text" visible="false" wrappingWidth="75.0" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
-            <Text fx:id="txtHint2" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" visible="false" wrappingWidth="75.0" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
-            <Text fx:id="txtHint3" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" visible="false" wrappingWidth="75.0" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
+            <Text fx:id="txtHint1" strokeType="OUTSIDE" strokeWidth="0.0" text="text" visible="false" wrappingWidth="75.0" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+               <font>
+                  <Font size="10.0" />
+               </font></Text>
+            <Text fx:id="txtHint2" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" visible="false" wrappingWidth="75.0" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+               <font>
+                  <Font size="10.0" />
+               </font></Text>
+            <Text fx:id="txtHint3" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" visible="false" wrappingWidth="75.0" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+               <font>
+                  <Font size="10.0" />
+               </font></Text>
             <Line endX="80.0" stroke="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="TOP" />
             <Line endX="80.0" stroke="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="TOP" />
             <Text fx:id="noHintsLeft" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="No more hints ! " translateY="260.0" visible="false" wrappingWidth="101.3163914680481" />
@@ -65,10 +75,13 @@
             <Font size="20.0" />
          </font>
       </Text>
-      <Text fx:id="questionText" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" translateY="80.0" wrappingWidth="397.3164259791374" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
+      <Text fx:id="questionText" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="397.3164259791374" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
          <font>
-            <Font size="15.0" />
+            <Font size="14.0" />
          </font>
+         <GridPane.margin>
+            <Insets top="60.0" />
+         </GridPane.margin>
       </Text>
       <Text fx:id="wrongAns" fill="RED" stroke="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Incorrect Answer ! [ - 10pts ]" translateX="80.0" translateY="70.0" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="1">
          <effect>
