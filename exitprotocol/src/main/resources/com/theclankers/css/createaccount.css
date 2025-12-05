@@ -3,3 +3,7 @@
     -fx-background-size: stretch;
     -fx-background-position: center;
 }
+
+.createAccountHeader {
+    -fx-font-weight: bold;
+}
