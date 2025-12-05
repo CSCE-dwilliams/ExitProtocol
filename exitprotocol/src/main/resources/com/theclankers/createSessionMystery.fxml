@@ -34,12 +34,12 @@
                   <Font size="18.0" />
                </font>
             </Text>
-            <Button fx:id="btnCreateSession" layoutX="467.0" layoutY="83.0" mnemonicParsing="false" text="Create session" />
-            <RadioButton fx:id="btnradOnePlayer" layoutX="187.0" layoutY="87.0" mnemonicParsing="false" text="1" textFill="#fffbfb" />
-            <RadioButton fx:id="btnradTwoPlayer" layoutX="226.0" layoutY="87.0" mnemonicParsing="false" text="2" textFill="#fff9f9" />
-            <RadioButton fx:id="btnradThreePlayer" layoutX="272.0" layoutY="87.0" mnemonicParsing="false" text="3" textFill="#fffefe" />
-            <TextField fx:id="txtfieldTeamName" layoutX="187.0" layoutY="14.0" />
-            <RadioButton fx:id="btnradFourPlayer" layoutX="308.0" layoutY="87.0" mnemonicParsing="false" text="4" textFill="WHITE" />
+            <Button fx:id="btnCreateSessionMys" layoutX="467.0" layoutY="83.0" mnemonicParsing="false" text="Create session" />
+            <RadioButton fx:id="btnradOnePlayerMys" layoutX="187.0" layoutY="87.0" mnemonicParsing="false" text="1" textFill="#fffbfb" />
+            <RadioButton fx:id="btnradTwoPlayerMys" layoutX="226.0" layoutY="87.0" mnemonicParsing="false" text="2" textFill="#fff9f9" />
+            <RadioButton fx:id="btnradThreePlayerMys" layoutX="272.0" layoutY="87.0" mnemonicParsing="false" text="3" textFill="#fffefe" />
+            <TextField fx:id="txtfieldTeamNameMys" layoutX="187.0" layoutY="14.0" />
+            <RadioButton fx:id="btnradFourPlayerMys" layoutX="308.0" layoutY="87.0" mnemonicParsing="false" text="4" textFill="WHITE" />
          </children>
       </Pane>
    </children>
