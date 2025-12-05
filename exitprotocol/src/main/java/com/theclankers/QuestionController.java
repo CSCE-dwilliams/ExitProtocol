@@ -60,7 +60,7 @@ public class QuestionController implements Initializable {
         curChallenge = game.getCurrentChallenge();
 
         String questionIndex = Integer.toString((game.getPlayerIndex() + 1));
-        questionNum.setText(Integer.toString(game.getScore()));
+        questionNum.setText(questionIndex);
 
         String question = curChallenge.getQuestion();
         questionText.setText(question);
