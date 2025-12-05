@@ -17,12 +17,15 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
 
 public class QuestionController implements Initializable {
 
     @FXML
     Button hintBtn;
+    @FXML
+    Circle pauseBtn;
     @FXML
     Text txtHint1;
     @FXML
@@ -81,6 +84,10 @@ public class QuestionController implements Initializable {
             showHideText(noHintsLeft);
         }
 
+    }
+
+    public void switchPause(MouseEvent event) throws IOException {
+        App.setRoot("pauseScreenQuestion");
     }
 
     public void attemptQuestionButton(MouseEvent event) throws IOException {

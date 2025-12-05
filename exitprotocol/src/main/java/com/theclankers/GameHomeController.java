@@ -23,6 +23,8 @@ public class GameHomeController implements Initializable {
     @FXML
     Label scoreBox;
     @FXML
+    Circle pauseBtn;
+    @FXML
     Circle btnQ1;
     @FXML
     Circle btnQ2;
@@ -55,6 +57,10 @@ public class GameHomeController implements Initializable {
         buttonVisibility();
         // item visibility
 
+    }
+
+    public void switchPause(MouseEvent event) throws IOException {
+        App.setRoot("pauseScreen");
     }
 
     public void buttonVisibility() {
