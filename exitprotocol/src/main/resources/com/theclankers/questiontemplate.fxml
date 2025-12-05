@@ -27,13 +27,13 @@
    <children>
       <Rectangle arcHeight="40.0" arcWidth="40.0" height="315.0" opacity="0.65" stroke="BLACK" strokeType="INSIDE" width="425.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
       <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="[exit protocol.]" />
-      <Button fx:id="hintBtn" mnemonicParsing="false" onMouseClicked="#getHintBtn" style="-fx-background-color: #f2e0b3; -fx-text-fill: black; -fx-background-radius: 10;" text="Get hint" translateY="15.0" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
+      <Button fx:id="hintBtn" mnemonicParsing="false" onMouseClicked="#getHintBtn" style="-fx-background-color: #f2e0b3; -fx-text-fill: #0000009e; -fx-background-radius: 10;" text="Get hint" translateY="15.0" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
       <Circle fx:id="pauseBtn" fill="#309a45" radius="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
-      <GridPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="250.0" prefWidth="80.0" style="-fx-background-color: #f2e0b3; -fx-background-radius: 10;" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
+      <GridPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="250.0" prefWidth="80.0" style="-fx-background-color: #f5e2b3eb; -fx-background-radius: 10;" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
          <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
          </columnConstraints>
@@ -44,8 +44,11 @@
             <RowConstraints maxHeight="78.0" minHeight="10.0" prefHeight="70.66668701171875" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
-            <Line endX="80.0" stroke="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP" />
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Hints" wrappingWidth="33.3163857460022" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+            <Line endX="74.0" stroke="#f7e5b4" strokeWidth="3.0" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP" />
+            <Text id="HintTitle" strokeType="OUTSIDE" strokeWidth="0.0" text="Hints" wrappingWidth="41.983073234558105" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font></Text>
             <Text fx:id="txtHint1" strokeType="OUTSIDE" strokeWidth="0.0" text="text" visible="false" wrappingWidth="75.0" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                <font>
                   <Font size="10.0" />
@@ -58,8 +61,8 @@
                <font>
                   <Font size="10.0" />
                </font></Text>
-            <Line endX="80.0" stroke="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="TOP" />
-            <Line endX="80.0" stroke="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="TOP" />
+            <Line endX="74.0" stroke="#f7e5b4" strokeWidth="3.0" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="TOP" />
+            <Line endX="74.0" stroke="#f7e5b4" strokeWidth="3.0" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="TOP" />
             <Text fx:id="noHintsLeft" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="No more hints ! " translateY="260.0" visible="false" wrappingWidth="101.3163914680481" />
          </children>
       </GridPane>
