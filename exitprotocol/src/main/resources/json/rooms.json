@@ -36,7 +36,7 @@
                         }
                     },
                     {
-                        "question": "Looking further around the desk you spot a headline reading:\n'THE NOBLE EXPERIMENT'\nwith a political cartoon containing liquor bottles and Uncle Sam below.\nWritten below: 'They outlawed one vice to hide another.'\nTrue or false: The 18th amendment in 1920 began prohibition:",
+                        "question": "Looking further around the desk you spot a headline reading:\n\n'THE NOBLE EXPERIMENT'\nith a political cartoon containing liquor bottles and Uncle Sam below.\nWritten below: 'They outlawed one vice to hide another.'\nTrue or false: The 18th amendment in 1920 began prohibition:",
                         "answer": "True",
                         "hints": [
                             "This short lived amendment was very controversial",
