@@ -3,3 +3,13 @@
     -fx-background-size: stretch;
     -fx-background-position: center;
 }
+.itemImage2{
+    -fx-background-image: url(../images/tornpaper.png);
+    -fx-background-size: stretch;
+    -fx-background-position: center;
+}
+.itemImage3{
+    -fx-background-image: url(../images/tornphoto.jpg);
+    -fx-background-size: stretch;
+    -fx-background-position: center;
+}
