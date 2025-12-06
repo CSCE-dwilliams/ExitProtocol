@@ -3,7 +3,7 @@
 
 -Brayden Edwards, Danielle Williams, Emmanuel Gonzales Paz, Henry Monteith, Jada Young
 
-# Final UI Showcase
+# Final UI Showcase: https://youtu.be/X4Hp4K1VYYY
 
 ## Updated Prototype Walkthrough: https://www.youtube.com/watch?v=mwY1g1oHj3U
 
