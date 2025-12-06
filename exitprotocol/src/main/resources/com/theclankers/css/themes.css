@@ -1,0 +1,18 @@
+.historicalimg {
+    -fx-background-image: url(../images/historicalBanner.png);
+    -fx-background-size: stretch;
+    -fx-background-position: center;
+    -fx-background-radius: 10;
+}
+
+.mysteryimg {
+    -fx-background-image: url(../images/mysteryBanner.png);
+    -fx-background-size: stretch;
+    -fx-background-position: center;
+}
+
+.medievalimg {
+    -fx-background-image: url(../images/medievalBanner.png);
+    -fx-background-size: stretch;
+    -fx-background-position: center;
+}

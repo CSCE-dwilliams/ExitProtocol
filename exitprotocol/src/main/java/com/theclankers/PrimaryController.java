@@ -28,6 +28,6 @@ public class PrimaryController {
     }
     @FXML
     private void testBtnClick() throws IOException {
-        App.setRoot("");
+        App.setRoot("leaderboardHistorical");
     }
 }
