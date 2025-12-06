@@ -29,7 +29,7 @@
                layoutX="116.0" layoutY="80.0" opacity="0.67" stroke="BLACK" strokeType="INSIDE"
                width="378.0" />
             <Button fx:id="item1" layoutX="177.0" layoutY="158.0" mnemonicParsing="false"
-               text="Item1" visible="false">
+               onMouseClicked="#item1Btn" text="Item1" visible="false">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>

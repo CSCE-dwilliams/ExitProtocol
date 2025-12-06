@@ -119,7 +119,7 @@ public class GameHomeController implements Initializable {
     }
 
     public void switchItemBtn(MouseEvent event) throws IOException {
-        App.setRoot("itemSelect");
+        App.setRoot("itemUse1");
     }
 
     public void primaryGameLoop() {

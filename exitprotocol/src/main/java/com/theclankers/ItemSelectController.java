@@ -51,7 +51,7 @@ public class ItemSelectController implements Initializable {
     }
 
     public void item1Btn(MouseEvent event) throws IOException {
-
+        App.setRoot("itemUse1Question");
     }
 
     public void item2Btn(MouseEvent event) throws IOException {
