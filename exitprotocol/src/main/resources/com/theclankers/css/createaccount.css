@@ -12,3 +12,31 @@
 .textEntryLabel {
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.7), 10, 0.76, 0, 0);
 }
+
+.createAvatar1 {
+    -fx-background-image: url(../images/avatars/avatar.png);
+    -fx-background-size: stretch;
+    -fx-background-position: center;
+
+}
+
+.createAvatar2 {
+    -fx-background-image: url(../images/avatars/ponyavatar.png);
+    -fx-background-size: stretch;
+    -fx-background-position: center;
+
+}
+
+.createAvatar3 {
+    -fx-background-image: url(../images/Avatar3.png);
+    -fx-background-size: stretch;
+    -fx-background-position: center;
+
+}
+
+.createAvatar4 {
+    -fx-background-image: url(../images/Avatar4.png);
+    -fx-background-size: stretch;
+    -fx-background-position: center;
+
+}
