@@ -34,6 +34,6 @@ public class SessionCreateController implements Initializable {
         manager.createGame(tmName, "Historical", 2, 2);
         System.out.println(manager.createGame(tmName, "Historical", 2, 2));
         System.out.println(manager.getCurrentGame().getIntro());
-        App.setRoot("gameIntro");
+        App.setRoot("GameIntro");
     }
 }
