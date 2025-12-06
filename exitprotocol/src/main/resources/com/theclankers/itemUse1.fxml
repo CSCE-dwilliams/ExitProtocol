@@ -2,7 +2,6 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Text?>
 
@@ -13,8 +12,6 @@
       <Text fx:id="caesarGuideDescription" fill="WHITE" layoutX="116.0" layoutY="174.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="caesarGuideDescription" text="A guide for how to complete a Caesar cipher." wrappingWidth="367.47003173828125" />
       <Text fx:id="caesarGuideUseCase" fill="WHITE" layoutX="114.0" layoutY="213.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="caesarGuideUseCase" text="Take the string ABC, if we want to incorporate a cipher shift of +1, it would then translate as the following: A B C -&gt; B C D For a shift of +2: A B C-&gt; C D E" wrappingWidth="367.47003173828125" />
       <Rectangle fx:id="playerBox" arcHeight="5.0" arcWidth="5.0" fill="#00000096" height="57.0" layoutX="132.0" layoutY="336.0" stroke="BLACK" strokeType="INSIDE" width="336.0" />
-      <Circle fx:id="pauseBackground" fill="#2e7339" layoutX="35.0" layoutY="365.0" radius="21.0" stroke="BLACK" strokeType="INSIDE" />
-      <Button fx:id="pauseButton" layoutX="22.0" layoutY="351.0" mnemonicParsing="false" text="| |" />
       <Button fx:id="backButton" layoutX="493.0" layoutY="352.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="85.0" text="&lt;- Back" />
       <Pane layoutX="261.0" layoutY="72.0" prefHeight="57.0" prefWidth="67.0" styleClass="itemImage" stylesheets="@css/item.css" />
    </children>
