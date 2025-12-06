@@ -118,6 +118,21 @@ public class Game {
         return gameItems;
     }
 
+    public void addItem(Item item) {
+        gameItems.add(item);
+        System.out.println("DEBUG Game.addItem: Added '" + item.getName() + "'. Total items: " + gameItems.size());
+    }
+
+    public ArrayList<Item> getCurrentChallengeItems() {
+        if (playerIndex >= 0 && playerIndex < challenges.size()) {
+            Challenge current = challenges.get(playerIndex);
+            if (current != null && current.getItems() != null) {
+                return current.getItems();
+            }
+        }
+        return new ArrayList<>();
+    }
+
     public void setGameSet(GameTemplate aGameTemplate) {
         this.gameSet = aGameTemplate;
         challenges = gameSet.getChallenges();

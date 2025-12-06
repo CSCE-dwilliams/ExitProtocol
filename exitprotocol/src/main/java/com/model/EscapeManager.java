@@ -1,6 +1,7 @@
 package com.model;
 
 import java.util.UUID;
+import java.util.ArrayList;
 
 public class EscapeManager {
     private Leaderboard leaderboard;
@@ -14,12 +15,14 @@ public class EscapeManager {
     private Game currentGame;
     private Challenge currentChallenge;
     private GameSession currentSession;
+    private ArrayList<Item> earnedItems; // Persistent items across questions
     private static EscapeManager escapeManager;
 
     private EscapeManager() {
         userList = UserList.getInstance();
         userList.loadUsers();
         gameList = GameList.getInstance();
+        earnedItems = new ArrayList<>();
     }
 
     public static EscapeManager getInstance() {
@@ -63,7 +66,32 @@ public class EscapeManager {
         gameList.setGameData(game);
         currentSession = session;
         currentGame = game;
+
+        // Restore earned items based on current progress
+        restoreEarnedItems();
+
         return true;
+    }
+
+    private void restoreEarnedItems() {
+        earnedItems.clear();
+        if (currentGame != null) {
+            // Get all challenges completed so far
+            int currentIndex = currentGame.getPlayerIndex();
+            ArrayList<Challenge> allChallenges = currentGame.getChallenges();
+
+            // Scan all completed challenges (0 to currentIndex-1) for items
+            for (int i = 0; i < currentIndex && i < allChallenges.size(); i++) {
+                Challenge challenge = allChallenges.get(i);
+                ArrayList<Item> challengeItems = challenge.getItems();
+
+                for (Item item : challengeItems) {
+                    if (!earnedItems.contains(item)) {
+                        earnedItems.add(item);
+                    }
+                }
+            }
+        }
     }
 
     public boolean createGame(String teamName, String theme, int difficulty, int playercount) {
@@ -76,6 +104,9 @@ public class EscapeManager {
         gameList.setGameData(game);
         currentSession = session;
         currentGame = game;
+
+        // Clear earned items for new game
+        earnedItems.clear();
 
         return true;
     }
@@ -113,6 +144,38 @@ public class EscapeManager {
 
     public void nextQuestion() {
         currentGame.setPlayerIndex(currentGame.getPlayerIndex() + 1);
+    }
+
+    public ArrayList<Item> getEarnedItems() {
+        return earnedItems;
+    }
+
+    public void addEarnedItem(Item item) {
+        earnedItems.add(item);
+    }
+
+    public void clearEarnedItems() {
+        earnedItems.clear();
+    }
+
+    public void addItemsFromCurrentChallenge() {
+        if (currentGame != null) {
+            // Get all challenges completed up to and including current challenge
+            int currentIndex = currentGame.getPlayerIndex();
+            ArrayList<Challenge> allChallenges = currentGame.getChallenges();
+
+            // Scan all completed challenges (0 to currentIndex) for items
+            for (int i = 0; i <= currentIndex && i < allChallenges.size(); i++) {
+                Challenge challenge = allChallenges.get(i);
+                ArrayList<Item> challengeItems = challenge.getItems();
+
+                for (Item item : challengeItems) {
+                    if (!earnedItems.contains(item)) {
+                        addEarnedItem(item);
+                    }
+                }
+            }
+        }
     }
     // public ArrayList<Game> getPlayerGames() {
 

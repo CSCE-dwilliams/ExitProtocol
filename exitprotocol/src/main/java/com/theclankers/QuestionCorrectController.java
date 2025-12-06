@@ -27,9 +27,12 @@ public class QuestionCorrectController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         manager = EscapeManager.getInstance();
         game = manager.getCurrentGame();
-        Challenge curChallenge = game.getCurrentChallenge();
+        // Get the challenge that was just answered (playerIndex was incremented after
+        // correct answer)
+        int justAnsweredIndex = game.getPlayerIndex() - 1;
+        Challenge justAnsweredChallenge = game.getChallenges().get(justAnsweredIndex);
 
-        String postText = curChallenge.getPostQuestion();
+        String postText = justAnsweredChallenge.getPostQuestion();
         postQuestionText.setText(postText);
     }
 

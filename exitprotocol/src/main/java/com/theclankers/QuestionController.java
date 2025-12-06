@@ -75,6 +75,10 @@ public class QuestionController implements Initializable {
 
     }
 
+    public void switchItemBtn(MouseEvent event) throws IOException {
+        App.setRoot("itemSelect");
+    }
+
     public void getHintBtn(MouseEvent event) throws IOException {
         if (hintIndex < 3) {
             hints[hintIndex].setVisible(true);
@@ -98,6 +102,11 @@ public class QuestionController implements Initializable {
             return;
         }
         manager.correctAnswer();
+        // Store items earned from this question to EscapeManager
+        manager.addItemsFromCurrentChallenge();
+        if (game.getPlayerIndex() > 5) {
+            App.setRoot("endScreen");
+        }
         manager.nextQuestion();
         App.setRoot("questionCorrect");
     }
