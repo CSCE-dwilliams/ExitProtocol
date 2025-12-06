@@ -22,7 +22,7 @@
                     },
                     {
                         "question": "You feel a persistent itch against your hip. At first, you dismiss it as dust from the newsroom, but the sensation only grows sharper — like something small is poking you through the fabric. Annoyed, you reach into your pocket and pull out a folded scrap of paper you don’t remember putting there.The note reads:“Hidden truths speak softly. Look at the start, not the end.” \nBelow the message are four handwritten words: Silent – Archive – Lies – Everywhere The writing matches the style you've seen in Parker’s other notes — rushed, but deliberate. \nUsing the clue on the note, what four-letter phrase do the words reveal?",
-                        "answer": "S A L E → “SALE”",
+                        "answer": "Sale",
                         "hints": [
                             "The note says to look at the start of each word.",
                             "Take the first letter from each of the four words.",
@@ -35,7 +35,7 @@
                             "useCase": "The fragment looks like part of a larger document. Finding its matching piece may reveal something important."
                         }
                     },
-                      {
+                    {
                         "question": "Looking further around the desk you spot a headline reading:\n'THE NOBLE EXPERIMENT'\nwith a political cartoon containing liquor bottles and Uncle Sam below.\nWritten below: 'They outlawed one vice to hide another.'\nTrue or false: The 18th amendment in 1920 began prohibition:",
                         "answer": "True",
                         "hints": [
@@ -57,7 +57,6 @@
                             "Caesar Cipher",
                             "Use a caesar cipher with a +3 shift",
                             "Once decoded, the sentence will clearly point you toward your next location."
-
                         ],
                         "postQuestion": "You notice a filing cabinet labeled RECORDS - BLUE CANARY CLUB."
                     },
