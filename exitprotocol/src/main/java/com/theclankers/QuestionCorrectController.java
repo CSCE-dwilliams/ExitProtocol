@@ -37,6 +37,9 @@ public class QuestionCorrectController implements Initializable {
     }
 
     public void continueGame(MouseEvent event) throws IOException {
+        if (game.getPlayerIndex() >= 5) {
+            App.setRoot("sessionCompletion");
+        }
         App.setRoot("baseGameState");
     }
 

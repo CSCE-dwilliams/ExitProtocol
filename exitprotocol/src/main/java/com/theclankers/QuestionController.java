@@ -105,7 +105,7 @@ public class QuestionController implements Initializable {
         // Store items earned from this question to EscapeManager
         manager.addItemsFromCurrentChallenge();
         if (game.getPlayerIndex() > 5) {
-            App.setRoot("endScreen");
+            App.setRoot("sessionCompletion");
         }
         manager.nextQuestion();
         App.setRoot("questionCorrect");

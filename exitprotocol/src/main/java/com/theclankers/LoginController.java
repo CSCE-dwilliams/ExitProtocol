@@ -34,7 +34,7 @@ public class LoginController implements Initializable {
             lbl_error.setVisible(true); // Make it visible
             return;
         }
-        App.setRoot("themeSelection");
+        App.setRoot("themeselection");
     }
 
     public void onBackBtn(MouseEvent event) throws IOException {

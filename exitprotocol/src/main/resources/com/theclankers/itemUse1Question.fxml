@@ -10,8 +10,8 @@
    <children>
       <Rectangle fx:id="itemsBackground" arcHeight="5.0" arcWidth="5.0" fill="#7f2d2ded" height="280.0" layoutX="70.0" layoutY="49.0" stroke="BLACK" strokeLineCap="ROUND" strokeType="INSIDE" width="460.0" />
       <Text fx:id="caesarGuideName" fill="WHITE" layoutX="249.0" layoutY="148.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="caesarGuideName" text="[ CAESAR GUIDE ]" />
-      <Text fx:id="caesarGuideDescription" fill="WHITE" layoutX="115.0" layoutY="176.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="caesarGuideDescription" text="Text" />
-      <Text fx:id="caesarGuideUseCase" fill="WHITE" layoutX="115.0" layoutY="205.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="caesarGuideUseCase" text="Text" wrappingWidth="34.58203125" />
+      <Text fx:id="caesarGuideDescription" fill="WHITE" layoutX="115.0" layoutY="176.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="caesarGuideDescription" text="A guide for how to complete a Caesar cipher." />
+      <Text fx:id="caesarGuideUseCase" fill="WHITE" layoutX="115.0" layoutY="205.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="caesarGuideUseCase" text="Take the string ABC, if we want to incorporate a cipher shift of +1, it would then translate as the following: A B C -&gt; B C D For a shift of +2: A B C-&gt; C D E" wrappingWidth="310.5820617675781" />
       <Rectangle fx:id="playerBox" arcHeight="5.0" arcWidth="5.0" fill="#00000096" height="57.0" layoutX="132.0" layoutY="336.0" stroke="BLACK" strokeType="INSIDE" width="336.0" />
       <Text fx:id="teamNameTitle" fill="WHITE" layoutX="265.0" layoutY="361.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="teamNameTitle" text="Team Name:" translateY="-5.0">
          <font>

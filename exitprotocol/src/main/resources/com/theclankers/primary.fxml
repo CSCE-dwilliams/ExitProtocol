@@ -6,16 +6,21 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="themeselectgridpane" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.theclankers.PrimaryController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+   prefHeight="400.0" prefWidth="600.0" styleClass="themeselectgridpane"
+   xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1"
+   fx:controller="com.theclankers.PrimaryController">
    <children>
-      <Button fx:id="signInButton" layoutX="43.0" layoutY="350.0" onAction="#switchToSignInScreen" styleClass="menuButton" text="[ returning user ] " />
-      <Button fx:id="createAccountButton" layoutX="43.0" layoutY="294.0" onAction="#switchToCreateAccountScreen" styleClass="menuButton" text="[ new user ]" />
-      <Text fill="WHITE" layoutX="133.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" text="[ exit protocol. ]">
+      <Button fx:id="signInButton" layoutX="43.0" layoutY="350.0" onAction="#switchToSignInScreen"
+         styleClass="menuButton" text="[ returning user ] " />
+      <Button fx:id="createAccountButton" layoutX="43.0" layoutY="294.0"
+         onAction="#switchToCreateAccountScreen" styleClass="menuButton" text="[ new user ]" />
+      <Text fill="WHITE" layoutX="133.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0"
+         text="[ exit protocol. ]">
          <font>
             <Font size="48.0" />
          </font>
       </Text>
-      <Button fx:id="testButton" layoutX="492.0" layoutY="350.0" onAction="#testBtnClick" styleClass="menuButton" text="[ test screen ]" />
    </children>
    <stylesheets>
       <URL value="@css/styles.css" />

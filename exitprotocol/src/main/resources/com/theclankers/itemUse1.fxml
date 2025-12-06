@@ -5,28 +5,14 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Text?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
-   prefHeight="400.0" prefWidth="600.0" styleClass="questionbackground"
-   stylesheets="@css/questiontemplate.css" xmlns="http://javafx.com/javafx/25"
-   xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.theclankers.HomeItem1Controller">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="questionbackground" stylesheets="@css/questiontemplate.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.theclankers.HomeItem1Controller">
    <children>
-      <Rectangle fx:id="itemsBackground" arcHeight="5.0" arcWidth="5.0" fill="#7f2d2ded"
-         height="280.0" layoutX="70.0" layoutY="49.0" stroke="BLACK" strokeLineCap="ROUND"
-         strokeType="INSIDE" width="460.0" />
-      <Text fx:id="caesarGuideName" fill="WHITE" layoutX="249.0" layoutY="148.0"
-         strokeType="OUTSIDE" strokeWidth="0.0" styleClass="caesarGuideName" text="[ CAESAR GUIDE ]" />
-      <Text fx:id="caesarGuideDescription" fill="WHITE" layoutX="116.0" layoutY="174.0"
-         strokeType="OUTSIDE" strokeWidth="0.0" styleClass="caesarGuideDescription"
-         text="A guide for how to complete a Caesar cipher." wrappingWidth="367.47003173828125" />
-      <Text fx:id="caesarGuideUseCase" fill="WHITE" layoutX="114.0" layoutY="213.0"
-         strokeType="OUTSIDE" strokeWidth="0.0" styleClass="caesarGuideUseCase"
-         text="Take the string ABC, if we want to incorporate a cipher shift of +1, it would then translate as the following: A B C -&gt; B C D For a shift of +2: A B C-&gt; C D E"
-         wrappingWidth="367.47003173828125" />
-      <Rectangle fx:id="playerBox" arcHeight="5.0" arcWidth="5.0" fill="#00000096" height="57.0"
-         layoutX="132.0" layoutY="336.0" stroke="BLACK" strokeType="INSIDE" width="336.0" />
-      <Button fx:id="backButton" layoutX="493.0" layoutY="352.0" mnemonicParsing="false"
-         prefHeight="26.0" prefWidth="85.0" text="&lt;- Back" />
-      <Pane layoutX="261.0" layoutY="72.0" prefHeight="57.0" prefWidth="67.0" styleClass="itemImage"
-         stylesheets="@css/item.css" />
+      <Rectangle fx:id="itemsBackground" arcHeight="5.0" arcWidth="5.0" fill="#7f2d2ded" height="280.0" layoutX="70.0" layoutY="49.0" stroke="BLACK" strokeLineCap="ROUND" strokeType="INSIDE" width="460.0" />
+      <Text fx:id="caesarGuideName" fill="WHITE" layoutX="249.0" layoutY="148.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="caesarGuideName" text="[ CAESAR GUIDE ]" />
+      <Text fx:id="caesarGuideDescription" fill="WHITE" layoutX="116.0" layoutY="174.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="caesarGuideDescription" text="A guide for how to complete a Caesar cipher." wrappingWidth="367.47003173828125" />
+      <Text fx:id="caesarGuideUseCase" fill="WHITE" layoutX="114.0" layoutY="213.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="caesarGuideUseCase" text="Take the string ABC, if we want to incorporate a cipher shift of +1, it would then translate as the following: A B C -&gt; B C D For a shift of +2: A B C-&gt; C D E" wrappingWidth="367.47003173828125" />
+      <Rectangle fx:id="playerBox" arcHeight="5.0" arcWidth="5.0" fill="#00000096" height="57.0" layoutX="132.0" layoutY="336.0" stroke="BLACK" strokeType="INSIDE" width="336.0" />
+      <Button fx:id="backButton" layoutX="493.0" layoutY="352.0" mnemonicParsing="false" onMouseClicked="#backBtn" prefHeight="26.0" prefWidth="85.0" text="&lt;- Back" />
+      <Pane layoutX="261.0" layoutY="72.0" prefHeight="57.0" prefWidth="67.0" styleClass="itemImage" stylesheets="@css/item.css" />
    </children>
 </Pane>
