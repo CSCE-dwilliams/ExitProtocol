@@ -31,7 +31,7 @@ Players navigate through a series of challenges, interacting with game elements 
 * [Backend Showcase](https://youtu.be/8c-ahw_KzOo)
 
 ### Prototype and Documentation
-* [Live Prototype(11/16/2025](https://csce-dwilliams.github.io/ExitProtocol/)
+* [Live Prototype(11/16/2025)](https://csce-dwilliams.github.io/ExitProtocol/)
 * [UML Class Diagram](https://lucid.app/lucidchart/968f0647-7aae-437c-be5f-75dd320c0547/edit?viewport_loc=-3597%2C-3074%2C4298%2C1827%2C0_0&invitationId=inv_b234f622-8f39-47f9-9df6-cdeda67814fd)
 
 
